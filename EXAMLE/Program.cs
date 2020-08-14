@@ -11,8 +11,8 @@ class Program
         System.Console.WriteLine("anu");
         System.Console.WriteLine("Manasa");
 
-        System.Console.WriteLine("shwetha");
-    }
+
+        }
        
     }
 
