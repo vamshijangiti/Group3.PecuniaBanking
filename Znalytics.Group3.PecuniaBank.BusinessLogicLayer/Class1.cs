@@ -1,8 +1,5 @@
-﻿
-namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
+﻿public class Bank
 {
-    public class Customer
-    {
-        public string name;
-    }
+    private string _actHolderName;
+
 }
