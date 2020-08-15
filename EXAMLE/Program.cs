@@ -48,7 +48,10 @@ class program
 
 
 
-
+          
+        System.Console.WriteLine("navya");
+        System.Console.WriteLine("anu");
+        System.Console.WriteLine("Manasa");
 
     }
 }
