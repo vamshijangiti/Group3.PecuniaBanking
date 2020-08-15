@@ -1,101 +1,166 @@
-using System;
-/// <summary>
-/// Represents Pecunia Banking
-/// </summary>
-public class Customer
+
+public class pecunia
 {
-    private int _ActNo;
-    private float _Charges;
-    private float _Credits;
-    private float _CreditLimit;
-    private float _creditScore;
 
-    /// <summary>
-    /// Set values into AccountNumber
-    /// </summary>
-    /// <param name="value"> Value assign into SetActNo</param>
-    public void SetActNo(int value)
+    private protected string _customerName;
+    private string _address;
+    private string _occupation;
+    private protected string _panCardNumber;
+    private protected string _voterID;
+    private protected string _passport;
+    private protected string _drivingLicense;
+    private protected int _aadhaarCardNumber;
+    public pecunia(string customerName, string address, string occupation, string panCardNumber, string voterID, string passport, string drivingLicense, int aadhaarCardNumber)
     {
-        _ActNo = value;
-    }
-    public int GetActNo()
-    {
-        return _ActNo;
-    }
 
-    /// <summary>
-    /// Set value into Charges
-    /// </summary>
-    /// <param name="value">Value assign into SetCharges</param>
 
-    public void SetCharges(float value)
-    {
-        _Charges = value;
-    }
-    public float GetCharges()
-    {
-        return _Charges;
+        CustomerName = customerName;
+        Address = address;
+        Occupation = occupation;
+        PanCardNumber = panCardNumber;
+        VoterID = voterID;
+        Passport = passport;
+        DrivingLicense = drivingLicense;
+        AadhaarCardNumber = aadhaarCardNumber;
+
     }
 
-    /// <summary>
-    /// Set values into Credits
-    /// </summary>
-    /// <param name="value">Value assign to Credits</param>
-    public void SetCredits(float value)
+    public string CustomerName
     {
-        _Credits = value;
-    }
-    public float GetCredits()
-    {
-        return _Credits;
-    }
-
-    /// <summary>
-    /// Get balance
-    /// </summary>
-    /// <returns>Balance</returns>
-    public float GetBalance()
-    {
-        return _Charges - _Credits;
-    }
-
-    /// <summary>
-    /// Set values into CreditLimit
-    /// </summary>
-    /// <param name="value">Value assign to CreditLimit</param>
-
-    public void SetCreditLimit(float value)
-    {
-        _CreditLimit = value;
-    }
-    public float GetCreditLimit()
-    {
-        return _CreditLimit;
-    }
-
-    public void SetCreditScore(float value)
-    {
-        _creditScore = value;
-    }
-    public float GetCreditSCore()
-    {
-        return _creditScore;
-    }
-    public void SetCreditScore(string value)
-    {
-        if (value > 750)
+        set
         {
-            _creditScore = value;
+            //Name should be less than 30 characters
+            if (value.Length <= 30)
+            {
+                _customerName = value;
+            }
         }
-        else
-        {
-            throw new Exception("You are not elligible to approve credit limit");
 
+        get
+        {
+            return _customerName;
         }
     }
+    public string Address
+    {
+        set
+        {
+            _address = value;
+        }
+
+        get
+        {
+            return _address;
+        }
+    }
+    public string Occupation
+    {
+        set
+        {
+            _occupation = value;
+        }
+
+        get
+        {
+            return _occupation;
+        }
+    }
+
+    public string PanCardNumber
+    {
+        set
+        {
+            _panCardNumber = value;
+        }
+
+        get
+        {
+            return _panCardNumber;
+        }
+    }
+    public string VoterID
+    {
+        set
+        {
+            _voterID = value;
+        }
+
+        get
+        {
+            return _voterID;
+        }
+    }
+    public string Passport
+    {
+        set
+        {
+            _passport = value;
+        }
+
+        get
+        {
+            return _passport;
+        }
+    }
+
+    public string DrivingLicense
+    {
+        set
+        {
+            _drivingLicense = value;
+        }
+
+        get
+        {
+            return _drivingLicense;
+        }
+    }
+    public int AadhaarCardNumber
+    {
+        set
+        {
+            _aadhaarCardNumber = value;
+        }
+
+        get
+        {
+            return _aadhaarCardNumber;
+        }
+    }
+
 }
-    }
 
- 
+
+
+
+public class CurrentAccount
+{
+    private bool _utilityBill;
+    private int _rationCardNumber;
+    private int _employID;
+    public void SetutilityBill(bool value)
+    {
+        _utilityBill = value;
+    }
+    public bool GetutilityBill()
+    {
+        return _utilityBill;
+    }
+    public void SetrationCardNumber(int value)
+    {
+        _rationCardNumber = value;
+    }
+    public int GetrationCardNumber()
+    {
+        return _rationCardNumber;
+    }
+    public void SetemployID(int value)
+    {
+        _employID = value;
+    }
+    public int GetemployID()
+    {
+        return _employID;
+    }
 
 }
