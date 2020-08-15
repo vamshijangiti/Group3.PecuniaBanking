@@ -43,9 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Detail.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MAINMETHOD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="pvloans.cs" />
     <Compile Include="sri.cs" />
