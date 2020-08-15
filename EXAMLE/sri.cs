@@ -8,10 +8,11 @@ namespace EXAMLE
 {
     class sri
     {
-        {
+        
         static void Main()
-        { 
-        System.Console.WriteLine("hhhhh");
+        {
+            System.Console.WriteLine("hhhhh");
+        }
     }
 
 }
