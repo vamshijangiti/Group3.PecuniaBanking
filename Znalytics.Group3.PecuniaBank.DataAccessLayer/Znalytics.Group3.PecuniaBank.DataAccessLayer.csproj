@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{669F79A0-990C-41E6-B7FD-747598724B26}</ProjectGuid>
+    <ProjectGuid>{A77969B1-E464-4A59-835D-168235CF69DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Znalytics.Group3.PecuniaBank.DataAccessLayer</RootNamespace>
@@ -45,9 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Znalytics.Group3.Entities\Znalytics.Group3.Entities.csproj">
-      <Project>{ded50141-dee3-4b5d-89e8-bf6ee024dc5e}</Project>
-      <Name>Znalytics.Group3.Entities</Name>
+    <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.Entities\Znalytics.Group3.PecuniaBank.Entities.csproj">
+      <Project>{36f33c1b-09bb-476f-ae81-1b915e39733f}</Project>
+      <Name>Znalytics.Group3.PecuniaBank.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

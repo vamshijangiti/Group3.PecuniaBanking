@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Znalytics.Group3.PecuniaBank.BusinessLogicLayer")]
+[assembly: AssemblyTitle("EXAMLE")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Znalytics.Group3.PecuniaBank.BusinessLogicLayer")]
+[assembly: AssemblyProduct("EXAMLE")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("70a2889f-26f6-4b2a-9700-31d28609819d")]
+[assembly: Guid("a73b468b-5556-41f0-8f49-31f5833b8902")]
 
 // Version information for an assembly consists of the following four values:
 //
