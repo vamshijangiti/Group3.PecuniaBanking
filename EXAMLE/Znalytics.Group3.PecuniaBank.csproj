@@ -46,7 +46,7 @@
     <Compile Include="Detail.cs" />
     <Compile Include="MainMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="personalvehicle.cs" />
+    <Compile Include="personalvehicleloans.cs" />
     <Compile Include="sri.cs" />
   </ItemGroup>
   <ItemGroup>
