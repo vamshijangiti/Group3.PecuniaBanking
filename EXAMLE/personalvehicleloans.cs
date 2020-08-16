@@ -2,8 +2,8 @@
 {
     static void Main()
     {
-        PersonalLoan P;
-        P = new PersonalLoan();
+        PersonalLoan p;
+        p = new PersonalLoan();
         VehicleLoan v;
         v = new VehicleLoan();
 
@@ -25,74 +25,74 @@
                 case 1:
 
                     System.Console.WriteLine("Bank Account Number for personal loan");
-                    P.AccountNumber = (System.Console.ReadLine());
-                    System.Console.WriteLine(P.AccountNumber);
+                    p.AccountNumber = (System.Console.ReadLine());
+                    System.Console.WriteLine(p.AccountNumber);
 
                     System.Console.WriteLine("Enter the Bank Holders Name");
-                    P.AccountHolderName = (System.Console.ReadLine());
-                    System.Console.WriteLine(P.AccountHolderName);
+                    p.AccountHolderName = (System.Console.ReadLine());
+                    System.Console.WriteLine(p.AccountHolderName);
 
                     System.Console.WriteLine("Enter the PhoneNumber");
-                    P.PhoneNumber = (System.Console.ReadLine());
-                    System.Console.WriteLine(P.PhoneNumber);
+                    p.PhoneNumber = (System.Console.ReadLine());
+                    System.Console.WriteLine(p.PhoneNumber);
 
 
                     System.Console.WriteLine("Enter the Permanent Address");
-                    P.SetPermanentAddress(System.Console.ReadLine());
-                    System.Console.WriteLine(P.GetPermanentAddress());
+                    p.SetPermanentAddress(System.Console.ReadLine());
+                    System.Console.WriteLine(p.GetPermanentAddress());
 
                     System.Console.WriteLine("Enter the PanCardNumber");
-                    P.SetPanCardNumber(System.Console.ReadLine());
-                    System.Console.WriteLine(P.GetPanCardNumber());
+                    p.SetPanCardNumber(System.Console.ReadLine());
+                    System.Console.WriteLine(p.GetPanCardNumber());
 
 
                     System.Console.WriteLine("Enter the Profession");
-                    P.profession = (System.Console.ReadLine());
-                    System.Console.WriteLine(P.profession);
+                    p.profession = (System.Console.ReadLine());
+                    System.Console.WriteLine(p.profession);
 
                     System.Console.WriteLine("Enter the AnnualIncome");
-                    P.AnnualIncome = (double.Parse(System.Console.ReadLine()));
-                    System.Console.WriteLine(P.AnnualIncome);
+                    p.AnnualIncome = (double.Parse(System.Console.ReadLine()));
+                    System.Console.WriteLine(p.AnnualIncome);
 
                     System.Console.WriteLine("Enter the LoanAmount");
-                    P.LoanAmount = (double.Parse(System.Console.ReadLine()));
-                    System.Console.WriteLine(P.LoanAmount);
+                    p.LoanAmount = (double.Parse(System.Console.ReadLine()));
+                    System.Console.WriteLine(p.LoanAmount);
                     break;
 
                 case 2:
                     System.Console.WriteLine("Bank Account Number for vehicle loan");
-                    P.AccountNumber = (System.Console.ReadLine());
-                    System.Console.WriteLine(P.AccountNumber);
+                    v.AccountNumber = (System.Console.ReadLine());
+                    System.Console.WriteLine(v.AccountNumber);
 
                     System.Console.WriteLine("Enter the Bank Holders Name");
-                    P.AccountHolderName = (System.Console.ReadLine());
-                    System.Console.WriteLine(P.AccountHolderName);
+                    v.AccountHolderName = (System.Console.ReadLine());
+                    System.Console.WriteLine(v.AccountHolderName);
 
                     System.Console.WriteLine("Enter the PhoneNumber");
-                    P.PhoneNumber = (System.Console.ReadLine());
-                    System.Console.WriteLine(P.PhoneNumber);
+                    v.PhoneNumber = (System.Console.ReadLine());
+                    System.Console.WriteLine(v.PhoneNumber);
 
 
                     System.Console.WriteLine("Enter the Permanent Address");
-                    P.SetPermanentAddress(System.Console.ReadLine());
-                    System.Console.WriteLine(P.GetPermanentAddress());
+                    v.SetPermanentAddress(System.Console.ReadLine());
+                    System.Console.WriteLine(v.GetPermanentAddress());
 
                     System.Console.WriteLine("Enter the PanCardNumber");
-                    P.SetPanCardNumber(System.Console.ReadLine());
-                    System.Console.WriteLine(P.GetPanCardNumber());
+                    v.SetPanCardNumber(System.Console.ReadLine());
+                    System.Console.WriteLine(v.GetPanCardNumber());
 
 
                     System.Console.WriteLine("Enter the Profession");
-                    P.profession = (System.Console.ReadLine());
-                    System.Console.WriteLine(P.profession);
+                    v.profession = (System.Console.ReadLine());
+                    System.Console.WriteLine(v.profession);
 
                     System.Console.WriteLine("Enter the AnnualIncome");
-                    P.AnnualIncome = (double.Parse(System.Console.ReadLine()));
-                    System.Console.WriteLine(P.AnnualIncome);
+                    v.AnnualIncome = (double.Parse(System.Console.ReadLine()));
+                    System.Console.WriteLine(v.AnnualIncome);
 
                     System.Console.WriteLine("Enter the LoanAmount");
-                    P.LoanAmount = (double.Parse(System.Console.ReadLine()));
-                    System.Console.WriteLine(P.LoanAmount);
+                    v.LoanAmount = (double.Parse(System.Console.ReadLine()));
+                    System.Console.WriteLine(v.LoanAmount);
 
 
                     break;
