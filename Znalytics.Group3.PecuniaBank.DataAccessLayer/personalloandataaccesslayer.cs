@@ -10,7 +10,7 @@ using Znalytics.Group3.PecuniaBank.Entities;
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
     /// <summary>
-    /// Data access layer for personalloan
+    /// Data access layer for Personalloan
     /// </summary>
     public class PersonalLoanDataAccessLayer
     {
