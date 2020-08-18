@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
+namespace Znalytics.Group3.PecuniaBank.Entities
 {
-    class personalvehicleloan
+    class personalloanentities
     {
     }
 }
