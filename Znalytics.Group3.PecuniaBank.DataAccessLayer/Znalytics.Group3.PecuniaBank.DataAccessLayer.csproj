@@ -43,9 +43,10 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Creditcard.cs" />
-    <Compile Include="personalvehicleloandataaccesslayer.cs" />
+    <Compile Include="personaldataaccesslayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionDAL.cs" />
+    <Compile Include="vehicledataaccesslayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.Entities\Znalytics.Group3.PecuniaBank.Entities.csproj">

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
-    class personalvehicleloandataaccesslayer
+    class vehicledataaccesslayer
     {
     }
 }
