@@ -44,6 +44,7 @@
     <Compile Include="AccountDetail.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Creditcard.cs" />
+    <Compile Include="LoanBusinesslayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿class program
+﻿/*class program
 {
     static void Main()
     {
@@ -50,4 +50,4 @@
 
 
     }
-}
+} */
