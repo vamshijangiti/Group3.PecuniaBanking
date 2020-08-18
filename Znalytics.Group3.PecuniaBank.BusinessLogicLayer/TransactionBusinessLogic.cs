@@ -8,6 +8,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
+using Znalytics.Group3.PecuniaBank.DataAccessLayer;
+using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
@@ -18,20 +20,29 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     public class TransactionBusinessLogic
 {
 
+
+        
+
     /// <summary>
     /// Validation Of AccountNumber
     /// </summary>
     /// <param name="_accNumber">Account Number Of Customer should Be Less than 10</param>
     /// <returns></returns>
-    public bool ValidateAccountNumber(long _accNumber)
+    public void ValidateAccountNumber(Transaction accNumber)
     {
         //if (_name.Length > 10)
-        string l = _accNumber + "";
-        if (l.Length == 16)
-            return true;
-        else
-            return false;
+        string l = accNumber + "";
+            if (l.Length == 16)
+            {
+                TransactionDAL td = new TransactionDAL();
+                td.AddAccountNumber(accNumber);
+            }
+            else
+                throw new Exception("please check Account number");
     }
+
+
+
 
     /// <summary>
     /// Validation Of Withdrawl

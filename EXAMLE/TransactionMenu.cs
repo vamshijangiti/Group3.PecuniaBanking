@@ -38,7 +38,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             TransactionBusinessLogic b = new TransactionBusinessLogic();
             //Created Statically Account Number And Balance
             e1.AccountNumber=1234567812345678;
-            e1.Balance=200000;
+           // e1.Balance=200000;
             bool flag = false;
             long uan;
            
@@ -89,21 +89,21 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             case 1:
                                 Console.WriteLine("\nEnter amount to Deposit");
                                 double da = double.Parse(Console.ReadLine());
-                                e1.Balance=e1.Balance+ da;
-                                Console.WriteLine("\navailable balance" + e1.Balance);
+                                //e1.Balance=e1.Balance+ da;
+                               // Console.WriteLine("\navailable balance" + e1.Balance);
                                 break;
                             case 2:
                                 Console.WriteLine("\nEnter amount to WithDrawl");
                                 double wa = double.Parse(Console.ReadLine());
-                                if (b.ValidateWithDrawl(e1.Balance, wa))
-                                {
-                                    e1.Balance=e1.Balance - wa;
-                                    Console.WriteLine("\navailable balance" + e1.Balance);
-                                }
-                                else
-                                {
-                                    Console.WriteLine("\nInsufficient Balance");
-                                }
+                                /* if (b.ValidateWithDrawl(e1.Balance, wa))
+                                 {
+                                     e1.Balance=e1.Balance - wa;
+                                     Console.WriteLine("\navailable balance" + e1.Balance);
+                                 }
+                                 else
+                                 {
+                                     Console.WriteLine("\nInsufficient Balance");
+                                 }*/
                                 break;
 
 

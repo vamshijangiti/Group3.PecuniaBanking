@@ -16,10 +16,11 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     public class Transaction
     {
 
-        // private string _date;
-
+         private string _transactionDate;
+        private string _transactionType;
+        private string _trasactionAmount;
         private long _accountNumber;
-        private double _balance;
+      //  private double _balance;
 
         public Transaction() { }
 
@@ -28,10 +29,10 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// </summary>
         /// <param name="_accountNumber">AccountNumber of Customer</param>
         /// <param name="_balance">Balance Of the Customer</param>
-        public Transaction(long _accountNumber, double _balance)
+        public Transaction(long accountNumber, double balance)
         {
-            this._accountNumber = _accountNumber;
-            this._balance = _balance;
+            this._accountNumber = accountNumber;
+            //this._balance = _balance;
         }
 
             
@@ -51,19 +52,16 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         }
 
 
-        public double Balance
-        {
-            set
-            {
-                _balance = value;
-            }
+       // public  Date() { get }
+       /* {
+            
 
             get
             {
-                return _balance;
+                return System.DateTime;
             }
-        }
-
+        }*/
+     
 
     }
 }
