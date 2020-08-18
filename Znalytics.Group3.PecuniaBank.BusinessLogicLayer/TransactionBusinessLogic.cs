@@ -68,32 +68,37 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             return true;
         }
 
+        public bool ValidateAccountNumber(long uan)
+        {
+            throw new NotImplementedException();
+        }
 
 
 
-    /*  public string Date
-      {
-          set
+
+        /*  public string Date
           {
-              //Phone number should contain 10 digits only
-              if (value.Length == 10)
+              set
               {
-                   = value;
+                  //Phone number should contain 10 digits only
+                  if (value.Length == 10)
+                  {
+                       = value;
+                  }
+                  else
+                  {
+                      throw new Exception("Phone number should contain 10 digits only");
+                  }
               }
-              else
+              get
               {
-                  throw new Exception("Phone number should contain 10 digits only");
+                  return ;
               }
-          }
-          get
-          {
-              return ;
-          }
 
-      }*/
+          }*/
 
-    
-}
+
+    }
 }
 
 
