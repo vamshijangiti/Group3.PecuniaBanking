@@ -19,7 +19,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         /// <summary>
         /// Intializing constructor
         /// </summary>
-        /// <param name="CustomerName"></param>
+        /// <param name="CustomerName">customer name </param>
         /// <param name="Occupation"></param>
         /// <param name="Address"></param>
         /// <param name="AccountNumber"></param>
@@ -90,6 +90,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         {
             set
             {
+                //length should be 12
                 if (value.Length = 12)
                 {
                     _accountNumber = value;
