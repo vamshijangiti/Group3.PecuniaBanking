@@ -32,9 +32,6 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
                     {
 
                         case 1: AddCreditCard(); break;
-                        case 2: ApproveCreditCard(); break;
-                        case 3: ViewCreditCard(); break;
-                        case 4: Exit; break;
 
                     }
                 }
