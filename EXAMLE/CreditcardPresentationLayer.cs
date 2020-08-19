@@ -40,7 +40,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
         public static void AddCreditCard()
         {
-            Creditcard creditcard = new Creditcard();
+            Csutomer creditcard = new Customer();
 
             //Customer Name
             Console.Write("Enter customer name: ");
@@ -60,22 +60,21 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
             //Account Number
             Console.Write("Enter AccountNumber: ");
-            credicard.AccountNumber = Console.ReadLine();
 
             //Pancard Number
 
             Console.Write("Enter Pancard Number: ");
-            credicard.PancardNumber = Console.ReadLine();
+            creditcard.PancardNumber = Console.ReadLine();
 
             //Aadhar card Number
             Console.Write("Enter Aadharcard number: ");
-            credicard.AaadharCardNumber = Console.ReadLine();
+            creditcard.AaadharCardNumber = Console.ReadLine();
 
 
 
 
 
-            creditcardBusinessLogicLayer.AddCreditcard(creditcard); 
+            CreditCardBusinessLogicLayer.AddCreditcard(creditcard); 
         }
     }
 }
