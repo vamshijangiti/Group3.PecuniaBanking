@@ -10,7 +10,7 @@ public class MainMethod
     static void Main()
     {
         //Creating The Object
-       TransactionUI t=new TransactionUI();
+       TransactionMenu t=new TransactionMenu();
        t.start();
 
        // DetailsMenu d = new DetailsMenu;
