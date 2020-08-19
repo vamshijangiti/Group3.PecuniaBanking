@@ -44,20 +44,12 @@
     <Compile Include="AccountDetail.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CreditcardBusinessLogicLayer.cs" />
+    <Compile Include="HousingLoanBusinessLogicLayer.cs" />
+    <Compile Include="JewelLoanBusinessLogicLayer.cs" />
     <Compile Include="personalloanbusinesslogiclayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionBusinessLogic.cs" />
     <Compile Include="vehicleloanbusinesslogiclayer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.DataAccessLayer\Znalytics.Group3.PecuniaBank.DataAccessLayer.csproj">
-      <Project>{a77969b1-e464-4a59-835d-168235cf69dd}</Project>
-      <Name>Znalytics.Group3.PecuniaBank.DataAccessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.Entities\Znalytics.Group3.PecuniaBank.Entities.csproj">
-      <Project>{36f33c1b-09bb-476f-ae81-1b915e39733f}</Project>
-      <Name>Znalytics.Group3.PecuniaBank.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
