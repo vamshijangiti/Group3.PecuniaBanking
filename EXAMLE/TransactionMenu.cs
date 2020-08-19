@@ -16,7 +16,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     /// <summary>
     /// Presentation Class For WithDrawl And Debit
     /// </summary>
-    public class TransactionUI
+    public class TransactionMenu
     {
         public void start()
         {
