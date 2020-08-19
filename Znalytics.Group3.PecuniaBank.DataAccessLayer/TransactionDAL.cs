@@ -20,7 +20,10 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         List<Transaction> transactions = new List<Transaction>();
         
        
-        
+        /// <summary>
+        /// Adding the AccountNumber in to List
+        /// </summary>
+        /// <param name="t">Account Number</param>
         public void AddAccountNumber(Transaction t)
         {
             transactions.Add(t);
