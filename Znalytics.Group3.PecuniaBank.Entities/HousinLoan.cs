@@ -2,9 +2,12 @@
 
 namespace Znalytics.Group3.PecuniaBank.Entities
 {
-   
+   /// <summary>
+   /// entity layer for houingloan
+   /// </summary>
             public class HousingLoan : Loan
             {
+        //private fields
                 private int _accountNo;
                 private string _accountHolderName;
                 private int _ageOfCustomer;
@@ -17,11 +20,11 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
                 public int HousingLoanId
                 {
-                    get; set;
+                    get; set;//automated property
                 }
                 public HousingLoan(string accountHolderName, int HousingLoanId) : base(accountHolderName)
                 {
-                    this.HousingLoanId = HousingLoanId;
+                    this.HousingLoanId = HousingLoanId;//curreent objrct
                 }
 
                 public HousingLoan(int _accountNo)//parameterized constructor
