@@ -1,7 +1,7 @@
 ﻿
 using System;
 using Znalytics.Group3.PecuniaBank.Entities;
-using Znalytics.Group3.PecuniaBank.HousinLoan.Entities;
+using Znalytics.Group3.PecuniaBank.HousingLoan.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer;
    {

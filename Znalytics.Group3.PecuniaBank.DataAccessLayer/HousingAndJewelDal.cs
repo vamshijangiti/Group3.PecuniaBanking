@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Znalytics.Group3.PecuniaBank.Entities;
+//using Znalytics.Group3.PecuniaBank.Entities;
 
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
@@ -14,17 +14,14 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
         }
     }
+
     //create list
-    List<AccountNo> accountNos = new List<AccountNo>();
-
+     List<int> AccountNo = new List<int>();
+    /// <summary>
+    /// Add acccountnos
+    /// </summary>
+    /// <param name="n"></param>
     public void AddAccountNo(AccountNo n) => AccountNo.add(n);
-
-    public class AccountNo
-    {
-        public static void add(AccountNo n)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 

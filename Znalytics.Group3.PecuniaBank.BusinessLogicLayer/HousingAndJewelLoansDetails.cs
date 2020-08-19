@@ -6,6 +6,9 @@ using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
+    /// <summary>
+    /// abstract class 
+    /// </summary>
     public abstract class Loan
     {
         private string _loanName;
@@ -34,6 +37,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
         public class HousingLoan : Loan
         {
+            //private fields
             private int _accountNo;
             private string _accountHolderName;
             private int _ageOfCustomer;
@@ -160,13 +164,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             public double Tenure
             { set; get; }//automated property
-            public void SetRateOfInterest(float value)
+            public float rateOfInterest
             {
-                _rateOfInterest = value;//rate of Interest fora customer
-            }
-            public float GetRateOfInterest()
-            {
-                return _rateOfInterest;
+                set; get;//autommated property
             }
             public void Setemi(float value)
             {
@@ -181,6 +181,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         public class GoldLoan :Loan
         {
+            //private fields
             private long _aadharNo;
             private int _age;
             private int _carotType;
@@ -241,22 +242,15 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
                 return _loanAmount;
             }
-            public void Settenure(double value)
+            public double tenure
             {
-                _tenure = value;//tenure of gold loan
+                set; get;//automated property
             }
-            public double Gettenure()
+            public double rateOfInterest
             {
-                return _tenure;
+                set; get;//automated property 
             }
-            public void SetrateOfInterest(double value)
-            {
-                _rateOfInterest = value;//rateof interest of a gold loan
-            }
-            public double GetrateOfInterest()
-            {
-                return _rateOfInterest;
-            }
+            
             public void Setemi(float value)
             {
                 _emi = value;//assigns emi for goldloan through below formula
