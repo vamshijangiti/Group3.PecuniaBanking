@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="AccountDetail.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Creditcard.cs" />
+    <Compile Include="CreditcardBusinessLogicLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
