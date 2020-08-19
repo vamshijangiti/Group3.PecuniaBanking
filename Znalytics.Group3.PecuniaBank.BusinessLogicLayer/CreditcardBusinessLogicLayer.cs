@@ -25,7 +25,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
             }
             
         }
-
+        // validating account number
         public void CheckAccountNumber(long accountnumber)
         {
             if (Creditcard.AccountNumber != null)

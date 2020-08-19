@@ -1,16 +1,25 @@
-﻿namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
+﻿//Mansa Entities
+'
+
+/// <summary>
+/// Represents Entities of CreditCard Module
+/// </summary>
+namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
 {
     public class Customer
     {
+        // list of details
         private string _customerName;
         private string _occupation;
         private string _address;
-        private int _accountNumber;
+        private long _accountNumber;
         private float _income;
         private string _panCardNumber;
-        private int _aadharCardNumber;
+        private long _aadharCardNumber;
 
-
+        /// <summary>
+        /// Customer name
+        /// </summary>
         public string CustomerName
         {
             set
@@ -25,6 +34,9 @@
                 return _customerName;
             }
         }
+        /// <summary>
+        /// Occupation
+        /// </summary>
 
         public string Occupation
         {
@@ -37,6 +49,9 @@
                 return _occupation;
             }
         }
+        /// <summary>
+        /// Address
+        /// </summary>
                public string Address
         {
             set
@@ -48,7 +63,10 @@
                 return _address;
             }
         }
-               public int AccountNumber
+        /// <summary>
+        /// Account number
+        /// </summary>
+               public long AccountNumber
         {
             set
             {
@@ -63,6 +81,9 @@
                 return _accountNumber;
             }
         }
+        /// <summary>
+        /// Income
+        /// </summary>
                public float Income
         {
             set
@@ -77,6 +98,9 @@
                 return _income;
             }
         }
+        /// <summary>
+        /// pan card number
+        /// </summary>
                public string PanCardNumber
         {
             set
@@ -88,7 +112,10 @@
                 return _panCardNumber;
             }
         }
-               public int AadharCardNumber
+        /// <summary>
+        /// Aadhar card Number
+        /// </summary>
+               public long AadharCardNumber
         {
             set
             {

@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿// Manasa Data Access Layer
+
+using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 
+/// <summary>
+/// Represnts Dataaccess Layer of Creditcard Module
+/// </summary>
 namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
 {
     public class CreditcardDataAccessLayer
