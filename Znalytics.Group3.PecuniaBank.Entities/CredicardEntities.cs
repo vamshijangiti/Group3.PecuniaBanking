@@ -1,5 +1,4 @@
 ﻿//Mansa Entities
-'
 
 /// <summary>
 /// Represents Entities of CreditCard Module
@@ -16,6 +15,27 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         private float _income;
         private string _panCardNumber;
         private long _aadharCardNumber;
+
+        /// <summary>
+        /// Intializing constructor
+        /// </summary>
+        /// <param name="CustomerName"></param>
+        /// <param name="Occupation"></param>
+        /// <param name="Address"></param>
+        /// <param name="AccountNumber"></param>
+        /// <param name="Income"></param>
+        /// <param name="PanCardNumber"></param>
+        /// <param name="AadharCardNumber"></param>
+        Customer(string CustomerName, string Occupation, string Address, long AccountNumber, float Income, string PanCardNumber, long AadharCardNumber)
+        {
+            _customerName = CustomerName;
+            _occupation = Occupation;
+            _address = Address;
+            _accountNumber = AccountNumber;
+            _income = Income;
+            _panCardNumber = PanCardNumber;
+            _aadharCardNumber = AadharCardNumber;
+        }
 
         /// <summary>
         /// Customer name
@@ -133,4 +153,3 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
     }
 
     }
-}
