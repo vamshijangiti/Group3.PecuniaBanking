@@ -4,15 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EXAMLE
+namespace Znalytics.Group3.PecuniaBank.Entities
 {
-    class sri
+    class personalloan
     {
-        
-        static void Main()
-        {
-            System.Console.WriteLine("hhhhh");
-        }
     }
-
 }
