@@ -1,4 +1,4 @@
-﻿//Mansa Entities
+﻿//Manasa Entities
 
 /// <summary>
 /// Represents Entities of CreditCard Module
@@ -11,10 +11,10 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         private string _customerName;
         private string _occupation;
         private string _address;
-        private long _accountNumber;
+        private double _accountNumber;
         private float _income;
         private string _panCardNumber;
-        private long _aadharCardNumber;
+        private double _aadharCardNumber;
 
         /// <summary>
         /// Intializing constructor
@@ -26,7 +26,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         /// <param name="Income"></param>
         /// <param name="PanCardNumber"></param>
         /// <param name="AadharCardNumber"></param>
-        Customer(string CustomerName, string Occupation, string Address, long AccountNumber, float Income, string PanCardNumber, long AadharCardNumber)
+        Customer(string CustomerName, string Occupation, string Address, double AccountNumber, float Income, string PanCardNumber, double AadharCardNumber)
         {
             _customerName = CustomerName;
             _occupation = Occupation;
@@ -86,7 +86,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         /// <summary>
         /// Account number
         /// </summary>
-               public long AccountNumber
+               public double AccountNumber
         {
             set
             {
@@ -136,7 +136,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         /// <summary>
         /// Aadhar card Number
         /// </summary>
-               public long AadharCardNumber
+               public double AadharCardNumber
         {
             set
             {
