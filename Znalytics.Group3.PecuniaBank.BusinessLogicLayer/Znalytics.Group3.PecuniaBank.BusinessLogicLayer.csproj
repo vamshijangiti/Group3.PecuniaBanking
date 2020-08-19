@@ -44,10 +44,8 @@
     <Compile Include="AccountDetail.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Creditcard.cs" />
-    <Compile Include="HousingAndJewelBusinessLogicLayer.cs" />
     <Compile Include="LoanBusinesslayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransactionBusinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.DataAccessLayer\Znalytics.Group3.PecuniaBank.DataAccessLayer.csproj">

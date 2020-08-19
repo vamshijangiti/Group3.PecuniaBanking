@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Znalytics.Group3.PecuniaBank.Entities
 {
-    class GoldLoan
+ class GoldLoan
     {
         public class GoldLoan : Loan
         {
