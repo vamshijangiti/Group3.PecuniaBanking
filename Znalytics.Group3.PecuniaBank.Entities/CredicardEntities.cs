@@ -1,5 +1,4 @@
 ﻿//Mansa Entities
-'
 
 /// <summary>
 /// Represents Entities of CreditCard Module
@@ -154,4 +153,3 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
     }
 
     }
-}
