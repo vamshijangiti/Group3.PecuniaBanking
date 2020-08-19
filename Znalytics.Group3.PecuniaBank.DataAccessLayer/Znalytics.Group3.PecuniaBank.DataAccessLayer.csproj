@@ -42,11 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Creditcard.cs" />
-    <Compile Include="Dataaccesslayerloan.cs" />
-    <Compile Include="HousingAndJewelDal.cs" />
+    <Compile Include="CreditcardDataAccessLayer.cs" />
+    <Compile Include="personalloandataaccesslayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionDAL.cs" />
+    <Compile Include="vehicleloandataaccesslayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.Entities\Znalytics.Group3.PecuniaBank.Entities.csproj">

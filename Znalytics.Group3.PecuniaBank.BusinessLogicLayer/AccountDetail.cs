@@ -1,203 +1,167 @@
-﻿public class pecunia
+﻿
+namespace Znalytics.Group3.PecuniaBank
 {
-
-    private string _customerName;
-    private string _address;
-    private string _occupation;
-    private string _panCardNumber;
-    private string _voterID;
-    private string _passport;
-    private string _drivingLicense;
-    private int _aadhaarCardNumber;
-    private string _utilityBillProof;
-    private int _rationCardNumber;
-    private int _employeeID;
-    public void SavingsAccount(string customerName, string address, string occupation, string panCardNumber, string voterID, string passport, string drivingLicense, int aadhaarCardNumber)
-    {
-        CustomerName = customerName;
-        Address = address;
-        Occupation = occupation;
-        PanCardNumber = panCardNumber;
-        VoterID = voterID;
-        Passport = passport;
-        DrivingLicense = drivingLicense;
-        AadhaarCardNumber = aadhaarCardNumber;
-    }
-    public void CurrentAccount(string utilityBillProof, int rationCardNumber, int employeeID)
-    {
-        UtilityBillProof = utilityBillProof;
-        RationCardNumber = rationCardNumber;
-        EmployeeID = employeeID;
-    }
     /// <summary>
-    /// set value into Customer Name
+    /// Business Logic Layer for Accounts.
     /// </summary>
-    /// <param name="customer Name"></param>
-    public string CustomerName
+    public class AccountsLogic
     {
-        set
+        /// <summary>
+        /// validation of CustomerName.
+        /// </summary>
+        /// <param name="_customerName">customer Name should be less than 20 characters</param>
+        /// <returns> Name of the customer</returns>
+        public bool CustomerName(string _customerName)
         {
-            //Name should be less than 20 characters
-            if (value.Length <= 20)
+           
+            if (_customerName.Length <= 20)
             {
-                _customerName = value;
-            }
-
-        }
-
-        get
-        {
-            return _customerName;
-        }
-    }
-    public string Address
-    {
-        set
-        {
-            if (value.Length <= 95)
-            {
-                _address = value;
+                return true;
             }
             else
             {
+                return false;
+            }
+
+        }
+
+        /// <summary>
+        /// validation of customer Address.
+        /// </summary>
+        /// <param name="_address">Customer Address should be less than 95characters</param>
+        /// <returns>Address of customer</returns>
+        public bool Address(string _address)
+        {
+
+            if (_address.Length <= 95)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
                 throw new System.Exception("you have entered Invalid Address");
             }
         }
 
-        get
-        {
-            return _address;
-        }
-    }
-    public string Occupation
-    {
-        set
-        {
-            _occupation = value;
-        }
 
-        get
-        {
-            return _occupation;
-        }
-    }
 
-    public string PanCardNumber
-    {
-        set
+        /*public bool Occupation()
+         {
+             set
+             {
+                 _occupation = value;
+             }
+
+             get
+             {
+                 return _occupation;
+             }
+         }*/
+        /// <summary>
+        /// validation of PAN card Number.
+        /// </summary>
+        /// <param name="_panCardNumber">PAN card number should be equal to 10 characters<</param>
+        ///<returns>PAN card Number of customer</returns>
+        public bool PanCardNumber(string _panCardNumber)
         {
-            if (value.Length == 10)
+
+            if (_panCardNumber.Length == 10)
             {
-                _panCardNumber = value;
+                return true;
             }
             else
             {
+                return false;
                 throw new System.Exception("you have entered Invalid Pancard Number");
             }
         }
 
-        get
+        /// <summary>
+        /// validation of VoterID.
+        /// </summary>
+        /// <param name="_voterID">Voter-ID number should be equals to 10 charecters </param>
+        ///<returns>VoterID Number of customer</returns>
+        public bool VoterID(string _voterID)
         {
-            return _panCardNumber;
-        }
-    }
-    public string VoterID
-    {
-        set
-        {
-            if (value.Length <= 10)
+            if (_voterID.Length == 10)
             {
-                _voterID = value;
+                return true;
             }
             else
             {
+                return false;
                 throw new System.Exception("VoterID should contain only 10 digits");
             }
         }
 
-        get
+        /// <summary>
+        /// validation of Passport Number.
+        /// </summary>
+        /// <param name="_passport">Passport number should be equals to 8 charecters</param>
+        /// <returns>Passport Number of customer </returns>
+        public bool Passport(string _passport)
         {
-            return _voterID;
-        }
-    }
-    public string Passport
-    {
-        set
-        {
-            if (value.Length <= 8)
+            if (_passport.Length == 8)
             {
-                _passport = value;
+                return true;
             }
             else
             {
+                return false;
                 throw new System.Exception("Passport number should contain only 8 digits");
             }
         }
 
-        get
-        {
-            return _passport;
-        }
-    }
 
-    public string DrivingLicense
-    {
-        set
-        {
-            _drivingLicense = value;
-        }
 
-        get
-        {
-            return _drivingLicense;
-        }
-    }
-    public int AadhaarCardNumber
-    {
-        set
-        {
+        /* public string DrivingLicense
+         {
+             set
+             {
+                 _drivingLicense = value;
+             }
 
-            _aadhaarCardNumber = value;
-        }
+             get
+             {
+                 return _drivingLicense;
+             }
+         }*/
 
-        get
-        {
-            return _aadhaarCardNumber;
-        }
-    }
-    public string UtilityBillProof
-    {
-        set
-        {
-            _utilityBillProof = value;
-        }
-        get
-        {
-            return _utilityBillProof;
-        }
-    }
-    public int RationCardNumber
-    {
-        set
-        {
+        /* public string UtilityBillProof
+         {
+             set
+             {
+                 _utilityBillProof = value;
+             }
+             get
+             {
+                 return _utilityBillProof;
+             }
+         }
+         public int RationCardNumber
+         {
+             set
+             {
 
-            _rationCardNumber = value;
-        }
-        get
-        {
-            return _rationCardNumber;
-        }
-    }
-    public int EmployeeID
-    {
-        set
-        {
-            _employeeID = value;
-        }
-        get
-        {
-            return _employeeID;
-        }
+                 _rationCardNumber = value;
+             }
+             get
+             {
+                 return _rationCardNumber;
+             }
+         }
+         public int EmployeeID
+         {
+             set
+             {
+                 _employeeID = value;
+             }
+             get
+             {
+                 return _employeeID;
+             }
+         }*/
     }
 }
 
