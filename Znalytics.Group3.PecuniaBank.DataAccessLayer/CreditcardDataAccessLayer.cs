@@ -34,5 +34,4 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
     }
 
 }
-    }
-}
+    
