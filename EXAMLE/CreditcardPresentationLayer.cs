@@ -2,79 +2,116 @@
 
 
 using System;
+using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
-using Znalytics.PecuniaBanking.BusinessLogicLayer;
+using Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer;
+
 /// <summary>
 /// Represents Presentation Layer of Creditcard
 /// </summary>
 
 namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 {
-    public class DisplayMenu
+    class CreditcardPresentationLayer
     {
-        public static void Menu()
+        static void Menu()
         {
-            int choice = -1;
-
+            DisplayMenu();
+            Console.ReadKey();
+        }
+        static void DisplayMenu()
+        {
+            int choice = 0;
             do
             {
                 // Displaying Menu
-                Console.WriteLine("Menu:");
+                Console.WriteLine("Welcome to Pecunia Bank");
                 Console.WriteLine("1. AddCreditCard");
                 Console.WriteLine("2. ApproveCreditCard");
                 Console.WriteLine("3. ViewCreditCard");
                 Console.WriteLine("4. Exit");
-
-                bool b = int.TryParse(Console.ReadLine(), out choice);
-                if (b == true)
+                Console.WriteLine("Enter your choice");
+                choice = int.Parse(Console.ReadLine());
+                switch (choice)
                 {
-                    switch (choice)
-                    {
-
-                        case 1: AddCreditCard(); break;
-
-                    }
+                    case 1: AddCreditCard(); break;
+                    case 2: ApproveCreditCard(); break;
+                    case 3: ViewCreditCard(); break;
                 }
-            } while (choice != 4);
+            }
+            while (choice != 4);
+            }
+
+
         }
+    static void AddCreditCard()
+    {
+        CreditcardBusinessLogicLayer customerbusinesslogic = new CreditcardBusinessLogicLayer();
+        CreditCard customer = new CreditCard();
 
-        public static void AddCreditCard()
+        Console.WriteLine("Enter Account Holder name: ");
+        customer.AccountHolderName = Console.ReadLine();
+
+        //Account number
+        Console.Write("Enter AccountNumber: ");
+        customer.AccountNumber = Console.ReadLine();
+
+
+        //Occupation
+        Console.Write("Enter occupation: ");
+        customer.Occupation = Console.ReadLine();
+
+        //Address
+        Console.Write("Enter address: ");
+        customer.Address = Console.ReadLine();
+
+        //Income
+        Console.Write("Enter Income: ");
+        customer.Income = Console.ReadLine();
+
+
+        //Pancard Number
+
+        Console.Write("Enter Pancard Number: ");
+        customer.PancardNumber = Console.ReadLine();
+
+        //Aadhar card Number
+        Console.Write("Enter Aadharcard number: ");
+        customer.AaadharCardNumber = Console.ReadLine();
+
+        //Phone number
+        Console.Write("Enter Phone number: ");
+        customer.PhoneNumber = Console.ReadLine();
+
+        CreditcardBusinessLogicLayer.Add(customer);
+        Console.WriteLine("Credit card details added successfully");
+        bool b = CreditcardBusinessLogicLayer.ApproveCreditCard(customer);
+        if(b==true)
         {
-            Csutomer creditcard = new Customer();
+            Console.WriteLine("You are eligible to approve credit card");
+        }
+        else
+        {
+            Console.WriteLine("You are not eligible to approve credit card");
 
-            //Customer Name
-            Console.Write("Enter customer name: ");
-            creditcard.CustomerName = Console.ReadLine();
-
-            //Occupation
-            Console.Write("Enter occupation: ");
-            creditcard.Occupation = Console.ReadLine();
-
-            //Address
-            Console.Write("Enter address: ");
-            creditcard.Address = Console.ReadLine();
-
-            //Income
-            Console.Write("Enter Income: ");
-            creditcard.Income= Console.ReadLine();
-
-            //Account Number
-            Console.Write("Enter AccountNumber: ");
-
-            //Pancard Number
-
-            Console.Write("Enter Pancard Number: ");
-            creditcard.PancardNumber = Console.ReadLine();
-
-            //Aadhar card Number
-            Console.Write("Enter Aadharcard number: ");
-            creditcard.AaadharCardNumber = Console.ReadLine();
+        }
+        CreditcardBusinessLogicLayer.ApplicationNumber(customer);
+        Console.WriteLine("Your application number is" + customer.AppNumber);
+        CreditcardBusinessLogicLayer.GenerateCreditCard(customer);
+        Console.WriteLine("Your credit card number is" + customer.crn);
+    }
 
 
 
 
 
-            CreditCardBusinessLogicLayer.AddCreditcard(creditcard); 
+
+
+
+
+
+
+        CreditCardBusinessLogicLayer.AddCreditcard(creditcard); 
         }
     }
 }
