@@ -38,7 +38,6 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             TransactionBusinessLogic b = new TransactionBusinessLogic();
             //Created Statically Account Number And Balance
             e1.AccountNumber=1234567812345678;
-           // e1.Balance=200000;
             bool flag = false;
             long uan;
            

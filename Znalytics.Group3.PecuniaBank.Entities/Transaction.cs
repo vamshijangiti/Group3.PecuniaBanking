@@ -28,11 +28,12 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// Entities Constructor
         /// </summary>
         /// <param name="_accountNumber">AccountNumber of Customer</param>
+        
 
-        public Transaction(long accountNumber)
+        public Transaction(long accountNumber,string date)
         {
             this._accountNumber = accountNumber;
-            //this._balance = _balance;
+            this._transactionDate = date;
         }
 
 
@@ -51,16 +52,10 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
 
-
-        // public  Date() { get }
-        /* {
-
-
-             get
-             {
-                 return System.DateTime;
-             }
-         }*/
+        /// <summary>
+        /// Represents the Transaction Date
+        /// </summary>
+         public string transactionDate {get;set; }
 
 
     }
