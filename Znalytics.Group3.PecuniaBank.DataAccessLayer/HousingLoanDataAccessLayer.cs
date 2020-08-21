@@ -1,36 +1,51 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Remoting;
+using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
- /// <summary>
- /// DataAccessLayer for HousingLoan
- /// </summary>
-    class HousingLoan
+    /// <summary>
+    /// DataAccessLayer for HousingLoan
+    /// </summary>
+    public class HousingLoanDataAccessLayer
     {
-        List<long> accountNumbers = new List<long>() {123456789012,135792468012,102938475610,112233445566,223344556677,334455667788};
-        List<string> AccountHoldersNames= new List<string>() { "sriram","vamshi","navya","sumanth","manasa","swetha"};
-        ///<summary>
-        ///Adding AccountNumbers into the list
-        ///Addng AccountHolderNames into the list
-        ///</summary>
-        //<param name='n'>accountNumbers</param>
-        //<param name='a'>AccountHolderNmaes</param>
+        //private fields
+        private static List<Customer> customers;
 
-        public void AddAccountNumbers(long n)
+        //constructor
+        static HousingLoanDataAccessLayer()
         {
-           
-            accountNumbers.Add(n);
-            
-        }
-        public void AddAccountHolderNames(string a)
-        {
-            AccountHoldersNames.Add(a);
+            _customers = new List<Customer>();
 
+            {
+                new Customer() { CustomerAccountNo = 135792468012, CustomerName = "sri" };
+                new Customer() { CustomerAccountNo = 123456789013, CustomerName = "ram" }
+
+            };
         }
 
+        //Add Customers
+        public void Add(Customer customer)
+        {
+
+            _customers.Add(customer);
+
+        }
+        //Getcustomers
+        public List<Customer> GetCustomers()
+        {
+            return _customers;
+        }
+        //UpdateCustomers
+        public void UpdateCustomer(Customer customer)
+        {
+            customer cust = _customers.Find(temp => temp.CustomerAccountNo == customer.CustomerAccountNo);
+            if (cust !=null)
+            {
+                cust.CustomerName = customer.CustomerName;
+            }
+        }
     }
 }

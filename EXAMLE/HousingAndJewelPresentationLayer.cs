@@ -1,17 +1,19 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 using Znalytics.Group3.PecuniaBank.Entities;
-using Znalytics.Group3.PecuniaBank.HousingLoan.Entities;
+using Znalytics.Group3.PecuniaBank.HousingLoanBusinessLogicLayer;
 
 namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
    {
     /// <summary>
     /// PresentationLayer for HousingLoan and JewelLoan
     /// </summary>
-class HousingLoan
+    class program
     {
         static void Main()
-        {
-            System.Console.WriteLine("-----welcome to pecunia bank-------");//options for type of loan
+        {      
+ 
+          System.Console.WriteLine("-----welcome to pecunia bank-------");//options for type of loan
             System.Console.WriteLine("1.HousingLoan");
             System.Console.WriteLine("2.GoldLoan");
             System.Console.WriteLine("3.exit");
@@ -21,7 +23,7 @@ class HousingLoan
                 switch (n)
                 {
                     case 1://choosing HousingLoan option
-                        HousingLoan h = new HousingLoan();
+                        HousingLoanAndJewelPresentationLayer h = new HousingLoan();
                         System.Console.WriteLine("enter accountno");//prints account no
                         long _accountNo = long.Parse(System.Console.ReadLine());
                         System.Console.WriteLine("enter Age of Customer");
@@ -63,3 +65,5 @@ class HousingLoan
                 System.Console.ReadKey();
             }
         }
+ 
+        
