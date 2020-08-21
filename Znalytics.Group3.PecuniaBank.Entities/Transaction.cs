@@ -1,5 +1,5 @@
 ﻿
-//ETITIES For WithaDarwl And Deposit
+//CREATED BY VAMSHI JANGITI --ETITIES For WithaDarwl And Deposit
 
 using System;
 using System.Collections.Generic;
@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 namespace Znalytics.Group3.PecuniaBank.Entities
 {
 
+
+
     /// <summary>
     /// Entity Layer For Transactions
     /// </summary>
     public class Transaction
     {
-
+        private string _transactionID;
         private string _transactionDate;
         private string _transactionType;
         private string _trasactionAmount;
@@ -55,7 +57,11 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <summary>
         /// Represents the Transaction Date
         /// </summary>
-         public string transactionDate {get;set; }
+        public string TransactionDate 
+        {
+            get
+            { return _transactionDate; }
+        }
 
 
     }

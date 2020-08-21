@@ -1,5 +1,5 @@
 ﻿
-//VAMSHI JANGITI DATA ACCESS LAYER
+//CREATED BY VAMSHI JANGITI -- DATA ACCESS LAYER
 
 using System;
 using System.Collections.Generic;
@@ -31,19 +31,26 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             transactions.Add(t);
         }
 
-        public string AddTransactionDate(Transaction d)
+        /// <summary>
+        /// Adding the TransactionDate in to List
+        /// </summary>
+        /// <param name="d">Date</param>
+        /// <returns></returns>
+        public void AddTransactionDate(Transaction d)
         {
             transactions.Add(d);
-            return " ";
+          
         }
-
+    
         public List<Transaction> GetTransactionDate(string Date)
         {
             return transactions.
         }
+
         public List<Transaction> GetTransactions(long AccountNumber)
         {
             return transactions.FindAll(temp => temp.AccountNumber == AccountNumber);
+            
         }
 
     }

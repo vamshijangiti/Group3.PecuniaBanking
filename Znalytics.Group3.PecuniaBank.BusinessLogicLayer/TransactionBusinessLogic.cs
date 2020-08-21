@@ -35,7 +35,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             if (l.Length == 16)
             {
                 TransactionDAL td = new TransactionDAL();
-                td.AddAccountNumber(accNumber);
+                td.GetTransactions(accNumber);
             }
             else
                 throw new Exception("please check Account number");
