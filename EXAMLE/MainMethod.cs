@@ -10,15 +10,15 @@ public class MainMethod
     static void Main()
     {
         //Creating The Object
-       TransactionMenu t=new TransactionMenu();
-       t.start();
+        TransactionMenu t = new TransactionMenu();
+        t.start();
 
-       // DetailsMenu d = new DetailsMenu;
+        // DetailsMenu d = new DetailsMenu;
         //d.Show();
 
         Console.ReadKey();
     }
-    
-    
-     
+
+
+
 }

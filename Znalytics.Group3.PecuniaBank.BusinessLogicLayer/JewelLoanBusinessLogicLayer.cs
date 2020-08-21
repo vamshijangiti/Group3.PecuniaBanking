@@ -8,6 +8,38 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     class JewelLoanBusinessLogicLayer
     {
+        JewelLoanDataAccessLayer= _jewelLoanDataAccessLayer;
+
+        public JewelLoanBusinessLogicLayer()
+        {
+            _jewelLoanDataAccessLayer = new JewelLoanDataAccessLayer();
+        }
+
+        //Add
+        public void Add(GoldLoanCustomer goldLoanCustomer)
+        {
+            if (goldLoanCustomer.GoldLoanCustomerName != null)
+            {
+                _jewelLoanDataAccessLayer.Add(goldLoanCustomer);
+            }
+            else
+            {
+                throw new Exception("GoldLoanCustomerName can't be null");
+            }
+        }
+
+        //GetAllgoldloanCustomers
+        public List<Employee> GetEmployees()
+        {
+            return _jewelLoanDataAccessLayer.GetGoldLoanCustomers();
+        }
+
+        public void UpdateGoldloanCustomer(GoldLoanCustomer goldLoanCustomer)
+        {
+            if (goldLoanCustomer.GoldLoanCustomerName != null)
+            {
+                _jewelLoanDataAccessLayer.UpdateGoldLoanCustomer(goldLoanCustomer);
+            }
         public class GoldLoan
         {
             //private fields
