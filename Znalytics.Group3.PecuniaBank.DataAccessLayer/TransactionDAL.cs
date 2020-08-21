@@ -42,10 +42,15 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
 
-        public List<Transaction> GetTransactionDate(string Date)
+        public void GetTransactions(Transaction accNumber)
         {
-            return transactions.
+            throw new NotImplementedException();
         }
+
+        // public List<Transaction> GetTransactionDate(string Date)
+        //{
+        //return;
+        //}
 
         public List<Transaction> GetTransactions(long AccountNumber)
         {
