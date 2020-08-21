@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="AccountDetail.cs" />
     <Compile Include="CreditcardBusinessLogicLayer.cs" />
+    <Compile Include="HousingLoanBusinessLogicLayer.cs" />
+    <Compile Include="JewelLoanBusinessLogicLayer.cs" />
     <Compile Include="personalloanbusinesslogiclayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionBusinessLogic.cs" />

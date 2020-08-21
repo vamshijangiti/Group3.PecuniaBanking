@@ -2,6 +2,9 @@
 
 namespace Znalytics.Group3.PecuniaBank.Entities
 {
+    /// <summary>
+    /// loan entity
+    /// </summary>
     public class Loan
 
     {
