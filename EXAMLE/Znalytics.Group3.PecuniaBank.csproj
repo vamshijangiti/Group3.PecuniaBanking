@@ -46,6 +46,7 @@
     <Compile Include="BankAccount.cs" />
     <Compile Include="CreditcardPresentationLayer.cs" />
     <Compile Include="Detail.cs" />
+    <Compile Include="HousingAndJewelPresentationLayer.cs" />
     <Compile Include="MainMethod.cs" />
     <Compile Include="TransactionMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
