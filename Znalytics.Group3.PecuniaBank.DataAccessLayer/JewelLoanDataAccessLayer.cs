@@ -9,22 +9,42 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// <summary>
     /// DataAccessLayer for Jewel Loan
     /// </summary>
-    class JewelLoan
+    public class JewelLoanDataAccessLayer
     {
-        List<long>AccountNumbers=new List<long>() { 231313334567,334444444467,4444455556666,676767121212};
-        List<int> AgeOfCustomer = new List<int> { 21, 45, 32, 41 };
-        ///<summary>
-        ///Adding AccountNos in the list
-        /// </summary>
-        ///<param name='t'>AccountNumbers</param>
-        ///<param name="='c'>AgeOfCustomer</param>
-        public void AddAccountNumbers(long t)
+        //private fields
+        private static List<GoldLoanCustomer> goldLoanCustomers;
+
+        //constructor
+        static JewelLoanDataAccessLayer()
         {
-            AccountNumbers.Add(t);
+            _goldLoanCustomers = new List<GoldLoanCustomer>()
+            {
+                new GoldLoanCustomer(){ GoldLoanCustomerAccountNo =142357689012, GoldLoanCustomerName = "vamshi" },
+                new GoldLoanCustomer(){ GoldLoanCustomerAccountNo=313242425577,GoldLoanCustomerName = "sumanth" }
+            };
         }
-        public void AddAgeOfCustomer(int c)
+
+        //Add
+        public void Add(GoldLoanCustomer goldLoanCustomer)
         {
-            AgeOfCustomer.Add(c);
+            _goldLoanCustomers.Add(goldLoanCustomer);
+        }
+
+        //Get all goldLoanCustomers
+        public List<GoldLoanCustomer> GetGoldloanCustomers()
+        {
+            return _goldLoanCustomers;
+        }
+
+        //Update
+        public void UpdateEmployee(GoldLoanCustomer goldLoanCustomer)
+        {
+            //Get matching GoldLoanCustomer based on GoldloanCustomerName
+            GoldLoanCustomer gg = _goldLoanCustomers.Find(temp => temp.GoldLoanCustomerAccountNo == goldloanCustomer.GoldLoanCustomerAccountNo);
+            if (gg != null)
+            {
+                gg.GoldLoanCustomerName = goldLoanCustomer.GoldLoanCustomerName;
+            }
         }
     }
 }

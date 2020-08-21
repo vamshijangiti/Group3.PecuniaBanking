@@ -13,12 +13,14 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
     /// </summary>
     public class CreditcardBusinessLogicLayer
 
-        {
+    {
         CreditcardDataAccessLayer _creditcardDataAccessLayer;
         public CreditcardBusinessLogicLayer()
         {
             _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
         }
+        //public void add(){}
+       
         //checking account holder name
         public void CheckAccountHolderName(Creditcard customer)
         {

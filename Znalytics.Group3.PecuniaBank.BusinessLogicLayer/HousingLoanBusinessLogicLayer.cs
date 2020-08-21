@@ -1,16 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-    class HousingLoanBusinessLogicLayer
+    public class HousingLoanBusinessLogicLayer
     {
-   
-            public class HousingLoan 
+        HousingLoanDataAccessLayer=_housingLoanDataAccessLayer;
+            public HousingLoanBusinessLogicLayer()
+        {
+            housingLoanDataAccessLayer = new HousingDataAccesssLayer();
+
+        }
+        public void Add(Customer customer)
+        {
+            if (customer.CustomerName!=null)
             {
+                _housingLoanDataAccessLayer.Add(customer);
+            }
+            else
+            {
+                throw new Exception("Customer name cant be null");
+            }
+        }
+        public List<Customer>GetCustomers()
+        {
+            return _housingLoanDataAccesssLayer.GetCustomers();
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            if (customer.CustomerName!=null)
+            {
+                _housingLoanDataAccessLayer.UpdateCustomer(customer);
+            }
+        }
                 //private fields
                 private long _accountNo;
                 private string _accountHolderName;
@@ -23,7 +50,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 private bool AgeOfCustomer;
 
          
-                public HousingLoan(long _accountNo)//parameterized constructor
+                public HousingLoanBusinessLogicLayer(long _accountNo)//parameterized constructor
                 {
                     AccountNo = _accountNo;
                 }
@@ -33,6 +60,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                     {
                         if (value == 12)//12 digit AccountNo
                         {
+
                             _accountNo = value;
                         }
                         else
@@ -46,16 +74,16 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                     }
                 }
 
-                public HousingLoan(string _accountHolderName)
+                public HousingLoanBusinessLogicLayer(string _accountHolderName)
                 {
                     AccountHolderName = _accountHolderName;
                 }
 
-                public HousingLoan(double tenure)
+                public HousingLoanBusinessLogicLayer(double tenure)
                 {
                 }
 
-                public HousingLoan()
+                public HousingLoanBusinessLogicLayer()
                 {
                 }
 
@@ -143,6 +171,8 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                     return ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));
                 }
 
-            }
+                       
+        }
+
         }
 }
