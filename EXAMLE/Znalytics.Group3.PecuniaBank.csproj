@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BankAccount.cs" />
     <Compile Include="CreditcardPresentationLayer.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="MainMethod.cs" />
