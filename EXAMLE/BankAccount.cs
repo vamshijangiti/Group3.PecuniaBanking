@@ -30,29 +30,11 @@ namespace EXAMLE
             static void AddAccount()
             {
                     AccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
-                    Account account = new Account();
-                account.AccountID = 1234567812345678;
-                bool flag = false;
-                long an;
-
-
-                while (true)
-                {
+                    BankAccount account = new BankAccount();
+                
                     Console.Write("\nEnter AccountNumber : ");
-                    an= long.Parse(Console.ReadLine());
-
-                    //Validating The Account Number 
-                    if (accountBusinessLogic.ValidateAccountID(an))
-                    {
-                        flag = true;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("\n Please Enter valid Account number : ");
-                    }
-                }
-                Console.WriteLine("Enter the Account Holder Name: ");
+                account.AccountID(Console.ReadLine());
+             Console.WriteLine("Enter the Account Holder Name: ");
                     account.AccountHolderName(Console.ReadLine());
                     accountBusinessLogic.Add(account);
                     Console.WriteLine("Account Created.\n");
