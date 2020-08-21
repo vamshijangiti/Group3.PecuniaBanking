@@ -43,14 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Creditcard.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="DisplayingAccount.cs" />
     <Compile Include="MainMethod.cs" />
     <Compile Include="personalvehicleloanpresentationlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="personalvehicleloans.cs" />
-    <Compile Include="sri.cs" />
     <Compile Include="TransactionMenu.cs" />
   </ItemGroup>
   <ItemGroup>

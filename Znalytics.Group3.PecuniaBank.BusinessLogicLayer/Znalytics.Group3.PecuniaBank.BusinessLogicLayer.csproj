@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountDetail.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="CreditcardBusinessLogicLayer.cs" />
     <Compile Include="personalloanbusinesslogiclayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
     <Compile Include="CustomerDetail.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="personalloanentities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs" />
