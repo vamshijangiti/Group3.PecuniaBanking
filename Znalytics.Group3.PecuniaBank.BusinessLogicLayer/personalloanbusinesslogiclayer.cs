@@ -57,10 +57,10 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 throw new System.Exception("enter ten digits of phone number");
             }
         }
-        //public float emi()
-        
-        
-       // return ((float)(((float)(_loanAmount* _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));
+        public float emi(PersonalLoan personalLoan)
+        {
 
+            return ((float)(((float)(personalLoan.LoanAmount * rateOfInterest * (1 + rateOfInterest) * tenure)) / (1 + _rateOfInterest) * tenure - 1));
+        }
     }
 }
