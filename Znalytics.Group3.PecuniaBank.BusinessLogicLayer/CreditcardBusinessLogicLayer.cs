@@ -5,11 +5,12 @@ using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 using Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer;
 using System.Security.Cryptography.X509Certificates;
 
-/// <summary>
-/// Represents BusinessLogic Layer of Creditcard 
-/// </summary>
 namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
 {
+
+    /// <summary>
+    /// Represents businesslogic layer of credit card
+    /// </summary>
     public class CreditcardBusinessLogicLayer
 
         {
@@ -18,6 +19,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         {
             _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
         }
+        //checking account holder name
         public void CheckAccountHolderName(Creditcard customer)
         {
             if (customer.AccountHolderName != null)
@@ -30,6 +32,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
             }
 
         }
+        //checking account number
         public void CheckAccountNumber(Creditcard customer)
         {
             if (customer.AccountNumber != null)
@@ -41,6 +44,8 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
                 throw new Exception("Account number can't be null");
             }
         }
+
+        //Approve credit card
         public void ApproveCreditCard(Creditcard customer)
         {
             if (customer.Income >= 300000)
@@ -49,6 +54,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
             }
 
         }
+        // generating application number
         public void ApplicationNumber(Creditcard customer)
         {
             if (customer.Income >= 300000)
@@ -66,7 +72,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
                 Console.WriteLine(AppNumber);
             }
         }
-
+        //generating credit card number
         public void GenerateCreditCardNumber(Creditcard customer)
         {
             string crn = System.Convert.ToString(customer.AppNumber);

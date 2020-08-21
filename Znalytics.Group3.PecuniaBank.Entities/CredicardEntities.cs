@@ -20,14 +20,14 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         /// <summary>
         /// Represents details of the customer
         /// </summary>
-        /// <param name="AccountHolderName"></param>
-        /// <param name="AccountNumber"></param>
-        /// <param name="Occupation"></param>
-        /// <param name="Address"></param>
-        /// <param name="Income"></param>
-        /// <param name="PanCardNumber"></param>
-        /// <param name="AadharCardNumber"></param>
-        /// <param name="PhoneNumber"></param>
+        /// <param name="AccountHolderName"> name of the account holder</param>
+        /// <param name="AccountNumber"> account number</param>
+        /// <param name="Occupation"> occupation of customer</param>
+        /// <param name="Address"> address of customer</param>
+        /// <param name="Income">income of customer</param>
+        /// <param name="PanCardNumber"> pan card number</param>
+        /// <param name="AadharCardNumber"> aadhar card number</param>
+        /// <param name="PhoneNumber"> Phone number</param>
         Customer(string AccountHolderName, long AccountNumber, string Occupation, string Address, float Income, string PanCardNumber, long AadharCardNumber, long PhoneNumber)
         {
             _accountHolderName = AccountHolderName;

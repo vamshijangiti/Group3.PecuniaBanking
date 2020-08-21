@@ -3,11 +3,12 @@
 using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 
-/// <summary>
-/// Represnts Dataaccess Layer of Creditcard Module
-/// </summary>
+
 namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
 {
+/// <summary>
+/// Represents data access layer of creditcard
+/// </summary>
     public class CreditcardDataAccessLayer
     {
         //create list

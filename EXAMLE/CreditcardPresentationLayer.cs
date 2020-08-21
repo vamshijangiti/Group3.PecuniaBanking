@@ -6,19 +6,21 @@ using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 using Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer;
 
-/// <summary>
-/// Represents Presentation Layer of Creditcard
-/// </summary>
 
 namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 {
+    /// <summary>
+    /// Represents presentation layer of credit card
+    /// </summary>
     class CreditcardPresentationLayer
     {
+        //Menu
         static void Menu()
         {
             DisplayMenu();
             Console.ReadKey();
         }
+        //Menu presentation
         static void DisplayMenu()
         {
             int choice = 0;
@@ -44,6 +46,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
 
         }
+    //Adding Customer details for credit card
     static void AddCreditCard()
     {
         CreditcardBusinessLogicLayer customerbusinesslogic = new CreditcardBusinessLogicLayer();
@@ -85,6 +88,8 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
         CreditcardBusinessLogicLayer.Add(customer);
         Console.WriteLine("Credit card details added successfully");
+
+        //Approve credit card
         bool b = CreditcardBusinessLogicLayer.ApproveCreditCard(customer);
         if(b==true)
         {
@@ -95,8 +100,12 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
             Console.WriteLine("You are not eligible to approve credit card");
 
         }
+
+        //Displays application number
         CreditcardBusinessLogicLayer.ApplicationNumber(customer);
         Console.WriteLine("Your application number is" + customer.AppNumber);
+
+        //Displays credit card number
         CreditcardBusinessLogicLayer.GenerateCreditCard(customer);
         Console.WriteLine("Your credit card number is" + customer.crn);
     }
