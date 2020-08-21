@@ -16,22 +16,22 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     /// <summary>
     /// Business Logic Layer For WithDrawl And Debit
     /// </summary>
-   
+
     public class TransactionBusinessLogic
-{
-
-
-        
-
-    /// <summary>
-    /// Validation Of AccountNumber
-    /// </summary>
-    /// <param name="_accNumber">Account Number Of Customer should Be Less than 10</param>
-    /// <returns></returns>
-    public void ValidateAccountNumber(Transaction accNumber)
     {
-        //if (_name.Length > 10)
-        string l = accNumber + "";
+
+
+
+
+        /// <summary>
+        /// Validation Of AccountNumber
+        /// </summary>
+        /// <param name="_accNumber">Account Number Of Customer should Be Less than 10</param>
+        /// <returns></returns>
+        public void ValidateAccountNumber(Transaction accNumber)
+        {
+            //if (_name.Length > 10)
+            string l = accNumber + "";
             if (l.Length == 16)
             {
                 TransactionDAL td = new TransactionDAL();
@@ -39,31 +39,31 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             else
                 throw new Exception("please check Account number");
-    }
-
-
-
-
-    /// <summary>
-    /// Validation Of Withdrawl
-    /// </summary>
-    /// <param name="d1">Available Balance</param>
-    /// <param name="d2">Entered Balance</param>
-    /// <returns></returns>
-    public bool ValidateWithDrawl(double d1, double d2)
-    {
-        if (d1 - d2 >= 5000)
-        {
-            return true;
         }
-        else
-        {
-            return false;
-        }
-    }
 
-    
-    public bool ValidateDeposit(double d1,double d2)
+
+
+
+        /// <summary>
+        /// Validation Of Withdrawl
+        /// </summary>
+        /// <param name="d1">Available Balance</param>
+        /// <param name="d2">Entered Balance</param>
+        /// <returns></returns>
+        public bool ValidateWithDrawl(double d1, double d2)
+        {
+            if (d1 - d2 >= 5000)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public bool ValidateDeposit(double d1, double d2)
         {
             return true;
         }

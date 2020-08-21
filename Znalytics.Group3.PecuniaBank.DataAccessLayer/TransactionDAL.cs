@@ -13,15 +13,15 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// <summary>
     /// DataAccessLayer For WithDrawl And Debit
     /// </summary>
-    public  class TransactionDAL
+    public class TransactionDAL
     {
-       // Transaction transaction = new Transaction();
-       /// <summary>
-       /// Collection for Transaction
-       /// </summary>
+        // Transaction transaction = new Transaction();
+        /// <summary>
+        /// Collection for Transaction
+        /// </summary>
         List<Transaction> transactions = new List<Transaction>();
-        
-       
+
+
         /// <summary>
         /// Adding the AccountNumber in to List
         /// </summary>
@@ -39,9 +39,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public void AddTransactionDate(Transaction d)
         {
             transactions.Add(d);
-          
+
         }
-    
+
         public List<Transaction> GetTransactionDate(string Date)
         {
             return transactions.
@@ -50,7 +50,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public List<Transaction> GetTransactions(long AccountNumber)
         {
             return transactions.FindAll(temp => temp.AccountNumber == AccountNumber);
-            
+
         }
 
     }

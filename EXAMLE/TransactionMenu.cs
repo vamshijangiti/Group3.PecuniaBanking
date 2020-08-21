@@ -37,10 +37,10 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             Transaction e1 = new Transaction();
             TransactionBusinessLogic b = new TransactionBusinessLogic();
             //Created Statically Account Number And Balance
-            e1.AccountNumber=1234567812345678;
+            e1.AccountNumber = 1234567812345678;
             bool flag = false;
             long uan;
-           
+
 
             while (true)
             {
@@ -60,8 +60,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             }
 
 
-                if (flag)
-            { 
+            if (flag)
+            {
                 //if User entered Account Number is Equals To Static Account Number
                 if (e1.AccountNumber == uan)
                 {
@@ -89,7 +89,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                 Console.WriteLine("\nEnter amount to Deposit");
                                 double da = double.Parse(Console.ReadLine());
                                 //e1.Balance=e1.Balance+ da;
-                               // Console.WriteLine("\navailable balance" + e1.Balance);
+                                // Console.WriteLine("\navailable balance" + e1.Balance);
                                 break;
                             case 2:
                                 Console.WriteLine("\nEnter amount to WithDrawl");
@@ -113,17 +113,18 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
                 }
 
-                else {
+                else
+                {
                     Console.WriteLine("\naccount not exist");
                 }
-              
-                  
+
+
             }
-           
+
         }
 
-        
-        
-        
+
+
+
     }
 }
