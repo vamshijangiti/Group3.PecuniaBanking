@@ -15,7 +15,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             housingLoanDataAccessLayer = new HousingDataAccesssLayer();
 
         }
-        public void Add(Customer customer)
+        public void Add(HousingLoan CustomerId)
         {
             if (customer.CustomerName!=null)
             {
