@@ -41,14 +41,16 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             transactions.Add(d);
           
         }
-
+    
         public List<Transaction> GetTransactionDate(string Date)
         {
             return transactions.
         }
+
         public List<Transaction> GetTransactions(long AccountNumber)
         {
             return transactions.FindAll(temp => temp.AccountNumber == AccountNumber);
+            
         }
 
     }
