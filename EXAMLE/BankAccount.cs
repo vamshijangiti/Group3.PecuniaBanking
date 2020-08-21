@@ -14,8 +14,9 @@ namespace EXAMLE
             int choice = 0;
             do
             {
+                Console.WriteLine("WELCOME TO PECUNIA BANKING");
                 Console.WriteLine("Menu");
-                Console.WriteLine("1. creat Account ");
+                Console.WriteLine("1. Add Account ");
                 Console.WriteLine("2. view Account");
                 Console.WriteLine("3. Exit");
                 Console.WriteLine("Enter the choice: ");
