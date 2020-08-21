@@ -8,5 +8,6 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
     class AccountDataAccessLayer
     {
+        List<Account>accounts = new List<Account>();
     }
 }

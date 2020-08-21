@@ -1,4 +1,5 @@
-﻿using System;
+﻿//ceated by shwetha
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,32 +7,32 @@ using System.Threading.Tasks;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-   public class AccountBusinessLogic
+    public class AccountBusinessLogic
     {
-        AccountsDataAccessLogic _accountDataAccessLogic;
-        public AccountBusinessLogic()
+        //  AccountsDataAccessLogic _accountDataAccessLogic;
+        public class Account
         {
-            _accountDataAccessLogic = new accounstDataAccessLogic();
-        }
-        public string AccountID(string Accnum)
-        {
-            if (Accnum.Length == 16)
+            // _accountDataAccessLogic = new accounstDataAccessLogic();
+
+            public string AccountID(string Accnum)
             {
-                //account number should be equals to 6 digits
-                return Accnum;
-            }
-            else
-            {
-                throw new Exception("Enter less than 16 numbers \n");
+                if (Accnum.Length == 16)
+                {
+                    //account number should be equals to 6 digits
+                    return Accnum;
+                }
+                else
+                {
+                    throw new Exception("Enter less than 16 numbers \n");
+                }
+
             }
 
-        }
-    }
-       public string AccountHolderName(string Accname)
+            public string AccountHolderName(string Accname)
             {
-                if ((Accname.Length <= 20)&&(Accname!=null))
+                if ((Accname.Length <= 20) && (Accname != null))
                 {
-            //accountholdername should be less than 20characters
+                    //accountholdername should be less than 20characters
                     return Accname;
                 }
                 else
@@ -40,12 +41,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 }
 
             }
-        public List<Account> GetAccount()
-        {
-            return _AccountDataAccessLogic.GetAccount();
+
+
+
         }
-
-
-
     }
 }
