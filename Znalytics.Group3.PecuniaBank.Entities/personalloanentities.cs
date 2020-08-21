@@ -23,6 +23,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         private double _rateOfInterest;
         private double _tenure;
         private float _emi;
+        private double _creditScore;
+        
+
 
 
 
