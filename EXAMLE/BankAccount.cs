@@ -1,11 +1,14 @@
-﻿using System;
+﻿//created by shwetha
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Znalytics.Group3.PecuniaBank;
+using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 
-namespace EXAMLE
+
+
+namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
     class BankAccount
     {
