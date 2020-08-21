@@ -3,21 +3,36 @@
 using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 
-/// <summary>
-/// Represnts Dataaccess Layer of Creditcard Module
-/// </summary>
+
 namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
 {
+/// <summary>
+/// Represents data access layer of creditcard
+/// </summary>
     public class CreditcardDataAccessLayer
     {
         //create list
-        List<Customer> customers = new List<Customer>();
+        
+        private static List<Customer> _customers;
 
-        public void AddCustomerName(Customer c)
+        static CreditcardDataAccessLayer()
         {
-                customers.Add(c);
-            }
-            
+            _customers = new List<Customer>()
+            {
+             
+            };
         }
+
+        //Add
+        public void Add(Creditcard customer)
+        {
+            _customers.Add(customer);
+        }
+
+        //public void AddCreditcard(Customer c)
+        //{
+        // customers.Add(c);
     }
+
 }
+    

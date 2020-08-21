@@ -1,43 +1,91 @@
 ﻿// Manasa Business Logic Layer
-
+using System;
+using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
-using Znalytics.PecuniaBanking.DataAccessLayer;
+using Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer;
+using System.Security.Cryptography.X509Certificates;
 
-/// <summary>
-/// Represents BusinessLogic Layer of Creditcard 
-/// </summary>
 namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
 {
 
-        public class CreditcardBusinessLogicLayer
+    /// <summary>
+    /// Represents businesslogic layer of credit card
+    /// </summary>
+    public class CreditcardBusinessLogicLayer
+
+    {
+        CreditcardDataAccessLayer _creditcardDataAccessLayer;
+        public CreditcardBusinessLogicLayer()
         {
-        //Validating customer name
-        public void CheckCustomerName(string customerName)
+            _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
+        }
+        //public void add(){}
+       
+        //checking account holder name
+        public void CheckAccountHolderName(Creditcard customer)
         {
-            if (Creditcard.CustomerName != null)
+            if (customer.AccountHolderName != null)
             {
-                CreditcardDataAccesLayer cdl = new CreditcardDataAccesLayer();
-                cdl.AddCustomer(customerName);
+                _creditcardDataAccessLayer.CheckAccountHolderName(customer);
             }
             else
             {
                 throw new Exception("Please mentione your name");
             }
-            
+
         }
-        // validating account number
-        public void CheckAccountNumber(long accountnumber)
+        //checking account number
+        public void CheckAccountNumber(Creditcard customer)
         {
-            if (Creditcard.AccountNumber != null)
+            if (customer.AccountNumber != null)
             {
-                CreditcardDataAccesLayer cdl = new CreditcardDataAccesLayer();
-                cdl.AddCustomer(accountNumber);
+                _creditcardDataAccessLayer.CheckAccountNumber(customer);
             }
             else
             {
-                throw new Exception("Please mentione your name");
+                throw new Exception("Account number can't be null");
             }
-            
         }
+
+        //Approve credit card
+        public void ApproveCreditCard(Creditcard customer)
+        {
+            if (customer.Income >= 300000)
+            {
+                return;
+            }
+
+        }
+        // generating application number
+        public void ApplicationNumber(Creditcard customer)
+        {
+            if (customer.Income >= 300000)
+            {
+                long i = customer.AadharNumber;
+                long AppNumber = 0;
+                int count = 0;
+                while (count < 4)
+                {
+                    long j = i % 10;
+                    AppNumber = AppNumber * 10 + j;
+                    i = i / 10;
+                    count++;
+                }
+                Console.WriteLine(AppNumber);
+            }
+        }
+        //generating credit card number
+        public void GenerateCreditCardNumber(Creditcard customer)
+        {
+            string crn = System.Convert.ToString(customer.AppNumber);
+            long b = customer.AppNumber;
+            string apno = System.Convert.ToString(b);
+            string ar = System.Convert.ToString(customer.AadharNumber);
+            Console.WriteLine(apno + ar);
+
+        }
+
+
     }
-}
+
+}          
