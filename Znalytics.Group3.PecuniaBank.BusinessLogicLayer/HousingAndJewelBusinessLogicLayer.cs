@@ -1,43 +1,19 @@
-﻿
-//sriram's Business Logic Layer
-using System.Dynamic;
-using System.Windows.Markup;
-using Znalytics.Group3.PecuniaBank.Entities;
+﻿//srirams businesslogic layer
+
+using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     /// <summary>
-    /// abstract class 
+    /// abstract class named loan
     /// </summary>
     public abstract class Loan
     {
-        private string _loanName;
-
-        public string LoanName
+    }
+    
+        public class HousingLoan:Loan
         {
-            set
-            {
-                if (value.Length <= 30)
-                {
-                    _loanName = value;
-                }
-            }
-            get
-            {
-                return _loanName;
-            }
-        }
-        public Loan(string LoanName)
-        {
-            this.LoanName = LoanName;
-        }
-        public virtual void Display(int x)
-        {
-            System.Console.WriteLine("LoanName:+Loanname");
-        }
-        public class HousingLoan : Loan
-        {
-            //private fields
+        //private fields
             private int _accountNo;
             private string _accountHolderName;
             private int _ageOfCustomer;
@@ -50,11 +26,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
             public int HousingLoanId
             {
-                get; set;
+                get; set;//automated property;
             }
             public HousingLoan(string accountHolderName, int HousingLoanId) : base(accountHolderName)
             {
-                this.HousingLoanId = HousingLoanId;
+                this.HousingLoanId = HousingLoanId;//this keyword
             }
 
             public HousingLoan(int _accountNo)//parameterized constructor
@@ -71,7 +47,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                     }
                     else
                     {
-                        throw new System.Exception("Invalid account no");
+                        throw new System.Exception("Invalid account no");//raises exception
                     }
                 }
                 get
@@ -82,7 +58,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
             public HousingLoan(string _accountHolderName)
             {
-                AccountHolderName = _accountHolderName;
+                AccountHolderName = _accountHolderName;//returns accountholdername
             }
 
             public HousingLoan(double tenure)
@@ -101,7 +77,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
                 set
                 {
-                    if (value.Length <= 30)
+                    if (value.Length <= 30)//checks length
                     {
                         _accountHolderName = value;//assigns value to accountHolderName
                     }
@@ -116,6 +92,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
                 }
             }
+        
+            public HousingLoan()
+            {
+
+            }
             public void SetAgeOfCustomer(int value)
             {
                 if (value >= 21)
@@ -124,12 +105,12 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 }
                 else
                 {
-                    throw new System.Exception("your age is not eligible");
+                    throw new System.Exception("your age is not eligible");//raises exception if age not eligible
                 }
             }
             public int GetAgeOfCustomer()
             {
-                return _ageOfCustomer;
+                return _ageOfCustomer;//returns age of customer
             }
             public void SetCreditScore(int value)
             {
@@ -139,7 +120,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 }
                 else
                 {
-                    throw new System.Exception("your credit score is not up to the mark");
+                    throw new System.Exception("your credit score is not up to the mark");//returns  exception
                 }
             }
             public int GetCreditScore()
@@ -164,9 +145,13 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             public double Tenure
             { set; get; }//automated property
-            public float rateOfInterest
+            public void SetRateOfInterest(float value)
             {
-                set; get;//autommated property
+                _rateOfInterest = value;//rate of Interest fora customer
+            }
+            public float GetRateOfInterest()
+            {
+                return _rateOfInterest;
             }
             public void Setemi(float value)
             {
@@ -179,87 +164,93 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         }
 
-        public class GoldLoan :Loan
+    }
+}
+
+    /// <summary>
+    /// GoldLoan class for presentationlayer
+    /// </summary>
+    public class GoldLoan:Loan//inherited from abstract class loan
+    {
+        //private fields
+        private long _aadharNo;
+        private int _age;
+        private int _carotType;
+        private double _loanAmount;
+        private double _tenure;
+        private double _rateOfInterest;
+        private float _emi;
+            public GoldLoan(long aadharNo)
+            {
+                AadharNo = _aadharNo;//assigns aadhar value
+            }
+            public long AadharNo
+            {
+                set//set property
+                {
+                    if (value == 12)
+                    {
+                        _aadharNo = value;//assigns value only if equal to 12
+                    }
+                    else
+                    {
+                        throw new System.Exception("invalid aadharno");//raises Exception of invalid AadharNo
+                    }
+                }
+                get//get property
+                {
+                    return _aadharNo;//returns aadharno
+                }
+            }
+        public void SetAge(int value)
         {
-            //private fields
-            private long _aadharNo;
-            private int _age;
-            private int _carotType;
-            private double _loanAmount;
-            private double _tenure;
-            private double _rateOfInterest;
-            private float _emi;
-
-            public void SetAadharNo(long value)
+            if (_age >= 21)
             {
-                if (value == 12)//aadhar no should be 12 digits only
-                {
-
-                    _aadharNo = value;
-                }
-                else
-                {
-                    throw new System.Exception("invalid aadharno");
-                }
+                _age = value;//age to apply goldloan should be from 21
             }
-
-            public long GetAadharNo()
+            else
             {
-                return _aadharNo;
+                throw new System.Exception("age not eligible");//raises exception if age not eligible
             }
-
-            public void SetAge(int value)
+        }
+        public int GetAge()
+        {
+            return _age;//returns age value
+        }
+            public int CarotType
             {
-                if (_age >= 21)
-                {
-                    _age = value;//age to apply goldloan should be from 21
-                }
-                else
-                {
-                    throw new System.Exception("age not eligible");
-                }
+                set; get;//automated property for Carot type
             }
-            public int GetAge()
+        public void SetloanAmount(double value)
+        {
+            if (_loanAmount <= 20000)
             {
-                return _age;
+                _loanAmount = value;//loanamount should be less than 20000
             }
-            public void SetCarotType(int value)
-            {
-                _carotType = value;//carotType should be either 18 or 22
-            }
-            public int GetCarotType()
-            {
-                return _carotType;
-            }
-            public void SetloanAmount(double value)
-            {
-                if (_loanAmount <= 20000)
-                {
-                    _loanAmount = value;//loanamount should be less than 20000
-                }
-            }
-            public double GetloanAmount()
-            {
-                return _loanAmount;
-            }
+        }
+        public double GetloanAmount()
+        {
+            return _loanAmount;//returns loanamount
+        }
             public double tenure
             {
-                set; get;//automated property
+                set; get;//automated property for tenure
             }
             public double rateOfInterest
             {
-                set; get;//automated property 
+                set; get;//automated property for rateofinterest
             }
-            
-            public void Setemi(float value)
-            {
-                _emi = value;//assigns emi for goldloan through below formula
-            }
-            public float Getemi()
-            {
-                return ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));
-
-            }
+        public void Setemi(float value)
+        {
+            _emi = value;//assigns emi for goldloan through below formula
+        }
+        public float Getemi()
+        {
+            return ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));
+            //returns emi value
         }
     }
 }
+}
+
+    
