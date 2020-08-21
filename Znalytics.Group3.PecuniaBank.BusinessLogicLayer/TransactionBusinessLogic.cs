@@ -19,7 +19,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
     public class TransactionBusinessLogic
     {
-
+        TransactionDAL td = new TransactionDAL();
 
 
 
@@ -34,11 +34,13 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             string l = accNumber + "";
             if (l.Length == 16)
             {
-                TransactionDAL td = new TransactionDAL();
+                
                 td.GetTransactions(accNumber);
             }
             else
+            {
                 throw new Exception("please check Account number");
+            }
         }
 
 
@@ -72,31 +74,6 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             throw new NotImplementedException();
         }
-
-
-
-
-        /*  public string Date
-          {
-              set
-              {
-                  //Phone number should contain 10 digits only
-                  if (value.Length == 10)
-                  {
-                       = value;
-                  }
-                  else
-                  {
-                      throw new Exception("Phone number should contain 10 digits only");
-                  }
-              }
-              get
-              {
-                  return ;
-              }
-
-          }*/
-
 
     }
 }
