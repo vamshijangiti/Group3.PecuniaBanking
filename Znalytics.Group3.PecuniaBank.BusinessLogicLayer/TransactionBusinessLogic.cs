@@ -13,13 +13,21 @@ using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
+    public interface ITransactionBLL
+    {
+        void ValidateAccountNumber(Transaction transaction);
+
+    }
+
+
     /// <summary>
     /// Business Logic Layer For WithDrawl And Debit
     /// </summary>
 
-    public class TransactionBusinessLogic
+    public class TransactionBusinessLogic : ITransactionBLL
     {
-        TransactionDAL td = new TransactionDAL();
+        ITransactionBLL transactionBll = new TransactionBusinessLogic();
+        ITransactionDAL transactionDAl = new TransactionDAL();
 
 
 
@@ -34,8 +42,8 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             string l = accNumber + "";
             if (l.Length == 16)
             {
-                
-                td.GetTransactions(accNumber);
+
+                transactionDAl.GetTransactions(accNumber);
             }
             else
             {
@@ -43,11 +51,8 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
         }
 
-
-
-
         /// <summary>
-        /// Validation Of Withdrawl
+        /// Validation For Withdrawl
         /// </summary>
         /// <param name="d1">Available Balance</param>
         /// <param name="d2">Entered Balance</param>
@@ -65,16 +70,28 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
 
 
+        /// <summary>
+        /// Validation For Deposit
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <returns></returns>
         public bool ValidateDeposit(double d1, double d2)
         {
+
             return true;
         }
 
-        public bool ValidateAccountNumber(long uan)
-        {
-            throw new NotImplementedException();
-        }
 
+        /* public bool ValidateAccountNumber(long uan)
+          {
+              throw new NotImplementedException();
+          }
+
+          public void ValidateAccountNumber()
+          {
+              throw new NotImplementedException();
+          }*/
     }
 }
 

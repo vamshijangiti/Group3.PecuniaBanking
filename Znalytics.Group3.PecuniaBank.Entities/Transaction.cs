@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,17 +12,22 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 {
 
 
+    public abstract class AbstractTransaction
+    {
+        private int _transactionID;
+        public string _transactionDate;
+        private string _transactionType;
+        private string _trasactionAmount;
+        public long _accountNumber;
+    }
+
 
     /// <summary>
     /// Entity Layer For Transactions
     /// </summary>
-    public class Transaction
+    public class Transaction : AbstractTransaction
     {
-        private int _transactionID;
-        private string _transactionDate;
-        private string _transactionType;
-        private string _trasactionAmount;
-        private long _accountNumber;
+        AbstractTransaction transaction = new Transaction();
 
 
         public Transaction() { }
@@ -38,11 +44,11 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <param name="transactionAmount">Transaction Amount</param>
         public Transaction(long accountNumber, string date, int transactionID, string transactionType, string transactionAmount)
         {
-            this._accountNumber = accountNumber;
-            this._transactionDate = date;
-            this._transactionID = transactionID;
-            this._transactionType = transactionType;
-            this._trasactionAmount = transactionAmount;
+            transaction._accountNumber = accountNumber;
+            transaction._transactionDate = date;
+            transaction._transactionID = transactionID;
+            transaction._transactionType = transactionType;
+            transaction._trasactionAmount = transactionAmount;
         }
 
 

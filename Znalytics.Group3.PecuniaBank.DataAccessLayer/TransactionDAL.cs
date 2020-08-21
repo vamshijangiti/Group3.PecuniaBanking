@@ -10,16 +10,27 @@ using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
-    /// <summary>
-    /// DataAccessLayer For WithDrawl And Debit
-    /// </summary>
-    public class TransactionDAL
+    public interface ITransactionDAL
     {
-        // Transaction transaction = new Transaction();
+        void AddTransaction(Transaction t);
+        void AddTransactionDate(Transaction d);
+        List<Transaction> GetTransactions(Transaction accNumber);
+
+    }
+
+    /// <summary>
+    /// DAL Class For WithDrawl And Debit
+    /// </summary>
+    public class TransactionDAL : ITransactionDAL
+    {
+
+
         /// <summary>
         /// Collection for Transaction
         /// </summary>
         List<Transaction> transactions = new List<Transaction>();
+        //  public List<Transaction> GetTransactions(long AccountNumber);
+
 
 
         /// <summary>
@@ -42,21 +53,21 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
 
-        public void GetTransactions(Transaction accNumber)
-        {
-            throw new NotImplementedException();
-        }
 
         // public List<Transaction> GetTransactionDate(string Date)
         //{
         //return;
         //}
 
+
+
+
         public List<Transaction> GetTransactions(long AccountNumber)
         {
             return transactions.FindAll(temp => temp.AccountNumber == AccountNumber);
 
         }
+
 
     }
 }
