@@ -2,7 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Runtime.Remoting;
-using Znalytics.Group3.PecuniaBank.Entities;
+using Znalytics.Group3.PecuniaBank.HousingLoanBusinessLogicLayer;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
@@ -12,22 +12,22 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class HousingLoanDataAccessLayer
     {
         //private fields
-        private static List<Customer> customers;
+        private static List<Housingloan> housingloans;
 
         //constructor
         static HousingLoanDataAccessLayer()
         {
-            _customers = new List<Customer>();
+            _housingLoans = new List<HousingLoan>();
 
             {
-                new Customer() { CustomerAccountNo = 135792468012, CustomerName = "sri" };
+                new () { CustomerAccountNo = 135792468012, CustomerName = "sri" };
                 new Customer() { CustomerAccountNo = 123456789013, CustomerName = "ram" }
 
             };
         }
 
         //Add Customers
-        public void Add(Customer customer)
+        public void Add(HousingLoan customerid)
         {
 
             _customers.Add(customer);

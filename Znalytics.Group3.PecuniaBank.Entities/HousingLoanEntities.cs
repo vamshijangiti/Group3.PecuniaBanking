@@ -11,8 +11,10 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         public class HousingLoan
         {
             //private fields
-            private int _accountNo;
-            private string _accountHolderName;
+            private int _customerId;
+            private string _loanAccepted;
+            private string _loanPending;
+            private string _loanRejected;
             private int _ageOfCustomer;
             private double _loanAmount;
             private double _tenure;
