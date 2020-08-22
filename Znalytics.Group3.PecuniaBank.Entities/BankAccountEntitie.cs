@@ -8,25 +8,25 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 {
 
     class BankAccountEntitie
-    {
+    {               
 
 
-        private int _accountID;
+        private int _accountID;         
         private string _accountHolder;
-        private double _balance;
+       private double _balance;
         //Constructor - parameterized to initialize properties in new Bank Account object and enable short syntax for creating new objects
         public BankAccountEntitie(int AccountID, string AccountHolder, double Balance)
         {
             this.AccountID = AccounID;
             this.AccountHolder = AccountHolder;
-            this.Balance = Balance;
+           this.Balance = Balance;
         }
         //Constructor - for new objects with no parameters passed
         public BankAccountEntitie()
         { }
 
-        public int AccountID
-        {
+            public int AccountID
+             {
             set
             {
                 _accountID = value;
@@ -36,7 +36,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 return _accountID;
             }
 
-        }
+             }
         public string AccountHolder
         {
             set
@@ -49,10 +49,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
 
         }
-        //Setter with validation code to ensure no balance of less than zero is entered
         public double Balance
         {
-            set
+            set                                 //Setter with validation code to ensure no balance of less than zero is entered
             {
                 if (value > 0)
                 {
@@ -69,4 +68,8 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
 
         }
+
+
     }
+}
+

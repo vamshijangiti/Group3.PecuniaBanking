@@ -120,7 +120,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
 
 
-        CreditCardBusinessLogicLayer.AddCreditcard(creditcard); 
+       // CreditCardBusinessLogicLayer.AddCreditcard(creditcard); 
         }
     }
 }

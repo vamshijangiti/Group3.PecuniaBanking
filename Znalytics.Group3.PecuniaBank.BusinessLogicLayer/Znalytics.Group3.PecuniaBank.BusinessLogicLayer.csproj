@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountBusinessLogic.cs" />
     <Compile Include="AccountDetail.cs" />
     <Compile Include="CreditcardBusinessLogicLayer.cs" />
     <Compile Include="HousingLoanBusinessLogicLayer.cs" />

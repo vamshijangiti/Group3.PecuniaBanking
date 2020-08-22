@@ -19,7 +19,9 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         {
             _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
         }
-        //public void add(){}
+       
+
+ 
        
         //checking account holder name
         public void CheckAccountHolderName(Creditcard customer)
