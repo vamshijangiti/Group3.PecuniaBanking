@@ -14,10 +14,10 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
     public abstract class AbstractTransaction
     {
-        private int _transactionID;
+        public int _transactionID;
         public string _transactionDate;
-        private string _transactionType;
-        private string _trasactionAmount;
+        public string _transactionType;
+        public string _trasactionAmount;
         public long _accountNumber;
     }
 
