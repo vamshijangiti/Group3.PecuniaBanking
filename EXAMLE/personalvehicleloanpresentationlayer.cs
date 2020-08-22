@@ -17,7 +17,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     {
         static void Main()
         {
-
+            int count;
+            count = 0;
             PersonalLoan pl = new PersonalLoan();
             VehicleLoan vl = new VehicleLoan();
             PersonalLoanBusinessLogicLayer pb = new PersonalLoanBusinessLogicLayer();
@@ -28,14 +29,17 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 System.Console.WriteLine("FOR LOAN ACCEPTANCE");
                 System.Console.WriteLine("1 - FOR PERSONAL LOAN");
                 System.Console.WriteLine("2 - FOR VEHICLE LOAN");
+
                 System.Console.WriteLine("3-EXIT");
+
+
 
 
                 int n;
                 n = int.Parse(System.Console.ReadLine());
 
-               
-              //switch case for checking
+
+                //switch case for checking
 
                 switch (n)
                 {
@@ -46,9 +50,10 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
                         System.Console.WriteLine(pl.AccountNumber);
 
-                        System.Console.WriteLine("Enter the Bank Holders Name");
-                        pl.AccountHolderName = (System.Console.ReadLine());
-                        System.Console.WriteLine(pl.AccountHolderName);
+                        System.Console.WriteLine("Enter the AccountId");
+                        pl.AccountId = (System.Console.ReadLine());
+                        System.Console.WriteLine(pl.AccountId);
+
 
                         System.Console.WriteLine("Enter the PhoneNumber");
                         pl.PhoneNumber = (System.Console.ReadLine());
@@ -78,16 +83,29 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         System.Console.WriteLine(pl.LoanAmount);
 
                         System.Console.WriteLine("Enter the Rate of interest");
-                        pl.RateOfInterest  = (double.Parse(System.Console.ReadLine()));
-                        System.Console.WriteLine(pl.RateOfInterest );
+                        pl.RateOfInterest = (double.Parse(System.Console.ReadLine()));
+                        System.Console.WriteLine(pl.RateOfInterest);
 
                         System.Console.WriteLine("Enter the Tenure");
-                        pl.Tenure  = (double.Parse(System.Console.ReadLine()));
+                        pl.Tenure = (double.Parse(System.Console.ReadLine()));
                         System.Console.WriteLine(pl.Tenure);
 
-                      //  System.Console.WriteLine("Enter the EMI");
-                      //  pl.Emi  = (System.Console.ReadLine());
-                       // System.Console.WriteLine(pl.Emi );
+
+                        System.Console.WriteLine("Enter the CreditScore");
+                        pl.CreditScore  = (int.Parse(System.Console.ReadLine()));
+                        System.Console.WriteLine(pl.CreditScore);
+                        if((pl.CreditScore!=0)&&(pl.AnnualIncome!=0)&&(pl.PanCardNumber!=null))
+                        {
+                            pb.AddAccountDetails(pl);
+                            System.Console.WriteLine("your loan is accepted");
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("your loan is rejected");
+                        }
+                        //  System.Console.WriteLine("Enter the EMI");
+                        //  pl.Emi  = (System.Console.ReadLine());
+                        // System.Console.WriteLine(pl.Emi );
                         break;
 
 
@@ -97,8 +115,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         System.Console.WriteLine(vl.AccountNumber);
 
                         System.Console.WriteLine("Enter the Bank Holders Name");
-                        vl.AccountHolderName = (System.Console.ReadLine());
-                        System.Console.WriteLine(vl.AccountHolderName);
+                        vl.AccountId = (System.Console.ReadLine());
+                        System.Console.WriteLine(vl.AccountId);
 
                         System.Console.WriteLine("Enter the PhoneNumber");
                         vl.PhoneNumber = (System.Console.ReadLine());
@@ -134,14 +152,34 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         vl.Tenure = (double.Parse(System.Console.ReadLine()));
                         System.Console.WriteLine(vl.Tenure);
 
+                        System.Console.WriteLine("Enter the CreditScore");
+                        vl.CreditScore = (int.Parse(System.Console.ReadLine()));
+                        System.Console.WriteLine(vl.CreditScore);
+
+                        if ((vl.CreditScore != 0) && (vl.AnnualIncome != 0) && (vl.PanCardNumber != null))
+                        {
+                            vb.AddAccountDetails(vl);
+                            System.Console.WriteLine("your loan is accepted");
+                        }
+                        else
+                        {
+                            System.Console.WriteLine("your loan is rejected");
+                        }
+
 
                         break;
                     case 3:
                         System.Console.WriteLine("Thanks For Using PECUNIA BANK");
                         break;
                 }
+
             }
+           
             System.Console.ReadKey();
         }
+       
+
+      
+
     }
 }

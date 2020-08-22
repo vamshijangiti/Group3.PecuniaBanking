@@ -13,21 +13,18 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     public class PersonalLoan
     {
         private string _accountNumber;
-        private string _accountHolderName;
+        private string _accountId;
         private string _phoneNumber;
         private string _permanentAddress;
         private string _panCardNumber;
         private string _profession;
-        private double _annualIncome;
-        private double _loanAmount;
+        private double  _annualIncome;
+        private double  _loanAmount;
         private double _rateOfInterest;
         private double _tenure;
         private float _emi;
-        private double _creditScore;
-        
-
-
-
+        private int _creditScore;               
+      
 
        //set and get methods for account number
 
@@ -35,7 +32,19 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                _accountNumber = value;
+                if (AccountNumber.Length == 6)
+                {
+                    _accountNumber = value;
+                }
+
+
+
+
+                else
+                {
+                    throw new Exception("Enter 6 digits only\n");
+                }
+
             }
             get
             {
@@ -44,24 +53,46 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         }
         //set and get methods for account holder name
 
-        public String AccountHolderName
+        public String AccountId
         {
             set
             {
-                _accountHolderName = value;
+
+                if (AccountId.Length == 5)
+                {
+                    _accountId = value;
+                }
+
+                else
+                {
+                    throw new Exception("Enter 5 digits only\n");
+
+                }
             }
             get
             {
-                return _accountHolderName;
+                return _accountId;
             }
         }
+         
+         
         //set and get methods for phone number
 
         public String PhoneNumber
         {
-            set
+           set
             {
-                _phoneNumber = value;
+                if (PhoneNumber .Length == 10)
+                {
+                    _phoneNumber = value;
+                }
+
+                else
+                {
+                    throw new Exception("Enter 10 digits only\n");
+
+                }
+
             }
             get
             {
@@ -73,28 +104,47 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                _permanentAddress = value;
-            }
-            get
+            int HouseNumber;
+            bool b;
+            string address = " ";
+            b = int.TryParse(address, out HouseNumber);
+            if (b == true)
             {
-                return _permanentAddress;
+                System.Console.WriteLine();
             }
-        }
+
+            _permanentAddress = value;
+            }
+           get
+           {
+            return _permanentAddress;
+           }
+    }
         //set and get methods for pancardnumber
 
         public String PanCardNumber
         {
             set
             {
-                _panCardNumber = value;
-            }
-            get
+            int Number;
+            bool b;
+            string Pan = " ";
+            b = int.TryParse(Pan, out Number);
+            if (b == true)
             {
-                return _panCardNumber;
+                System.Console.WriteLine();
             }
+
+            _panCardNumber = value;
+            }
+           get
+           {
+            return _panCardNumber;
+           }
+
         }
-        //set and get methods for profession
-        public String Profession
+    //set and get methods for profession
+    public String Profession
         {
             set
             {
@@ -107,11 +157,21 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         }
         //set and get methods for annual income
 
-        public double AnnualIncome
+        public double  AnnualIncome
         {
             set
             {
-                _annualIncome = value;
+                if (AnnualIncome >=400000 )
+                {
+                    _annualIncome = value;
+                }
+
+                else
+                {
+                    throw new Exception("not eligible\n");
+
+                }
+
             }
             get
             {
@@ -124,11 +184,22 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                _loanAmount = value;
+                if (LoanAmount >= 500000)
+                {
+                    _loanAmount = value;
+                }
+
+                else
+                {
+                    throw new Exception("not eligible\n");
+
+                }
+
             }
             get
             {
                 return _loanAmount;
+
             }
         }
         //set and get methods for tenure
@@ -136,12 +207,22 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                _tenure = value;
+                if (Tenure >= 3)
+                {
+                    _tenure = value;
+                }
+
+                else
+                {
+                    throw new Exception("not eligible\n");
+
+                }
 
             }
             get
             {
                 return _tenure;
+
             }
         }
          //set and get methods for rate of interest  
@@ -167,6 +248,28 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             {
              return ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));
                 
+            }
+        }
+
+        public int CreditScore
+        {
+            set
+            {
+
+
+                if (CreditScore >= 650)//checks creditscore of a person which should starts from 650
+                {
+                    _creditScore = value;
+                }
+                else
+                {
+                    throw new System.Exception("your credit score is not up to the mark");
+                }
+            }
+
+            get
+            {
+                return _creditScore;//returns credits score
             }
         }
 
