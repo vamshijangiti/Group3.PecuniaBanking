@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
-using Znalytics.Group3.PecuniaBank.Entities;
+﻿/*using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Runtime.Remoting;
+using Znalytics.Group3.PecuniaBank.HousingLoanBusinessLogicLayer;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
@@ -9,7 +12,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class HousingLoanDataAccessLayer
     {
         //private fields
-        private static List<HousingLoan> _housingLoans;
+        private static List<Housingloan> housingloans;
 
         //constructor
         static HousingLoanDataAccessLayer()
@@ -17,33 +20,32 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             _housingLoans = new List<HousingLoan>();
 
             {
-                new HousingLoan() { CustomerId =1, CustomerAge=24,Tenure=1,CreditScore=677 };
-                new HousingLoan() { CustomerId = 2, CustomerAge = 25, Tenure = 3,CreditScore=360 };
+                new () { CustomerAccountNo = 135792468012, CustomerName = "sri" };
+                new Customer() { CustomerAccountNo = 123456789013, CustomerName = "ram" };
 
             };
         }
 
-        //Add Housing Loan Customer id
+        //Add Customers
         public void Add(HousingLoan customerid)
         {
 
-            _housingLoans.Add(customerid);//customerids
-            _housingLoans.Add(customerid);
+            _customers.Add(customer);
 
         }
-        //GetCustomerId
-        public List<HousingLoan> GetCustomerId()
+        //Getcustomers
+        public List<Customer> GetCustomers()
         {
-            return _housingLoans;
+            return _customers;
         }
-        //UpdateHousingLoan
-        public void UpdateHousingLoan(HousingLoan customerId)
+        //UpdateCustomers
+        public void UpdateCustomer(Customer customer)
         {
-            HousingLoan cust = _housingLoans.Find(temp => temp.CustomerId == customerId.CustomerId);
+            customer cust = _customers.Find(temp => temp.CustomerAccountNo == customer.CustomerAccountNo);
             if (cust !=null)
             {
-                cust.CustomerId = cust.CustomerId;
+                cust.CustomerName = customer.CustomerName;
             }
         }
     }
-}
+}*/

@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
@@ -20,26 +21,14 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     {
         public void start()
         {
-            /*   Console.WriteLine("no of accounts");
-               int n =int.Parse( Console.ReadLine());
-               Entities[] allAcc = new Entities[n];
-               for(int i=0;i<n;i++)
-               {
-                   Entities e = new Entities();
-                   Console.WriteLine("Enter account no");
-                   e.AccountNumber = long.Parse(Console.ReadLine());
-                   Console.WriteLine("Enter Balance");
-                   e.Balance = double.Parse(Console.ReadLine());
-                   allAcc[i] = e;
-               }*/
-
-
+            
             Transaction e1 = new Transaction();
             TransactionBusinessLogic b = new TransactionBusinessLogic();
-            //Created Statically Account Number And Balance
-           // e1.AccountNumber = 1234567812345678;
+            ICustomerBLL customerBLL = new CustomerBLL();
+           
             bool flag = false;
             long uan;
+
 
 
             while (true)
@@ -48,7 +37,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 uan = long.Parse(Console.ReadLine());
 
                 //Validating The Account Number 
-                if (b.ValidateAccountNumber(uan))
+                if (b.ValidateAccountNumber(uan) == customerBLL.GetAccountNumber())
                 {
                     flag = true;
                     break;
@@ -62,11 +51,14 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
             if (flag)
             {
-                //if User entered Account Number is Equals To Static Account Number
+                //if User entered Account Number is Equals To  Account Number
                 if (e1.AccountNumber == uan)
                 {
 
                     System.Console.WriteLine("\n\t\t************* WELCOME TO PECUNIA BANK ***********\t\t \n\n");
+
+                    Console.Write("\n Enter today's Date (DT-MM-YEAR) : " + e1.TransactionDate);
+
                     char ch = 'Y';
                     do
                     {
@@ -76,20 +68,23 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         System.Console.WriteLine("\n1 - FOR DEPOSIT");
                         System.Console.WriteLine("\n2 - FOR WITHDRAWL");
                         System.Console.WriteLine("\n2 - CHECK BALANCE");
-                        //System.Console.WriteLine("\n3- EXIT");
+                        System.Console.WriteLine("\n3- EXIT");
                         Console.Write("\nEnter Your choice : ");
                         int n;
                         n = int.Parse(System.Console.ReadLine());
-
+                        double da;
                         //Switch Case For Checking
 
                         switch (n)
                         {
                             case 1:
                                 Console.WriteLine("\nEnter amount to Deposit");
-                                double da = double.Parse(Console.ReadLine());
-                                //e1.Balance=e1.Balance+ da;
-                                // Console.WriteLine("\navailable balance" + e1.Balance);
+                                 da = double.Parse(Console.ReadLine());
+                                if(b.ValidateDeposit(da))
+                                {
+                                    Console.WriteLine("\nThe Deposited Amount is : "+da);
+                                    
+                                }
                                 break;
                             case 2:
                                 Console.WriteLine("\nEnter amount to WithDrawl");
@@ -104,10 +99,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                      Console.WriteLine("\nInsufficient Balance");
                                  }*/
                                 break;
+                            case 3:
+                                Console.WriteLine("Available Balance is : "+);
+                                break;
 
 
                         }
-                        Console.WriteLine("\n Do you want to Use it Again press Y else N ");
+                        Console.Write("\n Do you want to Use it Again press Y else N : ");
                         ch = char.Parse(Console.ReadLine());
                     } while (ch == 'Y');
 
@@ -118,12 +116,19 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     Console.WriteLine("\naccount not exist");
                 }
 
+               
+
 
             }
 
         }
 
+        public double AvailableBalance(double available)
+        {
 
+          return  available += 0;
+
+        }
 
 
     }
