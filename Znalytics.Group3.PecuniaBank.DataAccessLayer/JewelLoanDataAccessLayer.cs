@@ -13,23 +13,40 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class JewelLoanDataAccessLayer
     {
         //private fields
-        private static List<GoldLoan> _goldLoans;
+        private static List<JewelLoan> _JewelLoans;
 
         //constructor
         static JewelLoanDataAccessLayer()
         {
-            _goldLoans = new List<GoldLoan>()
+            _JewelLoans = new List<JewelLoan>();
             {
-                new GoldLoan() { CustId = 1, CarotType = 22, Age = 20, tenure = 1.2 },
-                new GoldLoan() { CustId = 2, CarotType = 24, Age = 23, tenure = 1 },
-            };
-        }
+                new JewelLoan() { CustId = 1, CarotType = 22, Age = 20, tenure = 1.2 };
+                new JewelLoan() { CustId = 2, CarotType = 24, Age = 23, tenure=1 };
+        };
+    }
+
+  
 
         //Add
-        public void Add(GoldLoan custId)
+
+        public void Add(JewelLoan custId)
         {
-            _goldLoans.Add(custId);
+            _JewelLoans.Add(custId);
         }
+        public List<JewelLoan> GetCustId()
+        {
+            return _JewelLoans;
+        }
+        //UpdateJewelLoan
+        public void UpdateJewelLoan(JewelLoan custId)
+        {
+            JewelLoan cust = _JewelLoans.Find(temp => temp.CustId == custId.CustId);
+            if (cust != null)
+            {
+                cust.CustId = cust.CustId;
+            }
+        }
+
     }
 }
 

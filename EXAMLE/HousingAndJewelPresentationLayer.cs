@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Znalytics.Group3.PecuniaBank.Entities;
-using Znalytics.Group3.PecuniaBank.HousingLoanBusinessLogicLayer;
+using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 
 namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
-   {
+{
     /// <summary>
     /// PresentationLayer for HousingLoan and JewelLoan
     /// </summary>
@@ -43,7 +43,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
                         break;
 
                     case 2://choosing GoldLoan option
-                        GoldLoan g = new GoldLoan();
+                        JewelLoan g = new JewelLoan();
                         System.Console.WriteLine("enter aadharno");
                         long _aadharNo = long.Parse(System.Console.ReadLine());
                         System.Console.WriteLine("enter ageofcustomer");
@@ -62,10 +62,11 @@ namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
                         System.Console.WriteLine("exit ");
                         break;
                 }
-                switch ()
+
                 System.Console.ReadKey();
             }
         }
     }
+}
  
         

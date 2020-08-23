@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace Znalytics.Group3.PecuniaBank.Entities
 {
-            public class GoldLoan
+            public class JewelLoan
             {
                 //private fields
                 private int _custId;
