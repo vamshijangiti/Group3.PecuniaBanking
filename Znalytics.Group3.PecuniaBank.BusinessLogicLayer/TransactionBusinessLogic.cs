@@ -15,7 +15,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public interface ITransactionBLL
     {
-        void ValidateAccountNumber(Transaction transaction);
+        bool ValidateAccountNumber(long accNumber);
 
     }
 
@@ -28,7 +28,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         ITransactionBLL transactionBll = new TransactionBusinessLogic();
         ITransactionDAL transactionDAl = new TransactionDAL();
-        AbstractTransaction AbstractTransaction = new Transaction();
+        Transaction AbstractTransaction = new Transaction();
 
 
 
@@ -37,7 +37,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// </summary>
         /// <param name="_accNumber">Account Number Of Customer should Be Less than 10</param>
         /// <returns></returns>
-        public void ValidateAccountNumber(Transaction accNumber)
+        public bool ValidateAccountNumber(long accNumber)
         {
             //if (_name.Length > 10)
             string l = accNumber + "";
@@ -45,6 +45,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
 
                 transactionDAl.GetTransactions(accNumber);
+                return true;
             }
             else
             {
@@ -62,14 +63,14 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             if (d1 - d2 >= 5000)
             {
-                AbstractTransaction._trasactionAmount = d1 - d2;
+                AbstractTransaction._transactionAmount = d1 - d2;
                 return true;
             }
             else
             {
                 //Minimum Balance is 5000
-                throw new  Exception("\n Minimum Balance is 5000 ") ;
-                
+                throw new Exception("\n Minimum Balance is 5000 ");
+
             }
         }
 
@@ -79,12 +80,12 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// </summary>
         /// <param name="d2">The Deposit Amount </param>
         /// <returns></returns>
-        public bool ValidateDeposit( double d2)
+        public bool ValidateDeposit(double d2)
         {
 
-            if(d2>=500)
+            if (d2 >= 500)
             {
-                AbstractTransaction._trasactionAmount = d2;
+                AbstractTransaction._transactionAmount = d2;
                 return true;
             }
             else
@@ -93,7 +94,16 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 return false;
             }
         }
-                       
+
+        
+       /* public int GenerateID(int n)
+        {
+            for(int i=0;i<n;i++)
+            {
+                return i;
+            }
+            return 0;
+        }*/
     }
 }
 

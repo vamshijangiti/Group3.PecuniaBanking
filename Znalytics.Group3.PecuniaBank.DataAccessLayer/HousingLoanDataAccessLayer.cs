@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Runtime.Remoting;
@@ -21,7 +21,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
             {
                 new () { CustomerAccountNo = 135792468012, CustomerName = "sri" };
-                new Customer() { CustomerAccountNo = 123456789013, CustomerName = "ram" }
+                new Customer() { CustomerAccountNo = 123456789013, CustomerName = "ram" };
 
             };
         }
@@ -48,4 +48,4 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             }
         }
     }
-}
+}*/

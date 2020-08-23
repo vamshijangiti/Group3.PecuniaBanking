@@ -17,7 +17,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         public int _transactionID;
         public string _transactionDate;
         public string _transactionType;
-        public double _trasactionAmount;
+        public double _transactionAmount;
         public long _accountNumber;
     }
 
@@ -42,13 +42,13 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <param name="transactionID">Transaction ID</param>
         /// <param name="transactionType">Type Of Transaction</param>
         /// <param name="transactionAmount">Transaction Amount</param>
-        public Transaction(long accountNumber, string date, int transactionID, string transactionType, string transactionAmount)
+        public Transaction(long accountNumber, string date, int transactionID, string transactionType, double transactionAmount)
         {
             transaction._accountNumber = accountNumber;
             transaction._transactionDate = date;
             transaction._transactionID = transactionID;
             transaction._transactionType = transactionType;
-            transaction._trasactionAmount = transactionAmount;
+            transaction._transactionAmount = transactionAmount;
         }
 
 
@@ -80,11 +80,27 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <summary>
         /// Represents the Type Of the Transaction
         /// </summary>
-        public string TransactionType
+        public double TransactionAmount
         {
             set
             {
-                _trasactionAmount = value;
+                _transactionAmount = value;
+
+            }
+            get
+            {
+                return _transactionAmount;
+            }
+        }
+
+        /// <summary>
+        /// Represents the Method for Transaction Type
+        /// </summary>
+        public string TransactionTpe
+        {
+            set
+            {
+                _transactionType = value;
 
             }
             get
@@ -93,7 +109,17 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
 
-
+        public int TransactionID
+        {
+            set
+            {
+                _transactionID = value;
+            }
+            get
+            {
+                return _transactionID;
+            }
+        }
 
     }
 }

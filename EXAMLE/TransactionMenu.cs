@@ -48,7 +48,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 uan = long.Parse(Console.ReadLine());
 
                 //Validating The Account Number 
-                if (b.ValidateAccountNumber(uan))
+                if (b.ValidateAccountNumber(uan) == true)
                 {
                     flag = true;
                     break;
