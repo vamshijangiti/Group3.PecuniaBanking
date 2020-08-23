@@ -21,10 +21,6 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         }
             
 
-
-
-
-
             //checking account holder name
             public void AddCreditCard(Customer creditcard)
         {
@@ -66,7 +62,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         {
             if (creditcard.Income >= 300000)
             {
-                long i = creditcard.AadharNumber;
+                long i = creditcard.AadharCardNumber;
                 long AppNumber = 0;
                 int count = 0;
                 while (count < 4)
@@ -80,14 +76,27 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
             }
         }
         //generating credit card number
-        public string GenerateCreditCardNumber(Customer creditcard)
+        public string GenerateCreditCard(Customer creditcard)
         {
-            string crn = System.Convert.ToString(creditcard.AppNumber);
             long b = ApplicationNumber(creditcard);
             string apno = System.Convert.ToString(b);
-            string ar = System.Convert.ToString(creditcard.AadharNumber);
-            string n= System.Convert.ToString(apno + ar);
-            return n;
+            string ar = System.Convert.ToString(creditcard.AadharCardNumber);
+            string CreditcardNumber= System.Convert.ToString(apno + ar);
+            return CreditcardNumber;
+
+        }
+
+        public void ViewCreditCard()
+        {
+
+        }
+
+        public void CreditCardLimitIncrease(Customer creditcard)
+        {
+            if(creditcard.CibilScore>=750)
+            {
+                return;
+            }
 
         }
 

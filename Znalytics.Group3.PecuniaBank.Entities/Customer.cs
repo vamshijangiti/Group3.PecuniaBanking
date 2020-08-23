@@ -20,17 +20,19 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         private int _cibilScore;
 
 
-        /// <summary>
-        /// Represents details of the customer
-        /// </summary>
-        /// <param name="AccountHolderName"> name of the account holder</param>
-        /// <param name="AccountNumber"> account number</param>
-        /// <param name="Occupation"> occupation of customer</param>
-        /// <param name="Address"> address of customer</param>
-        /// <param name="Income">income of customer</param>
-        /// <param name="PanCardNumber"> pan card number</param>
-        /// <param name="AadharCardNumber"> aadhar card number</param>
-        /// <param name="PhoneNumber"> Phone number</param>
+       /// <summary>
+       /// Represents creditcard details of customer
+       /// </summary>
+       /// <param name="AccountHolderName">Name of AccountHolder</param>
+       /// <param name="AccountNumber">Accountnumber of customer</param>
+       /// <param name="Occupation">Occupation of customer</param>
+       /// <param name="Address">Address of customer</param>
+       /// <param name="Income">Income of customer</param>
+       /// <param name="PanCardNumber">Pancardnumber of customer</param>
+       /// <param name="AadharCardNumber">Aadharcardnumber of customer</param>
+       /// <param name="PhoneNumber">Phonenumber of customer</param>
+       /// <param name="Appnumber">Application number of customer</param>
+       /// <param name="CibilScore"> Cibilscore of customer</param>
         Customer(string AccountHolderName, long AccountNumber, string Occupation, string Address, double Income, string PanCardNumber, long AadharCardNumber, long PhoneNumber,int Appnumber,int CibilScore)
         {
             _accountHolderName = AccountHolderName;
