@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Znalytics.Group3.PecuniaBank.DataAccessLayer;
+using Znalytics.Group3.PecuniaBank.Entities;
+using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     class JewelLoanBusinessLogicLayer
     {
-        JewelLoanDataAccessLayer= _jewelLoanDataAccessLayer;
+        JewelLoanDataAccessLayer=_jewelLoanDataAccessLayer;
 
-        public JewelLoanBusinessLogicLayer()
+        public  JewelLoanBusinessLogicLayer()
         {
             _jewelLoanDataAccessLayer = new JewelLoanDataAccessLayer();
         }
 
         //Add
-        public void Add(GoldLoanCustomer goldLoanCustomer)
+        public void Add(GoldLoan goldLoan)
         {
-            if (goldLoanCustomer.GoldLoanCustomerName != null)
+            if (goldLoan.CustId != null)
             {
-                _jewelLoanDataAccessLayer.Add(goldLoanCustomer);
+                _jewelLoanDataAccessLayer.Add(goldLoan);
             }
             else
             {
@@ -111,6 +114,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
                 set; get;//automated property 
             }
+            public object CustId { get; internal set; }
 
             public void Setemi(float value)
             {
@@ -121,6 +125,10 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 return ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));
 
             }
+        }
+
+        public class _jewelLoanDataAccessLayer
+        {
         }
     }
 }

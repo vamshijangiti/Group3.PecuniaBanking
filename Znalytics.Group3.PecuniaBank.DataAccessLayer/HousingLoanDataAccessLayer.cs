@@ -1,8 +1,5 @@
-﻿using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Runtime.Remoting;
-using Znalytics.Group3.PecuniaBank.HousingLoanBusinessLogicLayer;
+﻿using System.Collections.Generic;
+using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
@@ -12,7 +9,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class HousingLoanDataAccessLayer
     {
         //private fields
-        private static List<Housingloan> housingloans;
+        private static List<HousingLoan> _housingLoans;
 
         //constructor
         static HousingLoanDataAccessLayer()
@@ -20,31 +17,32 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             _housingLoans = new List<HousingLoan>();
 
             {
-                new () { CustomerAccountNo = 135792468012, CustomerName = "sri" };
-                new Customer() { CustomerAccountNo = 123456789013, CustomerName = "ram" }
+                new HousingLoan() { CustomerId =1, CustomerAge=24,Tenure=1,CreditScore=677 };
+                new HousingLoan() { CustomerId = 2, CustomerAge = 25, Tenure = 3,CreditScore=360 };
 
             };
         }
 
-        //Add Customers
+        //Add Housing Loan Customer id
         public void Add(HousingLoan customerid)
         {
 
-            _customers.Add(customer);
+            _housingLoans.Add(customerid);//customerids
+            _housingLoans.Add(customerid);
 
         }
-        //Getcustomers
-        public List<Customer> GetCustomers()
+        //GetCustomerId
+        public List<HousingLoan> GetCustomerId()
         {
-            return _customers;
+            return _housingLoans;
         }
-        //UpdateCustomers
-        public void UpdateCustomer(Customer customer)
+        //UpdateHousingLoan
+        public void UpdateHousingLoan(HousingLoan customerId)
         {
-            customer cust = _customers.Find(temp => temp.CustomerAccountNo == customer.CustomerAccountNo);
+            HousingLoan cust = _housingLoans.Find(temp => temp.CustomerId == customerId.CustomerId);
             if (cust !=null)
             {
-                cust.CustomerName = customer.CustomerName;
+                cust.CustomerId = cust.CustomerId;
             }
         }
     }

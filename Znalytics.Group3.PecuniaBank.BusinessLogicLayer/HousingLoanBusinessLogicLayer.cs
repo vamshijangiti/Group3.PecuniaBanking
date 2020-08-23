@@ -1,45 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
+using Znalytics.Group3.PecuniaBank.DataAccessLayer;
+using Znalytics.Group3.PecuniaBank.Entities;
+
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public class HousingLoanBusinessLogicLayer
     {
-        HousingLoanDataAccessLayer=_housingLoanDataAccessLayer;
-            public HousingLoanBusinessLogicLayer()
+        HousingLoanDataAccessLayer=_housingLoan;
+    
+    public HousingLoanBusinessLogicLayer()
         {
-            housingLoanDataAccessLayer = new HousingDataAccesssLayer();
+            _housingLoan= new HousingLoanDataAccessLayer();
+        }
+        //add
+        public void Add(HousingLoan housingLoan)
+        {
+            if (housingLoan.CustomerId==0)
+            {
 
-        }
-        public void Add(HousingLoan CustomerId)
-        {
-            if (customer.CustomerName!=null)
-            {
-                _housingLoanDataAccessLayer.Add(customer);
-            }
-            else
-            {
-                throw new Exception("Customer name cant be null");
-            }
-        }
-        public List<Customer>GetCustomers()
-        {
-            return _housingLoanDataAccesssLayer.GetCustomers();
-        }
-
-        public void UpdateCustomer(Customer customer)
-        {
-            if (customer.CustomerName!=null)
-            {
-                _housingLoanDataAccessLayer.UpdateCustomer(customer);
             }
         }
                 //private fields
-                private long _accountNo;
+           /*     private long _accountNo;
                 private string _accountHolderName;
                 private int _ageOfCustomer;
                 private double _loanAmount;
@@ -91,7 +80,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                  {
                  }
                 */
-                public string AccountHolderName
+            /*    public string AccountHolderName
                 {
                     set
                     {
@@ -172,7 +161,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 }
 
                        
-        }
+        }*/
 
         }
 }

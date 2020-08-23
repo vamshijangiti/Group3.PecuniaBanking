@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
@@ -12,39 +13,24 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class JewelLoanDataAccessLayer
     {
         //private fields
-        private static List<GoldLoanCustomer> goldLoanCustomers;
+        private static List<GoldLoan> _goldLoans;
 
         //constructor
         static JewelLoanDataAccessLayer()
         {
-            _goldLoanCustomers = new List<GoldLoanCustomer>()
+            _goldLoans = new List<GoldLoan>()
             {
-                new GoldLoanCustomer(){ GoldLoanCustomerAccountNo =142357689012, GoldLoanCustomerName = "vamshi" },
-                new GoldLoanCustomer(){ GoldLoanCustomerAccountNo=313242425577,GoldLoanCustomerName = "sumanth" }
+                new GoldLoan() { CustId = 1, CarotType = 22, Age = 20, tenure = 1.2 },
+                new GoldLoan() { CustId = 2, CarotType = 24, Age = 23, tenure = 1 },
             };
         }
 
         //Add
-        public void Add(GoldLoanCustomer goldLoanCustomer)
+        public void Add(GoldLoan custId)
         {
-            _goldLoanCustomers.Add(goldLoanCustomer);
-        }
-
-        //Get all goldLoanCustomers
-        public List<GoldLoanCustomer> GetGoldloanCustomers()
-        {
-            return _goldLoanCustomers;
-        }
-
-        //Update
-        public void UpdateEmployee(GoldLoanCustomer goldLoanCustomer)
-        {
-            //Get matching GoldLoanCustomer based on GoldloanCustomerName
-            GoldLoanCustomer gg = _goldLoanCustomers.Find(temp => temp.GoldLoanCustomerAccountNo == goldloanCustomer.GoldLoanCustomerAccountNo);
-            if (gg != null)
-            {
-                gg.GoldLoanCustomerName = goldLoanCustomer.GoldLoanCustomerName;
-            }
+            _goldLoans.Add(custId);
         }
     }
 }
+
+       
