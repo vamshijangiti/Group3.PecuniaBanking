@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using Znalytics.Group3.PecuniaBank.Entities;
-using Znalytics.Group3.PecuniaBank.HousingLoanBusinessLogicLayer;
+using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 
 namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
-   {
+{
     /// <summary>
     /// PresentationLayer for HousingLoan and JewelLoan
     /// </summary>
     class program
     {
         static void Main()
-        {      
- 
-          System.Console.WriteLine("-----welcome to pecunia bank-------");//options for type of loan
+        {
+
+            System.Console.WriteLine("-----welcome to pecunia bank-------");//options for type of loan
             System.Console.WriteLine("1.HousingLoan");
             System.Console.WriteLine("2.GoldLoan");
             System.Console.WriteLine("3.exit");
@@ -23,7 +23,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
                 switch (n)
                 {
                     case 1://choosing HousingLoan option
-                        HousingLoanAndJewelPresentationLayer h = new HousingLoan();
+                        HousingLoan h = new HousingLoan();
                         System.Console.WriteLine("enter accountno");//prints account no
                         long _accountNo = long.Parse(System.Console.ReadLine());
                         System.Console.WriteLine("enter Age of Customer");
@@ -43,7 +43,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
                         break;
 
                     case 2://choosing GoldLoan option
-                        GoldLoan g = new GoldLoan();
+                        JewelLoan g = new JewelLoan();
                         System.Console.WriteLine("enter aadharno");
                         long _aadharNo = long.Parse(System.Console.ReadLine());
                         System.Console.WriteLine("enter ageofcustomer");
@@ -62,8 +62,11 @@ namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
                         System.Console.WriteLine("exit ");
                         break;
                 }
+
                 System.Console.ReadKey();
             }
         }
+    }
+}
  
         
