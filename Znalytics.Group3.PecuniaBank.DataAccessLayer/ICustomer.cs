@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+//CREATED BY VAMSHI JANGITI -- ICUSTOMER INTERFACE FOR DAL
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +10,12 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
     public interface ICustomer
     {
-        long GetAccountNumber(long accNumber);
+        long GetAccountNumber();
 
     }
     public class CustomerDetail : ICustomer
     {
-       public long GetAccountNumber(long accNumber)
+        public long GetAccountNumber()
         {
             return 0;
         }

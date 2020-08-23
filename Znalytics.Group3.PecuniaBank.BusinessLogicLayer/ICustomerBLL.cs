@@ -1,4 +1,8 @@
-﻿using System;
+﻿
+
+//CREATED BY VAMSHI JANGITI -- DATA ACCESS LAYER
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +12,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public interface ICustomerBLL
     {
-        long GetAccountNumber(long AccountNumber);
+        long GetAccountNumber();
     }
     public class CustomerBLL:ICustomerBLL
     {
-        public long GetAccountNumber(long AccountNumber)
+        public long GetAccountNumber()
         {
             return 0;
         }

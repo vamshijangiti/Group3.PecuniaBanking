@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
     <Compile Include="CustomerDetail.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="HousingLoanEntities.cs" />
     <Compile Include="JewelLoanEntities.cs" />
     <Compile Include="personalloanentities.cs" />
