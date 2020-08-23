@@ -16,6 +16,8 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         private string _panCardNumber;
         private long _aadharCardNumber;
         private long _phoneNumber;
+        private int _appnumber;
+        private int _cibilScore;
 
 
         /// <summary>
@@ -29,7 +31,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         /// <param name="PanCardNumber"> pan card number</param>
         /// <param name="AadharCardNumber"> aadhar card number</param>
         /// <param name="PhoneNumber"> Phone number</param>
-        Customer(string AccountHolderName, long AccountNumber, string Occupation, string Address, double Income, string PanCardNumber, long AadharCardNumber, long PhoneNumber)
+        Customer(string AccountHolderName, long AccountNumber, string Occupation, string Address, double Income, string PanCardNumber, long AadharCardNumber, long PhoneNumber,int Appnumber,int CibilScore)
         {
             _accountHolderName = AccountHolderName;
             _accountNumber = AccountNumber;
@@ -39,6 +41,8 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
             _panCardNumber = PanCardNumber;
             _aadharCardNumber = AadharCardNumber;
             _phoneNumber = PhoneNumber;
+            _appnumber = Appnumber;
+            _cibilScore = CibilScore;
         }
 
         /// <summary>
@@ -163,6 +167,30 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
                 return _phoneNumber;
             }
         }
+        public int Appnumber
+        {
+            set
+            {
+                _appnumber = value;
+            }
+            get
+            {
+                return _appnumber;
+            }
+        }
+
+        public int CibilScore
+        {
+            set
+            {
+                _cibilScore = value;
+            }
+            get
+            {
+                return _cibilScore;
+            }
+        }
+
 
     }
 
