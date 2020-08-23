@@ -29,9 +29,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
             _customers.Add(creditcard);
         }
 
-        //public void AddCreditcard(Customer c)
-        //{
-        // customers.Add(c);
+
     }
 
 }

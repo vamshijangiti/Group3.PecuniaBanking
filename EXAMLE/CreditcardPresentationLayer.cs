@@ -86,7 +86,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
         Console.Write("Enter Phone number: ");
         customer.PhoneNumber = Console.ReadLine();
 
-        customerbusinesslogic.AddCreditcard(customer);
+        customerbusinesslogic.AddCreditCard(customer);
         Console.WriteLine("Credit card details added successfully");
 
         //Approve credit card
