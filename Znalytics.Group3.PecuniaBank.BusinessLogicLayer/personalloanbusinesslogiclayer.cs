@@ -10,57 +10,18 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     /// <summary>
     /// Business logic layer for personalloan
-    /// </summary>
+    /// </summary
    public  class PersonalLoanBusinessLogicLayer
     {
+        PersonalLoanDataAccessLayer ab = new PersonalLoanDataAccessLayer();
+        public void AddAccountDetails(PersonalLoan pl)
+        { ab.AddAccountDetails(pl);
 
-        /// <summary>
-        /// validation of account number
-        /// </summary>
-        /// <param name="Accno"><account number should be less than 6>
-        /// <returns></returns>
-        public string AccountNumber(string Accno)
-        {
-            if(Accno.Length==6)
-  //account number length should be equals to 6 digits
-            {
-                return Accno;
-            }
-            else
-            {
-                   throw new Exception("Enter 6 digits only\n");
-            }
 
         }
-        public string AccountHolderName(string Accname)
-        {
-            if (Accname.Length <= 20)
-    //account name length should be less than 20characters
-            {
-                return Accname;
-            }
-            else
-            {
-                throw new System.Exception("account holder name is wrong");
-            }
+            
 
-        }
-        public string PhoneNumber(string PhneNo)
-        {
-            if(PhneNo.Length==10)
-    //phone number should be equals to 10 digits
-            {
-                return PhneNo;
-            }
-            else
-            {
-                throw new System.Exception("enter ten digits of phone number");
-            }
-        }
-        public float emi(PersonalLoan personalLoan)
-        {
-
-            return ((float)(((float)(personalLoan.LoanAmount * rateOfInterest * (1 + rateOfInterest) * tenure)) / (1 + _rateOfInterest) * tenure - 1));
-        }
+       
+       
     }
 }
