@@ -13,9 +13,6 @@ public class MainMethod
         TransactionMenu t = new TransactionMenu();
         t.start();
 
-        // DetailsMenu d = new DetailsMenu;
-        //d.Show();
-
         Console.ReadKey();
     }
 
