@@ -11,24 +11,18 @@ using System.Threading.Tasks;
 namespace Znalytics.Group3.PecuniaBank.Entities
 {
 
-
-    public abstract class AbstractTransaction
-    {
-        public int _transactionID;
-        public string _transactionDate;
-        public string _transactionType;
-        public double _transactionAmount;
-        public long _accountNumber;
-    }
-
-
     /// <summary>
     /// Entity Layer For Transactions
     /// </summary>
-    public class Transaction : AbstractTransaction
+    public class Transaction 
     {
-        AbstractTransaction transaction = new Transaction();
+        private int _transactionID;
+        private string _transactionDate;
+        private string _transactionType;
+        private double _transactionAmount;
+        private long _accountNumber;
 
+        Transaction transaction = new Transaction();
 
         public Transaction() { }
 
@@ -109,6 +103,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
 
+        /// <summary>
+        /// Represents The MEthod For Transaction ID
+        /// </summary>
         public int TransactionID
         {
             set

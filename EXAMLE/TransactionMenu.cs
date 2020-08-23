@@ -79,10 +79,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         {
                             case 1:
                                 Console.WriteLine("\nEnter amount to Deposit");
-                                 da = double.Parse(Console.ReadLine());
-                                if(b.ValidateDeposit(da))
+                                 e1.TransactionAmount = double.Parse(Console.ReadLine());
+                                b.Deposit(e1);
+                                if(b.ValidateDeposit(e1.TransactionAmount)==true)
                                 {
-                                    Console.WriteLine("\nThe Deposited Amount is : "+da);
+                                   
+
+                                    Console.WriteLine("\nThe Deposited Amount is : "+e1.TransactionAmount);
                                     
                                 }
                                 break;
@@ -100,7 +103,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                  }*/
                                 break;
                             case 3:
-                                Console.WriteLine("Available Balance is : "+);
+                                Console.WriteLine("Available Balance is : "+e1.TransactionAmount);
                                 break;
 
 
