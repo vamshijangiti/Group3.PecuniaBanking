@@ -19,29 +19,31 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         {
             _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
         }
-       
+            
 
- 
-       
-        //checking account holder name
-        public void CheckAccountHolderName(Creditcard customer)
+
+
+
+
+            //checking account holder name
+            public void AddCreditCard(Customer creditcard)
         {
-            if (customer.AccountHolderName != null)
+            if (creditcard.AccountHolderName != null)
             {
-                _creditcardDataAccessLayer.CheckAccountHolderName(customer);
+                _creditcardDataAccessLayer.AddCreditCard(creditcard);
             }
             else
             {
                 throw new Exception("Please mentione your name");
             }
 
-        }
+        
         //checking account number
-        public void CheckAccountNumber(Creditcard customer)
-        {
-            if (customer.AccountNumber != null)
+       
+        
+            if (creditcard.AccountNumber != null)
             {
-                _creditcardDataAccessLayer.CheckAccountNumber(customer);
+                _creditcardDataAccessLayer.AddCreditCard(creditcard);
             }
             else
             {
@@ -50,20 +52,21 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         }
 
         //Approve credit card
-        public void ApproveCreditCard(Creditcard customer)
+        public void ApproveCreditCard(Customer creditcard)
         {
-            if (customer.Income >= 300000)
+            if (creditcard.Income >= 300000)
             {
                 return;
             }
-
         }
+
+        
         // generating application number
-        public void ApplicationNumber(Creditcard customer)
+        public long ApplicationNumber(Customer creditcard)
         {
-            if (customer.Income >= 300000)
+            if (creditcard.Income >= 300000)
             {
-                long i = customer.AadharNumber;
+                long i = creditcard.AadharNumber;
                 long AppNumber = 0;
                 int count = 0;
                 while (count < 4)
@@ -73,17 +76,18 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
                     i = i / 10;
                     count++;
                 }
-                Console.WriteLine(AppNumber);
+                return AppNumber;
             }
         }
         //generating credit card number
-        public void GenerateCreditCardNumber(Creditcard customer)
+        public string GenerateCreditCardNumber(Customer creditcard)
         {
-            string crn = System.Convert.ToString(customer.AppNumber);
-            long b = customer.AppNumber;
+            string crn = System.Convert.ToString(creditcard.AppNumber);
+            long b = ApplicationNumber(creditcard);
             string apno = System.Convert.ToString(b);
-            string ar = System.Convert.ToString(customer.AadharNumber);
-            Console.WriteLine(apno + ar);
+            string ar = System.Convert.ToString(creditcard.AadharNumber);
+            string n= System.Convert.ToString(apno + ar);
+            return n;
 
         }
 

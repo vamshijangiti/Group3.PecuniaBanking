@@ -17,6 +17,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         private long _aadharCardNumber;
         private long _phoneNumber;
 
+
         /// <summary>
         /// Represents details of the customer
         /// </summary>

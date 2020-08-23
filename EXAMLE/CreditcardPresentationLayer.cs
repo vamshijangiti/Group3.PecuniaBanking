@@ -86,7 +86,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
         Console.Write("Enter Phone number: ");
         customer.PhoneNumber = Console.ReadLine();
 
-        CreditcardBusinessLogicLayer.Add(customer);
+        customerbusinesslogic.AddCreditcard(customer);
         Console.WriteLine("Credit card details added successfully");
 
         //Approve credit card
@@ -101,7 +101,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
         }
 
-        //Displays application number
+        //Displays application numb
         CreditcardBusinessLogicLayer.ApplicationNumber(customer);
         Console.WriteLine("Your application number is" + customer.AppNumber);
 
