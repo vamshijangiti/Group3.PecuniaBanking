@@ -62,11 +62,14 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
             if (flag)
             {
-                //if User entered Account Number is Equals To Static Account Number
+                //if User entered Account Number is Equals To  Account Number
                 if (e1.AccountNumber == uan)
                 {
 
                     System.Console.WriteLine("\n\t\t************* WELCOME TO PECUNIA BANK ***********\t\t \n\n");
+
+                    Console.Write("\n Enter today's Date : "+e1.TransactionDate);
+
                     char ch = 'Y';
                     do
                     {

@@ -79,19 +79,16 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         public bool ValidateDeposit(double d1, double d2)
         {
 
-            return true;
+            if(d2>=500)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-
-
-        /* public bool ValidateAccountNumber(long uan)
-          {
-              throw new NotImplementedException();
-          }
-
-          public void ValidateAccountNumber()
-          {
-              throw new NotImplementedException();
-          }*/
+                       
     }
 }
 

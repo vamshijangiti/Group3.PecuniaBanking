@@ -29,8 +29,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// Collection for Transaction
         /// </summary>
         List<Transaction> transactions = new List<Transaction>();
-        //  public List<Transaction> GetTransactions(long AccountNumber);
-
+       
 
 
         /// <summary>
@@ -68,6 +67,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
 
-
+        public List<Transaction> GetTransactions(Transaction accNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
