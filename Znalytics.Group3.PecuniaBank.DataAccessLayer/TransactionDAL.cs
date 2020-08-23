@@ -14,7 +14,6 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     {
         void AddTransaction(Transaction t);
         void AddTransactionDate(Transaction d);
-        List<Transaction> GetTransactions(Transaction accNumber);
 
     }
 
@@ -29,7 +28,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// Collection for Transaction
         /// </summary>
         List<Transaction> transactions = new List<Transaction>();
-       
+        
 
 
         /// <summary>
@@ -53,10 +52,10 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         }
 
 
-        // public List<Transaction> GetTransactionDate(string Date)
-        //{
-        //return;
-        //}
+        public string GetTransactionDate(string Date)
+        {
+            return Date;
+        }
 
 
 
@@ -67,9 +66,6 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
 
-        public List<Transaction> GetTransactions(Transaction accNumber)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

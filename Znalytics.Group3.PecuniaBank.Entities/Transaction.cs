@@ -17,7 +17,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         public int _transactionID;
         public string _transactionDate;
         public string _transactionType;
-        public string _trasactionAmount;
+        public double _trasactionAmount;
         public long _accountNumber;
     }
 

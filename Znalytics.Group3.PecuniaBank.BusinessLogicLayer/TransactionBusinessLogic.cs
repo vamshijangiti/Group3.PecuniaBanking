@@ -28,6 +28,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         ITransactionBLL transactionBll = new TransactionBusinessLogic();
         ITransactionDAL transactionDAl = new TransactionDAL();
+        AbstractTransaction AbstractTransaction = new Transaction();
 
 
 
@@ -52,7 +53,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
 
         /// <summary>
-        /// Validation For Withdrawl
+        /// Validation For Withdrawl - minimum balance is 50000
         /// </summary>
         /// <param name="d1">Available Balance</param>
         /// <param name="d2">Entered Balance</param>
@@ -61,30 +62,34 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             if (d1 - d2 >= 5000)
             {
+                AbstractTransaction._trasactionAmount = d1 - d2;
                 return true;
             }
             else
             {
-                return false;
+                //Minimum Balance is 5000
+                throw new  Exception("\n Minimum Balance is 5000 ") ;
+                
             }
         }
 
 
         /// <summary>
-        /// Validation For Deposit
+        /// Validation For Deposit - should be greater than 500
         /// </summary>
-        /// <param name="d1"></param>
-        /// <param name="d2"></param>
+        /// <param name="d2">The Deposit Amount </param>
         /// <returns></returns>
-        public bool ValidateDeposit(double d1, double d2)
+        public bool ValidateDeposit( double d2)
         {
 
             if(d2>=500)
             {
+                AbstractTransaction._trasactionAmount = d2;
                 return true;
             }
             else
             {
+                //The Deposit Should be More Than 500 rs
                 return false;
             }
         }
