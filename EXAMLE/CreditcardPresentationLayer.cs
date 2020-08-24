@@ -86,13 +86,14 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
                 Console.Write("Enter Phone number: ");
                 creditcard.PhoneNumber = System.Convert.ToInt64(Console.ReadLine());
 
-                customerbusinesslogic.AddCreditCard(customer);
+                customerbusinesslogic.AddCreditCard(creditcard);
                 Console.WriteLine("Credit card details added successfully");
             }
 
             //Approve credit card
-             void ApproveCreditCard()
+            public void ApproveCreditCard()
             {
+                Customer creditcard = new Customer();
                 bool b = CreditcardBusinessLogicLayer.ApproveCreditCard(customer);
                 if (b == true)
                 {
@@ -103,15 +104,16 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
                     Console.WriteLine("You are not eligible to approve credit card");
 
                 }
+
+
+                //Displays application number
+                CreditcardBusinessLogicLayer.ApplicationNumber(customer);
+                Console.WriteLine("Your application number is" + customer.AppNumber);
+
+                //Displays credit card number
+                CreditcardBusinessLogicLayer.GenerateCreditCard(customer);
+                Console.WriteLine("Your credit card number is" + customer.CreditcardNumber);
             }
-
-            //Displays application number
-            CreditcardBusinessLogicLayer.ApplicationNumber(Customer);
-            Console.WriteLine("Your application number is" + customer.AppNumber);
-
-            //Displays credit card number
-            CreditcardBusinessLogicLayer.GenerateCreditCard(Customer);
-            Console.WriteLine("Your credit card number is" + customer.CreditcardNumber);
 
 
         }
