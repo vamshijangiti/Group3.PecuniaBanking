@@ -1,16 +1,14 @@
-﻿//created by shwetha
+﻿//PresentationLayer created by sriram
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
-
-
-
+using Znalytics.Group3.PecuniaBank.Entities;
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
-    class BankAccount
+    class Account
     {
         public static void BankDetails()
         {
@@ -31,10 +29,10 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
             }
             } while (choice != 2);
-            static void AddAccount()
+            public int AddAccount()
             {
                     AccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
-                    BankAccount account = new BankAccount();
+                    Account account = new Account();
                 
                     Console.Write("\nEnter AccountNumber : ");
                 account.AccountID(Console.ReadLine());

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace Znalytics.Group3.PecuniaBank.Entities
 {
-            public class JewelLoan
+            public class JewelLoan:Loan
             {
                 //private fields
                 private int _custId;
@@ -20,7 +20,15 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 private double _rateOfInterest;
                 private float _emi;
 
-                public int CustId
+        public JewelLoan()
+        {
+        }
+
+        public JewelLoan(string LoanName) : base(LoanName)
+        {
+        }
+
+        public int CustId
                 {
                     set//property
                     {
