@@ -15,7 +15,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public interface ITransactionBLL
     {
-        void ValidateAccountNumber(long accNumber);
+        long ValidateAccountNumber(long accNumber);
 
     }
 
@@ -37,7 +37,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// </summary>
         /// <param name="_accNumber">Account Number Of Customer should Be Less than 10</param>
         /// <returns></returns>
-        public void ValidateAccountNumber(long accNumber)
+        public long ValidateAccountNumber(long accNumber)
         {
             //if (_name.Length > 10)
             string l = accNumber + "";
@@ -45,7 +45,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
 
                 transactionDAl.GetTransactions(accNumber);
-               // return accNumber;
+                return accNumber;
             }
             else
             {
@@ -85,7 +85,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
             if (d2 >= 500)
             {
-               // Transaction.TransactionAmount = d2;
+                // Transaction.TransactionAmount = d2;
                 return true;
             }
             else
@@ -94,22 +94,21 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 return false;
             }
         }
-
+        /// <summary>
+        /// Represents the Method for Deposit
+        /// </summary>
+        /// <param name="t1"></param>
         public void Deposit(Transaction t1)
         {
-            //Transaction.TransactionAmount = d1 + d2;
+
             transactionDAl.Deposit(t1);
 
         }
 
-        /* public int GenerateID(int n)
-         {
-             for(int i=0;i<n;i++)
-             {
-                 return i;
-             }
-             return 0;
-         }*/
+        public void WithDrawl(Transaction t2)
+        {
+            transactionDAl.WithDrawl(t2);
+        }
     }
 }
 

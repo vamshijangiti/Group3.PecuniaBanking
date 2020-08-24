@@ -21,16 +21,16 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     {
         public void start()
         {
-            
+            //object Declaration for classes
             Transaction e1 = new Transaction();
             TransactionBusinessLogic b = new TransactionBusinessLogic();
             ICustomerBLL customerBLL = new CustomerBLL();
-           
+
             bool flag = false;
             long uan;
 
 
-
+            //checking whether the entered Accout is correct or not
             while (true)
             {
                 Console.Write("\nEnter AccountNumber : ");
@@ -72,38 +72,23 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         Console.Write("\nEnter Your choice : ");
                         int n;
                         n = int.Parse(System.Console.ReadLine());
-                        double da;
-                        //Switch Case For Checking
 
+
+                        //Switch Case for 
                         switch (n)
                         {
                             case 1:
-                                Console.WriteLine("\nEnter amount to Deposit");
-                                 e1.TransactionAmount = double.Parse(Console.ReadLine());
-                                b.Deposit(e1);
-                                if(b.ValidateDeposit(e1.TransactionAmount)==true)
-                                {
-                                   
 
-                                    Console.WriteLine("\nThe Deposited Amount is : "+e1.TransactionAmount);
-                                    
-                                }
+                                Display();
+
+
                                 break;
                             case 2:
-                                Console.WriteLine("\nEnter amount to WithDrawl");
-                                double wa = double.Parse(Console.ReadLine());
-                                /* if (b.ValidateWithDrawl(e1.Balance, wa))
-                                 {
-                                     e1.Balance=e1.Balance - wa;
-                                     Console.WriteLine("\navailable balance" + e1.Balance);
-                                 }
-                                 else
-                                 {
-                                     Console.WriteLine("\nInsufficient Balance");
-                                 }*/
+                                DisplayWithDrawl();
                                 break;
                             case 3:
-                                Console.WriteLine("Available Balance is : "+e1.TransactionAmount);
+
+                                Console.WriteLine("Available Balance is : " + e1.TransactionAmount);
                                 break;
 
 
@@ -119,20 +104,49 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     Console.WriteLine("\naccount not exist");
                 }
 
-               
+
 
 
             }
 
+
+
+            void Display()
+            {
+                Console.WriteLine("\nEnter amount to Deposit");
+                e1.TransactionAmount = double.Parse(Console.ReadLine());
+                b.Deposit(e1);
+                if (b.ValidateDeposit(e1.TransactionAmount) == true)
+                {
+                    Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
+
+                }
+            }
+
+            void DisplayWithDrawl()
+            {
+                Console.WriteLine("\nEnter amount to WithDrawl");
+                double wa = double.Parse(Console.ReadLine());
+                if (b.ValidateWithDrawl(e1.TransactionAmount, wa))
+                {
+                    e1.TransactionAmount = e1.TransactionAmount - wa;
+                    Console.WriteLine("\navailable balance" + e1.TransactionAmount);
+                }
+                else
+                {
+                    Console.WriteLine("\nInsufficient Balance");
+                }
+            }
+
+
+
+            int i = 0;
+            void ID()
+            {
+
+                i++;
+            }
+
         }
-
-        public double AvailableBalance(double available)
-        {
-
-          return  available += 0;
-
-        }
-
-
     }
 }

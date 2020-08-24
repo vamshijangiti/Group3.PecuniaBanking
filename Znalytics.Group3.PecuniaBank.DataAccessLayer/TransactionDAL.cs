@@ -14,11 +14,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     {
         void AddTransaction(Transaction t);
         void AddTransactionDate(Transaction d);
-
-
-
         List<Transaction> GetTransactions(long AccountNumber);
         void Deposit(Transaction t1);
+        void WithDrawl(Transaction t2);
     }
 
     /// <summary>
@@ -26,11 +24,6 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// </summary>
     public class TransactionDAL : ITransactionDAL
     {
-
-
-
-
-
         /// <summary>
         /// Collection for Transaction
         /// </summary>
@@ -45,11 +38,19 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             Transaction t = transactions.Find(n => n.AccountNumber == t1.AccountNumber);
             {
                 t.TransactionAmount = t1.TransactionAmount;
+                // return t1.TransactionAmount;
             }
 
         }
 
 
+        public void WithDrawl(Transaction t2)
+        {
+            Transaction t3 = transactions.Find(n => n.AccountNumber == t2.AccountNumber);
+            {
+                t3.TransactionAmount = t2.TransactionAmount;
+            }
+        }
         /// <summary>
         /// Adding the AccountNumber in to List
         /// </summary>
@@ -70,7 +71,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
 
-
+        /// <summary>
+        /// Represents the Date 
+        /// </summary>
+        /// <param name="Date"></param>
+        /// <returns></returns>
         public string GetTransactionDate(string Date)
         {
             return Date;
@@ -78,7 +83,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
 
 
-
+        /// <summary>
+        /// Finding the Account Number
+        /// </summary>
+        /// <param name="AccountNumber"></param>
+        /// <returns></returns>
         public List<Transaction> GetTransactions(long AccountNumber)
         {
             return transactions.FindAll(temp => temp.AccountNumber == AccountNumber);
