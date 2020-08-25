@@ -1,5 +1,6 @@
 ﻿//Entities Layer created by sriram 
 using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,7 +48,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                if (_accountNo == 11)//accountno should be 11 digit Number
+                if (_accountNo ==11)//accountno should be 11 digit Number
                 {
                     _accountNo = value;
                 }

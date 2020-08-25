@@ -1,49 +1,34 @@
-﻿//ceated by shwetha
+﻿//ceated by sriram
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public class AccountBusinessLogic
     {
-          //AccountsDataAccessLogic _accountDataAccessLogic;
-        public class Account
+        AccountDataAccessLayer _accountDataAccessLayer;
+        public AccountBusinessLogic()
         {
-            // _accountDataAccessLogic = new accounstDataAccessLogic();
+            _accountDataAccessLayer = new AccountDataAccessLayer();
+        }
 
-            public string AccountID(string Accnum)
+        public void Add(Account account)
+        {
+            if (account.AccountNo!=12)
             {
-                if (Accnum.Length == 16)
-                {
-                    //account number should be equals to 6 digits
-                    return Accnum;
-                }
-                else
-                {
-                    throw new Exception("Enter less than 16 numbers \n");
-                }
+                _accountDataAccessLayer.Add(account);
 
             }
-
-            public string AccountHolderName(string Accname)
+            else
             {
-                if ((Accname.Length <= 20) && (Accname != null))
-                {
-                    //accountholdername should be less than 20characters
-                    return Accname;
-                }
-                else
-                {
-                    throw new System.Exception("account holder name is wrong");
-                }
-
+                throw new Exception("account no cant be null");
             }
-
-
-
+        }
+      
+     
         }
     }
-}
