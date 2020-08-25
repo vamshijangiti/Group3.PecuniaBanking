@@ -105,6 +105,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         }
 
+        /// <summary>
+        /// Represents the Withdrawl Method
+        /// </summary>
+        /// <param name="t2"></param>
+
         public void WithDrawl(Transaction t2)
         {
             transactionDAl.WithDrawl(t2);

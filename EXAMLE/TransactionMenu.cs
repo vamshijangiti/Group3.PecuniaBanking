@@ -140,12 +140,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
 
-            int i = 0;
-            void ID()
-            {
-
-                i++;
-            }
+           
 
         }
     }
