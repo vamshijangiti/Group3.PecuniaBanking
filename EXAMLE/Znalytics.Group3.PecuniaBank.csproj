@@ -48,6 +48,7 @@
     <Compile Include="Detail.cs" />
     <Compile Include="HousingAndJewelPresentationLayer.cs" />
     <Compile Include="MainMethod.cs" />
+    <Compile Include="personalvehicleloanpresentationlayer.cs" />
     <Compile Include="TransactionMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
