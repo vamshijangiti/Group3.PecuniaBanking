@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
@@ -20,35 +21,23 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     {
         public void start()
         {
-            /*   Console.WriteLine("no of accounts");
-               int n =int.Parse( Console.ReadLine());
-               Entities[] allAcc = new Entities[n];
-               for(int i=0;i<n;i++)
-               {
-                   Entities e = new Entities();
-                   Console.WriteLine("Enter account no");
-                   e.AccountNumber = long.Parse(Console.ReadLine());
-                   Console.WriteLine("Enter Balance");
-                   e.Balance = double.Parse(Console.ReadLine());
-                   allAcc[i] = e;
-               }*/
-
-
+            //object Declaration for classes
             Transaction e1 = new Transaction();
             TransactionBusinessLogic b = new TransactionBusinessLogic();
-            //Created Statically Account Number And Balance
-           // e1.AccountNumber = 1234567812345678;
+            ICustomerBLL customerBLL = new CustomerBLL();
+
             bool flag = false;
             long uan;
 
 
+            //checking whether the entered Accout is correct or not
             while (true)
             {
                 Console.Write("\nEnter AccountNumber : ");
                 uan = long.Parse(Console.ReadLine());
 
                 //Validating The Account Number 
-                if (b.ValidateAccountNumber(uan))
+                if (b.ValidateAccountNumber(uan) == customerBLL.GetAccountNumber())
                 {
                     flag = true;
                     break;
@@ -62,11 +51,14 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
             if (flag)
             {
-                //if User entered Account Number is Equals To Static Account Number
+                //if User entered Account Number is Equals To  Account Number
                 if (e1.AccountNumber == uan)
                 {
 
                     System.Console.WriteLine("\n\t\t************* WELCOME TO PECUNIA BANK ***********\t\t \n\n");
+
+                    Console.Write("\n Enter today's Date (DT-MM-YEAR) : " + e1.TransactionDate);
+
                     char ch = 'Y';
                     do
                     {
@@ -76,38 +68,32 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         System.Console.WriteLine("\n1 - FOR DEPOSIT");
                         System.Console.WriteLine("\n2 - FOR WITHDRAWL");
                         System.Console.WriteLine("\n2 - CHECK BALANCE");
-                        //System.Console.WriteLine("\n3- EXIT");
+                        System.Console.WriteLine("\n3- EXIT");
                         Console.Write("\nEnter Your choice : ");
                         int n;
                         n = int.Parse(System.Console.ReadLine());
 
-                        //Switch Case For Checking
 
+                        //Switch Case for 
                         switch (n)
                         {
                             case 1:
-                                Console.WriteLine("\nEnter amount to Deposit");
-                                double da = double.Parse(Console.ReadLine());
-                                //e1.Balance=e1.Balance+ da;
-                                // Console.WriteLine("\navailable balance" + e1.Balance);
+
+                                Display();
+
+
                                 break;
                             case 2:
-                                Console.WriteLine("\nEnter amount to WithDrawl");
-                                double wa = double.Parse(Console.ReadLine());
-                                /* if (b.ValidateWithDrawl(e1.Balance, wa))
-                                 {
-                                     e1.Balance=e1.Balance - wa;
-                                     Console.WriteLine("\navailable balance" + e1.Balance);
-                                 }
-                                 else
-                                 {
-                                     Console.WriteLine("\nInsufficient Balance");
-                                 }*/
+                                DisplayWithDrawl();
+                                break;
+                            case 3:
+
+                                Console.WriteLine("Available Balance is : " + e1.TransactionAmount);
                                 break;
 
 
                         }
-                        Console.WriteLine("\n Do you want to Use it Again press Y else N ");
+                        Console.Write("\n Do you want to Use it Again press Y else N : ");
                         ch = char.Parse(Console.ReadLine());
                     } while (ch == 'Y');
 
@@ -119,12 +105,43 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
 
 
+
+
             }
 
+
+
+            void Display()
+            {
+                Console.WriteLine("\nEnter amount to Deposit");
+                e1.TransactionAmount = double.Parse(Console.ReadLine());
+                b.Deposit(e1);
+                if (b.ValidateDeposit(e1.TransactionAmount) == true)
+                {
+                    Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
+
+                }
+            }
+
+            void DisplayWithDrawl()
+            {
+                Console.WriteLine("\nEnter amount to WithDrawl");
+                double wa = double.Parse(Console.ReadLine());
+                if (b.ValidateWithDrawl(e1.TransactionAmount, wa))
+                {
+                    e1.TransactionAmount = e1.TransactionAmount - wa;
+                    Console.WriteLine("\navailable balance" + e1.TransactionAmount);
+                }
+                else
+                {
+                    Console.WriteLine("\nInsufficient Balance");
+                }
+            }
+
+
+
+           
+
         }
-
-
-
-
     }
 }

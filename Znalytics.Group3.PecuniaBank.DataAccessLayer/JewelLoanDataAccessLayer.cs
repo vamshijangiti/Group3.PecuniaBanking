@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
@@ -12,39 +13,38 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class JewelLoanDataAccessLayer
     {
         //private fields
-        private static List<GoldLoanCustomer> goldLoanCustomers;
+        private static List<JewelLoan> _JewelLoans;
 
         //constructor
         static JewelLoanDataAccessLayer()
         {
-            _goldLoanCustomers = new List<GoldLoanCustomer>()
+            _JewelLoans = new List<JewelLoan>();
             {
-                new GoldLoanCustomer(){ GoldLoanCustomerAccountNo =142357689012, GoldLoanCustomerName = "vamshi" },
-                new GoldLoanCustomer(){ GoldLoanCustomerAccountNo=313242425577,GoldLoanCustomerName = "sumanth" }
-            };
-        }
+                new JewelLoan() { CustId = 1, CarotType = 22, Age = 20, tenure = 1.2 };
+                new JewelLoan() { CustId = 2, CarotType = 24, Age = 23, tenure=1 };
+        };
+    }
 
-        //Add
-        public void Add(GoldLoanCustomer goldLoanCustomer)
+  //Add
+        public void Add(JewelLoan custId)
         {
-            _goldLoanCustomers.Add(goldLoanCustomer);
+            _JewelLoans.Add(custId);
         }
-
-        //Get all goldLoanCustomers
-        public List<GoldLoanCustomer> GetGoldloanCustomers()
+        public List<JewelLoan> GetCustId()
         {
-            return _goldLoanCustomers;
+            return _JewelLoans;
         }
-
-        //Update
-        public void UpdateEmployee(GoldLoanCustomer goldLoanCustomer)
+        //UpdateJewelLoan
+        public void UpdateJewelLoan(JewelLoan custId)
         {
-            //Get matching GoldLoanCustomer based on GoldloanCustomerName
-            GoldLoanCustomer gg = _goldLoanCustomers.Find(temp => temp.GoldLoanCustomerAccountNo == goldloanCustomer.GoldLoanCustomerAccountNo);
-            if (gg != null)
+            JewelLoan cust = _JewelLoans.Find(temp => temp.CustId == custId.CustId);
+            if (cust != null)
             {
-                gg.GoldLoanCustomerName = goldLoanCustomer.GoldLoanCustomerName;
+                cust.CustId = cust.CustId;
             }
         }
+
     }
 }
+
+       

@@ -15,7 +15,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public interface ITransactionBLL
     {
-        void ValidateAccountNumber(Transaction transaction);
+        long ValidateAccountNumber(long accNumber);
 
     }
 
@@ -28,6 +28,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         ITransactionBLL transactionBll = new TransactionBusinessLogic();
         ITransactionDAL transactionDAl = new TransactionDAL();
+        Transaction transaction = new Transaction();
 
 
 
@@ -36,7 +37,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// </summary>
         /// <param name="_accNumber">Account Number Of Customer should Be Less than 10</param>
         /// <returns></returns>
-        public void ValidateAccountNumber(Transaction accNumber)
+        public long ValidateAccountNumber(long accNumber)
         {
             //if (_name.Length > 10)
             string l = accNumber + "";
@@ -44,15 +45,16 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
 
                 transactionDAl.GetTransactions(accNumber);
+                return accNumber;
             }
             else
             {
-                throw new Exception("please check Account number");
+                throw new Exception(" \nplease check Account number \n");
             }
         }
 
         /// <summary>
-        /// Validation For Withdrawl
+        /// Validation For Withdrawl - minimum balance is 5000
         /// </summary>
         /// <param name="d1">Available Balance</param>
         /// <param name="d2">Entered Balance</param>
@@ -61,37 +63,57 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             if (d1 - d2 >= 5000)
             {
+                //
                 return true;
             }
             else
             {
-                return false;
+                //Minimum Balance is 5000
+                throw new Exception("\n Minimum Balance is 5000 ");
+
             }
         }
 
 
         /// <summary>
-        /// Validation For Deposit
+        /// Validation For Deposit - should be greater than 500
         /// </summary>
-        /// <param name="d1"></param>
-        /// <param name="d2"></param>
+        /// <param name="d2">The Deposit Amount </param>
         /// <returns></returns>
-        public bool ValidateDeposit(double d1, double d2)
+        public bool ValidateDeposit(double d2)
         {
 
-            return true;
+            if (d2 >= 500)
+            {
+                // Transaction.TransactionAmount = d2;
+                return true;
+            }
+            else
+            {
+                //The Deposit Should be More Than 500 rs
+                return false;
+            }
+        }
+        /// <summary>
+        /// Represents the Method for Deposit
+        /// </summary>
+        /// <param name="t1"></param>
+        public void Deposit(Transaction t1)
+        {
+
+            transactionDAl.Deposit(t1);
+
         }
 
+        /// <summary>
+        /// Represents the Withdrawl Method
+        /// </summary>
+        /// <param name="t2"></param>
 
-        /* public bool ValidateAccountNumber(long uan)
-          {
-              throw new NotImplementedException();
-          }
-
-          public void ValidateAccountNumber()
-          {
-              throw new NotImplementedException();
-          }*/
+        public void WithDrawl(Transaction t2)
+        {
+            transactionDAl.WithDrawl(t2);
+        }
     }
 }
 

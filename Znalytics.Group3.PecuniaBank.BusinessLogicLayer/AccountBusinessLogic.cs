@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Znalytics.Group3.PecuniaBank.Entities;
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public class AccountBusinessLogic
     {
-        //  AccountsDataAccessLogic _accountDataAccessLogic;
+          //AccountsDataAccessLogic _accountDataAccessLogic;
         public class Account
         {
             // _accountDataAccessLogic = new accounstDataAccessLogic();
