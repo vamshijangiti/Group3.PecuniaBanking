@@ -50,7 +50,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         /// <summary>
         /// Customer name
         /// </summary>
- 6       public string AccountHolderName
+      public string AccountHolderName
         {
             set
             {

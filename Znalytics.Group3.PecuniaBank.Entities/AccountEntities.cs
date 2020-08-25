@@ -19,13 +19,13 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     public class Account
     {
         //private Fields
-        private int _accountId;
+     
         private long _accountNo;
         private string _dateOfCreation;
         private string _branchName;
         private long _balance;
-        private TypeOfAccount _accountType;
-        public int AccountId
+        private TypeOfAccount typeOfAccount;
+       /* public int AccountId
         {
             set
             {
@@ -43,7 +43,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             {
                 return _accountId;//returns accountId
             }
-        }
+        }*/
         public long AccountNo
         {
             set
@@ -97,7 +97,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
             get
             {
-                return _balance;
+                return _balance;//returns balance
             }
         }
     }
