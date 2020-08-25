@@ -1,82 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.BusinessLogicLayer;
+using System.Text.RegularExpressions;
 using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
+using Znalytics.PecuniaBanking.DataAccessLayer;
 
-namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
+namespace Znalytics.PecuniaBanking.BusinessLogicLayer
 {
-
-
-    namespace Znalytics.EmpMgmt
+    public class CustomerPersonalDetailBLL : ICustomerPersonalDetailBLL
     {
-        class Program
+        private ICustomerPersonalDetailDAL cdal = null;
+
+        public CustomerPersonalDetailBLL()
         {
-            static void Main()
+            cdal = new CustomerPersonalDetailDAL();
+        }
+
+        public void AddCustomer(CustomerPersonalDetail customers)
+        {
+            if (customers.CustomerName != null)
             {
-                EmployeesPresentation();
-                Console.ReadKey();
+                cdal.AddCustomer(customers);
+            }
+            else
+            {
+                throw new Exception("Please Mention your name");
             }
 
-            static void EmployeesPresentation()
+            //
+            string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
+            bool isPanCardNumberValid = Regex.IsMatch(txtPanCardNumber.Text.ToString().Trim(), checkPanCardNumber);
+            if(isPanCardNumberValid==true)
             {
-                int choice = 0;
-                do
-                {
-                    Console.WriteLine("EMPLOYEES MENU");
-                    Console.WriteLine("1. Add Employee");
-                    Console.WriteLine("2. View Employees");
-                    Console.WriteLine("3. Update Employee");
-                    Console.WriteLine("4. Exit");
-                    Console.Write("Enter choice: ");
-                    choice = int.Parse(Console.ReadLine());
-
-                    switch (choice)
-                    {
-                        case 1: AddEmployee(); break;
-                        case 2: ViewEmployees(); break;
-                        case 3: UpdateEmployee(); break;
-                    }
-                } while (choice != 4);
+                cdal.AddCustomer(customers);
             }
-
-            static void AddEmployee()
+            else
             {
-                EmployeeBusinessLogic employeeBusinessLogic = new EmployeeBusinessLogic();
-                Employee employee = new Employee();
-
-                Console.Write("Enter Emp ID: ");
-                employee.EmployeeID = int.Parse(Console.ReadLine());
-                Console.Write("Enter Emp Name: ");
-                employee.EmployeeName = Console.ReadLine();
-
-                employeeBusinessLogic.Add(employee);
-                Console.WriteLine("Employee Added.\n");
+                throw new Exception("Invalid Pancardnumber");
             }
+            //
 
-            static void ViewEmployees()
-            {
-                EmployeeBusinessLogic employeeBusinessLogic = new EmployeeBusinessLogic();
-                List<Employee> emps = employeeBusinessLogic.GetEmployees();
+            
 
-                foreach (Employee emp in emps)
-                {
-                    Console.WriteLine(emp.EmployeeID + ", " + emp.EmployeeName);
-                }
-            }
-
-            static void UpdateEmployee()
-            {
-                EmployeeBusinessLogic employeeBusinessLogic = new EmployeeBusinessLogic();
-                Employee employee = new Employee();
-
-                Console.Write("Enter Existing Emp ID: ");
-                employee.EmployeeID = int.Parse(Console.ReadLine());
-                Console.Write("Enter New Emp Name: ");
-                employee.EmployeeName = Console.ReadLine();
-
-                employeeBusinessLogic.UpdateEmployee(employee);
-                Console.WriteLine("Employee Updated.\n");
-            }
         }
     }
 }
