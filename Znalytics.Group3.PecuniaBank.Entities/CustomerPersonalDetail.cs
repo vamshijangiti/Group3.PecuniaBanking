@@ -134,7 +134,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         {
             set
             {
-                if (value.Length = 10)
+                if (value.Length ==10)
                 {
                     _panCardNumber = value;
                 }
