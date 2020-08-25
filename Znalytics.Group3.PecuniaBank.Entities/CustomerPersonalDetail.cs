@@ -1,86 +1,85 @@
 ﻿//Manasa Entities
 
+using System;
 /// <summary>
 /// Represents Entities of CreditCard Module
 /// </summary>
-namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
+namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
 {
-    public class Customer
+    public class CustomerPersonalDetail
     {
         // list of details
-        private string _accountHolderName;
-        private long _accountNumber;
+        private string _customerName;
+        private string _customerId;
         private string _occupation;
         private string _address;
         private double _income;
         private string _panCardNumber;
         private long _aadharCardNumber;
         private long _phoneNumber;
-        private int _appnumber;
-        private int _cibilScore;
+        private DateTime _dateOfBirth;
+        private string _mailId;
 
 
-       /// <summary>
-       /// Represents creditcard details of customer
-       /// </summary>
-       /// <param name="AccountHolderName">Name of AccountHolder</param>
-       /// <param name="AccountNumber">Accountnumber of customer</param>
-       /// <param name="Occupation">Occupation of customer</param>
-       /// <param name="Address">Address of customer</param>
-       /// <param name="Income">Income of customer</param>
-       /// <param name="PanCardNumber">Pancardnumber of customer</param>
-       /// <param name="AadharCardNumber">Aadharcardnumber of customer</param>
-       /// <param name="PhoneNumber">Phonenumber of customer</param>
-       /// <param name="Appnumber">Application number of customer</param>
-       /// <param name="CibilScore"> Cibilscore of customer</param>
-        Customer(string AccountHolderName, long AccountNumber, string Occupation, string Address, double Income, string PanCardNumber, long AadharCardNumber, long PhoneNumber,int Appnumber,int CibilScore)
+    /// <summary>
+    /// Details of Customer
+    /// </summary>
+    /// <param name="CustomerName">Name of the customer</param>
+    /// <param name="CustomerId">customer Id</param>
+    /// <param name="Occupation">Occupation Customer</param>
+    /// <param name="Address">Customer's Address</param>
+    /// <param name="Income">Income of customer</param>
+    /// <param name="PanCardNumber">Pancardnumber of customer</param>
+    /// <param name="AadharCardNumber">Aadharcardnumber of customer</param>
+    /// <param name="PhoneNumber">Phonenumber of customer</param>
+    /// <param name="DateOfBirth">date of birth of customer</param>
+    /// <param name="MailId">Mail id of customer</param>
+        CustomerPersonalDetail(string CustomerName, string CustomerId, string Occupation, string Address, double Income, string PanCardNumber, long AadharCardNumber, long PhoneNumber, DateTime DateOfBirth,string MailId)
         {
-            _accountHolderName = AccountHolderName;
-            _accountNumber = AccountNumber;
+            _customerName = CustomerName;
+            _customerId = CustomerId;
             _occupation = Occupation;
             _address = Address;
             _income = Income;
             _panCardNumber = PanCardNumber;
             _aadharCardNumber = AadharCardNumber;
             _phoneNumber = PhoneNumber;
-            _appnumber = Appnumber;
-            _cibilScore = CibilScore;
+            _dateOfBirth = DateOfBirth;
+            _mailId = MailId;
         }
 
         /// <summary>
         /// Customer name
         /// </summary>
- 6       public string AccountHolderName
+ 6       public string CustomerName
         {
             set
             {
                 if (value.Length <= 30)
                 {
-                    _accountHolderName = value;
+                    _customerName = value;
                 }
             }
             get
             {
-                return _accountHolderName;
+                return _customerName;
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public long AccountNumber
+        public string CustomerId
         {
             set
             {
-               /* if (value.length = 12)
-                {
-                    _accountNumber = value;
-                }*/
+                _customerId = value;
+                 
 
             }
             get
             {
-                return _accountNumber;
+                return _customerId;
             }
         }
         /// <summary>
@@ -135,7 +134,10 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         {
             set
             {
-                _panCardNumber = value;
+                if (value.Length = 10)
+                {
+                    _panCardNumber = value;
+                }
             }
             get
             {
@@ -169,29 +171,36 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
                 return _phoneNumber;
             }
         }
-        public int Appnumber
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime DateOfBirth
+
         {
             set
             {
-                _appnumber = value;
+                _dateOfBirth = value;
             }
             get
             {
-                return _appnumber;
+                return _dateOfBirth;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string MailId
+        {
+            set
+            {
+                _mailId = value;
+            }
+            get
+            {
+                return _mailId;
             }
         }
 
-        public int CibilScore
-        {
-            set
-            {
-                _cibilScore = value;
-            }
-            get
-            {
-                return _cibilScore;
-            }
-        }
 
 
     }
