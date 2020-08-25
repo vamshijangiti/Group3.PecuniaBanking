@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
     <Compile Include="CreditcardPresentationLayer.cs" />
+    <Compile Include="CustomerPersonalDetailsPL.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="HousingAndJewelPresentationLayer.cs" />
     <Compile Include="MainMethod.cs" />

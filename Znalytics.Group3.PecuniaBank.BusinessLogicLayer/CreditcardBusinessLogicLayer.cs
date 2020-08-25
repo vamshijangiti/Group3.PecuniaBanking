@@ -37,7 +37,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         //checking account number
        
         
-            if (creditcard.AccountNumber != null)
+            if (creditcard.AccountNumber!= null)
             {
                 _creditcardDataAccessLayer.AddCreditCard(creditcard);
             }
@@ -46,9 +46,14 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
                 throw new Exception("Account number can't be null");
             }
         }
+        public void ApplyCreditcard(Customer creditcard)
+        {
+
+
+        }
 
         //Approve credit card
-        public void ApproveCreditCard(Customer creditcard)
+         static void ApproveCreditCard(Customer creditcard)
         {
             if (creditcard.Income >= 300000)
             {
@@ -74,6 +79,10 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
                 }
                 return AppNumber;
             }
+            else
+            {
+                return 0;
+            }
         }
         //generating credit card number
         public string GenerateCreditCard(Customer creditcard)
@@ -86,10 +95,10 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
 
         }
 
-        public void ViewCreditCard()
+      /*  public void ViewCreditCard()
         {
 
-        }
+        }*/
 
         public void CreditCardLimitIncrease(Customer creditcard)
         {

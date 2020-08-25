@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-    public interface ICustomerBLL
+    public interface ICustomerPersonalDetailBLL
     {
         long GetAccountNumber();
     }
-    public class CustomerBLL:ICustomerBLL
+    public class CustomerBLL:ICustomerPersonalDetailBLL
     {
         public long GetAccountNumber()
         {

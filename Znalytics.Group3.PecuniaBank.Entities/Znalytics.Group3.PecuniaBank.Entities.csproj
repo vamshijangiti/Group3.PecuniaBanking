@@ -46,6 +46,7 @@
     <Compile Include="BankAccount.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerDetail.cs" />
+    <Compile Include="CustomerPersonalDetail.cs" />
     <Compile Include="HousingLoanEntities.cs" />
     <Compile Include="JewelLoanEntities.cs" />
     <Compile Include="personalloanentities.cs" />

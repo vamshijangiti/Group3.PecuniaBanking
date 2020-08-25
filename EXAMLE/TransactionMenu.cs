@@ -24,7 +24,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             //object Declaration for classes
             Transaction e1 = new Transaction();
             TransactionBusinessLogic b = new TransactionBusinessLogic();
-            ICustomerBLL customerBLL = new CustomerBLL();
+            ICustomerPersonalDetailBLL customerBLL = new CustomerBLL();
 
             bool flag = false;
             long uan;
