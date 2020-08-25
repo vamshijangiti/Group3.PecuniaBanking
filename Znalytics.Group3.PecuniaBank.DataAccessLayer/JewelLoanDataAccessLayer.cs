@@ -25,10 +25,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         };
     }
 
-  
-
-        //Add
-
+  //Add
         public void Add(JewelLoan custId)
         {
             _JewelLoans.Add(custId);
