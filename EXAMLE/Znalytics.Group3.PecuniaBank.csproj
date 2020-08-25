@@ -57,10 +57,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.BusinessLogicLayer\Znalytics.Group3.PecuniaBank.BusinessLogicLayer.csproj">
-      <Project>{70a2889f-26f6-4b2a-9700-31d28609819d}</Project>
-      <Name>Znalytics.Group3.PecuniaBank.BusinessLogicLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.Entities\Znalytics.Group3.PecuniaBank.Entities.csproj">
       <Project>{36f33c1b-09bb-476f-ae81-1b915e39733f}</Project>
       <Name>Znalytics.Group3.PecuniaBank.Entities</Name>
