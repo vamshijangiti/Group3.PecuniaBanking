@@ -81,28 +81,28 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
 
          static void ViewCustomer()
          {
-             CustomerPersonalDetailBLL customerBusinessLogic = new CustomerPersonalDetailBLL();
+             ICustomerPersonalDetailBLL customerBusinessLogic = new ICustomerPersonalDetailBLL();
              List<CustomerPersonalDetail> cust = customerBusinessLogic.GetCustomer();
 
-             foreach (CustomerPersonalDetail emp in cust)
+             foreach (CustomerPersonalDetail detail in cust)
              {
-                 Console.WriteLine(emp.EmployeeID + ", " + emp.EmployeeName);
+                 Console.WriteLine(detail.CustomerId + ", " + detail.CustomerName);
              }
          }
 
-         static void UpdateEmployee()
+         static void UpdateCustomer()
          {
-             EmployeeBusinessLogic employeeBusinessLogic = new EmployeeBusinessLogic();
-             Employee employee = new Employee();
+             ICustomerPersonalDetailBLL CustomerBusinessLogic = new ICustomerPersonalDetailBLL();
+             CustomerPersonalDetail customers = new CustomerPersonalDetail();
 
-             Console.Write("Enter Existing Emp ID: ");
-             employee.EmployeeID = int.Parse(Console.ReadLine());
-             Console.Write("Enter New Emp Name: ");
-             employee.EmployeeName = Console.ReadLine();
+             Console.Write("Enter Existing Customer Name: ");
+             customers.CustomerName = Console.ReadLine();
+             Console.Write("Enter New Customer Name: ");
+             customers.CustomerName = Console.ReadLine();
 
-             employeeBusinessLogic.UpdateEmployee(employee);
-             Console.WriteLine("Employee Updated.\n");
-         }*/
+             CustomerBusinessLogic.UpdateCustomer(customers);
+             Console.WriteLine("Customer details Updated.\n");
+         }
         
 
     }

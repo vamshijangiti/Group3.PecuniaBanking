@@ -20,20 +20,23 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         private DateTime _dateOfBirth;
         private string _mailId;
 
+        CustomerPersonalDetail customer = new CustomerPersonalDetail();
+        public CustomerPersonalDetail() { }
 
-    /// <summary>
-    /// Details of Customer
-    /// </summary>
-    /// <param name="CustomerName">Name of the customer</param>
-    /// <param name="CustomerId">customer Id</param>
-    /// <param name="Occupation">Occupation Customer</param>
-    /// <param name="Address">Customer's Address</param>
-    /// <param name="Income">Income of customer</param>
-    /// <param name="PanCardNumber">Pancardnumber of customer</param>
-    /// <param name="AadharCardNumber">Aadharcardnumber of customer</param>
-    /// <param name="PhoneNumber">Phonenumber of customer</param>
-    /// <param name="DateOfBirth">date of birth of customer</param>
-    /// <param name="MailId">Mail id of customer</param>
+
+        /// <summary>
+        /// Details of Customer
+        /// </summary>
+        /// <param name="CustomerName">Name of the customer</param>
+        /// <param name="CustomerId">customer Id</param>
+        /// <param name="Occupation">Occupation Customer</param>
+        /// <param name="Address">Customer's Address</param>
+        /// <param name="Income">Income of customer</param>
+        /// <param name="PanCardNumber">Pancardnumber of customer</param>
+        /// <param name="AadharCardNumber">Aadharcardnumber of customer</param>
+        /// <param name="PhoneNumber">Phonenumber of customer</param>
+        /// <param name="DateOfBirth">date of birth of customer</param>
+        /// <param name="MailId">Mail id of customer</param>
         CustomerPersonalDetail(string CustomerName, string CustomerId, string Occupation, string Address, double Income, string PanCardNumber, long AadharCardNumber, long PhoneNumber, DateTime DateOfBirth,string MailId)
         {
             _customerName = CustomerName;
