@@ -12,7 +12,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
     public class PersonalLoan
     {
-        private string _accountNumber;
+        private long  _accountNumber;
         private string _accountId;
         private string _phoneNumber;
         private string _permanentAddress;
@@ -28,11 +28,11 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
        //set and get methods for account number
 
-        public String AccountNumber
+        public double AccountNumber
         {
             set
             {
-                if (AccountNumber.Length == 6)
+                if (AccountNumber == 6)
                 {
                     _accountNumber = value;
                 }
