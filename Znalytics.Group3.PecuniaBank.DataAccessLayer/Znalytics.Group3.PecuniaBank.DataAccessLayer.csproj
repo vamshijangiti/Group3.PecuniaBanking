@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AccountDataAccessLayer.cs" />
     <Compile Include="CreditcardDataAccessLayer.cs" />
+    <Compile Include="CustomerPersonalDetailDAL.cs" />
     <Compile Include="HousingLoanDataAccessLayer.cs" />
     <Compile Include="IAccountDAL.cs" />
     <Compile Include="ICustomer.cs" />
