@@ -86,57 +86,57 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
 
              foreach (CustomerPersonalDetail detail in cust)
              {
-                 Console.WriteLine(detail.CustomerId + ", " + detail.CustomerName);
+                 Console.WriteLine(detail);
              }
          }
 
          static void UpdateCustomer()
          {
-             ICustomerPersonalDetailBLL CustomerBusinessLogic = new ICustomerPersonalDetailBLL();
-             CustomerPersonalDetail customers = new CustomerPersonalDetail();
+             CustomerPersonalDetailBLL CustomerBusinessLogic = new CustomerPersonalDetailBLL();
+             CustomerPersonalDetail customer = new CustomerPersonalDetail();
 
              Console.Write("Enter Existing Customer Name: ");
-             customers.CustomerName = Console.ReadLine();
+             customer.CustomerName = Console.ReadLine();
              Console.Write("Enter New Customer Name: ");
-             customers.CustomerName = Console.ReadLine();
+             customer.CustomerName = Console.ReadLine();
 
              Console.Write("Enter Existing Customer Address: ");
-             customers.Address = Console.ReadLine();
+             customer.Address = Console.ReadLine();
              Console.Write("Enter New Customer Address: ");
-             customers.Address = Console.ReadLine();
+             customer.Address = Console.ReadLine();
 
              Console.Write("Enter Existing Customer Income: ");
-             customers.Income = double.Parse(Console.ReadLine());
+             customer.Income = double.Parse(Console.ReadLine());
              Console.Write("Enter New Customer Income: ");
-             customers.Income = double.Parse(Console.ReadLine());
+             customer.Income = double.Parse(Console.ReadLine());
 
             Console.Write("Enter Existing Customer Aadharcardnumber: ");
-            customers.AadharCardNumber = long.Parse(Console.ReadLine());
+            customer.AadharCardNumber = Console.ReadLine();
             Console.Write("Enter New Customer Aadharcardnumber: ");
-            customers.AadharCardNumber = long.Parse(Console.ReadLine());
+            customer.AadharCardNumber = Console.ReadLine();
 
             Console.Write("Enter Existing Customer PancardNumber: ");
-            customers.PanCardNumber = Console.ReadLine();
+            customer.PanCardNumber = Console.ReadLine();
             Console.Write("Enter New Customer Pan card number: ");
-            customers.PanCardNumber = Console.ReadLine();
+            customer.PanCardNumber = Console.ReadLine();
 
             Console.Write("Enter Existing Customer Phone number: ");
-            customers.PhoneNumber = long.Parse(Console.ReadLine());
+            customer.PhoneNumber = Console.ReadLine();
             Console.Write("Enter New Customer Phone number: ");
-            customers.PhoneNumber = long.Parse(Console.ReadLine());
+            customer.PhoneNumber = Console.ReadLine();
 
-            Console.Write("Enter Existing Customer date of birth: ");
-            customers.DateOfBirth = DateTime.Parse(Console.ReadLine());
+            Console.Write("Enter Existing Customer Age: ");
+            customer.Age = int.Parse(Console.ReadLine());
             Console.Write("Enter New Customer date of birth: ");
-            customers.DateOfBirth = DateTime.Parse(Console.ReadLine());
+            customer.Age = int.Parse(Console.ReadLine());
 
             Console.Write("Enter Existing Customer Mail Id: ");
-            customers.MailId = Console.ReadLine();
+            customer.MailId = Console.ReadLine();
             Console.Write("Enter New Customer mail id: ");
-            customers.MailId = Console.ReadLine();
+            customer.MailId = Console.ReadLine();
 
 
-            CustomerBusinessLogic.UpdateCustomer(customers);
+            CustomerBusinessLogic.UpdateCustomer(customer);
              Console.WriteLine("Customer details Updated.\n");
          }
         

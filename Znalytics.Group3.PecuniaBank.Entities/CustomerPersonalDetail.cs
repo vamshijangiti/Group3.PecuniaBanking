@@ -15,9 +15,9 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         private string _address;
         private double _income;
         private string _panCardNumber;
-        private long _aadharCardNumber;
-        private long _phoneNumber;
-        private DateTime _dateOfBirth;
+        private string _aadharCardNumber;
+        private string _phoneNumber;
+        private int _age;
         private string _mailId;
 
         CustomerPersonalDetail customer = new CustomerPersonalDetail();
@@ -25,19 +25,19 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
 
 
         /// <summary>
-        /// Details of Customer
+        /// 
         /// </summary>
-        /// <param name="CustomerName">Name of the customer</param>
-        /// <param name="CustomerId">customer Id</param>
-        /// <param name="Occupation">Occupation Customer</param>
-        /// <param name="Address">Customer's Address</param>
-        /// <param name="Income">Income of customer</param>
-        /// <param name="PanCardNumber">Pancardnumber of customer</param>
-        /// <param name="AadharCardNumber">Aadharcardnumber of customer</param>
-        /// <param name="PhoneNumber">Phonenumber of customer</param>
-        /// <param name="DateOfBirth">date of birth of customer</param>
-        /// <param name="MailId">Mail id of customer</param>
-        CustomerPersonalDetail(string CustomerName, string CustomerId, string Occupation, string Address, double Income, string PanCardNumber, long AadharCardNumber, long PhoneNumber, DateTime DateOfBirth,string MailId)
+        /// <param name="CustomerName"></param>
+        /// <param name="CustomerId"></param>
+        /// <param name="Occupation"></param>
+        /// <param name="Address"></param>
+        /// <param name="Income"></param>
+        /// <param name="PanCardNumber"></param>
+        /// <param name="AadharCardNumber"></param>
+        /// <param name="PhoneNumber"></param>
+        /// <param name="Age"></param>
+        /// <param name="MailId"></param>
+        CustomerPersonalDetail(string CustomerName, string CustomerId, string Occupation, string Address, double Income, string PanCardNumber, string AadharCardNumber, string PhoneNumber, int Age,string MailId)
         {
             _customerName = CustomerName;
             _customerId = CustomerId;
@@ -47,7 +47,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
             _panCardNumber = PanCardNumber;
             _aadharCardNumber = AadharCardNumber;
             _phoneNumber = PhoneNumber;
-            _dateOfBirth = DateOfBirth;
+            _age = Age;
             _mailId = MailId;
         }
 
@@ -151,11 +151,14 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         /// <summary>
         /// 
         /// </summary>
-        public long AadharCardNumber
+        public string AadharCardNumber
         {
             set
             {
-                _aadharCardNumber = value;
+                if(value.Length==12)
+                {
+                    _aadharCardNumber = value;
+                }    
             }
             get
             {
@@ -163,11 +166,14 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
             }
         }
 
-        public long PhoneNumber
+        public string PhoneNumber
         {
             set
             {
-                _phoneNumber = value;
+                if(value.Length==10)
+                {
+                    _phoneNumber = value;
+                }
             }
             get
             {
@@ -177,16 +183,16 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         /// <summary>
         /// 
         /// </summary>
-        public DateTime DateOfBirth
+        public int Age
 
         {
             set
             {
-                _dateOfBirth = value;
+                _age = value;
             }
             get
             {
-                return _dateOfBirth;
+                return _age;
             }
         }
         /// <summary>
