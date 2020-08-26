@@ -28,11 +28,11 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
        //set and get methods for account number
 
-        public double AccountNumber
+        public long AccountNumber
         {
             set
             {
-                if (AccountNumber == 6)
+               
                 {
                     _accountNumber = value;
                 }
