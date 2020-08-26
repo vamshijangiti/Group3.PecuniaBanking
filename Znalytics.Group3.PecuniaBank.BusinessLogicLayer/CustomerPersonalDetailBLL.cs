@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
+using Znalytics.PecuniaBank.BusinessLogicLayer;
 using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
-using Znalytics.PecuniaBanking.DataAccessLayer;
+using Znalytics.PecuniaBanking.CustomerPersonalDetails.DataAccessLayer;
 
 namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
 {
