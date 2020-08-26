@@ -2,7 +2,7 @@
 
 using System;
 /// <summary>
-/// Represents Entities of CreditCard Module
+/// Represents details of customer
 /// </summary>
 namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
 {
