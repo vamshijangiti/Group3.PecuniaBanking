@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.BusinessLogicLayer;
+using Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer;
 using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
 
 namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLayer
@@ -62,18 +62,18 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
             customers.PanCardNumber = Console.ReadLine();
 
             Console.Write("Enter customer Aadharcardnumber: ");
-            customers.AadharCardNumber = long.Parse(Console.ReadLine());
+            customers.AadharCardNumber = Console.ReadLine();
 
             Console.Write("Enter customer Phone number: ");
-            customers.PhoneNumber = long.Parse(Console.ReadLine());
+            customers.PhoneNumber = Console.ReadLine();
 
-            Console.Write("Enter customer Date of Birth: ");
-            customers.DateOfBirth= DateTime.Parse(Console.ReadLine());
+            Console.Write("Enter customer Age: ");
+            customers.Age= int.Parse(Console.ReadLine());
 
             Console.Write("Enter customer MailId: ");
             customers.MailId = Console.ReadLine();
 
-            ICustomerPersonalDetailBLL customerPersonaldetailBusinessLogicLayer = new ICustomerPersonalDetailBLL();
+            CustomerPersonalDetailBLL customerPersonaldetailBusinessLogicLayer = new CustomerPersonalDetailBLL();
             customerPersonaldetailBusinessLogicLayer.AddCustomer(customers); //call BL
 
              Console.WriteLine("Customer details added successfully.\n");
@@ -81,7 +81,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
 
          static void ViewCustomer()
          {
-             ICustomerPersonalDetailBLL customerBusinessLogic = new ICustomerPersonalDetailBLL();
+             CustomerPersonalDetailBLL customerBusinessLogic = new CustomerPersonalDetailBLL();
              List<CustomerPersonalDetail> cust = customerBusinessLogic.GetCustomer();
 
              foreach (CustomerPersonalDetail detail in cust)

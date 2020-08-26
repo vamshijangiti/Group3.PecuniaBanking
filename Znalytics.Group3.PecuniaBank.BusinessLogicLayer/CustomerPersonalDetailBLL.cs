@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
-using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
-using Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer;
 using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
 using Znalytics.PecuniaBanking.DataAccessLayer;
 
-namespace Znalytics.PecuniaBanking.BusinessLogicLayer
+namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
 {
     public class CustomerPersonalDetailBLL : ICustomerPersonalDetailBLL
     {
@@ -102,17 +100,24 @@ namespace Znalytics.PecuniaBanking.BusinessLogicLayer
         {
              List<CustomerPersonalDetail> GetCustomers()
             {
-                return _customerPersonalDetailDLL.GetCustomers();
+                return _customerPersonalDetailDAL.GetCustomers;
+            }
+        }
+
+        public void UpdateCustomer(CustomerPersonalDetail customer)
+        {
+            
+              return  _customerPersonalDetailDAL.UpdateCustomer(customer);
             }
         }
 
 
 
-            
-            
 
-            
-        }
+
+
+
+    }
     }
 
 
