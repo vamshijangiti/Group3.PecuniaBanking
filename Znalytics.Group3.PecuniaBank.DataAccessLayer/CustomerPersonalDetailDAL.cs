@@ -1,10 +1,15 @@
-﻿
+﻿// Done by Manasa
+
+
 using System;
 using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
 
 namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
 {
+    /// <summary>
+    /// Represents Data Access Layer of customer Personal details
+    /// </summary>
     public class CustomerPersonalDetailDAL: ICustomerPersonalDetailDAL
     {
         //private fields
@@ -22,13 +27,13 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
             };
         }*/
 
-        //Add
+        //Adding Customer Personal Details
         public void AddCustomer(CustomerPersonalDetail customer)
         {
             customerdetail.Add(customer);
         }
 
-        //Get Customerts
+        //Getting existing Customer details
         public void ViewCustomer(CustomerPersonalDetail customer)
         {
              List<CustomerPersonalDetail> GetCustomers()
@@ -37,10 +42,10 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
             }
         }
 
-        //Update
+        //Updationof customer details
         public void UpdateCustomer(CustomerPersonalDetail customer)
         {
-            //Get matching employee based on EmpID
+            //Get matching customer based on CustomerId
             CustomerPersonalDetail cust = customerdetail.Find(temp => temp.CustomerId == customer.CustomerId);
             if (customer != null)
             {

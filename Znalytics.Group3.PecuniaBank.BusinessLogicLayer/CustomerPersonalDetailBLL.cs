@@ -1,15 +1,21 @@
-﻿using System;
+﻿//    Done by Manasa
+
+
+using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
-using Znalytics.PecuniaBank.BusinessLogicLayer;
 using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
-using Znalytics.PecuniaBanking.CustomerPersonalDetails.DataAccessLayer;
+using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
 
-namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
+namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 {
+    /// <summary>
+    /// Represents Business logic layer of the customer personal details
+    /// </summary>
     public class CustomerPersonalDetailBLL : ICustomerPersonalDetailBLL
     {
-        CustomerPersonalDetailDAL= cdal;
+        private ICustomerPersonalDetailDAL cdal = null;
+
 
         public CustomerPersonalDetailBLL()
         {
@@ -19,7 +25,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
 
         public void AddCustomer(CustomerPersonalDetail customer)
         {
-
+            //Validating customer name
             if (customer.CustomerName != null)
             {
                 cdal.AddCustomer(customer);
@@ -29,9 +35,10 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
                 throw new Exception("Name can't be null,Please Mention your name");
             }
 
-            //
+
+            //validating pancard number
             string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
-            bool isPanCardNumberValid = Regex.IsMatch(txtPanCardNumber.Text.ToString().Trim(), checkPanCardNumber);
+            bool isPanCardNumberValid = Regex.IsMatch(TxtPanCardNumber.Text.ToString().Trim(), checkPanCardNumber);
             if (isPanCardNumberValid == true)
             {
                 cdal.AddCustomer(customer);
@@ -40,7 +47,8 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
             {
                 throw new Exception("Invalid Pancardnumber");
             }
-            //
+
+            //Validating Aadharcard number
 
             if (customer.AadharCardNumber != null)
             {
@@ -52,6 +60,8 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
                 throw new Exception("Please enter 12digit aadharcard number");
             }
 
+            //Checking Phone number
+
             if (customer.PhoneNumber != null)
             {
                 cdal.AddCustomer(customer);
@@ -61,6 +71,8 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
                 throw new Exception("Phone number can't be null,Please enter 10digit Phonenumber");
             }
 
+            //Checking Age
+
             if (customer.Age >= 18)
             {
                 cdal.AddCustomer(customer);
@@ -69,12 +81,10 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
             {
                 throw new Exception("Age must be 18 and above");
             }
-            void ValidateMailId()
-            {
 
-            }
         }
-        public void  ValidateMailId(CustomerPersonalDetail customer)
+        //Validation of Mail Id
+        public void ValidateMailId(CustomerPersonalDetail customer)
         {
 
             string mail = customer.MailId;
@@ -97,35 +107,21 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetail.BusinessLogicLayer
 
 
         }
+
+        //View customer personal details
         public void ViewCustomer(CustomerPersonalDetail customer)
         {
-             List<CustomerPersonalDetail> GetCustomers()
-            {
-                return _customerPersonalDetailDAL.GetCustomers;
-            }
+            List<CustomerPersonalDetail> GetCustomers();
+            //List<CustomerPersonalDetail> customerdetail = new List<CustomerPersonalDetail>();
+
+            cdal.ViewCustomer(customer);
         }
 
+        //Update customer details
         public void UpdateCustomer(CustomerPersonalDetail customer)
         {
-            
-              return  _customerPersonalDetailDAL.UpdateCustomer(customer);
-            }
+
+            cdal.UpdateCustomer(customer);
         }
-
-
-
-
-
-
-
-    }
-    }
-
-
-
-
-
-}
     }
 }
-a

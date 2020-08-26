@@ -1,4 +1,4 @@
-﻿//Manasa Entities
+﻿//      Done by Manasa
 
 using System;
 /// <summary>
@@ -21,22 +21,23 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         private string _mailId;
 
         CustomerPersonalDetail customer = new CustomerPersonalDetail();
+       // Creating constructor
         public CustomerPersonalDetail() { }
 
 
         /// <summary>
-        /// 
+        /// Creating Constructor
         /// </summary>
-        /// <param name="CustomerName"></param>
-        /// <param name="CustomerId"></param>
-        /// <param name="Occupation"></param>
-        /// <param name="Address"></param>
-        /// <param name="Income"></param>
-        /// <param name="PanCardNumber"></param>
-        /// <param name="AadharCardNumber"></param>
-        /// <param name="PhoneNumber"></param>
-        /// <param name="Age"></param>
-        /// <param name="MailId"></param>
+        /// <param name="CustomerName">Name of the customer</param>
+        /// <param name="CustomerId">Customer Id</param>
+        /// <param name="Occupation">Occupation of customer</param>
+        /// <param name="Address">Address of customer</param>
+        /// <param name="Income">Income of customer</param>
+        /// <param name="PanCardNumber">Pancard number of customer</param>
+        /// <param name="AadharCardNumber">Aadhae card number of customer</param>
+        /// <param name="PhoneNumber">Pan card number of customer</param>
+        /// <param name="Age">Age of the customer</param>
+        /// <param name="MailId">Mail Id of the customer</param>
         CustomerPersonalDetail(string CustomerName, string CustomerId, string Occupation, string Address, double Income, string PanCardNumber, string AadharCardNumber, string PhoneNumber, int Age,string MailId)
         {
             _customerName = CustomerName;
@@ -70,7 +71,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         }
 
         /// <summary>
-        /// 
+        /// Customer Id
         /// </summary>
         public string CustomerId
         {
@@ -131,7 +132,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         }
 
         /// <summary>
-        /// 
+        /// Pan card number
         /// </summary>
         public string PanCardNumber
         {
@@ -149,7 +150,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         }
 
         /// <summary>
-        /// 
+        /// Aadhar card number
         /// </summary>
         public string AadharCardNumber
         {
@@ -165,7 +166,9 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
                 return _aadharCardNumber;
             }
         }
-
+        /// <summary>
+        /// Phone number
+        /// </summary>
         public string PhoneNumber
         {
             set
@@ -181,7 +184,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
             }
         }
         /// <summary>
-        /// 
+        /// Age
         /// </summary>
         public int Age
 
@@ -196,7 +199,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
             }
         }
         /// <summary>
-        /// 
+        /// Mail Id
         /// </summary>
         public string MailId
         {
