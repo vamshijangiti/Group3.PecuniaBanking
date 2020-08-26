@@ -60,6 +60,12 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             accounts.Add(d);
             accounts.Add(d);
         }
+
+        public void DeleteAccount(Account account)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// retrieve accounts
         /// </summary>

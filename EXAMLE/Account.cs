@@ -42,27 +42,11 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
             static void AddAccount()
             {
-                AccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
-                Account account = new Account();
-                System.Console.WriteLine("enter AccountNo");
-                account.accountNo = int.Parse(System.Console.ReadLine());
-
-                /*System.Console.Write("\nEnter AccountId : ");
-            account.AccountId = int.Parse(System.Console.ReadLine());
-                System.Console.WriteLine("Enter the Account Holder Name: ");
-                account.AccountHolderName(System.Console.ReadLine());
-                accountBusinessLogic.Add(account);
-                System.Console.WriteLine("Account Created.\n");*/
-
+               
             }
             static void ViewAccount()
             {
-                AccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
-                List<Accounts> accounts = accountBusinessLogic.GetAccounts();
-                foreach (Accounts acc in accounts)
-                {
-                    System.Console.WriteLine("Account ID:" + acc.accountId);
-                }
+               
             }
 
         }

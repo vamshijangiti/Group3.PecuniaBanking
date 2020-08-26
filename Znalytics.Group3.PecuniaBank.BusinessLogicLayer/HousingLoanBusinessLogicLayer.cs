@@ -30,6 +30,8 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 throw new Exception("CustomerId cant be zero");
             }
         }
+
+        public void UpdateAccount()
     }
                
    public class _housingLoanDataAccessLayer

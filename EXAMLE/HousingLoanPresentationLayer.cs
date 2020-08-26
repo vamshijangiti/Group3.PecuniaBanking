@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Znalytics.Group3.PecuniaBank.Entities;
-using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 
 namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
 {
@@ -15,8 +14,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
 
             System.Console.WriteLine("-----welcome to pecunia bank-------");//options for type of loan
             System.Console.WriteLine("1.HousingLoan");
-            System.Console.WriteLine("2.GoldLoan");
-            System.Console.WriteLine("3.exit");
+            System.Console.WriteLine("2.exit");
             int n;
             n = int.Parse(System.Console.ReadLine());//using n variable in the switch case
             {
@@ -42,7 +40,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
 
                         break;
 
-                    case 2://choosing GoldLoan option
+                    /*case 2://choosing GoldLoan option
                         JewelLoan g = new JewelLoan();
                         System.Console.WriteLine("enter aadharno");
                         long _aadharNo = long.Parse(System.Console.ReadLine());
@@ -57,8 +55,8 @@ namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
                         System.Console.WriteLine("emi value");
                         float emi = float.Parse(System.Console.ReadLine());
 
-                        break;
-                    case 3:
+                        break;*/
+                    case 2:
                         System.Console.WriteLine("exit ");
                         break;
                 }
