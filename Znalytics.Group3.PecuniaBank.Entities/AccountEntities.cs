@@ -11,10 +11,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     /// <summary>
     /// Entity Layer for BankLayer
     /// </summary>
-    public enum TypeOfAccount
-    {
-        CurrentAccount, SavingsAccount//enumeration for savings and currentacccount
-    }
+
 
     public class Account
     {
@@ -24,7 +21,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         private string _dateOfCreation;
         private string _branchName;
         private long _balance;
-        private TypeOfAccount typeOfAccount;
+       
        /* public int AccountId
         {
             set
@@ -101,4 +98,5 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
     }
-}
+  
+} 

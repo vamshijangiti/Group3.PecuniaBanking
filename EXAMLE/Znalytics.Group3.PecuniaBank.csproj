@@ -49,7 +49,7 @@
     <Compile Include="CreditcardPresentationLayer.cs" />
     <Compile Include="CustomerPersonalDetailPL.cs" />
     <Compile Include="Detail.cs" />
-    <Compile Include="HousingAndJewelPresentationLayer.cs" />
+    <Compile Include="HousingLoanPresentationLayer.cs" />
     <Compile Include="MainMethod.cs" />
     <Compile Include="personalvehicleloanpresentationlayer.cs" />
     <Compile Include="TransactionMenu.cs" />
