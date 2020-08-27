@@ -1,16 +1,16 @@
 ﻿// Done by Manasa
 
-
+using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
 using System;
 using System.Collections.Generic;
-using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
+using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
 
 namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
 {
     /// <summary>
     /// Represents Data Access Layer of customer Personal details
     /// </summary>
-    public class CustomerPersonalDetailDAL: ICustomerPersonalDetailDAL
+    public class CustomerDetailDAL: ICustomerDetailDAL
     {
         //private fields
         //private static List<CustomerPersonalDetail> _customers;

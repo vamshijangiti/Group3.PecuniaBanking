@@ -4,7 +4,7 @@ using System;
 /// <summary>
 /// Represents details of customer
 /// </summary>
-namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
+namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
 {
     public class CustomerDetail
     {
@@ -38,7 +38,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         /// <param name="PhoneNumber">Pan card number of customer</param>
         /// <param name="Age">Age of the customer</param>
         /// <param name="MailId">Mail Id of the customer</param>
-        CustomerDetail(string CustomerName, string CustomerId, string Profession, string Address, double AnnualIncome, long PanCardNumber, long AadharCardNumber, long PhoneNumber, DateTime DateOfBirth,string MailId)
+        CustomerDetail(string CustomerName, string CustomerId, string Profession, string Address, double AnnualIncome, string PanCardNumber, long AadharCardNumber, long PhoneNumber, DateTime DateOfBirth,string MailId)
         {
             _customerName = CustomerName;
             _customerId = CustomerId;
@@ -134,11 +134,11 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         /// <summary>
         /// Pan card number
         /// </summary>
-        public long PanCardNumber
+        public string PanCardNumber
         {
             set
             {
-                if(value.Length=10)
+                if(value.Length==10)
                 {
                     _panCardNumber = value;
                 }

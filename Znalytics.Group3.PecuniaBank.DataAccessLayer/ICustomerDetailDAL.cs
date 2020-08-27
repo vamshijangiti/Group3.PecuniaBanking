@@ -3,14 +3,14 @@
 
 using System;
 using System.Collections.Generic;
-using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
+using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
 
 namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
 {
     /// <summary>
     /// Represents interface for the customer Personal Detail DataAccessLayer
     /// </summary>
-    public interface ICustomerPersonalDetailDAL
+    public interface ICustomerDetailDAL
     {
         //Adding customer details
         void AddCustomer(CustomerDetail customer);

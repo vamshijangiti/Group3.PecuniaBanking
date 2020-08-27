@@ -4,10 +4,10 @@
 using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
-using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
+using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
 using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
 using System.Collections.Generic;
-using Znalytics.PecuniaBanking.CreditcardModule.Entities;
+
 
 namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 {
@@ -16,12 +16,12 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     /// </summary>
     public class CustomerDetailBLL : ICustomerDetailBLL
     {
-        private ICustomerPersonalDetailDAL cdal = null;
+        private ICustomerDetailDAL cdal = null;
 
 
         public CustomerDetailBLL()
         {
-            cdal = new CustomerPersonalDetailDAL();
+            cdal = new CustomerDetailDAL();
         }
 
 
@@ -30,7 +30,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
             //Validating customer name
             if (customer.CustomerName != null)
             {
-                //cdal.AddCustomer(customer);
+                cdal.AddCustomer(customer);
 
             }
             else
@@ -38,18 +38,22 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
                 throw new Exception("Name can't be null,Please Mention your name");
             }
 
+           // void ValidatePanCardNumber(CustomerDetail customer)
+            //{
 
-            //validating pancard number
-            string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
-            bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
-            if (isPanCardNumberValid == true)
-            {
-                cdal.AddCustomer(customer);
-            }
-            else
-            {
-                throw new Exception("Invalid Pancardnumber");
-            }
+
+                //validating pancard number
+                string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
+                bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
+                if (isPanCardNumberValid == true)
+                {
+                    cdal.AddCustomer(customer);
+                }
+                else
+                {
+                    throw new Exception("Invalid Pancardnumber");
+                }
+            
 
             //Validating Aadharcard number
 
@@ -75,9 +79,9 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
             }
         }
 
-            //Checking Age
-            public int ValidateAge(CustomerDetail customer)
-            {
+        //Checking Age
+        public int ValidateAge(CustomerDetail customer)
+        {
             DateTime dateOfBirth = Convert.ToDateTime("1998-07-03 7:00 am");
             DateTime presentDate = DateTime.Now;
             TimeSpan timeSpan = presentDate - dateOfBirth;
@@ -85,17 +89,17 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 
             return age;
 
-                if (customer.age >= 18)
-                {
-                    cdal.AddCustomer(customer);
-                }
-                else
-                {
-                    throw new Exception("Age must be 18 or above");
-                }
+            if (customer.age >= 18)
+            {
+                cdal.AddCustomer(customer);
             }
+            else
+            {
+                throw new Exception("Age must be 18 or above");
+            }
+        }
 
-        
+
         //Validation of Mail Id
         public void ValidateMailId(CustomerDetail customer)
         {
@@ -120,6 +124,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 
 
         }
+    
 
         //View customer personal details
         public List<Customer> GetCustomers()
