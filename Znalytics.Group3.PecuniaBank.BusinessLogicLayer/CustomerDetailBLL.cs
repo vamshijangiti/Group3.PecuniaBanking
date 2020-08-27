@@ -16,13 +16,18 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     /// </summary>
     public class CustomerDetailBLL : ICustomerDetailBLL
     {
-        private ICustomerDetailDAL cdal = null;
+
+        ICustomerDetailBLL CustomerDetailBll = new CustomerDetailBLL();
+        ICustomerDetailDAL CustomerDetailDAl = new CustomerDetailDAL();
+        CustomerDetail customer = new CustomerDetail();
+
+        /*private ICustomerDetailDAL cdal = null;
 
 
         public CustomerDetailBLL()
         {
             cdal = new CustomerDetailDAL();
-        }
+        }*/
 
 
         public void AddCustomer(CustomerDetail customer)
@@ -127,7 +132,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     
 
         //View customer personal details
-        public List<Customer> GetCustomers()
+        public List<CustomerDetail> GetCustomers()
         {
             return cdal.GetCustomers();
         }

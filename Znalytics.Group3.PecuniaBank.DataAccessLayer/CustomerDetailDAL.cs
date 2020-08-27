@@ -24,7 +24,7 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         }
 
         //Getting existing Customer details
-        public void ViewCustomer(CustomerDetail customer)
+        public void GetCustomers(CustomerDetail customer)
         {
              List<CustomerDetail> GetCustomers()
             {
@@ -40,6 +40,9 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
             if (customer != null)
             {
                 customer.CustomerName = customer.CustomerName;
+
+                
+
             }
         }
     }

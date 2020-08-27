@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Znalytics.Group3.PecuniaBanking.BusinessLogicLayer;
-using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
+using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
 
-namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLayer
+namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 {
     /// <summary>
     /// Represents Login information of the customer
@@ -11,11 +11,11 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
     class CustomerDetailPL
     {
         //Starting point of the Execution
-        /*static void Main()
+        static void Main()
         {
             CustomerDetailsPresentation();
             Console.ReadKey();
-        }*/
+        }
 
         //Displaying Customers menu
         static void CustomerDetailsPresentation()
@@ -34,7 +34,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
                 switch (choice)
                 {
                     case 1: AddCustomer(); break;
-                    case 2: ViewCustomer(); break;
+                    case 2: GetCustomers(); break;
                     case 3: UpdateCustomer(); break;
                 }
             } while (choice != 4);
@@ -88,12 +88,12 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
             customers.MailId = Console.ReadLine();
 
            // CustomerDetailBLL customerPersonaldetailBusinessLogicLayer = new CustomerDetailBLL();
-            customerdetailBusinessLogicLayer.AddCustomer(customers); //call BUsinessLogicLayer
+            customerdetailBusinessLogicLayer.AddCustomer(customers); //call BusinessLogicLayer
 
              Console.WriteLine("Customer details added successfully.\n");
          }
         //View existing Customer details
-         static void ViewCustomer()
+         static void GetCustomers()
          {
             // CustomerDetailBLL customerBusinessLogic = new CustomerDetailBLL();
             //creating list
