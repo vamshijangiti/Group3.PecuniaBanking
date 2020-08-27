@@ -30,7 +30,8 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
             //Validating customer name
             if (customer.CustomerName != null)
             {
-                cdal.AddCustomer(customer);
+                //cdal.AddCustomer(customer);
+                
             }
             else
             {

@@ -32,7 +32,7 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
             }
         }
 
-        //Updationof customer details
+        //Updation of customer details
         public void UpdateCustomer(CustomerPersonalDetail customer)
         {
             //Get matching customer based on CustomerId

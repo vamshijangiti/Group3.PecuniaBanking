@@ -11,13 +11,13 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         // list of details
         private string _customerName;
         private string _customerId;
-        private string _occupation;
+        private string _profession;
         private string _address;
-        private double _income;
-        private string _panCardNumber;
+        private double _annualIncome;
+        private long _panCardNumber;
         private string _aadharCardNumber;
         private string _phoneNumber;
-        private int _age;
+        private DateTime _dateOfBirth;
         private string _mailId;
 
         CustomerPersonalDetail customer = new CustomerPersonalDetail();
@@ -38,17 +38,17 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         /// <param name="PhoneNumber">Pan card number of customer</param>
         /// <param name="Age">Age of the customer</param>
         /// <param name="MailId">Mail Id of the customer</param>
-        CustomerPersonalDetail(string CustomerName, string CustomerId, string Occupation, string Address, double Income, string PanCardNumber, string AadharCardNumber, string PhoneNumber, int Age,string MailId)
+        CustomerPersonalDetail(string CustomerName, string CustomerId, string Profession, string Address, double AnnualIncome, long PanCardNumber, string AadharCardNumber, string PhoneNumber, DateTime DateOfBirth,string MailId)
         {
             _customerName = CustomerName;
             _customerId = CustomerId;
-            _occupation = Occupation;
+            _Profession = Profession;
             _address = Address;
-            _income = Income;
+            _annualIncome = AnnualIncome;
             _panCardNumber = PanCardNumber;
             _aadharCardNumber = AadharCardNumber;
             _phoneNumber = PhoneNumber;
-            _age = Age;
+            _dateOfBirth = DateOfBirth;
             _mailId = MailId;
         }
 
@@ -93,26 +93,26 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         {
             set
             {
-                _income = value;
+                _annualIncome = value;
             }
             get
             {
-                return _income;
+                return _annualIncome;
             }
         }
         /// <summary>
         /// Occupation
         /// </summary>
 
-        public string Occupation
+        public string Profession
         {
             set
             {
-                _occupation = value;
+                _profession = value;
             }
             get
             {
-                return _occupation;
+                return _profession;
             }
         }
 
@@ -134,11 +134,11 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         /// <summary>
         /// Pan card number
         /// </summary>
-        public string PanCardNumber
+        public long PanCardNumber
         {
             set
             {
-                if (value.Length ==10)
+                if(value.Length=10)
                 {
                     _panCardNumber = value;
                 }
@@ -186,16 +186,16 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities
         /// <summary>
         /// Age
         /// </summary>
-        public int Age
+        public DateTime DateOfBirth
 
         {
             set
             {
-                _age = value;
+                _dateOfBirth = value;
             }
             get
             {
-                return _age;
+                return _dateOfBirth;
             }
         }
         /// <summary>
