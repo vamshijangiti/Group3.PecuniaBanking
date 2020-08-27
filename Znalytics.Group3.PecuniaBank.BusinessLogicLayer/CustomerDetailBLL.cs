@@ -14,12 +14,12 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     /// <summary>
     /// Represents Business logic layer of the customer personal details
     /// </summary>
-    public class CustomerPersonalDetailBLL : ICustomerPersonalDetailBLL
+    public class CustomerDetailBLL : ICustomerDetailBLL
     {
         private ICustomerPersonalDetailDAL cdal = null;
 
 
-        public CustomerPersonalDetailBLL()
+        public CustomerDetailBLL()
         {
             cdal = new CustomerPersonalDetailDAL();
         }
@@ -31,7 +31,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
             if (customer.CustomerName != null)
             {
                 //cdal.AddCustomer(customer);
-                
+
             }
             else
             {
@@ -73,19 +73,29 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
             {
                 throw new Exception("Phone number can't be null,Please enter 10digit Phonenumber");
             }
+        }
 
             //Checking Age
-
-            if (customer.Age >= 18)
+            public int ValidateAge(CustomerDetail customer)
             {
-                cdal.AddCustomer(customer);
-            }
-            else
-            {
-                throw new Exception("Age must be 18 and above");
+            DateTime dateOfBirth = Convert.ToDateTime("1998-07-03 7:00 am");
+            DateTime presentDate = DateTime.Now;
+            TimeSpan timeSpan = presentDate - dateOfBirth;
+            int age = Convert.ToInt32(timeSpan.TotalDays / 365);
+
+            return age;
+
+                if (customer.age >= 18)
+                {
+                    cdal.AddCustomer(customer);
+                }
+                else
+                {
+                    throw new Exception("Age must be 18 or above");
+                }
             }
 
-        }
+        
         //Validation of Mail Id
         public void ValidateMailId(CustomerDetail customer)
         {

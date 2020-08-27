@@ -8,14 +8,14 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
     /// <summary>
     /// Represents Login information of the customer
     /// </summary>
-    class Menu
+    class CustomerDetailPL
     {
         //Starting point of the Execution
-        static void Main()
+        /*static void Main()
         {
             CustomerDetailsPresentation();
             Console.ReadKey();
-        }
+        }*/
 
         //Displaying Customers menu
         static void CustomerDetailsPresentation()
@@ -48,7 +48,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
 
             //Reading customer name manually
              Console.Write("Enter customer name: ");
-             customers.CustomerId = Console.ReadLine();
+             customers.CustomerName = Console.ReadLine();
 
             //Reading customer Id manually
              Console.Write("Enter customer Id: ");
@@ -56,7 +56,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
 
             //Reading Occupation of customer manually
             Console.Write("Enter Occupation: ");
-            customers.Occupation = Console.ReadLine();
+            customers.Profession = Console.ReadLine();
 
             //Reading Address of custometr manually
             Console.Write("Enter customer Address: ");
@@ -68,7 +68,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
 
             //Reading customer's Pancard number manually
             Console.Write("Enter customer pancardnumber: ");
-            customers.PanCardNumber = Console.ReadLine();
+            customers.PanCardNumber =long.( Console.ReadLine();
 
             //Reading Customer's aadharcardnumber manually
             Console.Write("Enter customer Aadharcardnumber: ");
@@ -80,7 +80,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
 
             //Reading Customer's age manually
             Console.Write("Enter customer Age: ");
-            customers.Age= int.Parse(Console.ReadLine());
+            customers.DateOfBirth= DateTime.Parse(Console.ReadLine());
 
             //Reading customer's mail id manually
             Console.Write("Enter customer MailId: ");

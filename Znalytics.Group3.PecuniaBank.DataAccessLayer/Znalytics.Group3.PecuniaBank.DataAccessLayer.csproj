@@ -43,11 +43,11 @@
   <ItemGroup>
     <Compile Include="AccountDataAccessLayer.cs" />
     <Compile Include="CreditcardDataAccessLayer.cs" />
-    <Compile Include="CustomerPersonalDetailDAL.cs" />
+    <Compile Include="CustomerDetailDAL.cs" />
     <Compile Include="HousingLoanDataAccessLayer.cs" />
     <Compile Include="IAccountDAL.cs" />
     <Compile Include="ICustomer.cs" />
-    <Compile Include="ICustomerPersonalDetailDAL.cs" />
+    <Compile Include="ICustomerDetailDAL.cs" />
     <Compile Include="JewelLoanDataAccessLayer.cs" />
     <Compile Include="personalloandataaccesslayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
