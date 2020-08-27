@@ -15,8 +15,13 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         //Adding customer details
         void AddCustomer(CustomerPersonalDetail customer);
         //Viewing details
-        void ViewCustomer(CustomerPersonalDetail customer);
+        //void ViewCustomer(CustomerPersonalDetail customer);
         // Updating details of customer
+        public List<CustomerPersonalDetail> GetCustomers()
+        {
+           // return cdal.GetCustomers();
+        }
+
         void UpdateCustomer(CustomerPersonalDetail customer);
 
     }

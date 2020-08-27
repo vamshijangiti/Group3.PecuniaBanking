@@ -6,6 +6,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
 using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
+using System.Collections.Generic;
+using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 
 namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 {
@@ -38,7 +40,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 
             //validating pancard number
             string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
-            bool isPanCardNumberValid = Regex.IsMatch(TxtPanCardNumber.Text.ToString().Trim(), checkPanCardNumber);
+            bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
             if (isPanCardNumberValid == true)
             {
                 cdal.AddCustomer(customer);
@@ -109,12 +111,9 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
         }
 
         //View customer personal details
-        public void ViewCustomer(CustomerPersonalDetail customer)
+        public List<Customer> GetCustomers()
         {
-            List<CustomerPersonalDetail> GetCustomers();
-            //List<CustomerPersonalDetail> customerdetail = new List<CustomerPersonalDetail>();
-
-            cdal.ViewCustomer(customer);
+            return cdal.GetCustomers();
         }
 
         //Update customer details

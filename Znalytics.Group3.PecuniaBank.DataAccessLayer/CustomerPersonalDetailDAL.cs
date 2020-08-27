@@ -17,16 +17,6 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
 
         List<CustomerPersonalDetail> customerdetail = new List<CustomerPersonalDetail>();
 
-        //constructor
-       /* static CustomerPersonalDetailDAL()
-        {
-            _customers = new List<CustomerPersonalDetail>()
-            {
-                new CustomerPersonalDetail(){ },
-                new CustomerPersonalDetail(){ }
-            };
-        }*/
-
         //Adding Customer Personal Details
         public void AddCustomer(CustomerPersonalDetail customer)
         {

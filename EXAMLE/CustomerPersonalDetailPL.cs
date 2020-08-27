@@ -96,7 +96,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
          {
              CustomerPersonalDetailBLL customerBusinessLogic = new CustomerPersonalDetailBLL();
             //creating list
-             List<CustomerPersonalDetail> cust = customerBusinessLogic.GetCustomer();
+             List<CustomerPersonalDetail> cust = customerBusinessLogic.GetCustomers();
 
             //getting customerdetails 
              foreach (CustomerPersonalDetail detail in cust)
