@@ -15,28 +15,28 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         //private fields
         //private static List<CustomerPersonalDetail> _customers;
 
-        List<CustomerPersonalDetail> customerdetail = new List<CustomerPersonalDetail>();
+        List<CustomerDetail> customerdetail = new List<CustomerDetail>();
 
         //Adding Customer Personal Details
-        public void AddCustomer(CustomerPersonalDetail customer)
+        public void AddCustomer(CustomerDetail customer)
         {
             customerdetail.Add(customer);
         }
 
         //Getting existing Customer details
-        public void ViewCustomer(CustomerPersonalDetail customer)
+        public void ViewCustomer(CustomerDetail customer)
         {
-             List<CustomerPersonalDetail> GetCustomers()
+             List<CustomerDetail> GetCustomers()
             {
                 return customerdetail;
             }
         }
 
         //Updation of customer details
-        public void UpdateCustomer(CustomerPersonalDetail customer)
+        public void UpdateCustomer(CustomerDetail customer)
         {
             //Get matching customer based on CustomerId
-            CustomerPersonalDetail cust = customerdetail.Find(temp => temp.CustomerId == customer.CustomerId);
+            CustomerDetail cust = customerdetail.Find(temp => temp.CustomerId == customer.CustomerId);
             if (customer != null)
             {
                 customer.CustomerName = customer.CustomerName;

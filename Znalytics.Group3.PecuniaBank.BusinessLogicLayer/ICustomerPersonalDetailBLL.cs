@@ -17,15 +17,15 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     public interface ICustomerPersonalDetailBLL
     {
         //Adding details
-        void AddCustomer(CustomerPersonalDetail customer);
+        void AddCustomer(CustomerDetail customer);
 
         //Viewing existing details
-        void ViewCustomer(CustomerPersonalDetail customer);
+        void ViewCustomer(CustomerDetail customer);
 
         //customer GetCustomerByCustomerId(string CustomerID);
 
         //Updating customer details
-        void UpdateCustomer(CustomerPersonalDetail customer);
+        void UpdateCustomer(CustomerDetail customer);
     }
     
 }

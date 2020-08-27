@@ -13,16 +13,16 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
     public interface ICustomerPersonalDetailDAL
     {
         //Adding customer details
-        void AddCustomer(CustomerPersonalDetail customer);
+        void AddCustomer(CustomerDetail customer);
         //Viewing details
-        //void ViewCustomer(CustomerPersonalDetail customer);
+        // void ViewCustomer(CustomerPersonalDetail customer);
         // Updating details of customer
-        public List<CustomerPersonalDetail> GetCustomers()
+        public List<CustomerDetail> GetCustomers()
         {
            // return cdal.GetCustomers();
         }
 
-        void UpdateCustomer(CustomerPersonalDetail customer);
+        void UpdateCustomer(CustomerDetail customer);
 
     }
 }

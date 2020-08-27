@@ -44,7 +44,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
         public static void AddCustomer()
          {
             //Creating object for CustomerPersonalDetail class 
-            CustomerPersonalDetail customers = new CustomerPersonalDetail();
+            CustomerDetail customers = new CustomerDetail();
 
             //Reading customer name manually
              Console.Write("Enter customer name: ");
@@ -96,10 +96,10 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
          {
              CustomerPersonalDetailBLL customerBusinessLogic = new CustomerPersonalDetailBLL();
             //creating list
-             List<CustomerPersonalDetail> cust = customerBusinessLogic.GetCustomers();
+             List<CustomerDetail> cust = customerBusinessLogic.GetCustomers();
 
             //getting customerdetails 
-             foreach (CustomerPersonalDetail detail in cust)
+             foreach (CustomerDetail detail in cust)
              {
                  Console.WriteLine(detail);
              }
@@ -112,7 +112,7 @@ namespace Znalytics.PecuniaBanking.CustomerPersonalDetailModule.PresentationLaye
              CustomerPersonalDetailBLL CustomerBusinessLogic = new CustomerPersonalDetailBLL();
 
             //Creating object for the CustomerPersonalDetail class
-             CustomerPersonalDetail customer = new CustomerPersonalDetail();
+             CustomerDetail customer = new CustomerDetail();
 
             //Updating name
              Console.Write("Enter Existing Customer Name: ");

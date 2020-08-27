@@ -25,7 +25,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
         }
 
 
-        public void AddCustomer(CustomerPersonalDetail customer)
+        public void AddCustomer(CustomerDetail customer)
         {
             //Validating customer name
             if (customer.CustomerName != null)
@@ -87,7 +87,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 
         }
         //Validation of Mail Id
-        public void ValidateMailId(CustomerPersonalDetail customer)
+        public void ValidateMailId(CustomerDetail customer)
         {
 
             string mail = customer.MailId;
@@ -118,7 +118,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
         }
 
         //Update customer details
-        public void UpdateCustomer(CustomerPersonalDetail customer)
+        public void UpdateCustomer(CustomerDetail customer)
         {
 
             cdal.UpdateCustomer(customer);
