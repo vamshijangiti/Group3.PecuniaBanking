@@ -61,18 +61,16 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         {
             set
             {
-                try
+                if (value.Length <= 30)
                 {
+                    _customerName = value;
+                }
+                else
+                {
+                    throw new Exception("Name should be lessthan 30 characters");
 
-                    if (value.Length <= 30 && value != null)
-                    {
-                        _customerName = value;
-                    }
                 }
-                catch
-                {
-                    throw new Exception("Name can't be null and it should be lessthan 30 characters");
-                }
+
             }
             get
             {
@@ -88,8 +86,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
             set
             {
                 _customerId = value;
-                 
-
+             
             }
             get
             {
@@ -103,19 +100,15 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         {
             set
             {
-                try
+                if (value !=0)
                 {
-                    if(value!=null)
-                    {
-                        _annualIncome = value;
-
-                    }
-
+                    _annualIncome = value;
                 }
-                catch
+                else
                 {
                     throw new Exception("Income can't be null,Please mention your Annual Income");
                 }
+
             }
             get
             {
@@ -160,21 +153,17 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         {
             set
             {
-                try
+                string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
+                bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
+                if (isPanCardNumberValid == true)
                 {
-                    string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
-                    bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
-                    if (isPanCardNumberValid == true)
-                    {
-                        _panCardNumber = value;
-                    }
-                   
+                    _panCardNumber = value;
                 }
-                catch
+                else
                 {
                     throw new Exception("Enter PanCardNumber and that must be 10 characters");
                 }
-                
+
             }
             get
             {
@@ -189,25 +178,25 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         {
             set
             {
-                try
+                string checkAadharCardNumber = @"^[0-9]{12}$";
+                bool isAadharCardNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkAadharCardNumber);
+                if (isAadharCardNumberValid == true)
                 {
-                    string checkAadharCardNumber = @"^[0-9]{12}$";
-                    bool isAadharCardNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkAadharCardNumber);
-                    if (isAadharCardNumberValid == true)
-                    {
-                        _aadharCardNumber = value;
-                    }
-
+                    _aadharCardNumber = value;
                 }
-                catch
+                else
                 {
                     throw new Exception("Aadharcardnumber must be 12 digits");
+
                 }
+
             }
             get
             {
                 return _aadharCardNumber;
             }
+
+
         }
         /// <summary>
         /// Phone number
@@ -216,22 +205,20 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         {
             set
             {
-                try
+                //string checkPhoneNumber = @"^[0-9]{10}$";
+                string checkPhoneNumber = @"^(\+)([1 - 9]{ 2})(\s)(\d{ 10})$";
+                bool isPhoneNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkPhoneNumber);
+                if (isPhoneNumberValid == true)
                 {
-                    string checkPhoneNumber = @"^[0-9]{10}$";
-                    bool isPhoneNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkPhoneNumber);
-                    if (isPhoneNumberValid == true)
-                    {
-                        _phoneNumber = value;
-                    }
-
+                    _phoneNumber = value;
                 }
-                catch
+
+                else
                 {
                     throw new Exception("Phonenumber must be 10 digits");
                 }
-
             }
+           
             get
             {
                 return _phoneNumber;
@@ -245,25 +232,24 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         {
             set
             {
-                try
-                {
-                    DateTime dateOfBirth = Convert.ToDateTime("1998-07-03 7:00 am");
-                    DateTime presentDate = DateTime.Now;
-                    TimeSpan timeSpan = presentDate - dateOfBirth;
-                    int age = Convert.ToInt32(timeSpan.TotalDays / 365);
+                DateTime dateOfBirth = Convert.ToDateTime("1998-07-03 7:00 am");
+                DateTime presentDate = DateTime.Now;
+                TimeSpan timeSpan = presentDate - dateOfBirth;
+                int age = Convert.ToInt32(timeSpan.TotalDays / 365);
 
-                    if (age >= 18)
-                    {
-                        _dateOfBirth = value;
-                    }
-                   
+                if (age >= 18)
+                {
+                    _dateOfBirth = value;
                 }
-                catch
+
+
+                else
                 {
                     throw new Exception("Age must be 18 and above");
+
                 }
-                
             }
+
             get
             {
                 return _dateOfBirth;
@@ -285,15 +271,13 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
                 {
                     throw new Exception("Email should not contain spaces and should include @ symbol.");
                 }
-            }
 
+            }
             get
             {
                 return _mailId;
             }
         }
     }
-
-
 
 }
