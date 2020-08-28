@@ -14,15 +14,15 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     /// <summary>
     /// Entity Layer For Transactions
     /// </summary>
-    public class Transaction 
+    public class Transaction
     {
         private int _transactionID;
-        private string _transactionDate;
+        private DateTime _transactionDate;
         private string _transactionType;
         private double _transactionAmount;
         private long _accountNumber;
 
-        Transaction transaction = new Transaction();
+        //Transaction transaction = new Transaction();
 
         public Transaction() { }
 
@@ -36,13 +36,13 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <param name="transactionID">Transaction ID</param>
         /// <param name="transactionType">Type Of Transaction</param>
         /// <param name="transactionAmount">Transaction Amount</param>
-        public Transaction(long accountNumber, string date, int transactionID, string transactionType, double transactionAmount)
+        public Transaction(long accountNumber, DateTime date, int transactionID, string transactionType, double transactionAmount)
         {
-            transaction._accountNumber = accountNumber;
-            transaction._transactionDate = date;
-            transaction._transactionID = transactionID;
-            transaction._transactionType = transactionType;
-            transaction._transactionAmount = transactionAmount;
+            this._accountNumber = accountNumber;
+            this._transactionDate = date;
+            this._transactionID = transactionID;
+            this._transactionType = transactionType;
+            this._transactionAmount = transactionAmount;
         }
 
 
@@ -64,15 +64,19 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <summary>
         /// Represents the Transaction Date
         /// </summary>
-        public string TransactionDate
+        public DateTime TransactionDate
         {
+            set
+            {
+                _transactionDate = value;
+            }
             get
             { return _transactionDate; }
         }
 
 
         /// <summary>
-        /// Represents the Type Of the Transaction
+        /// Represents the Transaction Amount
         /// </summary>
         public double TransactionAmount
         {
@@ -104,7 +108,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         }
 
         /// <summary>
-        /// Represents The MEthod For Transaction ID
+        /// Represents The Method For Transaction ID
         /// </summary>
         public int TransactionID
         {

@@ -12,10 +12,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 /// </summary>
     public interface IAccountBusinessLogic
     {
-        long GenerateAccountNo(long accountNo);//methods
-        void Add(Account account);
-
-    }
+      //methods
+        void AddSavingsAccount(Account account);
+        void DeleteAccount(Account account);
+        void UpdateAccount(Account account);
+ }
     public class AccountBusinessLogic : IAccountBusinessLogic
     {
         AccountDataAccessLayer _accountDataAccessLayer;
@@ -24,29 +25,25 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             _accountDataAccessLayer = new AccountDataAccessLayer();
         }
 
-        public long GenerateAccountNo(long accountNo)
+        public void AddSavingsAccount(Account account)
         {
-            if (accountNo<=12)
+            if (account.AccountId!=0)
             {
-
-            }
+            _accountDataAccessLayer.AddSavingsAccount(account);
         }
+            else
+            {
+                throw new Exception("account no cant be more than 12 digits")
+            }
+                    
+
+ 
+    }
         /// <summary>
         /// Adding Accounts
         /// </summary>
         /// <param name="account">Add Account</param>
-        public void Add(Account account)
-        {
-            if (account.AccountNo != 12)
-            {
-                _accountDataAccessLayer.AddAccount(account);
-
-            }
-            else
-            {
-                throw new Exception("account no cant be null");
-            }
-        }
+    
         //GetAccounts
         public List<Account> GetAccounts()
         {
@@ -61,6 +58,13 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             if (account.AccountNo != 0)
             {
                 _accountDataAccessLayer.UpdateAccount(account);
+            }
+        }
+        public void DeleteAccount(Account account)
+        {
+            if (account.AccountNo==null)
+            {
+                _accountDataAccessLayer.DeleteAccount(account);
             }
         }
     }

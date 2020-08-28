@@ -5,27 +5,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Znalytics.Group3.PecuniaBank.Entities
 {
     /// <summary>
     /// Entity Layer for BankLayer
     /// </summary>
-    public enum TypeOfAccount
-    {
-        CurrentAccount, SavingsAccount//enumeration for savings and currentacccount
-    }
+
 
     public class Account
     {
         //private Fields
      
-        private long _accountNo;
+        private int  _accountId;
         private string _dateOfCreation;
         private string _branchName;
         private long _balance;
-        private TypeOfAccount typeOfAccount;
-       /* public int AccountId
+       
+        public int AccountId
         {
             set
             {
@@ -35,29 +33,18 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 }
                 else
                 {
-                    throw new Exception("account id should not be zero or null ");//raises exception if accountid is nill or zero
+                    throw new ApplicationException("account id should not be zero or null ");//raises exception if accountid is nill or zero
                 }
 
             }
             get
             {
-                return _accountId;//returns accountId
-            }
-        }*/
-        public long AccountNo
-        {
-            set
-            {
-                if (_accountNo ==11)//accountno should be 11 digit Number
-                {
-                    _accountNo = value;
-                }
-            }
-            get
-            {
-                return _accountNo;//readonly property
+                return _accountId;
             }
         }
+    
+           
+   
         public string DateOfCreation
         {
             set
@@ -94,11 +81,21 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 {
                     _balance = value;//balance 
                 }
+                else
+                {
+                    throw new AccountException("your balance should be not be equal to zero");
+                }
             }
             get
             {
                 return _balance;//returns balance
             }
         }
+
+        public Account Find(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
     }
-}
+  
+} 

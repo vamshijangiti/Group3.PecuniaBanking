@@ -37,10 +37,10 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
                 choice = int.Parse(Console.ReadLine());
                 switch (choice)
                 {
-                    case 1: AddCreditCard(); break;
-                    case 2: ApplyCreditCard(); break;
-                    case 3: ApproveCreditCard(); break;
-                    case 4: ViewCreditCard(); break;
+                   
+                    case 1: ApplyCreditCard(); break;
+                    case 2: ApproveCreditCard(); break;
+                    case 3: ViewCreditCard(); break;
 
                 }
             }
@@ -49,7 +49,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
         }
 
         //Adding Customer details for credit card
-        static void AddCreditCard()
+        static void ApplyCreditCard()
 
         {
             CreditcardBusinessLogicLayer customerbusinesslogic = new CreditcardBusinessLogicLayer();

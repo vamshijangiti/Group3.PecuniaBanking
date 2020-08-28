@@ -1,250 +1,283 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//      Done by Manasa
 
-namespace Znalytics.Group3.PecuniaBank
+using System;
+using System.Text.RegularExpressions;
+/// <summary>
+/// Represents details of customer
+/// </summary>
+namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class CustomerDetail
     {
-        //Private fields
+        // list of details
         private string _customerName;
+        private string _customerId;
+        private string _profession;
         private string _address;
-        private string _occupation;
+        private double _annualIncome;
         private string _panCardNumber;
-        private string _voterID;
-        private string _passport;
-        private string _drivingLicense;
-        private int _aadhaarCardNumber;
-        private string _utilityBillProof;
-        private int _rationCardNumber;
-        private int _employeeID;
+        private string _aadharCardNumber;
+        private string _phoneNumber;
+        private DateTime _dateOfBirth;
+        private string _mailId;
+
+        CustomerDetail customer = new CustomerDetail();
+       // Creating constructor
+        public CustomerDetail() { }
+
 
         /// <summary>
-        /// Constructor that initializes details of Savings Account
+        /// Creating Constructor
         /// </summary>
-        /// <param name="customerName">Name of the customer</param>
-        /// <param name="address">Address of the customer</param>
-        /// <param name="occupation">Occupation of the customer</param>
-        /// <param name="panCardNumber">PAN card number of the customer</param>
-        /// <param name="voterID">Voter-Id number of the customer</param>
-        /// <param name="passport">Passport number of the customer</param>
-        /// <param name="drivingLicense">Driving license of the customer</param>
-        /// <param name="aadhaarCardNumber">Aadhaar card of the cutomer</param>
-        public CustomerDetail(string customerName, string address, string occupation, string panCardNumber, string voterID, string passport, string drivingLicense, int aadhaarCardNumber)
+        /// <param name="CustomerName">Name of the customer</param>
+        /// <param name="CustomerId">Customer Id</param>
+        /// <param name="Occupation">Occupation of customer</param>
+        /// <param name="Address">Address of customer</param>
+        /// <param name="Income">Income of customer</param>
+        /// <param name="PanCardNumber">Pancard number of customer</param>
+        /// <param name="AadharCardNumber">Aadhae card number of customer</param>
+        /// <param name="PhoneNumber">Pan card number of customer</param>
+        /// <param name="Age">Age of the customer</param>
+        /// <param name="MailId">Mail Id of the customer</param>
+        CustomerDetail(string CustomerName, string CustomerId, string Profession, string Address, double AnnualIncome, string PanCardNumber, string AadharCardNumber, string PhoneNumber, DateTime DateOfBirth,string MailId)
         {
-            
-            CustomerName = customerName;
-            Address = address;
-            Occupation = occupation;
-            PanCardNumber = panCardNumber;
-            VoterID = voterID;
-            Passport = passport;
-            DrivingLicense = drivingLicense;
-            AadhaarCardNumber = aadhaarCardNumber;
+            _customerName = CustomerName;
+            _customerId = CustomerId;
+            _profession = Profession;
+            _address = Address;
+            _annualIncome = AnnualIncome;
+            _panCardNumber = PanCardNumber;
+            _aadharCardNumber = AadharCardNumber;
+            _phoneNumber = PhoneNumber;
+            _dateOfBirth = DateOfBirth;
+            _mailId = MailId;
         }
-        
-        
-        //To Do: Add parameterless constructor
 
 
         /// <summary>
-        /// Constructor that initializes details of Current Account
+        /// Customer name
         /// </summary>
-        /// <param name="utilityBillProof">utilityBillProof of the customer</param>
-        /// <param name="rationCardNumber">Ration Card Number of the customer</param>
-        /// <param name="employeeID">Employee-ID number of the customer</param>
-        public void CurrentAccount(string utilityBillProof, int rationCardNumber, int employeeID)
-        {
-            UtilityBillProof = utilityBillProof;
-            RationCardNumber = rationCardNumber;
-            EmployeeID = employeeID;
-        }
-        /// <summary>
-        ///Represents name of the customer
-        /// </summary>
-     
         public string CustomerName
         {
             set
             {
-              _customerName = value;
-             }
+                if (value.Length <= 30)
+                {
+                    _customerName = value;
+                }
+                else
+                {
+                    throw new Exception("Name should be lessthan 30 characters");
 
-   
+                }
+
+            }
             get
             {
                 return _customerName;
             }
         }
+
         /// <summary>
-        /// Represents the Address of the customer
+        /// Customer Id
+        /// </summary>
+        public string CustomerId
+        {
+            set
+            {
+                _customerId = value;
+             
+            }
+            get
+            {
+                return _customerId;
+            }
+        }
+        /// <summary>
+        /// Income
+        /// </summary>
+        public double Income
+        {
+            set
+            {
+                if (value !=0)
+                {
+                    _annualIncome = value;
+                }
+                else
+                {
+                    throw new Exception("Income can't be null,Please mention your Annual Income");
+                }
+
+            }
+            get
+            {
+                return _annualIncome;
+            }
+        }
+        /// <summary>
+        /// Occupation
+        /// </summary>
+
+        public string Profession
+        {
+            set
+            {
+                _profession = value;
+            }
+            get
+            {
+                return _profession;
+            }
+        }
+
+        /// <summary>
+        /// Address
         /// </summary>
         public string Address
         {
             set
             {
-               
-                {
-                    _address = value;
-                }
-                
+                _address = value;
             }
-
             get
             {
                 return _address;
             }
         }
-        /// <summary>
-        /// Represents the Occupation of the customer
-        /// </summary>
-        public string Occupation
-        {
-            set
-            {
-                _occupation = value;
-            }
 
-            get
-            {
-                return _occupation;
-            }
-        }
         /// <summary>
-        /// Represents the PAN card number of the customer
+        /// Pan card number
         /// </summary>
         public string PanCardNumber
         {
             set
             {
-               
+                string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
+                bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
+                if (isPanCardNumberValid == true)
                 {
                     _panCardNumber = value;
                 }
-                
-            }
+                else
+                {
+                    throw new Exception("Enter PanCardNumber and that must be 10 characters");
+                }
 
+            }
             get
             {
                 return _panCardNumber;
             }
         }
+
         /// <summary>
-        /// Represents the Voter ID number of the customer
+        /// Aadhar card number
         /// </summary>
-        public string VoterID
+        public string AadharCardNumber
         {
             set
             {
-          
+                string checkAadharCardNumber = @"^[0-9]{12}$";
+                bool isAadharCardNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkAadharCardNumber);
+                if (isAadharCardNumberValid == true)
                 {
-                    _voterID = value;
+                    _aadharCardNumber = value;
                 }
-               
-            }
-
-            get
-            {
-                return _voterID;
-            }
-        }
-        /// <summary>
-        /// Represents the Passport number of the customer
-        /// </summary>
-        public string Passport
-        {
-            set
-            {
-               
+                else
                 {
-                    _passport = value;
+                    throw new Exception("Aadharcardnumber must be 12 digits");
+
                 }
-                
+
+            }
+            get
+            {
+                return _aadharCardNumber;
+            }
+
+
+        }
+        /// <summary>
+        /// Phone number
+        /// </summary>
+        public string PhoneNumber
+        {
+            set
+            {
+                //string checkPhoneNumber = @"^[0-9]{10}$";
+                string checkPhoneNumber = @"^(\+)([1 - 9]{ 2})(\s)(\d{ 10})$";
+                bool isPhoneNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkPhoneNumber);
+                if (isPhoneNumberValid == true)
+                {
+                    _phoneNumber = value;
+                }
+
+                else
+                {
+                    throw new Exception("Phonenumber must be 10 digits");
+                }
+            }
+           
+            get
+            {
+                return _phoneNumber;
+            }
+        }
+        /// <summary>
+        /// Age
+        /// </summary>
+        public DateTime DateOfBirth
+
+        {
+            set
+            {
+                DateTime dateOfBirth = Convert.ToDateTime("1998-07-03 7:00 am");
+                DateTime presentDate = DateTime.Now;
+                TimeSpan timeSpan = presentDate - dateOfBirth;
+                int age = Convert.ToInt32(timeSpan.TotalDays / 365);
+
+                if (age >= 18)
+                {
+                    _dateOfBirth = value;
+                }
+
+
+                else
+                {
+                    throw new Exception("Age must be 18 and above");
+
+                }
             }
 
             get
             {
-                return _passport;
+                return _dateOfBirth;
             }
         }
         /// <summary>
-        /// Represents the Driving License number of the customer
+        /// Mail Id
         /// </summary>
-        public string DrivingLicense
+        public string MailId
         {
             set
             {
-                _drivingLicense = value;
-            }
+                Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+                if (regex.IsMatch(value) == true)
+                {
+                    _mailId = value;
+                }
+                else
+                {
+                    throw new Exception("Email should not contain spaces and should include @ symbol.");
+                }
 
-            get
-            {
-                return _drivingLicense;
-            }
-        }
-        /// <summary>
-        /// Represents the Aadhaar card number of the customer
-        /// </summary>
-        public int AadhaarCardNumber
-        {
-            set
-            {
-
-                _aadhaarCardNumber = value;
-            }
-
-            get
-            {
-                return _aadhaarCardNumber;
-            }
-        }
-        /// <summary>
-        /// Represents the UtilityBill Proof of the customer
-        /// </summary>
-        public string UtilityBillProof
-        {
-            set
-            {
-                _utilityBillProof = value;
             }
             get
             {
-                return _utilityBillProof;
-            }
-        }
-        /// <summary>
-        /// Represents the RationCard Number of the customer
-        /// </summary>
-        public int RationCardNumber
-        {
-            set
-            {
-
-                _rationCardNumber = value;
-            }
-            get
-            {
-                return _rationCardNumber;
-            }
-        }
-        /// <summary>
-        /// Represents the EmployeeID Number of the customer
-        /// </summary>
-        public int EmployeeID
-        {
-            set
-            {
-                _employeeID = value;
-            }
-            get
-            {
-                return _employeeID;
+                return _mailId;
             }
         }
     }
+
 }

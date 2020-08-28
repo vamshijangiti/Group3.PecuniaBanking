@@ -10,7 +10,12 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// <summary>
     /// DataAccessLayer for HousingLoan
     /// </summary>
-    public class HousingLoanDataAccessLayer
+    public interface IHousingLoanDataAccessLayer
+    {
+        void Add(HousingLoan n);
+        void UpdateHousingLoan(HousingLoan u);
+    }
+    public class HousingLoanDataAccessLayer:IHousingLoanDataAccessLayer
     {
         //private fields
       
@@ -29,10 +34,10 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         }
 
         //Add CustomerId
-        public void Add(HousingLoan customerid)
+        public void Add(HousingLoan n)
         {
 
-            _housingLoans.Add(customerid);
+            _housingLoans.Add(n);
 
         }
         //GetCustomerId
@@ -41,12 +46,12 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             return _housingLoans;
         }
         //UpdateCustomerIds
-        public void UpdateHousingLoan(HousingLoan customerId)
+        public void UpdateHousingLoan(HousingLoan u)
         {
-            HousingLoan cust = _housingLoans.Find(temp => temp.CustomerId == customerId.CustomerId);
+            HousingLoan cust = _housingLoans.Find(temp => temp.CustomerId == u.CustomerId);
             if (cust !=null)
             {
-                cust.CustomerId = customerId.CustomerId;
+                cust.CustomerId =u.CustomerId;
           
             }
         }

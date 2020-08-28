@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Znalytics.PecuniaBank.DataAccessLayer
+namespace Znalytics.Group3.PecuniaBank.Entities
 {
-    class CustomerPersonalDetailDAL
+   public enum TypeOfAccount
     {
+        SavingsAccount,CurrentAccount
     }
 }
