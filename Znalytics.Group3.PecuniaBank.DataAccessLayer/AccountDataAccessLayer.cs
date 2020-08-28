@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.Entities;
+using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
+
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
     /// <summary>
@@ -14,27 +16,33 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// </summary>
     public interface IAccountDataAccessLayer
     {
-        void AddSavingsAccount(Account s);
-        void AddCurrentAccount(Account c);
-        void AddDateOfCreation(Account d);
+        void AddSavingsAccount(SavingsAccount s);
+        void AddCurrentAccount(CurrentAccount c);
+        void AddDateOfCreation(SavingsAccount d);
         List<Account> GetAccounts(long AccountNo);
         void UpdateAccount(Account accounts);
 
     }
+
+    public class Account
+    {
+        public int AccountId { get;  set; }
+        public int Balance { get;  set; }
+        public string DateOfCreation { get;  set; }
+        public string BranchName { get;  set; }
+    }
+
     public class AccountDataAccessLayer : IAccountDataAccessLayer//interface
     {
         List<Account> accounts = new List<Account>();//List of Accounts
-      
+
         //constructor
-        public AccountDataAccessLayer()
-        {
-            accounts = new List<Account>()
+        public AccountDataAccessLayer() => accounts = new List<Account>()
             {
                 new Account() { AccountId=1, DateOfCreation = "24-08-2020", Balance = 100, BranchName = "pecunia" },
                 new Account() { AccountId=2,DateOfCreation="25-08-2020",Balance=12000,BranchName="pecunia"},
                 new Account() { AccountId=3, DateOfCreation = "26-08-2020", Balance = 1000, BranchName = "pecunia" },
             };
-        }
 
         public List<Account> GetAccounts()
         {
@@ -46,9 +54,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             accounts.Add(c);
         }
 
-
-
-        /// <summary>
+         /// <summary>
         /// Add Account into the list
         /// </summary>
         /// <param name="n">Account</param>
@@ -64,8 +70,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public void AddDateOfCreation(Account d)
         {
             accounts.Add(d);
-            accounts.Add(d);
-            accounts.Add(d);
+            
         }
 
         public void DeleteAccount(Account account)

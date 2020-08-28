@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
+using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
+
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {/// <summary>
 /// BusinessLogicLayer for Accounts
@@ -13,32 +15,40 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     public interface IAccountBusinessLogic
     {
       //methods
-        void AddSavingsAccount(Account account);
-        void DeleteAccount(Account account);
+        void SavingsAccount(SavingsAccount account);
+        void CurrentAccount(CurrentAccount account);
+        void GenerateAccountId(int id);
+        void DeleteAccount(SavingsAccount account);
         void UpdateAccount(Account account);
  }
     public class AccountBusinessLogic : IAccountBusinessLogic
     {
         AccountDataAccessLayer _accountDataAccessLayer;
+     
+
         public AccountBusinessLogic()
         {
             _accountDataAccessLayer = new AccountDataAccessLayer();
         }
 
-        public void AddSavingsAccount(Account account)
+        public void SavingsAccount(SavingsAccount account)
         {
-            if (account.AccountId!=0)
+            try
             {
-            _accountDataAccessLayer.AddSavingsAccount(account);
+
+            if (account.AccountId != 0)
+            {
+                    _accountDataAccessLayer.AddSavingsAccount(account);
         }
             else
             {
-                throw new Exception("account no cant be more than 12 digits")
+                throw new ApplicationException("account no should not be null")
             }
-                    
+            }
+        public void CurrentAccount(CurrentAccount account)
+        {
 
- 
-    }
+        }
         /// <summary>
         /// Adding Accounts
         /// </summary>
@@ -55,17 +65,42 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <param name="account">update</param>
         public void UpdateAccount(Account account)
         {
-            if (account.AccountNo != 0)
+            if (account.AccountId != 0)
             {
                 _accountDataAccessLayer.UpdateAccount(account);
             }
         }
         public void DeleteAccount(Account account)
         {
-            if (account.AccountNo==null)
+            if (account.AccountId==null)
             {
                 _accountDataAccessLayer.DeleteAccount(account);
             }
+        }
+
+            public int GenerateAccountId(int id)
+            {
+                int AccountId = NewMethod(account);
+                return AccountId++;
+            }
+        }
+
+        private static int NewMethod(SavingsAccount account)
+        {
+            return account.Max(temp =>
+            {
+                return NewMethod1(temp);
+            });
+
+            static object NewMethod1(object temp)
+            {
+                return temp.AccountId;
+            }
+        }
+
+        public void DeleteAccount(SavingsAccount account)
+        {
+       
         }
     }
 
