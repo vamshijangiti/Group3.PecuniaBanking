@@ -3,10 +3,11 @@
 
 using System;
 using System.Security.Cryptography.X509Certificates;
-using System.Text.RegularExpressions;
+//using System.Text.RegularExpressions;
 using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
 using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
 using System.Collections.Generic;
+//using Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer;
 
 
 namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
@@ -17,124 +18,106 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     public class CustomerDetailBLL : ICustomerDetailBLL
     {
 
-        ICustomerDetailBLL CustomerDetailBll = new CustomerDetailBLL();
-        ICustomerDetailDAL CustomerDetailDAl = new CustomerDetailDAL();
-        CustomerDetail customer = new CustomerDetail();
+        private ICustomerDetailDAL cdal;
 
-        /*private ICustomerDetailDAL cdal = null;
-
-
+        //Constructor for CustomerDetailBusinessLogicLayer
         public CustomerDetailBLL()
         {
             cdal = new CustomerDetailDAL();
-        }*/
+        }
 
 
-        public void AddCustomer(CustomerDetail customer)
+        public void AddCustomer(CustomerDetail cust)
         {
-            //Validating customer name
-            if (customer.CustomerName != null)
+
+            try
             {
-                cdal.AddCustomer(customer);
-
+                if(cust.CustomerName!=null)
+                {
+                    cdal.AddCustomer(cust);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception("Name can't be null,Please Mention your name");
+                throw new Exception("Customer name can't be null,Please mention your name", ex);
             }
 
-           // void ValidatePanCardNumber(CustomerDetail customer)
-            //{
-
-
-                //validating pancard number
-                string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
-                bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
-                if (isPanCardNumberValid == true)
+            //validating pancard number
+            try
+            {
+                if (cust.PanCardNumber != null)
                 {
-                    cdal.AddCustomer(customer);
+                    cdal.AddCustomer(cust);
                 }
-                else
-                {
-                    throw new Exception("Invalid Pancardnumber");
-                }
-            
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("PanCardNumber can't be null,Please mention your PancardNumber", ex);
+            }
 
             //Validating Aadharcard number
-
-            if (customer.AadharCardNumber != null)
+            try
             {
-                cdal.AddCustomer(customer);
-
+                if (cust.AadharCardNumber != null)
+                {
+                    cdal.AddCustomer(cust);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception("Please enter 12digit aadharcard number");
+                throw new Exception("AadharCardNumber can't be null,Please mention your AadharCardNumber", ex);
             }
 
             //Checking Phone number
-
-            if (customer.PhoneNumber != null)
+            try
             {
-                cdal.AddCustomer(customer);
-            }
-            else
-            {
-                throw new Exception("Phone number can't be null,Please enter 10digit Phonenumber");
-            }
-        }
 
-        //Checking Age
-        public int ValidateAge(CustomerDetail customer)
-        {
-            DateTime dateOfBirth = Convert.ToDateTime("1998-07-03 7:00 am");
-            DateTime presentDate = DateTime.Now;
-            TimeSpan timeSpan = presentDate - dateOfBirth;
-            int age = Convert.ToInt32(timeSpan.TotalDays / 365);
-
-            return age;
-
-            if (customer.age >= 18)
-            {
-                cdal.AddCustomer(customer);
-            }
-            else
-            {
-                throw new Exception("Age must be 18 or above");
-            }
-        }
-
-
-        //Validation of Mail Id
-        public void ValidateMailId(CustomerDetail customer)
-        {
-
-            string mail = customer.MailId;
-            //searching for space
-            bool spaceFound = mail.Contains(" ");
-
-            //searching for @
-            bool AtFound = mail.Contains("@");
-
-            char[] ch = mail.ToCharArray();
-            int AtCharCount = 0;
-            for (int i = 0; i < ch.Length; i++)
-            {
-                if (ch[i] == '@')
+                if (cust.PhoneNumber != null)
                 {
-                    AtCharCount++;
+                    cdal.AddCustomer(cust);
                 }
             }
-            cdal.AddCustomer(customer);
+            catch (Exception ex)
+            {
+                throw new Exception("PhoneNumber can't be null,Please mention your PhoneNumber", ex);
+            }
 
+            //Checking Age
+            try
+            {
+                if (cust.DateOfBirth != null)
+                {
+                    cdal.AddCustomer(cust);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("DateOfBirth can't be null,Please mention your DateOfBirth", ex);
+            }
+            //Validation of Mail Id
+            try
+            {
+                if (cust.MailId!=null)
+                {
+                    cdal.AddCustomer(cust);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Mail Id can't be null,Please mention your Mail", ex);
+            }
 
         }
-    
+
 
         //View customer personal details
         public List<CustomerDetail> GetCustomers()
         {
             return cdal.GetCustomers();
+        }
+        public List<CustomerDetail> GetCustomerNameByCustomerId(string CustomerName)
+        {
+            return cdal.GetCustomerNameByCustomerId(CustomerName);
         }
 
         //Update customer details
