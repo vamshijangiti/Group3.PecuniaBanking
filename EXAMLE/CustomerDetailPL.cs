@@ -206,7 +206,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 customer.MailId = Console.ReadLine();
 
 
-                Cb.UpdateCustomer(customer);
+                cb.UpdateCustomer(customer);
                 Console.WriteLine("Customer details Updated.\n");
             }
             catch

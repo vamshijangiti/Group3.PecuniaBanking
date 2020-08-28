@@ -23,7 +23,7 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         }
 
         void UpdateCustomer(CustomerDetail customer);
-
+        List<CustomerDetail> GetCustomerNameByCustomerId(string customerName);
     }
 }
 

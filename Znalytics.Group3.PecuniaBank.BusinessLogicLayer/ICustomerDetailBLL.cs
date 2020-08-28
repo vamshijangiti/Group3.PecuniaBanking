@@ -20,7 +20,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
         //Viewing existing details
         void GetCustomers(CustomerDetail customer);
 
-        customer GetCustomerByCustomerNameByCustomerId(string CustomerID);
+        customer GetCustomerNameByCustomerId(string CustomerID);
 
     }
     
