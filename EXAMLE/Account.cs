@@ -1,6 +1,8 @@
 ﻿//PresentationLayer created by sriram
 
 
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime;
@@ -12,7 +14,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
     class Account
     {
-        private int accountNo;
+        public  int accountNo;
 
         public static void AccountsPresentationLayer()
         {
@@ -21,23 +23,27 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             {
                 System.Console.WriteLine("WELCOME TO PECUNIA BANKING");
                 System.Console.WriteLine("Menu");
-                System.Console.WriteLine("1. Add Account ");
-                System.Console.WriteLine("2. view Account");
-                System.Console.WriteLine("3.UpdateAccount");
-                System.Console.WriteLine("4.DeleteAccount");
-                System.Console.WriteLine("5. Exit");
+                System.Console.WriteLine("1. press 1 if you want to open SavingsAccount ");
+                System.Console.WriteLine("2.press 2 if you want to open currentAccount");
                 System.Console.WriteLine("Enter the choice: ");
                 choice = int.Parse(System.Console.ReadLine());
                 switch (choice)
                 {
-                    case 1: AddAccount(); break;
-                    case 2: ViewAccount(); break;
-                    case 3: UpdateAccount(); break;
-                    case 4: DeleteAccount(); break;
-
-
+                    case 1: SavingsAccount(); break;
+                    case 2: CurrentAccount(); break;
                 }
+                
+
             } while (choice != 5);
+
+            switch(choice)
+            {
+                case 1:
+                    System.Console.WriteLine("enter  ");
+                    break;
+            }
+
+
 
 
             static void AddAccount()
@@ -50,6 +56,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             }
 
         }
+
+   
 
         static void UpdateAccount()
         {

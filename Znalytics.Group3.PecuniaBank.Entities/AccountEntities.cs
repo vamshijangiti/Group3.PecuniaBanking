@@ -18,12 +18,12 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     {
         //private Fields
      
-        private long _accountNo;
+        private int  _accountId;
         private string _dateOfCreation;
         private string _branchName;
         private long _balance;
        
-       /* public int AccountId
+        public int AccountId
         {
             set
             {
@@ -33,33 +33,18 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 }
                 else
                 {
-                    throw new Exception("account id should not be zero or null ");//raises exception if accountid is nill or zero
+                    throw new ApplicationException("account id should not be zero or null ");//raises exception if accountid is nill or zero
                 }
 
             }
             get
             {
-                return _accountId;//returns accountId
-            }
-        }*/
-        public long AccountNo
-        {
-            set
-            {
-                if (_accountNo ==11)//accountno should be 11 digit Number
-                {
-                    _accountNo = value;
-                }
-                else
-                {
-                    throw new AccountException("Please enter a valid accountNo");
-                }
-            }
-            get
-            {
-                return _accountNo;//readonly property
+                return _accountId;
             }
         }
+    
+           
+   
         public string DateOfCreation
         {
             set
