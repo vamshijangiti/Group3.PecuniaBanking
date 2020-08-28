@@ -13,7 +13,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     public interface IAccountBusinessLogic
     {
       //methods
-        void Add(Account account);
+        void AddSavingsAccount(Account account);
         void DeleteAccount(Account account);
         void UpdateAccount(Account account);
  }
@@ -25,11 +25,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             _accountDataAccessLayer = new AccountDataAccessLayer();
         }
 
-        public void Add(Account account)
+        public void AddSavingsAccount(Account account)
         {
-            if (account.AccountNo==12)
+            if (account.AccountId!=0)
             {
-            _accountDataAccessLayer.AddAccount(account);
+            _accountDataAccessLayer.AddSavingsAccount(account);
         }
             else
             {

@@ -14,7 +14,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// </summary>
     public interface IAccountDataAccessLayer
     {
-        void AddAccount(Account n);
+        void AddSavingsAccount(Account s);
+        void AddCurrentAccount(Account c);
         void AddDateOfCreation(Account d);
         List<Account> GetAccounts(long AccountNo);
         void UpdateAccount(Account accounts);
@@ -29,9 +30,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             accounts = new List<Account>()
             {
-                new Account() { AccountNo=6200-2340-641, DateOfCreation = "24-08-2020", Balance = 100, BranchName = "pecunia" },
-                new Account() { AccountNo=6200-2210-243,DateOfCreation="25-08-2020",Balance=12000,BranchName="pecunia"},
-                new Account() { AccountNo= 6200-2100-321, DateOfCreation = "26-08-2020", Balance = 1000, BranchName = "pecunia" },
+                new Account() { AccountId=1, DateOfCreation = "24-08-2020", Balance = 100, BranchName = "pecunia" },
+                new Account() { AccountId=2,DateOfCreation="25-08-2020",Balance=12000,BranchName="pecunia"},
+                new Account() { AccountId=3, DateOfCreation = "26-08-2020", Balance = 1000, BranchName = "pecunia" },
             };
         }
 
@@ -40,15 +41,21 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             throw new NotImplementedException();
         }
 
+        public void AddCurrentAccount(Account c)
+        {
+            accounts.Add(c);
+        }
+
+
+
         /// <summary>
         /// Add Account into the list
         /// </summary>
         /// <param name="n">Account</param>
-        public void AddAccount(Account n)
+        public void AddSavingsAccount(Account s)
         {
-            accounts.Add(n);
-            accounts.Add(n);
-            accounts.Add(n);
+            accounts.Add(s);
+           
         }
         /// <summary>
         /// Add DateOfCreation of Account
@@ -81,9 +88,12 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <param name="accounts">Update</param>
         public void UpdateAccount(Account accounts)
         {
-            Account acc = accounts.Find(temp => temp.AccountNo == accounts.AccountNo);
+            Account acc = accounts.Find(temp =>
+            {
+                return temp.AccountId == accounts.AccountId;
+            });
             if(acc!=null){
-                acc.AccountNo = accounts.AccountNo;
+                acc.AccountId = accounts.AccountId;
             }
         }
     }
