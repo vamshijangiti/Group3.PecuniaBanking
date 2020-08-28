@@ -17,10 +17,11 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     public interface ICustomerDetailBLL
     {
 
-        //Viewing existing details
-        void GetCustomers(CustomerDetail customer);
 
-        customer GetCustomerNameByCustomerId(string CustomerID);
+        //Viewing existing details
+        public List<CustomerDetail> GetCustomers();
+
+        public List<CustomerDetail> GetCustomerNameByCustomerId(string CustomerName);
 
     }
     

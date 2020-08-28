@@ -11,7 +11,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
     {
         // list of details
         private string _customerName;
-        private string _customerId;
+        private int _customerId;
         private string _profession;
         private string _address;
         private double _annualIncome;
@@ -39,7 +39,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         /// <param name="PhoneNumber">Pan card number of customer</param>
         /// <param name="Age">Age of the customer</param>
         /// <param name="MailId">Mail Id of the customer</param>
-        CustomerDetail(string CustomerName, string CustomerId, string Profession, string Address, double AnnualIncome, string PanCardNumber, string AadharCardNumber, string PhoneNumber, DateTime DateOfBirth,string MailId)
+        CustomerDetail(string CustomerName, int CustomerId, string Profession, string Address, double AnnualIncome, string PanCardNumber, string AadharCardNumber, string PhoneNumber, DateTime DateOfBirth,string MailId)
         {
             _customerName = CustomerName;
             _customerId = CustomerId;
@@ -81,7 +81,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         /// <summary>
         /// Customer Id
         /// </summary>
-        public string CustomerId
+        public int CustomerId
         {
             set
             {
