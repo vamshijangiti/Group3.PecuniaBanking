@@ -13,79 +13,85 @@ using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
+
+    /// <summary>
+    /// Interface For BLL
+    /// </summary>
     public interface ITransactionBLL
     {
-        long ValidateAccountNumber(long accNumber);
-
+        bool ValidateAccountNumber(long accNumber);
+        bool ValidateWithDrawl(double d1);
+        bool ValidateEnteredAmount(double d2);
+        void AddTranscation(Transaction t1);
+        long GetAccountNumber();
     }
 
 
     /// <summary>
     /// Business Logic Layer For WithDrawl And Debit
     /// </summary>
-
     public class TransactionBusinessLogic : ITransactionBLL
     {
-        ITransactionBLL transactionBll = new TransactionBusinessLogic();
-        ITransactionDAL transactionDAl = new TransactionDAL();
+        //creating 
+        ITransactionDAL transactionDAL = new TransactionDAL();
         Transaction transaction = new Transaction();
-
+        AccountDAL accountDALs = new AccountDetailDAL();
 
 
         /// <summary>
-        /// Validation Of AccountNumber
+        /// Validation Of AccountNumber-Account Number Of Customer should Be Less than 10
         /// </summary>
-        /// <param name="_accNumber">Account Number Of Customer should Be Less than 10</param>
+        /// <param name="_accNumber">Account Number</param>
         /// <returns></returns>
-        public long ValidateAccountNumber(long accNumber)
+        public bool ValidateAccountNumber(long accNumber)
         {
             //if (_name.Length > 10)
             string l = accNumber + "";
-            if (l.Length == 16)
+            if (l.Length == 3)
             {
 
-                transactionDAl.GetTransactions(accNumber);
-                return accNumber;
+                // transactionDAL.GetTransactions(accNumber);
+                return true;
             }
             else
             {
-                throw new Exception(" \nplease check Account number \n");
+                //throw new Exception(" \nplease check Account number \n");
+                return false;
             }
         }
+
+
 
         /// <summary>
         /// Validation For Withdrawl - minimum balance is 5000
         /// </summary>
-        /// <param name="d1">Available Balance</param>
-        /// <param name="d2">Entered Balance</param>
+        /// <param name="d1">Entered Balance</param>
         /// <returns></returns>
-        public bool ValidateWithDrawl(double d1, double d2)
+        public bool ValidateWithDrawl(double d1)
         {
-            if (d1 - d2 >= 5000)
+            if (accountDALs.balance - d1 >= 5000)
             {
-                //
                 return true;
             }
             else
             {
                 //Minimum Balance is 5000
-                throw new Exception("\n Minimum Balance is 5000 ");
-
+                //throw new Exception("\n Minimum Balance is 5000 ");
+                return false;
             }
         }
 
 
         /// <summary>
-        /// Validation For Deposit - should be greater than 500
+        /// Validation For Deposit - entered amount should be greater than 500
         /// </summary>
-        /// <param name="d2">The Deposit Amount </param>
+        /// <param name="d2">Deposit Amount </param>
         /// <returns></returns>
-        public bool ValidateDeposit(double d2)
+        public bool ValidateEnteredAmount(double d2)
         {
 
             if (d2 >= 500)
             {
-                // Transaction.TransactionAmount = d2;
                 return true;
             }
             else
@@ -94,25 +100,76 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 return false;
             }
         }
-        /// <summary>
-        /// Represents the Method for Deposit
-        /// </summary>
-        /// <param name="t1"></param>
-        public void Deposit(Transaction t1)
-        {
 
-            transactionDAl.Deposit(t1);
+
+
+        /// <summary>
+        ///passing the object to the DAL
+        /// </summary>
+        /// <param name="t1">object</param>
+        public void AddTranscation(Transaction t1)
+        {
+            transactionDAL.AddTransaction(t1);
 
         }
 
-        /// <summary>
-        /// Represents the Withdrawl Method
-        /// </summary>
-        /// <param name="t2"></param>
 
-        public void WithDrawl(Transaction t2)
+
+        /// <summary>
+        /// Getting the Account Number From DAL
+        /// </summary>
+        /// <returns>AccountNumber</returns>
+        public long GetAccountNumber()
         {
-            transactionDAl.WithDrawl(t2);
+            return transactionDAL.GetAccountNumber();
+        }
+
+
+
+        /// <summary>
+        /// Adding the Deposited Amount
+        /// </summary>
+        /// <param name="transactionAccno">Account NUmber</param>
+        /// <param name="trascactioAmount">Amount</param>
+        public void Deposit(long transactionAccno, double trascactioAmount)
+        {
+            transactionDAL.DepositAmount(transactionAccno, trascactioAmount);
+        }
+
+
+
+        /// <summary>
+        /// Adding the WithDrawl Amount
+        /// </summary>
+        /// <param name="t2">Transaction Object</param>
+        public void WithDrawlAmount(long transactionAccno, double transactionAmount)
+        {
+            transactionDAL.WithDrawlAmount(transactionAccno, transactionAmount);
+        }
+
+
+
+
+        /// <summary>
+        /// List For Getting the Transaction details by AccountNumber from Other's Class
+        /// </summary>
+        /// <param name="AccountNumber">Account Number</param>
+        /// <returns></returns>
+        public List<Transaction> GetTransactions(long AccountNumber)
+        {
+
+            List<Transaction> tx = null;
+            if (ValidateAccountNumber(AccountNumber))
+            {
+                tx = transactionDAL.GetTransactionList(AccountNumber);
+            }
+            return tx;
+        }
+
+
+        public double GetAmount(long acc)
+        {
+            return transactionDAL.GetAvailableBalance(acc);
         }
     }
 }
