@@ -31,20 +31,24 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 this.HousingLoanId = HousingLoanId;
             }*/
 
-            public HousingLoan(int _customerId)//parameterized constructor
+          
+            public int CustomerId
             {
-                if (CustomerId!=0)
+            set
+            {
+                if (_customerId!=0)
                 {
-                    this._customerId = CustomerId;//this refers to current object
+                    _customerId = value;
                 }
                 else
                 {
-                    throw new Exception("customer id is incorrect");//throws exception 
+                    throw new HousingLoanException("customer id value shouldnot be null");
                 }
             }
-            public int CustomerId
+            get
             {
-                set; get;//automated property
+                return _customerId;
+            }
             }
 
 
@@ -61,18 +65,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             {
             }
 
-            /* public HousingLoan()//parameter-less constructor
-             {
-             }
-            */
-            public string AccountHolderName
-            {
-                set; get;//automated property
-            }
-            /*public HousingLoan(int _customerAge)
-            {
-                CustomerAge = _customerAge;
-            }*/
+     
             public int CustomerAge
             {
                 set//set property
@@ -83,7 +76,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                     }
                     else
                     {
-                        throw new Exception("customer Age is not eligible");
+                        throw new HousingLoanException("customer Age is not eligible");
                     }
                 }
                     get
@@ -116,6 +109,10 @@ public int GetAgeOfCustomer()
                     {
                         _creditScore = value;//assigns creditscore
                     }
+                else
+                {
+                    throw new HousingLoanException("credit score should be more than 650");
+                }
                 }
                 get
                 {
@@ -145,6 +142,10 @@ public int GetAgeOfCustomer()
                     {
                         _loanAmount = value;
                     }
+                else
+                {
+                    throw new HousingLoanException("loan amount exceded");
+                }
                 }
                 get
                 {
@@ -181,6 +182,10 @@ public int GetAgeOfCustomer()
                     {
                         _emi = value;//assigns emi value
                     }
+                else
+                {
+                    throw new HousingLoanException("emi should never be zero");
+                }
                 }
                 get
                 {
@@ -188,14 +193,6 @@ public int GetAgeOfCustomer()
                 }
             }
             }
-            /*public void Setemi(float value)
-            {
-                _emi = value;//assigns emi calculated value through formula
-            }
-            public float GetEmi()
-            {
-                return ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));
-            }*/
-
+      
         }
    

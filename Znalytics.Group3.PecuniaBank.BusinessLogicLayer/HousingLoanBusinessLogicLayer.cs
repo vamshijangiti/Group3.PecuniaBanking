@@ -31,9 +31,8 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
         }
 
-        public void UpdateAccount()
+
     }
-               
    public class _housingLoanDataAccessLayer
     {
     }
