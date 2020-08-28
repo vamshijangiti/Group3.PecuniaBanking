@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 /// <summary>
 /// Housing loan Entities
 /// </summary>
-namespace Znalytics.Group3.PecuniaBank.Entities
+/*namespace Znalytics.Group3.PecuniaBank.Entities
 {
             public class JewelLoan:Loan
             {
@@ -74,7 +74,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 {
                     return _aadharNo;
                 }*/
-                public int Age
+                /*public int Age
                 {
                     set
                     {
@@ -87,7 +87,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                     {
                         return Age;//returns age
                     }
-                }
+                }*/
                 /*public void SetAge(int value)
                 {
                     if (_age >= 21)
@@ -103,7 +103,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 {
                     return _age;
                 }*/
-                public int CarotType
+                /*public int CarotType
                 {
                     set
                     {
@@ -116,7 +116,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                     {
                         return CarotType;//returns carottype
                     }
-                }
+                }*/
                 /*public void SetCarotType(int value)
                 {
                     _carotType = value;//carotType should be either 18 or 22
@@ -125,7 +125,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 {
                     return _carotType;
                 }*/
-                public double LoanAmount
+               /* public double LoanAmount
                 {
                     set
                     {
@@ -150,7 +150,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 {
                     return _loanAmount;
                 }*/
-                public double tenure
+                /*public double tenure
                 {
                     set; get;//automated property
                 }

@@ -35,6 +35,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                
                 {
                     _accountNumber = value;
+                 else
+                {
+                    throw new Exception("Enter 6 digits only\n");
                 }
 
             }

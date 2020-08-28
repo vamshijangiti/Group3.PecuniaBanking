@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.Entities;
-
+/*
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
     /// <summary>
@@ -46,5 +46,5 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
     }
 }
-
+*/
        
