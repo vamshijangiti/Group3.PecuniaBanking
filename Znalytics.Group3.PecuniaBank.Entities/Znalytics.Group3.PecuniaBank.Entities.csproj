@@ -44,9 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountEntities.cs" />
+    <Compile Include="AccountException.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerDetail.cs" />
     <Compile Include="HousingLoanEntities.cs" />
+    <Compile Include="HousingLoanException.cs" />
     <Compile Include="JewelLoanEntities.cs" />
     <Compile Include="personalloanentities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
