@@ -15,28 +15,44 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     public class VehicleLoan
     {
         private string _accountNumber;
-        private string _accountId;
-        private string _phoneNumber;
-        private string _permanentAddress;
-        private string _panCardNumber;
-        private string _profession;
-        private double _annualIncome;
         private double _loanAmount;
-        private double _rateOfInterest;
+        private static double _rateOfInterest=10;
         private double _tenure;
         private float _emi;
         private int _creditScore;
+        VehicleLoan  vehicleLoan = new VehicleLoan ();
 
-        
+        public VehicleLoan () { }
+        /// <summary>
+        /// Constructor For Entity Class
+        /// </summary>
+        /// <param name="accountNumber">Account Number </param>
+        /// <param name="loanamount">sanction of loan amount</param>
+        /// <param name="rateofinterest">interest to be paid per month</param>
+        /// <param name="tenure">Duration of loan</param>
+        /// <param name="emi"> Monthly emi</param>
+        /// <param name="creditscore">credit score in your credit card</param>
 
+        public VehicleLoan (string accountNumber, double loanAmount, double tenure, float emi, int creditScore)
+        {
+           vehicleLoan._accountNumber = accountNumber;
+            vehicleLoan._loanAmount = loanAmount;
+           vehicleLoan._tenure = tenure;
+            vehicleLoan._emi = emi;
+            vehicleLoan._creditScore = creditScore;
+
+
+
+
+        }
 
         //set and get methods for account number
 
-        public String AccountNumber
+        public string AccountNumber
         {
             set
             {
-                if (AccountNumber.Length == 6)
+                if (value.Length == 6)
                 {
                     _accountNumber = value;
                 }
@@ -55,133 +71,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 return _accountNumber;
             }
         }
-        //set and get methods for account holder name
 
-        public String AccountId
-        {
-            set
-            {
-
-                if (AccountId.Length == 5)
-                {
-                    _accountId = value;
-                }
-
-                else
-                {
-                    throw new Exception("Enter 5 digits only\n");
-
-                }
-            }
-            get
-            {
-                return _accountId;
-            }
-        }
-
-
-        //set and get methods for phone number
-
-        public String PhoneNumber
-        {
-            set
-            {
-                if (PhoneNumber.Length == 10)
-                {
-                    _phoneNumber = value;
-                }
-
-                else
-                {
-                    throw new Exception("Enter 10 digits only\n");
-
-                }
-
-            }
-            get
-            {
-                return _phoneNumber;
-            }
-        }
-        //set and get methods for permanent address
-        public String PermanentAddress
-        {
-            set
-            {
-                int HouseNumber;
-                bool b;
-                string address = " ";
-                b = int.TryParse(address, out HouseNumber);
-                if (b == true)
-                {
-                    System.Console.WriteLine();
-                }
-
-                _permanentAddress = value;
-            }
-            get
-            {
-                return _permanentAddress;
-            }
-        }
-        //set and get methods for pancardnumber
-        public String PanCardNumber
-        {
-            set
-            {
-                int Number;
-                bool b;
-                string Pan = " ";
-                b = int.TryParse(Pan, out Number);
-                if (b == true)
-                {
-                    System.Console.WriteLine();
-                }
-
-                _panCardNumber = value;
-            }
-            get
-            {
-                return _panCardNumber;
-            }
-
-        }
-
-        //set and get methods for profession
-        public String Profession
-        {
-            set
-            {
-                _profession = value;
-            }
-            get
-            {
-                return _profession;
-            }
-        }
-        //set and get methods for annual income
-
-        public double AnnualIncome
-        {
-            set
-            {
-                if (AnnualIncome >= 400000)
-                {
-                    _annualIncome = value;
-                }
-
-                else
-                {
-                    throw new Exception("not eligible\n");
-
-                }
-
-            }
-            get
-            {
-                return _annualIncome;
-            }
-        }
         //set and get methods for loanamount
 
         public double LoanAmount
@@ -205,12 +95,10 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 return _loanAmount;
 
             }
-
         }
         //set and get methods for tenure
         public double Tenure
         {
-
             set
             {
                 if (Tenure >= 3)
@@ -234,17 +122,14 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         //set and get methods for rate of interest  
         public double RateOfInterest
         {
-            set
-            {
-                _rateOfInterest = value;
-            }
+           
             get
             {
                 return _rateOfInterest;
             }
         }
         //set and get methods for rate of interest
-        public float Emi
+        public float calculateEmi
         {
             set
             {
@@ -252,9 +137,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
             get
             {
-                return ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));
-
-
+                return _emi;
             }
         }
 
@@ -264,7 +147,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             {
 
 
-                if (_creditScore >= 650)//checks creditscore of a person which should starts from 650
+                if (CreditScore >= 650)//checks creditscore of a person which should starts from 650
                 {
                     _creditScore = value;
                 }
@@ -282,8 +165,6 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
     }
 }
-
-
 
 
 

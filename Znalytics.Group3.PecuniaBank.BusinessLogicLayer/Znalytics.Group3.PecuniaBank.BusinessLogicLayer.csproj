@@ -47,6 +47,7 @@
     <Compile Include="CustomerPersonalDetailBLL.cs" />
     <Compile Include="HousingLoanBusinessLogicLayer.cs" />
     <Compile Include="ICustomerPersonalDetailBLL.cs" />
+    <Compile Include="IPersonalLoanBusinessLogicLayer.cs" />
     <Compile Include="JewelLoanBusinessLogicLayer.cs" />
     <Compile Include="personalloanbusinesslogiclayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

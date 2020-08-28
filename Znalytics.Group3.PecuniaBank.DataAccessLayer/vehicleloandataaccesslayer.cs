@@ -15,7 +15,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             _vehicleLoans = new List<VehicleLoan>()
             {
-              new VehicleLoan () {AccountId ="12345",AccountNumber="123456",Tenure =3,AnnualIncome= 40000,LoanAmount =500000,CreditScore =650}
+              new VehicleLoan ()
+              {AccountNumber ="12345",Tenure =3,LoanAmount =500000,CreditScore =650}
             };
         }
         public void AddAccountDetails(VehicleLoan vl)
