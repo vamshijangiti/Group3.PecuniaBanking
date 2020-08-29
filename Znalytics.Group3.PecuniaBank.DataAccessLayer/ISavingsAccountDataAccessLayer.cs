@@ -7,12 +7,12 @@ using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
-    public interface IAccountDataAccessLayer
+    public interface ISavingsAccountDataAccessLayer
     {
-        void AddSavingsAccount(SavingsAccount savingAccount);
-        void AddCurrentAccount(CurrentAccount currentAccount);
+        void AddSavingsAccount(SavingsAccount savingsAccount);
         void AddDateOfCreation(SavingsAccount d);
-        List<SavingsAccount> GetAccounts(long AccountNo);
+        void DeleteSavingsAccount(SavingsAccount savingsAccount,int accountId);
+        List<SavingsAccount> GetSavingsAccount(int AccountId);
    
     }
 }

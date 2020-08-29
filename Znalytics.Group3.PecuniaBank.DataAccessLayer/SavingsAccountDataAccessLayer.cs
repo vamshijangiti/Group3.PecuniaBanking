@@ -8,35 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
-using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
     /// <summary>
     /// DataAccessLayer For Accounts 
     /// </summary>
-    public interface IAccountDataAccessLayer// interface 
+
+
+    public class SavingsAccountDataAccessLayer : ISavingsAccountDataAccessLayer//interface
     {
-        void AddSavingsAccount(SavingsAccount s);
-        void AddCurrentAccount(CurrentAccount c);
-        void AddDateOfCreation(SavingsAccount d);
-        List<SavingsAccount> GetSavingAccounts(int accountId);
-     
-        
-    }
-
-    public class CurrentAccount
-    {
-    }
-
-
-
-    public class SavingsAccountDataAccessLayer : IAccountDataAccessLayer//interface
-    {
-        List<SavingsAccount> accounts = new List<SavingsAccount>();//List of Accounts
+        List<SavingsAccount> savingaccounts = new List<SavingsAccount>();//List of Accounts
+        private List<SavingsAccount> savingsAccount;
 
         //constructor
-        public SavingsAccountDataAccessLayer() => accounts = new List<SavingsAccount>()
+        public SavingsAccountDataAccessLayer() => savingaccounts = new List<SavingsAccount>()
             {
                 new SavingsAccount() { AccountId=1, DateOfCreation = "24-08-2020", Balance = 100, BranchName = "pecunia" },
                 new SavingsAccount() { AccountId=2,DateOfCreation="25-08-2020",Balance=12000,BranchName="pecunia"},
@@ -44,26 +30,23 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             };
 
 
-        public void AddCurrentAccount(CurrentAccount c)
-        {
-            int maxAccountId = accounts.Max(temp => temp.AccountId);
-            c.AccountId = maxAccountId;
-            accounts.Add(c);
-        }
+        /*  public void AddCurrentAccount(CurrentAccount c)
+          {
+              int maxAccountId = accounts.Max(temp => temp.AccountId);
+              c.AccountId = maxAccountId;
+              accounts.Add(c);
+          }*/
 
         /// <summary>
         /// Add Account into the list
         /// </summary>
         /// <param name="n">Account</param>
-        public void AddSavingsAccount(SavingsAccount savingAccount)
+        public void AddSavingsAccount(SavingsAccount savingsAccount)
         {
-            accounts.Add(savingAccount);
+           /* int maxAccountId = savingsAccount.Max(temp => temp.AccountId);*/
+            /*savingsAccount.AccountId = maxAccountId;*/
+            savingaccounts.Add(savingsAccount);
 
-        }
-
-        public List<SavingsAccount> GetSavingAccounts()
-        {
-            throw new ApplicationException();
         }
 
         /// <summary>
@@ -72,47 +55,38 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <param name="d">DateOfCreation</param>
         public void AddDateOfCreation(SavingsAccount d)
         {
-            accounts.Add(d);
+            savingaccounts.Add(d);
 
         }
 
-        public void DeleteSavingsAccount(SavingsAccount account)
+        public List<SavingsAccount> GetSavingsAccount()
         {
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// retrieve accounts
-        /// </summary>
-        /// <param name="AccountNo">GetAccounts</param>
-        /// <returns></returns>
-        public List<SavingsAccount> GetSavingAccounts(long AccountNo)
+        public List<SavingsAccount> GetSavingsAccount(int AccountId)
         {
-            return accounts;
+            return savingsAccount;
         }
-        /// <summary>
-        /// Update Accounts 
-        /// </summary>
-        /// <param name="accounts">Update</param>
-        public void CurrentAccount(CurrentAccount accounts)
+
+        public void DeleteSavingsAccount(SavingsAccount savingsAccount,int accountId)
         {
-            CurrentAccount acc = accounts.Find(temp =>
+            if (accountId!= 0)
             {
-                return temp.AccountId == accounts.AccountId;
-            });
-
-
-            if (acc != null)
-            {
-                acc.AccountId = accounts.AccountId;
+               /* savingsAccount.DeleteSavingsAccount(savingsAccount);*/
             }
         }
 
-
-
+        public void DeleteAccount(SavingsAccount savingsaccount)
+        {
+            throw new NotImplementedException();
+        }
     }
-  
 }
+
+    
+       
+   
   
 
     /*    Customers Collection

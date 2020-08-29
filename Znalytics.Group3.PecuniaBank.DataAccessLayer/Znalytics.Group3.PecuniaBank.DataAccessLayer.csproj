@@ -44,11 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountDataAccessLayer.cs" />
+    <Compile Include="CurrentAccountDataAccessLayer.cs" />
+    <Compile Include="ICurrentAccountDataAccessLayer.cs" />
+    <Compile Include="SavingsAccountDataAccessLayer.cs" />
     <Compile Include="CreditcardDataAccessLayer.cs" />
     <Compile Include="CustomerDAL.cs" />
     <Compile Include="HousingLoanDataAccessLayer.cs" />
-    <Compile Include="IAccountDataAccessLayer.cs" />
+    <Compile Include="ISavingsAccountDataAccessLayer.cs" />
     <Compile Include="IAccountDetailDAL.cs" />
     <Compile Include="ICustomer.cs" />
     <Compile Include="ICustomerDAL.cs" />

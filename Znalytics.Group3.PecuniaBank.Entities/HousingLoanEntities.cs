@@ -12,14 +12,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         
         public class HousingLoan
         {
-        ///<summary>
-        ///<param name=customerId></param>
-        ///<param name==customerAge></param>
-        ///<param name=loanAmount</param>
-        ///<param name=tenure></param>
-        ///<param name=rateOfInterest<param>
-        ///<param name=creditscore></param>
-        ///</summary>
+   
             //private fields
             private int _customerId;
             private int _customerAge;
@@ -29,7 +22,13 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             private float _emi;
             private int _creditScore;
             private bool AgeOfCustomer;
-
+        ///<summary><param name="customerId">CustomerId</param>
+        ///<param name="Customerage">Age of Customer</param>
+        ///<param name="LoanAmount">Loan Amount</param>
+        ///<param name="Tenure">span or period of loan</param>
+        ///<param name="RateOfInterest">rate of interest of loan</param>
+        ///<param name="creditScore">Credit score of customer</param>
+        ///<param name="Emi">Emi of housing loan</param>
           /*public int HousingLoanId
             {
                 get; set;
@@ -46,14 +45,14 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             {
                 if (_customerId!=0)
                 {
-                    _customerId = value;
+                    _customerId = value;//customerid assigned to value
                 }
                 else
                 {
                     throw new HousingLoanException("customer id value shouldnot be null");
                 }
             }
-            get
+            get//get property
             {
                 return _customerId;
             }
@@ -152,7 +151,7 @@ public int GetAgeOfCustomer()
                     }
                 else
                 {
-                    throw new HousingLoanException("loan amount exceded");
+                    throw new HousingLoanException("loan amount exceded");//raises exception if loan amount is exceeded
                 }
                 }
                 get
