@@ -11,7 +11,7 @@ using Znalytics.PecuniaBanking.CustomerModule.Entities;
 namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 {
     /// <summary>
-    ///class that represents presentation layer of credit card
+    ///Class that represents presentation layer of Credit card
     /// </summary>
     class CreditcardPresentationLayer
     {
