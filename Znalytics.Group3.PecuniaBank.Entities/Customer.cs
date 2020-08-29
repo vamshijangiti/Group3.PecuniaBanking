@@ -1,7 +1,7 @@
 ﻿//Manasa Entities
 
 /// <summary>
-/// Represents Entities of CreditCard Module
+/// class that represents CreditCard Module Customer class of Pecunia Banking
 /// </summary>
 namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
 {
@@ -15,11 +15,11 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         private int _cibilScore;
 
         /// <summary>
-        /// Creating Constructor for Customer class
+        ///Constructor that initializes the fields
         /// </summary>
         /// <param name="Appnumber">Application number of the customer</param>
         /// <param name="CibilScore">Cibil score of the customer</param>
-        Customer(int Appnumber,int CibilScore)
+        Customer(int Appnumber, int CibilScore)
         {
             _appnumber = Appnumber;
             _cibilScore = CibilScore;
@@ -28,7 +28,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         /// <summary>
         /// Application number of customer
         /// </summary>
-      
+
         public int Appnumber
         {
             set
