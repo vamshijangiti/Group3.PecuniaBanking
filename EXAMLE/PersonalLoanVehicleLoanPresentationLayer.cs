@@ -124,7 +124,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             break;
                     }
 
-                    Console.Write("\nIf You Want to Use Press Y/N : ");
+                    Console.Write("\nIf You Want to Use Again Press Y/N : ");
                     c = char.Parse(Console.ReadLine());
                 } while (c == 'Y' || c == 'y');
             }

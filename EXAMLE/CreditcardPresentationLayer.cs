@@ -45,7 +45,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
                     case 2: ApproveCreditCard(); break;
                     case 3: GenerateCreditCard(); break;
                     case 4: UpdateCreditCard(); break;
-                    case 5:RequestToIncreaseCreditCardLimit();break;
+                    case 5: RequestToIncreaseCreditCardLimit();break;
                     case 6: Console.WriteLine("Exit"); break;
 
 
@@ -55,19 +55,22 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
         }
 
-        //Method to Adding Customer details for credit card
+        //Method to Apply Customer details for credit card
         static void ApplyCreditCard()
 
         {
+            //Creates object to Creditcard class
             CreditCard cr = new CreditCard();
 
+            //Creates object to CreditCardBusinessLogicLayer
             CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();
+
             int a;
-            Console.WriteLine("Enter CustomerID");
-            a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter CustomerID");//Reading Customer Id from keyboard
+            a = int.Parse(Console.ReadLine());//Stores Customer Id into variable a
 
 
-            Customer l = cbl.GetCustomersByCustomerId(a);
+            Customer l = cbl.GetCustomersByCustomerId(a);//
 
             cr.Customer = l;
 

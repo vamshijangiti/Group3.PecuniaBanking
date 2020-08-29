@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
 
-namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer.ICustomer
+namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 {
     /// <summary>
     /// Represents interface for Customer Personal Detail Businesslogiclayer
