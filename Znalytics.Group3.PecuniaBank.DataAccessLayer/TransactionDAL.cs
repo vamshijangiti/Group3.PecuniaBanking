@@ -69,6 +69,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <param name="amount">entered amount</param>
         public void DepositAmount(long taccno, double amount)
         {
+            //Using Find Method --the Account Number checks the 
             AccountDAL result = dALs.Find(temp => temp.accno == taccno);
 
             if (result == null)
