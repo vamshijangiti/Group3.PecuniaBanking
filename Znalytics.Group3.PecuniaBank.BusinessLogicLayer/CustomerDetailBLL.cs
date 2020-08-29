@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 {
     /// <summary>
-    /// Represents Business logic layer of the customer personal details
+    /// Class Represents Business logic layer of the customer personal details
     /// </summary>
     public class CustomerDetailBLL : ICustomerDetailBLL
     {
@@ -27,10 +27,13 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
         }
 
 
-
+        /// <summary>
+        /// AddCustomer Method to Validate fields 
+        /// </summary>
+        /// <param name="cust"></param>
         public void AddCustomer(CustomerDetail cust)
         {
-
+            //Validating CustomerName that can't be null
             try
             {
                 if(cust.CustomerName!=null)
@@ -43,7 +46,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
                 throw new Exception("Customer name can't be null,Please mention your name", ex);
             }
 
-            //validating pancard number
+            //validating pancard number that can't be null
             try
             {
                 if (cust.PanCardNumber != null)
@@ -56,7 +59,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
                 throw new Exception("PanCardNumber can't be null,Please mention your PancardNumber", ex);
             }
 
-            //Validating Aadharcard number
+            //Validating Aadharcard number that can't be null
             try
             {
                 if (cust.AadharCardNumber != null)
@@ -69,7 +72,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
                 throw new Exception("AadharCardNumber can't be null,Please mention your AadharCardNumber", ex);
             }
 
-            //Checking Phone number
+            //Checking Phone number that can't be null
             try
             {
 
@@ -83,7 +86,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
                 throw new Exception("PhoneNumber can't be null,Please mention your PhoneNumber", ex);
             }
 
-            //Checking Age
+            //Checking Age that can't be null
             try
             {
                 if (cust.DateOfBirth != null)
@@ -111,7 +114,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
         }
 
 
-        //View customer personal details
+        //Getting customer personal details
         public List<CustomerDetail> GetCustomers()
         {
             return cdal.GetCustomers();
