@@ -6,6 +6,7 @@ using Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer;
 using System.Security.Cryptography.X509Certificates;
 using Znalytics.Group3.PecuniaBanking.BusinessLogicLayer;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
+using System.Linq.Expressions;
 
 namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
 {
@@ -26,57 +27,87 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         public Customer GetCustomersByCustomerId(int c)
         {
             return a.GetCustomersByCustomerId(c);
-        
+
         }
 
 
         //checking account holder name
-        public void ApplyCreditCard(CreditCard cr)
+        public int ApplyCreditCard(int details)
         {
-            
+            Customer a = GetCustomersByCustomerId(details);
+            _creditcardDataAccessLayer.ApplyCreditCard(a);
+        
+        int AppNumber = 0;
 
+            string i = a.AadharCardNumber;
 
-            //checking account number
-
-
-            if (c.CibilScore != 0)
+            int count = 0;
+            while (count < 4)
             {
-                _creditcardDataAccessLayer.ApplyCreditCard(c);
+                int k = System.Convert.ToInt32(i);
+                int j = k % 10;
+                AppNumber = AppNumber * 10 + j;
+                k = k / 10;
+                count++;
+            }
+
+
+            return AppNumber;
+
+           
+        }
+        
+        
+
+        public bool ApproveCreditCard(int CustomerId)
+        {
+            Customer a = GetCustomersByCustomerId(CustomerId);
+
+            if (a.AnnualIncome >= 300000)
+            {
+                return true;
+
             }
             else
             {
-                throw new Exception("Account number can't be null");
+                throw new Exception("Income should be greaterthan 300000 to approve credit card");
             }
-        }
 
-        //Approve credit card
-        public void ApproveCreditCard(CreditCard c)
-        {
-            /*if (creditcard.AnnualIncome >= 300000)
-            {
-                return;
-            }*/
+
+
         }
 
 
-        // generating application number
-       /* public long ApplicationNumber(Customer creditcard)
-        {
-            if (creditcard.AnnualIncome >= 300000)
-            {
-                long i = creditcard.AadharCardNumber;
-                long AppNumber = 0;
-                int count = 0;
-                while (count < 4)
-                {
-                    long j = i % 10;
-                    AppNumber = AppNumber * 10 + j;
-                    i = i / 10;
-                    count++;
-                }
-                return AppNumber;
-            }
-        }*/
+    }
+
+
+
+
+    //checking account number
+
+
+    /* if (c.CibilScore != 0)
+     {
+         _creditcardDataAccessLayer.ApplyCreditCard(c);
+     }
+     else
+     {
+         throw new Exception("Account number can't be null");
+     }
+ }
+
+ //Approve credit card
+ public void ApproveCreditCard(CreditCard c)
+ {
+     /*if (creditcard.AnnualIncome >= 300000)
+     {
+         return;
+     }*/
+}
+
+
+       
+       
         //generating credit card number
         /*public string GenerateCreditCard(Customer creditcard)
         {

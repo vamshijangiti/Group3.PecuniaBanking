@@ -40,12 +40,15 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
                 {
 
                     case 1: ApplyCreditCard(); break;
-                        //case 2: ApproveCreditCard(); break;
-                        //case 3: UpdateCreditCard(); break;
+                    case 2: ApproveCreditCard(); break;
+                    case 3: GenerateCreditCard(); break;
+                    case 4: UpdateCreditCard(); break;
+                    case 5: Console.WriteLine("Exit"); break;
+
 
                 }
             }
-            while (choice != 4);
+            while (choice != 5);
 
         }
 
@@ -74,16 +77,16 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
 
 
-            cbl.ApplyCreditCard(cr);
-            Console.WriteLine("Credit card details added successfully");
+            int AppNumber=cbl.ApplyCreditCard(a);
+            Console.WriteLine("Your Application Number is "+AppNumber);
 
         }
 
             //Approve credit card
-            /* public void ApproveCreditCard()
+             public void ApproveCreditCard()
              {
-                 Customer creditcard = new Customer();
-                 bool b = CreditcardBusinessLogicLayer.ApproveCreditCard(customer);
+                 CreditCard cr = new CreditCard();
+                 bool b = CreditcardBusinessLogicLayer.ApproveCreditCard(cr);
                  if (b == true)
                  {
                      Console.WriteLine("You are eligible to approve credit card");
@@ -105,7 +108,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
              }
 
 
-         }*/
+         }
         }
 
 
