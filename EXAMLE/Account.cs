@@ -15,6 +15,9 @@ using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
+    /// <summary>
+    /// AccountsPresentation layer
+    /// </summary>
     class program
     {
         static void Main()
@@ -22,7 +25,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             AccountsPresentationLayer();
         }
 
-       static void AccountsPresentationLayer()
+        static void AccountsPresentationLayer()
         {
             int choice = 0;
             do
@@ -39,9 +42,12 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     case 1: AddSavingsAccount(); break;
                     case 2: AddCurrentAccount(); break;
                 }
-                
+
 
             } while (choice != 3);
+            ///<summary>
+            ///adding Savings Account
+            /// </summary>
 
             static void AddSavingsAccount()
             {
@@ -50,31 +56,34 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 System.Console.WriteLine("enter AccountId");
                 account.AccountId = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
-                account.Balance =long.Parse(System.Console.ReadLine());
+                account.Balance = long.Parse(System.Console.ReadLine());
                 accountBusinessLogic.AddSavingsAccount(account);
                 System.Console.WriteLine("savings Account Added");
             }
-public class SavingsAccount
-    {
+        }
+        public class SavingsAccount
+        {
             public int AccountId;
             public long Balance;
-  }
+        }
         static void AddCurrentAccount()
         {
-            try
+            try//try 
             {
-                AccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
+              /*  IAccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
                 CurrentAccount account = new CurrentAccount();
                 System.Console.WriteLine("enter account id");
                 account.AccountId = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
 
-            }
+            }*/
             catch (Exception ex)
-                {
-                if (ex.InnerException!=null)
+            {
+                if (ex.InnerException != null)
                 {
                     System.Console.WriteLine(ex.InnerException.Message);
                 }
             }
         }
+    }
+}
