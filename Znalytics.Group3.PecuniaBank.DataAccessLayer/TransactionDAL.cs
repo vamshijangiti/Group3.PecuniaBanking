@@ -14,6 +14,9 @@ using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
+    /// <summary>
+    /// Interface For the DAL
+    /// </summary>
     public interface ITransactionDAL
     {
         void AddTransaction(Transaction t);
@@ -70,7 +73,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
             if (result == null)
             {
-
+                throw new Exception("Account Number Doesn't Exists");
             }
             else
             {
@@ -93,7 +96,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
             if (result == null)
             {
-                //throw;
+                throw new Exception("\nThe Account Number Doesn't Exists \n");
             }
             else
             {
@@ -107,7 +110,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <summary>
         /// Returning Transactions List-- By checking the AccountNumber
         /// </summary>
-        /// <param name="Accoun"></param>
+        /// <param name="Accoun">Account Number</param>
         /// <returns></returns>
         public List<Transaction> GetTransactionList(long Accoun)
         {
@@ -117,7 +120,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
 
-
+        /// <summary>
+        /// Get Method For getting the Balance
+        /// </summary>
+        /// <param name="Accoun">AccountNUmber</param>
+        /// <returns></returns>
         public double GetAvailableBalance(long Accoun)
         {
             return accountDALs.GetAmount;

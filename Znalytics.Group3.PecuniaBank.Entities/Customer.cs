@@ -5,26 +5,20 @@
 /// </summary>
 namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
 {
+    /// <summary>
+    /// Represents Customer class
+    /// </summary>
     public class Customer
     {
         // list of details
         private int _appnumber;
         private int _cibilScore;
 
-
-       /// <summary>
-       /// Represents creditcard details of customer
-       /// </summary>
-       /// <param name="AccountHolderName">Name of AccountHolder</param>
-       /// <param name="AccountNumber">Accountnumber of customer</param>
-       /// <param name="Occupation">Occupation of customer</param>
-       /// <param name="Address">Address of customer</param>
-       /// <param name="Income">Income of customer</param>
-       /// <param name="PanCardNumber">Pancardnumber of customer</param>
-       /// <param name="AadharCardNumber">Aadharcardnumber of customer</param>
-       /// <param name="PhoneNumber">Phonenumber of customer</param>
-       /// <param name="Appnumber">Application number of customer</param>
-       /// <param name="CibilScore"> Cibilscore of customer</param>
+        /// <summary>
+        /// Creating Constructor for Customer class
+        /// </summary>
+        /// <param name="Appnumber">Application number of the customer</param>
+        /// <param name="CibilScore">Cibil score of the customer</param>
         Customer(int Appnumber,int CibilScore)
         {
             _appnumber = Appnumber;
@@ -32,7 +26,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         }
 
         /// <summary>
-        /// Customer name
+        /// Application number of customer
         /// </summary>
       
         public int Appnumber
@@ -46,6 +40,9 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
                 return _appnumber;
             }
         }
+        /// <summary>
+        /// CibilScore of the Customer
+        /// </summary>
 
         public int CibilScore
         {

@@ -48,7 +48,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             try
             {
 
-                //Creating object for CustomerPersonalDetail class 
+                //Creating object for Entity layer that is CustomerDetail class 
                 CustomerDetail customer = new CustomerDetail();
 
                 //Creating object for BusinessLogic Layer
@@ -76,7 +76,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 
                 //Reading customer's Pancard number manually
                 Console.Write("Enter customer pancardnumber: ");
-                customer.PanCardNumber = long.(Console.ReadLine();
+                customer.PanCardNumber = long.Parse(Console.ReadLine());
 
                 //Reading Customer's aadharcardnumber manually
                 Console.Write("Enter customer Aadharcardnumber: ");
