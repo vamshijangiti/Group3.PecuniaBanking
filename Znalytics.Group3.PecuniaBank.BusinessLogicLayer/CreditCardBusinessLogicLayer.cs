@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 using Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer;
 using System.Security.Cryptography.X509Certificates;
+using Znalytics.Group3.PecuniaBanking.BusinessLogicLayer;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;
 
 namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
 {
@@ -19,27 +21,27 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         {
             _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
         }
+        ICustomerBLL a = new CustomerBLL();
+
+        public Customer GetCustomersByCustomerId(int c)
+        {
+            return a.GetCustomersByCustomerId(c);
+        
+        }
 
 
         //checking account holder name
-        public void AddCreditCard(Customer creditcard)
+        public void ApplyCreditCard(CreditCard cr)
         {
-            if (creditcard.Appnumber !=0)
-            {
-                _creditcardDataAccessLayer.AddCreditCard(creditcard);
-            }
-            else
-            {
-                throw new Exception("Please mentione your name");
-            }
+            
 
 
             //checking account number
 
 
-            if (creditcard.CibilScore != 0)
+            if (c.CibilScore != 0)
             {
-                _creditcardDataAccessLayer.AddCreditCard(creditcard);
+                _creditcardDataAccessLayer.ApplyCreditCard(c);
             }
             else
             {
@@ -48,7 +50,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         }
 
         //Approve credit card
-        public void ApproveCreditCard(Customer creditcard)
+        public void ApproveCreditCard(CreditCard c)
         {
             /*if (creditcard.AnnualIncome >= 300000)
             {

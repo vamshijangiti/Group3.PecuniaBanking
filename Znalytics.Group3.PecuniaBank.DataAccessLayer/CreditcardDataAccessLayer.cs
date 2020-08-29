@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;
 
 
 namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
@@ -24,7 +25,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
         }
 
         //Add
-        public void AddCreditCard(Customer creditcard)
+        public void ApplyCreditCard(Customer creditcard)
         {
             _customers.Add(creditcard);
         }
