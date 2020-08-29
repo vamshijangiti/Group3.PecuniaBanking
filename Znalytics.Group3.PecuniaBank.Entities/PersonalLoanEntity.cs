@@ -35,10 +35,15 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
         public PersonalLoanEntity(string accountNumber, float loanAmount, float tenure, float emi, int creditScore)
         {
-            
+           
+            this._accountNumber = AccountNumber;
+            this._loanAmount = LoanAmount;
+            this._tenure = Tenure;
+            this._emi= Emi;
+            this._creditScore = CreditScore ;
 
 
-
+                
         }
 
         //set and get methods for account number
