@@ -14,17 +14,18 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 /// </summary>
     public interface IAccountBusinessLogic
     {
-      //methods
+        //methods
         void AddSavingsAccount(SavingsAccount a);
         void AddCurrentAccount(CurrentAccount account);
         void GenerateAccountId(int id);
         void DeleteSavingsAccount(SavingsAccount account);
         void DeleteCurrentAccount(CurrentAccount account);
- }
+    }
+}
 
-    public class CurrentAccount
+   /* public class CurrentAccount
     {
-    }   /* public class AccountBusinessLogic : IAccountBusinessLogic
+    }    public class AccountBusinessLogic : IAccountBusinessLogic
     {
         AccountDataAccessLayer _accountDataAccessLayer;
      
@@ -92,7 +93,17 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 int AccountId = (account);
                 return AccountId++;
             }
+
+        public void GenerateAccountId(int id)
+        {
+            throw new NotImplementedException();
         }
+
+        public void DeleteCurrentAccount(CurrentAccount account)
+        {
+            throw new NotImplementedException();
+        }
+    }
 
        
 
