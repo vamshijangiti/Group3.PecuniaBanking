@@ -29,11 +29,15 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     { 
         //private Fields
      
+        /// <summary>
+        /// <param name=AccountId></param>
+        /// <param name=dateOfCreation</param>
+        /// <param name=Balance></param>
+        /// </summary>
         private int  _accountId;
         private string _dateOfCreation;
         private string _branchName;
         private long _balance;
-
        
 
         public int AccountId
@@ -110,24 +114,37 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             throw new NotImplementedException();
         }
 
-        public class CurrentAccount:IAccount
+       /* public class CurrentAccount:IAccount
         {
             private int _accId;
             private long _balance;
             private string _dateOfCreation;
 
-            public int AccountId { get; set; }
+          
         }
-        public int AccountId
+        public int AccId
         {
             set
             {
-                if (accountId!=0)
+                if (_accId != 0)
                 {
 
+                    _accId = value;
+                }
+
+                else
+                {
+                    throw new ApplicationException("AccountId shouldnot be null");
                 }
             }
+            get
+            {
+                return _accId;
+            }
+
         }
+
+    
 
         public IAccount Find(Func<object, bool> p)
         {

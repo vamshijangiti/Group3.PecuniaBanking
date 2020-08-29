@@ -15,39 +15,48 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     public interface IAccountBusinessLogic
     {
       //methods
-        void SavingsAccount(SavingsAccount account);
-        void CurrentAccount(CurrentAccount account);
+        void AddSavingsAccount(SavingsAccount a);
+        void AddCurrentAccount(CurrentAccount account);
         void GenerateAccountId(int id);
-        void DeleteAccount(SavingsAccount account);
-        void UpdateAccount(Account account);
+        void DeleteSavingsAccount(SavingsAccount account);
+        void DeleteCurrentAccount(CurrentAccount account);
  }
-    public class AccountBusinessLogic : IAccountBusinessLogic
+
+    public class CurrentAccount
+    {
+    }   /* public class AccountBusinessLogic : IAccountBusinessLogic
     {
         AccountDataAccessLayer _accountDataAccessLayer;
      
-
+    
         public AccountBusinessLogic()
         {
             _accountDataAccessLayer = new AccountDataAccessLayer();
         }
 
-        public void SavingsAccount(SavingsAccount account)
+        public void AddSavingsAccount(SavingsAccount a)
         {
-            try
-            {
 
-            if (account.AccountId != 0)
+            if (a.AccountId != 0)
+                {
+                    _accountDataAccessLayer.AddSavingsAccount(a);
+                }
+                else
+                {
+                    throw new ApplicationException("account no should not be null")
+                }
+            }
+            
+        public void AddCurrentAccount(CurrentAccount account)
+        {
+            if (account.AccountId!=0)
             {
-                    _accountDataAccessLayer.AddSavingsAccount(account);
-        }
+                _accountDataAccessLayer.AddCurrentAccount(account)
+            }
             else
             {
-                throw new ApplicationException("account no should not be null")
+                throw new ApplicationException("account should not be null");
             }
-            }
-        public void CurrentAccount(CurrentAccount account)
-        {
-
         }
         /// <summary>
         /// Adding Accounts
@@ -59,18 +68,18 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             return _accountDataAccessLayer.GetAccounts();
         }
-        /// <summary>
-        /// Update Accounts
-        /// </summary>
-        /// <param name="account">update</param>
-        public void UpdateAccount(Account account)
+            /// <summary>
+            /// Update Accounts
+            /// </summary>
+            /// <param name="account">update</param>
+            public void UpdateAccount(Account account)
         {
             if (account.AccountId != 0)
             {
                 _accountDataAccessLayer.UpdateAccount(account);
             }
         }
-        public void DeleteAccount(Account account)
+            public void DeleteSavingsAccount(SavingsAccount account)
         {
             if (account.AccountId==null)
             {
@@ -78,30 +87,21 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
         }
 
-            public int GenerateAccountId(int id)
+            public int IGenerateAccountId(int id)
             {
-                int AccountId = NewMethod(account);
+                int AccountId = (account);
                 return AccountId++;
             }
         }
 
-        private static int NewMethod(SavingsAccount account)
-        {
-            return account.Max(temp =>
-            {
-                return NewMethod1(temp);
-            });
+       
 
-            static object NewMethod1(object temp)
-            {
-                return temp.AccountId;
-            }
-        }
-
-        public void DeleteAccount(SavingsAccount account)
+       /* public void DeleteAccount(SavingsAccount account)
         {
        
         }
     }
 
 }
+  }
+    */

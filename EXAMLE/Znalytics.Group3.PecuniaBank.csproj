@@ -52,7 +52,6 @@
     <Compile Include="Account.cs" />
     <Compile Include="CreditcardPresentationLayer.cs" />
     <Compile Include="CustomerDetailPL.cs" />
-    <Compile Include="Detail.cs" />
     <Compile Include="HousingLoanPresentationLayer.cs" />
     <Compile Include="MainMethod.cs" />
     <Compile Include="PersonalLoanVehicleLoanPresentationLayer.cs" />
