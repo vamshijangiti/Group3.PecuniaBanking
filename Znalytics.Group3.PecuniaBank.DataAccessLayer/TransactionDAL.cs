@@ -127,7 +127,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <returns></returns>
         public double GetAvailableBalance(long Accoun)
         {
+            //returns the Balance
             return accountDALs.GetAmount;
+            
         }
     }
 }
