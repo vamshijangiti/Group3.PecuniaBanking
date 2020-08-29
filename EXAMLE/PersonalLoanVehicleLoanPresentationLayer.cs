@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank;
@@ -19,7 +20,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         {
             int count;
             count = 0;
-            PersonalLoan pl = new PersonalLoan();
+            PersonalLoanEntity pl = new PersonalLoanEntity();
             VehicleLoan vl = new VehicleLoan();
             PersonalLoanBusinessLogicLayer pb = new PersonalLoanBusinessLogicLayer();
             vehicleLoanBusinessLogicLayer vb = new vehicleLoanBusinessLogicLayer();
@@ -45,40 +46,30 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 {
                     case 1:
 
-                        System.Console.WriteLine("Bank Account Number for personal loan");
+                        System.Console.Write("\nEnter Account Number : ");
                         pl.AccountNumber = System.Console.ReadLine();
-
-                        System.Console.WriteLine(pl.AccountNumber);
-
-
-                        System.Console.WriteLine("Enter the LoanAmount");
-                        pl.LoanAmount = (double.Parse(System.Console.ReadLine()));
-                        System.Console.WriteLine(pl.LoanAmount);
-
-                        /*System.Console.WriteLine("Enter the Rate of interest");
-                        pl.RateOfInterest = (double.Parse(System.Console.ReadLine()));
-                        System.Console.WriteLine(pl.RateOfInterest);*/
-
-                        System.Console.WriteLine("Enter the Tenure");
-                        pl.Tenure = (double.Parse(System.Console.ReadLine()));
-                        System.Console.WriteLine(pl.Tenure);
 
 
                         System.Console.WriteLine("Enter the CreditScore");
                         pl.CreditScore = (int.Parse(System.Console.ReadLine()));
-                        System.Console.WriteLine(pl.CreditScore);
-                        if (pl.CreditScore != 0)
+                        if (pl.CreditScore >= 650)
                         {
-                            pb.CalculateEmi(pl);
+
+                            System.Console.WriteLine("Enter the LoanAmount");
+                            pl.LoanAmount = (float.Parse(System.Console.ReadLine()));
+
+                            System.Console.WriteLine("Enter the Tenure in months");
+                            pl.Tenure = (float.Parse(System.Console.ReadLine()));
+
+                            pb.CalculateEmi(pl.Tenure,pl.LoanAmount);
+                            pb.AddPersonalLoan(pl);
                             System.Console.WriteLine("your loan is accepted");
                         }
                         else
                         {
                             System.Console.WriteLine("your loan is rejected");
                         }
-                        //  System.Console.WriteLine("Enter the EMI");
-                        //  pl.Emi  = (System.Console.ReadLine());
-                        // System.Console.WriteLine(pl.Emi );
+
                         break;
 
 
@@ -92,9 +83,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         vl.LoanAmount = (double.Parse(System.Console.ReadLine()));
                         System.Console.WriteLine(vl.LoanAmount);
 
-                        System.Console.WriteLine("Enter the Rate of interest");
-                        vl.RateOfInterest = (double.Parse(System.Console.ReadLine()));
-                        System.Console.WriteLine(vl.RateOfInterest);
+                       
 
                         System.Console.WriteLine("Enter the Tenure");
                         vl.Tenure = (double.Parse(System.Console.ReadLine()));
@@ -106,7 +95,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
                         if (vl.CreditScore != 0)
                         {
-                            vb.CalculateEmi(pl);
+                     //       vb.CalculateEmi(pl);
                             System.Console.WriteLine("your loan is accepted");
                         }
                         else
