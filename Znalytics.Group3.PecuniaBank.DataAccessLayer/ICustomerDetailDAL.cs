@@ -17,10 +17,10 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         //Viewing details
         // void ViewCustomer(CustomerPersonalDetail customer);
         // Updating details of customer
-        void GetCustomers(CustomerDetail customer);
+        List<CustomerDetail> GetCustomers();
 
         void UpdateCustomer(CustomerDetail customer);
-       // List<CustomerDetail> GetCustomerNameByCustomerId(string customerName);
+        List<CustomerDetail> GetCustomerNameByCustomerId(string customerName);
     }
 }
 

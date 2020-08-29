@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
+using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 
 namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
 {
@@ -42,26 +43,28 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         }
 
         //Getting existing Customer details
-        public void GetCustomers(CustomerDetail customer)
+        public List<CustomerDetail> GetCustomers()
         {
-             List<CustomerDetail> GetCustomers()
-            {
-                return customerdetail;
-            }
+            return customerdetail;
         }
 
         //Updation of customer details
-        /*public void UpdateCustomer(CustomerDetail customer)
+        public void UpdateCustomer(CustomerDetail customer)
         {
             //Get matching customer based on CustomerId
-            CustomerDetail cust = customerdetail.Find(temp => temp.CustomerId == customer.CustomerId);
+           /* CustomerDetail cust = customerdetail.Find(temp => temp.CustomerId == customer.CustomerId);
             if (customer != null)
             {
                 customer.CustomerName = customer.CustomerName;
 
                 
 
-            }
-        }*/
+            }*/
+        }
+
+        public List<CustomerDetail> GetCustomerNameByCustomerId(string customerName)
+        {
+            return null;
+        }
     }
 }
