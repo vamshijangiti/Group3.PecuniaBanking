@@ -72,7 +72,11 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         break;
 
 
-                    case 2:
+                    case 2:;
+                        
+                        System.Console.WriteLine("Enter the name of vehicle:");
+                        vl.NameOfVehicle = System.Console.ReadLine();
+
                         System.Console.Write("\nEnter Account Number : ");
                         vl.AccountNumber = System.Console.ReadLine();
 
