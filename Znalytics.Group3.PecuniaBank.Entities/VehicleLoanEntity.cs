@@ -14,6 +14,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
     public class VehicleLoanEntity
     {
+        private string _nameOfVehicle;
         private string _accountNumber;
         private float _loanAmount;
         private static float _rateOfInterest = 10;
@@ -25,6 +26,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <summary>
         /// Constructor For Entity Class
         /// </summary>
+        /// <para name="vehicleName"> vehicleName</param>
         /// <param name="accountNumber">Account Number </param>
         /// <param name="loanamount">sanction of loan amount</param>
         /// <param name="rateofinterest">interest to be paid per month</param>
@@ -32,9 +34,19 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <param name="emi"> Monthly emi</param>
         /// <param name="creditscore">credit score in your credit card</param>
 
-        public VehicleLoanEntity(string accountNumber, float loanAmount, float tenure, float emi, int creditScore)
+        public VehicleLoanEntity(string NameOfVehicle, string AccountNumber, float  LoanAmount, float Tenure, float Emi, int CreditScore)
         {
 
+                this._nameOfVehicle = NameOfVehicle;
+                this._accountNumber = AccountNumber;
+                this._loanAmount = LoanAmount;
+                this._tenure = Tenure;
+                this._emi = Emi;
+                this._creditScore = CreditScore;
+
+
+
+            
 
 
 

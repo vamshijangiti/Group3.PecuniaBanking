@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="AccountBusinessLogic.cs" />
     <Compile Include="AccountDetail.cs" />
-    <Compile Include="CreditcardBusinessLogicLayer.cs" />
+    <Compile Include="CreditCardBusinessLogicLayer.cs" />
     <Compile Include="CustomerDetailBLL.cs" />
     <Compile Include="HousingLoanBusinessLogicLayer.cs" />
     <Compile Include="ICustomerDetailBLL.cs" />

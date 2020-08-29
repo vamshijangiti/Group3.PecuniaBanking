@@ -10,7 +10,7 @@ using Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer;
 namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 {
     /// <summary>
-    /// Represents presentation layer of credit card
+    ///class that represents presentation layer of credit card
     /// </summary>
     class CreditcardPresentationLayer
     {
@@ -31,16 +31,16 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
                 Console.WriteLine("Welcome to Pecunia Bank");
                 Console.WriteLine("1. AddCreditCard");
                 Console.WriteLine("2. ApproveCreditCard");
-                Console.WriteLine("3. ViewCreditCard");
+                Console.WriteLine("3. UpdateCreditCard");
                 Console.WriteLine("4. Exit");
                 Console.WriteLine("Enter your choice");
                 choice = int.Parse(Console.ReadLine());
                 switch (choice)
                 {
-                   
+
                     case 1: ApplyCreditCard(); break;
-                    case 2: ApproveCreditCard(); break;
-                    case 3: ViewCreditCard(); break;
+                        //case 2: ApproveCreditCard(); break;
+                        //case 3: UpdateCreditCard(); break;
 
                 }
             }
@@ -48,11 +48,11 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
         }
 
-        //Adding Customer details for credit card
+        //Method to Adding Customer details for credit card
         static void ApplyCreditCard()
 
         {
-            CreditcardBusinessLogicLayer customerbusinesslogic = new CreditcardBusinessLogicLayer();
+            /*CreditcardBusinessLogicLayer customerbusinesslogic = new CreditcardBusinessLogicLayer();
             Customer creditcard = new Customer();
 
             Console.WriteLine("Enter Account Holder name: ");
@@ -91,36 +91,37 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
             customerbusinesslogic.AddCreditCard(creditcard);
             Console.WriteLine("Credit card details added successfully");
-        }
+        }*/
 
-        //Approve credit card
-        public void ApproveCreditCard()
-        {
-            Customer creditcard = new Customer();
-            bool b = CreditcardBusinessLogicLayer.ApproveCreditCard(customer);
-            if (b == true)
-            {
-                Console.WriteLine("You are eligible to approve credit card");
-            }
-            else
-            {
-                Console.WriteLine("You are not eligible to approve credit card");
+            //Approve credit card
+            /* public void ApproveCreditCard()
+             {
+                 Customer creditcard = new Customer();
+                 bool b = CreditcardBusinessLogicLayer.ApproveCreditCard(customer);
+                 if (b == true)
+                 {
+                     Console.WriteLine("You are eligible to approve credit card");
+                 }
+                 else
+                 {
+                     Console.WriteLine("You are not eligible to approve credit card");
 
-            }
+                 }
 
 
-            //Displays application number
-            CreditcardBusinessLogicLayer.ApplicationNumber(customer);
-            Console.WriteLine("Your application number is" + customer.AppNumber);
+                 //Displays application number
+                 CreditcardBusinessLogicLayer.ApplicationNumber(customer);
+                 Console.WriteLine("Your application number is" + customer.AppNumber);
 
-            //Displays credit card number
-            CreditcardBusinessLogicLayer.GenerateCreditCard(creditcard);
-            Console.WriteLine("Your credit card number is" + creditcard.CreditcardNumber);
+                 //Displays credit card number
+                 CreditcardBusinessLogicLayer.GenerateCreditCard(creditcard);
+                 Console.WriteLine("Your credit card number is" + creditcard.CreditcardNumber);
+             }
+
+
+         }*/
         }
 
 
     }
-}
-
-
 }
