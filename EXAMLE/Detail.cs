@@ -11,7 +11,7 @@ namespace Znalytics.Group3.PecuniaBank
         static void Accountspresentation()
         {
             //creating the object for Pecunia.
-            pecunia p = new pecunia();
+            
             System.Console.WriteLine("WELCOME TO PECUNIA BANKING ");
             System.Console.WriteLine("If you want to opean SavingsAccount enter   1");
             System.Console.WriteLine("If you want to opean CurrentAccount enter   2");

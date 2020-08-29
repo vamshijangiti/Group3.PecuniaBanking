@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
+using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 
 namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
 {
@@ -42,12 +43,9 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         }
 
         //Getting existing Customer details
-        public void GetCustomers(CustomerDetail customer)
+        public List<CustomerDetail> GetCustomers(CustomerDetail customer)
         {
-             List<CustomerDetail> GetCustomers()
-            {
-                return customerdetail;
-            }
+            return customerdetail;
         }
 
         //Updation of customer details
