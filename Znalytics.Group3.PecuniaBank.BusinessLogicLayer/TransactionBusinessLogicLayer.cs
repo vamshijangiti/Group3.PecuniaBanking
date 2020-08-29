@@ -155,13 +155,13 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// </summary>
         /// <param name="AccountNumber">Account Number</param>
         /// <returns></returns>
-        public List<Transaction> GetTransactions(long AccountNumber)
+        public List<Transaction> GetTransactions(long accountNumber)
         {
 
             List<Transaction> tx = null;
-            if (ValidateAccountNumber(AccountNumber))
+            if (ValidateAccountNumber(accountNumber))
             {
-                tx = transactionDAL.GetTransactionList(AccountNumber);
+                tx = transactionDAL.GetTransactionList(accountNumber);
             }
             return tx;
         }

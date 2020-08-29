@@ -8,5 +8,7 @@ namespace Znalytics.Group3.PecuniaBank.IPersonalLoan.BusinessLogicLayer
 {
     interface IPersonalLoanBusinessLogicLayer
     {
+
+
     }
 }

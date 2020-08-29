@@ -117,6 +117,10 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
 
             List<Transaction> list1 = transactionList.FindAll(temp => temp.AccountNumber == Accoun);
+            foreach (var item in list1)
+            {
+                Console.WriteLine(item.AccountNumber + " " + item.TransactionAmount);
+            }
             return list1;
 
         }
