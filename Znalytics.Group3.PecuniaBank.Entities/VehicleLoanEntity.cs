@@ -12,17 +12,16 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     /// Entity layer for vehicle loan
     /// </summary>
 
-    public class VehicleLoan
+    public class VehicleLoanEntity
     {
         private string _accountNumber;
-        private double _loanAmount;
-        private double _rateOfInterest;
-        private double _tenure;
-        private double _emi;
+        private float _loanAmount;
+        private static float _rateOfInterest = 10;
+        private float _tenure;
+        private float _emi;
         private int _creditScore;
-        VehicleLoan vehicleLoan = new VehicleLoan();
-
-        public VehicleLoan() { }
+        VehicleLoanEntity vehicleLoan = new VehicleLoanEntity();
+        public VehicleLoanEntity() { }
         /// <summary>
         /// Constructor For Entity Class
         /// </summary>
@@ -33,13 +32,8 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <param name="emi"> Monthly emi</param>
         /// <param name="creditscore">credit score in your credit card</param>
 
-        public VehicleLoan(string accountNumber, double loanAmount, double tenure, float emi, int creditScore)
+        public VehicleLoanEntity(string accountNumber, float loanAmount, float tenure, float emi, int creditScore)
         {
-            vehicleLoan._accountNumber = accountNumber;
-            vehicleLoan._loanAmount = loanAmount;
-            vehicleLoan._tenure = tenure;
-            vehicleLoan._emi = emi;
-            vehicleLoan._creditScore = creditScore;
 
 
 
@@ -74,7 +68,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
         //set and get methods for loanamount
 
-        public double LoanAmount
+        public float LoanAmount
         {
             set
             {
@@ -97,7 +91,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
         //set and get methods for tenure
-        public double Tenure
+        public float Tenure
         {
             set
             {
@@ -120,7 +114,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
         //set and get methods for rate of interest  
-        public double RateOfInterest
+        public float RateOfInterest
         {
 
             get
@@ -129,7 +123,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
         //set and get methods for rate of interest
-        public double calculateEmi
+        public float Emi
         {
             set
             {
@@ -165,8 +159,6 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
     }
 }
-
-
 
 
 
