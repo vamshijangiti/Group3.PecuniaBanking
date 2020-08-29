@@ -101,7 +101,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                if (Tenure >= 3)
+                if (Tenure >= 36)
                 {
                     _tenure = value;
                 }
