@@ -47,7 +47,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             //if (_name.Length > 10)
             string l = accNumber + "";
-            if (l.Length == 3)
+            if (l.Length == 3||!string.IsNullOrEmpty(l))
             {
 
                 // transactionDAL.GetTransactions(accNumber);
@@ -166,7 +166,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             return tx;
         }
 
-
+        /// <summary>
+        /// Getting the Ammount
+        /// </summary>
+        /// <param name="acc">Account Number</param>
+        /// <returns></returns>
         public double GetAmount(long acc)
         {
             return transactionDAL.GetAvailableBalance(acc);

@@ -51,6 +51,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
                 Console.Write("\nEnter AccountNumber : ");
+                //Reading AccountNumber from The Keyboard
                 uan = long.Parse(Console.ReadLine());
 
                 //Validating The Account Number 
@@ -156,34 +157,44 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
             //Cheking the Balance
-            void checkBalance()
+            static void checkBalance()
             {
+                //Creating the Object
                 Transaction e1 = new Transaction();
+                TransactionBusinessLogic b = new TransactionBusinessLogic();
                 Console.Write("\nEnter AccountNumber to Check The Balance : ");
-                e1.AccountNumber = long.Parse(Console.ReadLine());
+                //Reading Account Number from The Keyboard
+                long uan = long.Parse(Console.ReadLine());
+                e1.AccountNumber = uan;
                 Console.WriteLine(" Avaiable Balance : " + b.GetAmount(uan));
             }
 
 
             //For Displaying the Deposited Amount
-            void DisplayDeposit()
+            static void DisplayDeposit()
             {
+                //Creating the Object
                 Transaction e1 = new Transaction();
                 Console.WriteLine("\nSelect type of Account \n 1.Savings \n2.Current\n");
                 int n = int.Parse(Console.ReadLine());
+                TransactionBusinessLogic b = new TransactionBusinessLogic();
 
-
+                //checking the Conditions
                 switch (n)
                 {
                     case 1:
+                        int tx = 1;
                         e1.TransactionTpe = "Savings";
                         Console.WriteLine("\nEnter amount to Deposit ");
+                        //Getting the System Date
                         e1.TransactionDate = System.DateTime.Today;
-                        e1.AccountNumber = uan;
                         e1.TransactionID = ++tx;
                         e1.TransactionAmount = double.Parse(Console.ReadLine());
+                        //Adding the object
                         b.AddTranscation(e1);
-                        b.Deposit(uan, e1.TransactionAmount);
+                        //calling the Deposit From BusinessLogic Layer
+                        b.Deposit(e1.AccountNumber, e1.TransactionAmount);
+                        //Validating the Entered Amount
                         if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)
                         {
                             Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
@@ -196,14 +207,19 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         break;
 
                     case 2:
+                        int t = 1;
+
                         e1.TransactionTpe = "Current";
                         Console.WriteLine("\nEnter amount to Deposit ");
+                        //Getting the System Date
                         e1.TransactionDate = System.DateTime.Today;
-                        e1.AccountNumber = uan;
-                        e1.TransactionID = ++tx;
+                        e1.TransactionID = ++t;
                         e1.TransactionAmount = double.Parse(Console.ReadLine());
+                        //Adding the Object
                         b.AddTranscation(e1);
-                        b.Deposit(uan, e1.TransactionAmount);
+                        //Calling the Deposit Method From Business Logic
+                        b.Deposit(e1.AccountNumber, e1.TransactionAmount);
+                        //Validating the Amount 
                         if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)
                         {
                             Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
@@ -225,22 +241,24 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             }
 
             //For Displaying the WithDrawled Amount
-            void DisplayWithDrawl()
+            static void DisplayWithDrawl()
             {
+                int tx = 1;
                 //creating the object
                 Transaction e1 = new Transaction();
+                TransactionBusinessLogic b = new TransactionBusinessLogic();
                 Console.WriteLine("\nEnter the type of Account");
                 e1.TransactionTpe = Console.ReadLine();
                 Console.WriteLine("\nEnter amount to WithDrawl");
                 e1.TransactionDate = System.DateTime.Today;
-                e1.AccountNumber = uan;
                 e1.TransactionID = ++tx;
                 e1.TransactionAmount = double.Parse(Console.ReadLine());
                 b.AddTranscation(e1);
-                b.WithDrawlAmount(uan, e1.TransactionAmount);
-
+                b.WithDrawlAmount(e1.AccountNumber, e1.TransactionAmount);
+                //Validating the Amount
                 if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)
                 {
+                    //Validating the Amount--Minimum Balance is 5000
                     if (b.ValidateWithDrawl(e1.TransactionAmount) == true)
                     {
 

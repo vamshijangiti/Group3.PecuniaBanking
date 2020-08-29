@@ -16,14 +16,14 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     /// </summary>
     public class Transaction
     {
+        //private Fields
         private int _transactionID;
         private DateTime _transactionDate;
         private string _transactionType;
         private double _transactionAmount;
         private long _accountNumber;
 
-        //Transaction transaction = new Transaction();
-
+       
         public Transaction() { }
 
 
@@ -47,7 +47,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
 
         /// <summary>
-        ///Set Method For AccountNumber
+        ///Set Property For AccountNumber
         /// </summary>
         public long AccountNumber
         {
