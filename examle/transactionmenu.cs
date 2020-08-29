@@ -1,10 +1,6 @@
 ﻿
 //CREATED BY VAMSHI JANGITI --- PRESENTATION LAYER
 
-
-
-
-//using ClassLibrary3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +15,7 @@ using Znalytics.Group3.PecuniaBank.Entities;
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
     /// <summary>
-    /// Presentation Class For WithDrawl And Debit
+    /// Presentation Layer For WithDrawl And Debit
     /// </summary>
     public class TransactionMenu
     {
@@ -105,34 +101,10 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
                             case 4:
-                                Console.Write("\nEnter AccountNumber to Check The Last 10 Transactions : ");
-                                uan = long.Parse(Console.ReadLine());
-                                List<Transaction> tc = b.GetTransactions(uan);
-                                Transaction t = new Transaction();
-                                foreach (var item in tc)
-                                {
-
-                                    if (item != null)
-                                    {
-                                        t.TransactionTpe = Console.ReadLine();
-                                        if (t.TransactionTpe == "savings")
-                                        {
-                                            Console.WriteLine(" Transactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
-                                        }
-                                        else if (t.TransactionTpe == "Current")
-                                        {
-                                            Console.WriteLine(" Transactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
-                                        }
-
-
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("\nsorry No Transactions are done for last 10 days. ");
-                                    }
-                                }
+                                LastTransactions();
                                 break;
                             default:
+                                //when you choose different nub
                                 Console.WriteLine("\nOops...!  InCorrect Request \n");
                                 break;
 
@@ -151,6 +123,42 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
 
             }
+
+
+
+            //Getting Last 10 Transactions
+            void LastTransactions()
+            {
+                Console.Write("\nEnter AccountNumber to Check The Last 10 Transactions : ");
+                //Entering data From Keyboard
+                uan = long.Parse(Console.ReadLine());
+                List<Transaction> tc = b.GetTransactions(uan);
+                Transaction t = new Transaction();
+                //foreach Loop to get details from list
+                foreach (var item in tc)
+                {
+                    //if item is not equal to NULL
+                    if (item != null)
+                    {
+                        t.TransactionTpe = Console.ReadLine();
+                        if (t.TransactionTpe == "savings")
+                        {
+                            Console.WriteLine(" Transactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
+                        }
+                        else if (t.TransactionTpe == "Current")
+                        {
+                            Console.WriteLine(" Transactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
+                        }
+
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nsorry No Transactions are done for last 10 days. ");
+                    }
+                }
+            }
+
 
 
 
