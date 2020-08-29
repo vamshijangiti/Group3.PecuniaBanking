@@ -21,7 +21,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             int count;
             count = 0;
             PersonalLoanEntity pl = new PersonalLoanEntity();
-            VehicleLoan vl = new VehicleLoan();
+            VehicleLoanEntity vl = new VehicleLoanEntity();
             PersonalLoanBusinessLogicLayer pb = new PersonalLoanBusinessLogicLayer();
             vehicleLoanBusinessLogicLayer vb = new vehicleLoanBusinessLogicLayer();
             //menu for choosing options
@@ -74,34 +74,31 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
                     case 2:
-                        System.Console.WriteLine("Bank Account Number for vehicle loan");
-                        vl.AccountNumber = (System.Console.ReadLine());
-                        System.Console.WriteLine(vl.AccountNumber);
+                        System.Console.Write("\nEnter Account Number : ");
+                        vl.AccountNumber = System.Console.ReadLine();
 
-
-                        System.Console.WriteLine("Enter the LoanAmount");
-                        vl.LoanAmount = (double.Parse(System.Console.ReadLine()));
-                        System.Console.WriteLine(vl.LoanAmount);
-
-                       
-
-                        System.Console.WriteLine("Enter the Tenure");
-                        vl.Tenure = (double.Parse(System.Console.ReadLine()));
-                        System.Console.WriteLine(vl.Tenure);
 
                         System.Console.WriteLine("Enter the CreditScore");
                         vl.CreditScore = (int.Parse(System.Console.ReadLine()));
-                        System.Console.WriteLine(vl.CreditScore);
-
-                        if (vl.CreditScore != 0)
+                        if (vl.CreditScore >= 650)
                         {
-                     //       vb.CalculateEmi(pl);
+
+                            System.Console.WriteLine("Enter the LoanAmount");
+                            vl.LoanAmount = (float.Parse(System.Console.ReadLine()));
+
+                            System.Console.WriteLine("Enter the Tenure in months");
+                            vl.Tenure = (float.Parse(System.Console.ReadLine()));
+
+                            vb.CalculateEmi(vl.Tenure, vl.LoanAmount);
+                            vb.AddPersonalLoan(vl);
                             System.Console.WriteLine("your loan is accepted");
                         }
                         else
                         {
                             System.Console.WriteLine("your loan is rejected");
                         }
+
+                        break;
 
 
                         break;

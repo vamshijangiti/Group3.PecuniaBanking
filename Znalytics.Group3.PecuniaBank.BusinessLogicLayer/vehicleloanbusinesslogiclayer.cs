@@ -7,51 +7,54 @@ using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-    
     /// <summary>
-    /// Business logic layer for vehicle loan
-    /// </summary>
-    public class vehicleLoanBusinessLogicLayer
-
+    /// Business logic layer for Vehicleloan
+    /// </summary
+    public class VehicleLoanBusinessLogicLayer
     {
-        VehicleLoanDataAccessLayer cd = new VehicleLoanDataAccessLayer ();
-        public void AddAccountDetails(PersonalLoan vl)
+        VehicleLoanDataAccessLayer vehicleLoanData = new VehicleLoanDataAccessLayer();
+        VehicleLoanEntity VehicleLoan = new VehicleLoanEntity();
+
+        public void AddVehicleLoan(VehicleLoanEntity vl)
         {
-            cd.AddAccountDetails(vl);
-
-
+            vehicleLoanData.AddVehicleLoan(vl);
         }
 
-        public void CalculateEmi(PersonalLoan vl)
+        /* public void AddAccountDetails(VehicleLoanEntity pl)
+          {
+              _vehicleLoanDataAccessLayer.AddAccountDetails(pl);
+
+
+          }*/
+        public void CalculateEmi(float loan, float tenure)
         {
-            if ((vl.AccountNumber != null) && (vl.LoanAmount != 0D) && (vl.Tenure != 0D) && (vl.RateOfInterest != 0D) && (vl.CreditScore != 0))
+            if ((VehicleLoan.AccountNumber != null) && (VehicleLoan.LoanAmount != 0) && (VehicleLoan.Tenure != 0) && (VehicleLoan.CreditScore != 0))
             {
-                vl.Emi = EmiCalculation();
+                VehicleLoan.Emi = EmiCalculation();
 
-                double EmiCalculation()
+                float EmiCalculation()
                 {
+                    float emi;
+                    float r = VehicleLoan.RateOfInterest / (12 * 100); // one month interest 
+                    VehicleLoan.Tenure = VehicleLoan.Tenure * 12; // one month period 
+                    emi = (VehicleLoan.LoanAmount * r * (float)Math.Pow(1 + r, VehicleLoan.Tenure)) / (float)(Math.Pow(1 + r, VehicleLoan.Tenure) - 1);
 
-
-                    double a = (vl.RateOfInterest) / (12 * 100); // one month interest 
-                    vl.Tenure = (vl.Tenure) * 12; // one month period 
-                    double p = ((vl.LoanAmount) * a * (float)Math.Pow(1 + a, (vl.Tenure)))
-                             / (float)(Math.Pow(1 + a, (vl.Tenure) - 1));
-
-                    return p;
+                    return emi;
 
                 }
             }
             else
             {
-                //throw new Exception("cvvvvvvvvv");
+                //throw new Exception(");
+                throw new Exception("Please check and Enter the valid values");
             }
 
 
         }
+
     }
 }
 
-           
 
 
 
@@ -60,7 +63,18 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
 
 
-    }
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 

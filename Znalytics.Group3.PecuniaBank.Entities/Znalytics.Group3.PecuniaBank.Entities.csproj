@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="TypeOfAccount.cs" />
-    <Compile Include="VehicleLoanEntityLayer.cs" />
+    <Compile Include="VehicleLoanEntity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
