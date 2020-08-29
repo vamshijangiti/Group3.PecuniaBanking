@@ -14,42 +14,51 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     /// </summary
     public class PersonalLoanBusinessLogicLayer
     {
-        PersonalLoanDataAccessLayer personalLoanData =new PersonalLoanDataAccessLayer();
-        PersonalLoanEntity PersonalLoan = new PersonalLoanEntity();
-       
+        PersonalLoanDataAccessLayer personalLoanData = new PersonalLoanDataAccessLayer();
+        PersonalLoanEntity personalLoan = new PersonalLoanEntity();
+
         public void AddPersonalLoan(PersonalLoanEntity pl)
         {
             personalLoanData.AddPersonalLoan(pl);
+
         }
 
-        /* public void AddAccountDetails(PersonalLoanEntity pl)
-          {
-              _personalLoanDataAccessLayer.AddAccountDetails(pl);
 
-
-          }*/
-        //calculation of emi
-        //If account number,loan amount,tenure and credit score value not equals to null and 0 then emi is calculated
-        public void CalculateEmi(float loan, float tenure)
+        public int CreditScore(int credit)
         {
-            if ((PersonalLoan.AccountNumber != null) && (PersonalLoan.LoanAmount != 0) && (PersonalLoan.Tenure != 0) && (PersonalLoan.CreditScore != 0))
+            if (credit >= 650)
             {
-                PersonalLoan.Emi = EmiCalculation();
-
-                float EmiCalculation()
-                {
-                    float emi;
-                    float r = PersonalLoan.RateOfInterest / (12 * 100); // one month rate of interest it is a static value
-                    PersonalLoan.Tenure = PersonalLoan.Tenure * 12; // one month period 
-                    emi = (PersonalLoan.LoanAmount * r * (float)Math.Pow(1 + r, PersonalLoan.Tenure))/ (float)(Math.Pow(1 + r, PersonalLoan.Tenure) - 1);
-
-                    return emi;
-
-                }
+                return 1;
+            }
+            else if (credit > 600 || credit < 650)
+            {
+                return 2;
             }
             else
             {
-                
+                return 0;
+            }
+        }
+
+        //calculation of emi
+        //If account number,loan amount,tenure and credit score value not equals to null and 0 then emi is calculated
+        public float CalculateEmi(float tenure, float loan)
+        {
+            if ((loan != 0) && (tenure != 0))
+            {
+                // personalLoan.Emi = CalculateEmi();
+
+
+                float emi;
+                float r = personalLoan.RateOfInterest / (12 * 100); // one month rate of interest it is a static value
+                tenure = tenure * 12; // one month period 
+                emi = (loan * r * (float)Math.Pow(1 + r, tenure)) / (float)(Math.Pow(1 + r, tenure) - 1);
+
+                return emi;
+            }
+            else
+            {
+                return 0;
                 throw new Exception("Please check and Enter the valid values");
             }
 
@@ -58,6 +67,8 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
     }
 }
+
+
 
 
 
