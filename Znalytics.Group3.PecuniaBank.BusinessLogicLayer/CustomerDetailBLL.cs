@@ -27,6 +27,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
         }
 
 
+
         public void AddCustomer(CustomerDetail cust)
         {
 
