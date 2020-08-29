@@ -48,7 +48,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             try
             {
 
-                //Creating object for CustomerPersonalDetail class 
+                //Creating object for Entity layer that is CustomerDetail class 
                 CustomerDetail customer = new CustomerDetail();
 
                 //Creating object for BusinessLogic Layer
