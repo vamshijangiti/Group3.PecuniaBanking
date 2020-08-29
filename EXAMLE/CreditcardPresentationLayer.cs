@@ -169,7 +169,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
             Console.WriteLine("Enter CustomerID");
             a = int.Parse(Console.ReadLine());
 
-            bool b = cbl.RequestToIncreaseCreditCardLimit(a);
+            bool b = cbl.RequestToIncreaseCreditCardLimit();
             if (b == true)
             {
                 Console.WriteLine("Your CreditCard Number generated successfully ");
