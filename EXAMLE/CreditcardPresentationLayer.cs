@@ -16,7 +16,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
     class CreditcardPresentationLayer
     {
         //Menu
-        static void Menu()
+        public void start()
         {
             DisplayMenu();
             Console.ReadKey();

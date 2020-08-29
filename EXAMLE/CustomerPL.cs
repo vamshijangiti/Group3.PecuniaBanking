@@ -11,7 +11,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
     class CustomerPL
     {
         //Starting point of the Execution
-        static void Main()
+        public void start()
         {
             CustomerDetailsPresentation();
             Console.ReadKey();
