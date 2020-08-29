@@ -18,12 +18,11 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     {
         static void Main()
         {
-            int count;
-            count = 0;
-            PersonalLoanEntity pl = new PersonalLoanEntity();
-            VehicleLoanEntity vl = new VehicleLoanEntity();
-            PersonalLoanBusinessLogicLayer pb = new PersonalLoanBusinessLogicLayer();
-            vehicleLoanBusinessLogicLayer vb = new vehicleLoanBusinessLogicLayer();
+            
+            PersonalLoanEntity pl = new PersonalLoanEntity();//creating a object for personalloan entity
+            VehicleLoanEntity vl = new VehicleLoanEntity();//creating a object for vehicleloan entity
+            PersonalLoanBusinessLogicLayer pb = new PersonalLoanBusinessLogicLayer();//creating a object for personaloanbusinesslogiclayer
+            VehicleLoanBusinessLogicLayer vb = new VehicleLoanBusinessLogicLayer();//creating a object for vehicleloanbusinesslogiclayer
             //menu for choosing options
             {
                 System.Console.WriteLine("WELCOME TO PECUNIA BANK");
@@ -40,32 +39,32 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 n = int.Parse(System.Console.ReadLine());
 
 
-                //switch case for checking
+                //switch case for checking whether to take personal loan or vehicle loan
 
                 switch (n)
                 {
                     case 1:
 
-                        System.Console.Write("\nEnter Account Number : ");
+                        System.Console.Write("\nEnter Account Number : ");//Enter the account number for personal loan
                         pl.AccountNumber = System.Console.ReadLine();
 
 
-                        System.Console.WriteLine("Enter the CreditScore");
+                        System.Console.WriteLine("Enter the CreditScore");//Enter the credit score for personal loan
                         pl.CreditScore = (int.Parse(System.Console.ReadLine()));
-                        if (pl.CreditScore >= 650)
+                        if (pl.CreditScore >= 650)//if credit score value greater than or equal to 650 enter in to the loop
                         {
 
-                            System.Console.WriteLine("Enter the LoanAmount");
+                            System.Console.WriteLine("Enter the LoanAmount");//Enter the Loan amount for the personalloan
                             pl.LoanAmount = (float.Parse(System.Console.ReadLine()));
 
-                            System.Console.WriteLine("Enter the Tenure in months");
+                            System.Console.WriteLine("Enter the Tenure in months");//Enter the tenure for the personalloan
                             pl.Tenure = (float.Parse(System.Console.ReadLine()));
 
-                            pb.CalculateEmi(pl.Tenure,pl.LoanAmount);
+                            pb.CalculateEmi(pl.Tenure,pl.LoanAmount);//enter the loanamount,tenure for calculation of emi
                             pb.AddPersonalLoan(pl);
                             System.Console.WriteLine("your loan is accepted");
                         }
-                        else
+                        else//if credit score value less than 650 enter in to the loop
                         {
                             System.Console.WriteLine("your loan is rejected");
                         }
@@ -90,7 +89,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             vl.Tenure = (float.Parse(System.Console.ReadLine()));
 
                             vb.CalculateEmi(vl.Tenure, vl.LoanAmount);
-                            vb.AddPersonalLoan(vl);
+                            vb.AddVehicleLoan(vl);
                             System.Console.WriteLine("your loan is accepted");
                         }
                         else
@@ -101,7 +100,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         break;
 
 
-                        break;
+                        
                     case 3:
                         System.Console.WriteLine("Thanks For Using PECUNIA BANK");
                         break;
