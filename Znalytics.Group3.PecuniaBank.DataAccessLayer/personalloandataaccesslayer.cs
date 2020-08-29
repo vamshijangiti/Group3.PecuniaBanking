@@ -22,17 +22,5 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             _personalLoans.Add(p);
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

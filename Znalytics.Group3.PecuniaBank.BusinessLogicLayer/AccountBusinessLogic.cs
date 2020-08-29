@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
 using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
@@ -19,13 +20,15 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         void AddCurrentAccount(CurrentAccount account);
         void GenerateAccountId(int id);
         void DeleteSavingsAccount(SavingsAccount account);
-        void DeleteCurrentAccount(CurrentAccount account);
+       
     }
 }
 
-   /* public class CurrentAccount
-    {
-    }    public class AccountBusinessLogic : IAccountBusinessLogic
+public class CurrentAccount
+{
+    public int AccountId { get; set; }
+}
+public class AccountBusinessLogic : IAccountBusinessLogic
     {
         AccountDataAccessLayer _accountDataAccessLayer;
      
@@ -40,11 +43,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
             if (a.AccountId != 0)
                 {
-                    _accountDataAccessLayer.AddSavingsAccount(a);
+            _accountDataAccessLayer.AddSavingsAccount(a);
                 }
                 else
                 {
-                    throw new ApplicationException("account no should not be null")
+                    throw new ApplicationException("account no should not be null")//Exception raised if accountid is zero
                 }
             }
             
@@ -52,7 +55,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             if (account.AccountId!=0)
             {
-                _accountDataAccessLayer.AddCurrentAccount(account)
+            _accountDataAccessLayer.AddCurrentAccount(account)
             }
             else
             {
@@ -73,46 +76,25 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             /// Update Accounts
             /// </summary>
             /// <param name="account">update</param>
-            public void UpdateAccount(Account account)
-        {
-            if (account.AccountId != 0)
-            {
-                _accountDataAccessLayer.UpdateAccount(account);
-            }
-        }
-            public void DeleteSavingsAccount(SavingsAccount account)
+            public void DeleteCurrentAccount(CurrentAccount account)
         {
             if (account.AccountId==null)
             {
-                _accountDataAccessLayer.DeleteAccount(account);
+                _accountDataAccessLayer.DeleteCurrentAccount(account);
             }
         }
-
-            public int IGenerateAccountId(int id)
-            {
-                int AccountId = (account);
-                return AccountId++;
-            }
-
-        public void GenerateAccountId(int id)
+    public void DeleteSavingsAccount(SavingsAccount account)
+    {
+        if (account.AccountId == null)
         {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteCurrentAccount(CurrentAccount account)
-        {
-            throw new NotImplementedException();
+            _accountDataAccessLayer.DeleteAccount(account);
         }
     }
 
-       
-
-       /* public void DeleteAccount(SavingsAccount account)
-        {
-       
-        }
+    public void GenerateAccountId(int id)
+    {
+     
     }
-
 }
-  }
-    */
+
+  

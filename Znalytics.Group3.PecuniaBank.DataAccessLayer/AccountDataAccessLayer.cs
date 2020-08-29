@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
 using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
 
@@ -21,28 +22,16 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         void AddDateOfCreation(SavingsAccount d);
         List<Account> GetAccounts(long AccountNo);
         void UpdateAccount(Account accounts);
-
+        
     }
 
     public class CurrentAccount
     {
     }
 
-    public class Account
-    {
-        public int AccountId { get; set; }
-        public int Balance { get; set; }
-        public string DateOfCreation { get; set; }
-        public string BranchName { get; set; }
+ 
 
-        internal Account Find(Func<object, bool> p)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
-
-  /*  public class AccountDataAccessLayer : IAccountDataAccessLayer//interface
+    public class AccountDataAccessLayer : IAccountDataAccessLayer//interface
     {
         List<Account> accounts = new List<Account>();//List of Accounts
 
@@ -57,6 +46,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     
         public void AddCurrentAccount(Account c)
         {
+            int maxAccountId = accounts.Max(temp => temp.AccountId);
+            c.AccountId = maxAccountId;
             accounts.Add(c);
         }
 
@@ -108,7 +99,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// Update Accounts 
         /// </summary>
         /// <param name="accounts">Update</param>
-        public void UpdateAccount(Account accounts)
+        public void CurrentAccount(Account accounts)
         {
             Account acc = accounts.Find(temp =>
             {
@@ -120,13 +111,28 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
                 acc.AccountId = accounts.AccountId;
             }
         }
+
+    public void AddSavingsAccount(SavingsAccount s)
+    {
+        throw new NotImplementedException();
     }
+
+    public void AddCurrentAccount(CurrentAccount c)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void AddDateOfCreation(SavingsAccount d)
+    {
+        throw new NotImplementedException();
+    }
+}
   
 }
-  */
+  
 
     /*    Customers Collection
-     *    
+        
            public class AccountDataAccessLayer : IEnumerable
     {
         List<Account> _accounts;

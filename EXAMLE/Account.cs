@@ -20,7 +20,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     /// </summary>
     class program
     {
-        static void Main()
+       static void Main()
         {
             AccountsPresentationLayer();
         }
@@ -45,43 +45,35 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
             } while (choice != 3);
-            static void AddSavingsAccount()
-            {
-                throw new NotImplementedException();
-            }
+               
         }
 
-        private static void AddCurrentAccount()
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
+
             ///<summary>
             ///adding Savings Account
             /// </summary>
 
-           /* static void AddSavingsAccount()
+           static void AddSavingsAccount()
             {
-                IAccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
-                SavingsAccount account = new SavingsAccount();
+                IAccountBusinessLogic accountBusinessLogic = new  AccountBusinessLogic();
+                SavingsAccount _account = new SavingsAccount();
                 System.Console.WriteLine("enter AccountId");
-                account.AccountId = int.Parse(System.Console.ReadLine());
+                _account.AccountId = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
-                account.Balance = long.Parse(System.Console.ReadLine());
-                accountBusinessLogic.AddSavingsAccount(account);
+                _account.Balance = long.Parse(System.Console.ReadLine());
+                accountBusinessLogic.AddSavingsAccount(_account);
                 System.Console.WriteLine("savings Account Added");
             }
-        }
+        
         public class SavingsAccount
         {
             public int AccountId;
             public long Balance;
         }
-    }
-}*/
-      /*  static void AddCurrentAccount()
+  static void AddCurrentAccount()
         {
+            try
+            { 
 
             IAccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
             CurrentAccount account = new CurrentAccount();
@@ -89,11 +81,9 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             account.AccountId = int.Parse(System.Console.ReadLine());
             System.Console.WriteLine("enter balance");
         }
-
-           
             catch (Exception ex)
             {
-                if (ex.InnerException != null)
+                if (ex.InnerException!= null)
                 {
                     System.Console.WriteLine(ex.InnerException.Message);
                 }
@@ -101,5 +91,5 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         }
     }
 }
-     */
+     
      

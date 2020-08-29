@@ -42,14 +42,24 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 this._loanAmount = LoanAmount;
                 this._tenure = Tenure;
                 this._emi = Emi;
-                this._creditScore = CreditScore;
+                this._creditScore = CreditScore; 
 
 
 
-            
+        }
+        //set and get methods for Nameofvehicle
+        public string NameOfVehicle
+        {
+            set
+            {
+                _nameOfVehicle = value;
 
+            }
+            get
+            {
+                return _nameOfVehicle;
 
-
+            }
         }
 
         //set and get methods for account number
@@ -107,7 +117,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                if (Tenure >= 3)
+                if (Tenure >= 36)
                 {
                     _tenure = value;
                 }
