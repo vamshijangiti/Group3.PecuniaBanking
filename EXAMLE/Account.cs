@@ -20,7 +20,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     /// </summary>
     class program
     {
-        static void Main()
+       static void Main()
         {
             AccountsPresentationLayer();
         }

@@ -78,7 +78,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 
                 //Reading customer's Pancard number manually
                 Console.Write("Enter customer pancardnumber: ");
-                customer.PanCardNumber = long.Parse(Console.ReadLine());
+                customer.PanCardNumber = Console.ReadLine();
 
                 //Reading Customer's aadharcardnumber manually
                 Console.Write("Enter customer Aadharcardnumber: ");
@@ -162,9 +162,9 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 
             //Updating Income
             Console.Write("Enter Existing Customer Income: ");
-            customer.Income = double.Parse(Console.ReadLine());
+            customer.AnnualIncome = double.Parse(Console.ReadLine());
             Console.Write("Enter New Customer Income: ");
-            customer.Income = double.Parse(Console.ReadLine());
+            customer.AnnualIncome = double.Parse(Console.ReadLine());
 
             //Updating AadharcardNumber
             Console.Write("Enter Existing Customer Aadharcardnumber: ");

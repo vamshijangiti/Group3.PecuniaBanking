@@ -140,6 +140,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     //if item is not equal to NULL
                     if (item != null)
                     {
+
                         t.TransactionTpe = Console.ReadLine();
                         if (t.TransactionTpe == "savings")
                         {
