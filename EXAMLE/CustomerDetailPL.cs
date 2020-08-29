@@ -78,7 +78,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 
                 //Reading customer's Pancard number manually
                 Console.Write("Enter customer pancardnumber: ");
-                customer.PanCardNumber = long.(Console.ReadLine();
+                customer.PanCardNumber = long.Parse(Console.ReadLine());
 
                 //Reading Customer's aadharcardnumber manually
                 Console.Write("Enter customer Aadharcardnumber: ");
