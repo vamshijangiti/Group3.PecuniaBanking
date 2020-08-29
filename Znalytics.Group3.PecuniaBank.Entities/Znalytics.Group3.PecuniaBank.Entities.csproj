@@ -49,7 +49,6 @@
     <Compile Include="CustomerDetail.cs" />
     <Compile Include="HousingLoanEntities.cs" />
     <Compile Include="HousingLoanException.cs" />
-    <Compile Include="JewelLoanEntities.cs" />
     <Compile Include="PersonalLoanEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs" />

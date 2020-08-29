@@ -14,7 +14,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// <summary>
     /// DataAccessLayer For Accounts 
     /// </summary>
-    public interface IAccountDataAccessLayer
+    public interface IAccountDataAccessLayer// interface 
     {
         void AddSavingsAccount(SavingsAccount s);
         void AddCurrentAccount(CurrentAccount c);
@@ -24,15 +24,25 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
     }
 
-    public class Account
+    public class CurrentAccount
     {
-        public int AccountId { get;  set; }
-        public int Balance { get;  set; }
-        public string DateOfCreation { get;  set; }
-        public string BranchName { get;  set; }
     }
 
-    public class AccountDataAccessLayer : IAccountDataAccessLayer//interface
+    public class Account
+    {
+        public int AccountId { get; set; }
+        public int Balance { get; set; }
+        public string DateOfCreation { get; set; }
+        public string BranchName { get; set; }
+
+        internal Account Find(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+  /*  public class AccountDataAccessLayer : IAccountDataAccessLayer//interface
     {
         List<Account> accounts = new List<Account>();//List of Accounts
 
@@ -44,11 +54,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
                 new Account() { AccountId=3, DateOfCreation = "26-08-2020", Balance = 1000, BranchName = "pecunia" },
             };
 
-        public List<Account> GetAccounts()
-        {
-            throw new NotImplementedException();
-        }
-
+    
         public void AddCurrentAccount(Account c)
         {
             accounts.Add(c);
@@ -63,6 +69,12 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             accounts.Add(s);
            
         }
+
+        public List<Account> GetAccounts()
+        {
+           throw new ApplicationException()
+        }
+
         /// <summary>
         /// Add DateOfCreation of Account
         /// </summary>
@@ -74,6 +86,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         }
 
         public void DeleteAccount(Account account)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteAccount(SavingsAccount account)
         {
             throw new NotImplementedException();
         }
@@ -97,6 +114,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             {
                 return temp.AccountId == accounts.AccountId;
             });
+           
+            
             if(acc!=null){
                 acc.AccountId = accounts.AccountId;
             }
@@ -104,6 +123,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     }
   
 }
+  */
 
     /*    Customers Collection
      *    
