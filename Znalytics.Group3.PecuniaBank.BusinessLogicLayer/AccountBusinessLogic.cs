@@ -47,7 +47,7 @@ public class AccountBusinessLogic : IAccountBusinessLogic
                 }
                 else
                 {
-                    throw new ApplicationException("account no should not be null")//Exception raised if accountid is zero
+            throw new ApplicationException("account no should not be null");//Exception raised if accountid is zero
                 }
             }
             
@@ -55,7 +55,7 @@ public class AccountBusinessLogic : IAccountBusinessLogic
         {
             if (account.AccountId!=0)
             {
-            _accountDataAccessLayer.AddCurrentAccount(account)
+            _accountDataAccessLayer.AddCurrentAccount(account);
             }
             else
             {

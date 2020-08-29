@@ -20,8 +20,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         void AddSavingsAccount(SavingsAccount s);
         void AddCurrentAccount(CurrentAccount c);
         void AddDateOfCreation(SavingsAccount d);
-        List<Account> GetAccounts(long AccountNo);
-        void UpdateAccount(Account accounts);
+        List<SavingsAccount> GetSavingAccounts(int accountId);
+     
         
     }
 
@@ -29,59 +29,54 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     {
     }
 
- 
 
-    public class AccountDataAccessLayer : IAccountDataAccessLayer//interface
+
+    public class SavingsAccountDataAccessLayer : IAccountDataAccessLayer//interface
     {
-        List<Account> accounts = new List<Account>();//List of Accounts
+        List<SavingsAccount> accounts = new List<SavingsAccount>();//List of Accounts
 
         //constructor
-        public AccountDataAccessLayer() => accounts = new List<Account>()
+        public SavingsAccountDataAccessLayer() => accounts = new List<SavingsAccount>()
             {
-                new Account() { AccountId=1, DateOfCreation = "24-08-2020", Balance = 100, BranchName = "pecunia" },
-                new Account() { AccountId=2,DateOfCreation="25-08-2020",Balance=12000,BranchName="pecunia"},
-                new Account() { AccountId=3, DateOfCreation = "26-08-2020", Balance = 1000, BranchName = "pecunia" },
+                new SavingsAccount() { AccountId=1, DateOfCreation = "24-08-2020", Balance = 100, BranchName = "pecunia" },
+                new SavingsAccount() { AccountId=2,DateOfCreation="25-08-2020",Balance=12000,BranchName="pecunia"},
+                new SavingsAccount() { AccountId=3, DateOfCreation = "26-08-2020", Balance = 1000, BranchName = "pecunia" },
             };
 
-    
-        public void AddCurrentAccount(Account c)
+
+        public void AddCurrentAccount(CurrentAccount c)
         {
             int maxAccountId = accounts.Max(temp => temp.AccountId);
             c.AccountId = maxAccountId;
             accounts.Add(c);
         }
 
-         /// <summary>
+        /// <summary>
         /// Add Account into the list
         /// </summary>
         /// <param name="n">Account</param>
-        public void AddSavingsAccount(Account s)
+        public void AddSavingsAccount(SavingsAccount savingAccount)
         {
-            accounts.Add(s);
-           
+            accounts.Add(savingAccount);
+
         }
 
-        public List<Account> GetAccounts()
+        public List<SavingsAccount> GetSavingAccounts()
         {
-           throw new ApplicationException()
+            throw new ApplicationException();
         }
 
         /// <summary>
         /// Add DateOfCreation of Account
         /// </summary>
         /// <param name="d">DateOfCreation</param>
-        public void AddDateOfCreation(Account d)
+        public void AddDateOfCreation(SavingsAccount d)
         {
             accounts.Add(d);
-            
+
         }
 
-        public void DeleteAccount(Account account)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteAccount(SavingsAccount account)
+        public void DeleteSavingsAccount(SavingsAccount account)
         {
             throw new NotImplementedException();
         }
@@ -91,7 +86,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// </summary>
         /// <param name="AccountNo">GetAccounts</param>
         /// <returns></returns>
-        public List<Account> GetAccounts(long AccountNo)
+        public List<SavingsAccount> GetSavingAccounts(long AccountNo)
         {
             return accounts;
         }
@@ -99,34 +94,23 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// Update Accounts 
         /// </summary>
         /// <param name="accounts">Update</param>
-        public void CurrentAccount(Account accounts)
+        public void CurrentAccount(CurrentAccount accounts)
         {
-            Account acc = accounts.Find(temp =>
+            CurrentAccount acc = accounts.Find(temp =>
             {
                 return temp.AccountId == accounts.AccountId;
             });
-           
-            
-            if(acc!=null){
+
+
+            if (acc != null)
+            {
                 acc.AccountId = accounts.AccountId;
             }
         }
 
-    public void AddSavingsAccount(SavingsAccount s)
-    {
-        throw new NotImplementedException();
-    }
 
-    public void AddCurrentAccount(CurrentAccount c)
-    {
-        throw new NotImplementedException();
-    }
 
-    public void AddDateOfCreation(SavingsAccount d)
-    {
-        throw new NotImplementedException();
     }
-}
   
 }
   
