@@ -12,6 +12,14 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         
         public class HousingLoan
         {
+        ///<summary>
+        ///<param name=customerId></param>
+        ///<param name==customerAge></param>
+        ///<param name=loanAmount</param>
+        ///<param name=tenure></param>
+        ///<param name=rateOfInterest<param>
+        ///<param name=creditscore></param>
+        ///</summary>
             //private fields
             private int _customerId;
             private int _customerAge;
