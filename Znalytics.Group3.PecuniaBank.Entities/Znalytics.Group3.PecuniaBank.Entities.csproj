@@ -45,8 +45,8 @@
   <ItemGroup>
     <Compile Include="AccountEntities.cs" />
     <Compile Include="AccountException.cs" />
+    <Compile Include="CreditCard.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="CustomerDetail.cs" />
     <Compile Include="HousingLoanEntities.cs" />
     <Compile Include="HousingLoanException.cs" />
     <Compile Include="PersonalLoanEntity.cs" />

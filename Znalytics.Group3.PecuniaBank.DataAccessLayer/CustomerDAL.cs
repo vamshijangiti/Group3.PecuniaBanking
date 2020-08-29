@@ -4,7 +4,7 @@ using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 
 namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
@@ -12,13 +12,13 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
     /// <summary>
     /// Represents Data Access Layer of customer Personal details
     /// </summary>
-    public class CustomerDetailDAL: ICustomerDetailDAL
+    public class CustomerDAL: ICustomerDAL
     {
         //List of the CustomerDetail
-        private static List<CustomerDetail> _details;
-        public CustomerDetailDAL()
+        private static List<Customer> _details;
+        public CustomerDAL()
         {
-            _details = new List<CustomerDetail>();
+            _details = new List<Customer>();
         }
         /// <summary>
         /// Method to generate Customer Id
@@ -34,22 +34,22 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         //private fields
         //private static List<CustomerPersonalDetail> _customers;
 
-        List<CustomerDetail> customerdetail = new List<CustomerDetail>();
+        List<Customer> customerdetail = new List<Customer>();
 
         //Adding Customer Personal Details
-        public void AddCustomer(CustomerDetail customer)
+        public void AddCustomer(Customer customer)
         {
             customerdetail.Add(customer);
         }
 
         //Getting existing Customer details
-        public List<CustomerDetail> GetCustomers()
+        public List<Customer> GetCustomers()
         {
             return customerdetail;
         }
 
         //Updation of customer details
-        public void UpdateCustomer(CustomerDetail customer)
+        public void UpdateCustomer(Customer customer)
         {
             //Get matching customer based on CustomerId
            /* CustomerDetail cust = customerdetail.Find(temp => temp.CustomerId == customer.CustomerId);
@@ -62,7 +62,7 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
             }*/
         }
 
-        public List<CustomerDetail> GetCustomerNameByCustomerId(string customerName)
+        public Customer GetCustomersByCustomerId(int CustomerId)
         {
             return null;
         }

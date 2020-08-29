@@ -114,7 +114,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             throw new NotImplementedException();
         }
 
-       /* public class CurrentAccount:IAccount
+       public class CurrentAccount:IAccount
         {
             private int _accId;
             private long _balance;

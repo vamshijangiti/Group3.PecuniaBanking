@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Znalytics.Group3.PecuniaBanking.BusinessLogicLayer;
-using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;
 
 namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 {
     /// <summary>
     /// Represents Login information of the customer
     /// </summary>
-    class CustomerDetailPL
+    class CustomerPL
     {
         //Starting point of the Execution
         static void Main()
@@ -51,10 +51,10 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             {
 
                 //Creating object for Entity layer that is CustomerDetail class 
-                CustomerDetail customer = new CustomerDetail();
+                Customer customer = new Customer();
 
                 //Creating object for BusinessLogic Layer
-                CustomerDetailBLL cb = new CustomerDetailBLL();
+                CustomerBLL cb = new CustomerBLL();
 
                 //Reading customer name manually
                 Console.Write("Enter customer name: ");
@@ -121,16 +121,16 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
         static void GetCustomers()
         {
             //Creating object for CustomerPersonalDetail class 
-            CustomerDetail customer = new CustomerDetail();
+            Customer customer = new Customer();
 
             //Creating object for BusinessLogic Layer
-            CustomerDetailBLL cb = new CustomerDetailBLL();
+            CustomerBLL cb = new CustomerBLL();
 
             // CustomerDetailBLL customerBusinessLogic = new CustomerDetailBLL();
             //creating list
-            List<CustomerDetail> cust = cb.GetCustomers();
+            List<Customer> cust = cb.GetCustomers();
             //getting customerdetails 
-            foreach (CustomerDetail detail in cust)
+            foreach (Customer detail in cust)
             {
                 Console.WriteLine(detail);
 
@@ -142,10 +142,10 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
         {
 
             //Creating object for CustomerPersonalDetail class 
-            CustomerDetail customer = new CustomerDetail();
+            Customer customer = new Customer();
 
             //Creating object for BusinessLogic Layer
-            CustomerDetailBLL cb = new CustomerDetailBLL();
+            CustomerBLL cb = new CustomerBLL();
 
 
             //Updating name

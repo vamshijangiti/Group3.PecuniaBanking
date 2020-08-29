@@ -46,9 +46,9 @@
     <Compile Include="AccountBusinessLogic.cs" />
     <Compile Include="AccountDetail.cs" />
     <Compile Include="CreditCardBusinessLogicLayer.cs" />
-    <Compile Include="CustomerDetailBLL.cs" />
+    <Compile Include="CustomerBLL.cs" />
     <Compile Include="HousingLoanBusinessLogicLayer.cs" />
-    <Compile Include="ICustomerDetailBLL.cs" />
+    <Compile Include="ICustomerBLL.cs" />
     <Compile Include="IPersonalLoanBusinessLogicLayer.cs" />
     <Compile Include="IVehicleLoanBusinessLogicLayer.cs" />
     <Compile Include="PersonalLoanBusinessLogicLayer.cs" />

@@ -4,7 +4,7 @@
 using System;
 using System.Security.Cryptography.X509Certificates;
 //using System.Text.RegularExpressions;
-using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;
 using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
 using System.Collections.Generic;
 //using Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer;
@@ -13,17 +13,17 @@ using System.Collections.Generic;
 namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 {
     /// <summary>
-    /// Class Represents Business logic layer of the customer personal details
+    /// Class that Represents Business logic layer of the customer personal details
     /// </summary>
-    public class CustomerDetailBLL : ICustomerDetailBLL
+    public class CustomerBLL : ICustomerBLL
     {
 
-        private ICustomerDetailDAL cdal;
+        private ICustomerDAL cdal;
 
         //Constructor for CustomerDetailBusinessLogicLayer
-        public CustomerDetailBLL()
+        public CustomerBLL()
         {
-            cdal = new CustomerDetailDAL();
+            cdal = new CustomerDAL();
         }
 
 
@@ -31,7 +31,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
         /// AddCustomer Method to Validate fields 
         /// </summary>
         /// <param name="cust"></param>
-        public void AddCustomer(CustomerDetail cust)
+        public void AddCustomer(Customer cust)
         {
             //Validating CustomerName that can't be null
             try
@@ -115,17 +115,17 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 
 
         //Getting customer personal details
-        public List<CustomerDetail> GetCustomers()
+        public List<Customer> GetCustomers()
         {
             return cdal.GetCustomers();
         }
-        public List<CustomerDetail> GetCustomerNameByCustomerId(string CustomerName)
+        public Customer GetCustomersByCustomerId(int CustomerId)
         {
-            return cdal.GetCustomerNameByCustomerId(CustomerName);
+            return cdal.GetCustomersByCustomerId(CustomerId);
         }
 
         //Update customer details
-        public void UpdateCustomer(CustomerDetail customer)
+        public void UpdateCustomer(Customer customer)
         {
 
             cdal.UpdateCustomer(customer);
