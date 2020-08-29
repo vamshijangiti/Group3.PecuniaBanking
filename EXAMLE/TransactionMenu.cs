@@ -1,10 +1,6 @@
 ﻿
 //CREATED BY VAMSHI JANGITI --- PRESENTATION LAYER
 
-
-
-
-//using ClassLibrary3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +15,7 @@ using Znalytics.Group3.PecuniaBank.Entities;
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
     /// <summary>
-    /// Presentation Class For WithDrawl And Debit
+    /// Presentation Layer For WithDrawl And Debit
     /// </summary>
     public class TransactionMenu
     {
@@ -106,9 +102,11 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
                             case 4:
                                 Console.Write("\nEnter AccountNumber to Check The Last 10 Transactions : ");
+                                //Entering data From Keyboard
                                 uan = long.Parse(Console.ReadLine());
                                 List<Transaction> tc = b.GetTransactions(uan);
                                 Transaction t = new Transaction();
+                                //foreach Loop to get details from list
                                 foreach (var item in tc)
                                 {
 
@@ -133,6 +131,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                 }
                                 break;
                             default:
+                                //when you choose different nub
                                 Console.WriteLine("\nOops...!  InCorrect Request \n");
                                 break;
 
