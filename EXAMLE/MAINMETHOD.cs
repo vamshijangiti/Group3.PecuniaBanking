@@ -1,5 +1,7 @@
 ﻿
 using Znalytics.Group3.PecuniaBank.PresentationLayer;
+using Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer;
+using Znalytics.PecuniaBanking.Creditcard.PresentationLayer;
 using System;
 
 /// <summary>
@@ -12,6 +14,12 @@ public class MainMethod
         //Creating The Object
         TransactionMenu t = new TransactionMenu();
         t.start();
+
+        CustomerPL p = new CustomerPL();
+        p.start();
+
+        CreditcardPresentationLayer cr = new CreditcardPresentationLayer();
+        cr.start();
 
         Console.ReadKey();
     }
