@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 using Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;
 
 
 namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
@@ -52,46 +53,31 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
         static void ApplyCreditCard()
 
         {
-            /*CreditcardBusinessLogicLayer customerbusinesslogic = new CreditcardBusinessLogicLayer();
+            CreditCard cr = new CreditCard();
+
+            CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();
+            int a;
+            Console.WriteLine("Enter CustomerID");
+            a = int.Parse(Console.ReadLine());
+
+
+            Customer l=cbl.GetCustomersByCustomerId(a);
+
+            cr.Customer = l;
             Customer creditcard = new Customer();
 
-            Console.WriteLine("Enter Account Holder name: ");
-            creditcard.AccountHolderName = Console.ReadLine();
+            Console.WriteLine("Enter AppNumber");
+            cr.AppNumber= int.Parse(Console.ReadLine());
 
-            //Account number
-            Console.Write("Enter AccountNumber: ");
-            creditcard.AccountNumber = System.Convert.ToInt64(Console.ReadLine());
-
-
-            //Occupation
-            Console.Write("Enter occupation: ");
-            creditcard.Occupation = Console.ReadLine();
-
-            //Address
-            Console.Write("Enter address: ");
-            creditcard.Address = Console.ReadLine();
-
-            //Income
-            Console.Write("Enter Income: ");
-            creditcard.Income = System.Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter CibilScore");
+            cr.CibilScore = int.Parse(Console.ReadLine());
 
 
-            //Pancard Number
 
-            Console.Write("Enter Pancard Number: ");
-            creditcard.PanCardNumber = Console.ReadLine();
-
-            //Aadhar card Number
-            Console.Write("Enter Aadharcard number: ");
-            creditcard.AadharCardNumber = System.Convert.ToInt64(Console.ReadLine());
-
-            //Phone number
-            Console.Write("Enter Phone number: ");
-            creditcard.PhoneNumber = System.Convert.ToInt64(Console.ReadLine());
-
-            customerbusinesslogic.AddCreditCard(creditcard);
+            cbl.ApplyCreditCard(cr);
             Console.WriteLine("Credit card details added successfully");
-        }*/
+
+        }
 
             //Approve credit card
             /* public void ApproveCreditCard()
