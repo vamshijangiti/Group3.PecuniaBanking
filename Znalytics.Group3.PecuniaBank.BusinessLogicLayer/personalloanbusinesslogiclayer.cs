@@ -6,66 +6,66 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.Entities;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
-using Znalytics.Group3.PecuniaBank.IPersonalLoan.BusinessLogicLayer;
+
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     /// <summary>
     /// Business logic layer for personalloan
     /// </summary
-   public  class PersonalLoanBusinessLogicLayer: IPersonalLoanBusinessLogicLayer
+    public class PersonalLoanBusinessLogicLayer
     {
-        PersonalLoanDataAccessLayer _personalLoanDataAccessLayer;
-        public PersonalLoanBusinessLogicLayer ()
-        {
-            _personalLoanDataAccessLayer = new PersonalLoanDataAccessLayer();
-
-        }
+        PersonalLoanDataAccessLayer personalLoanData =new PersonalLoanDataAccessLayer();
+        PersonalLoanEntity PersonalLoan = new PersonalLoanEntity();
        
-        public void AddAccountDetails(PersonalLoan pl)
+        public void AddPersonalLoan(PersonalLoanEntity pl)
         {
-            _personalLoanDataAccessLayer.AddAccountDetails(pl);
-
-
+            personalLoanData.AddPersonalLoan(pl);
         }
-        public void CalculateEmi(PersonalLoan pl)
+
+        /* public void AddAccountDetails(PersonalLoanEntity pl)
+          {
+              _personalLoanDataAccessLayer.AddAccountDetails(pl);
+
+
+          }*/
+        public void CalculateEmi(float loan, float tenure)
         {
-            if ((pl.AccountNumber != null) && (pl.LoanAmount != 0D) && (pl.Tenure != 0D) && (pl.RateOfInterest != 0D) && (pl.CreditScore != 0))
+            if ((PersonalLoan.AccountNumber != null) && (PersonalLoan.LoanAmount != 0) && (PersonalLoan.Tenure != 0) && (PersonalLoan.CreditScore != 0))
             {
-                pl.Emi = EmiCalculation();
+                PersonalLoan.Emi = EmiCalculation();
 
-                double EmiCalculation()
+                float EmiCalculation()
                 {
+                    float emi;
+                    float r = PersonalLoan.RateOfInterest / (12 * 100); // one month interest 
+                    PersonalLoan.Tenure = PersonalLoan.Tenure * 12; // one month period 
+                    emi = (PersonalLoan.LoanAmount * r * (float)Math.Pow(1 + r, PersonalLoan.Tenure))/ (float)(Math.Pow(1 + r, PersonalLoan.Tenure) - 1);
 
-
-                    double a = (pl.RateOfInterest) / (12 * 100); // one month interest 
-                    pl.Tenure = (pl.Tenure) * 12; // one month period 
-                    double p = ((pl.LoanAmount) * a * (float)Math.Pow(1 + a, (pl.Tenure)))
-                             / (float)(Math.Pow(1 + a, (pl.Tenure) - 1));
-
-                    return p;
+                    return emi;
 
                 }
             }
             else
             {
-                //throw new Exception("cvvvvvvvvv");
+                //throw new Exception(");
+                throw new Exception("Please check and Enter the valid values");
             }
 
 
         }
+
     }
 }
 
-           
 
 
 
 
 
-            
-           
 
 
 
 
-    
+
+
+

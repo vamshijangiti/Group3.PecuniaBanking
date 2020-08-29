@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using Znalytics.Group3.PecuniaBank.Entities;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
+using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     
@@ -13,15 +14,15 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     public class vehicleLoanBusinessLogicLayer
 
     {
-        vehicleloandataaccesslayer cd = new vehicleloandataaccesslayer ();
-        public void AddAccountDetails(VehicleLoan vl)
+        VehicleLoanDataAccessLayer cd = new VehicleLoanDataAccessLayer ();
+        public void AddAccountDetails(PersonalLoan vl)
         {
             cd.AddAccountDetails(vl);
 
 
         }
 
-        public void CalculateEmi(VehicleLoan vl)
+        public void CalculateEmi(PersonalLoan vl)
         {
             if ((vl.AccountNumber != null) && (vl.LoanAmount != 0D) && (vl.Tenure != 0D) && (vl.RateOfInterest != 0D) && (vl.CreditScore != 0))
             {

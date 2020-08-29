@@ -12,17 +12,30 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     /// <summary>
     /// Entity Layer for BankLayer
     /// </summary>
-
-
-    public class Account
+   interface  IAccount
     {
+        int AccountId {
+            set; get; }
+        string DateOfCreation
+        {
+            set; get;
+        }
+        long Balance
+        {
+            set; get;
+        }
+    }
+    public class SavingsAccount: IAccount
+    { 
         //private Fields
      
         private int  _accountId;
         private string _dateOfCreation;
         private string _branchName;
         private long _balance;
+
        
+
         public int AccountId
         {
             set
@@ -92,10 +105,39 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
 
-        public Account Find(Func<object, bool> p)
+        public int Max(Func<object, object> p)
         {
             throw new NotImplementedException();
         }
+
+        public class CurrentAccount:IAccount
+        {
+            private int _accId;
+            private long _balance;
+            private string _dateOfCreation;
+
+            public int AccountId { get; set; }
+        }
+        public int AccountId
+        {
+            set
+            {
+                if (accountId!=0)
+                {
+
+                }
+            }
+        }
+
+        public IAccount Find(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+
+      /* void AccountId(int accountId)
+        {
+            throw new NotImplementedException();
+        }*/
     }
   
 } 

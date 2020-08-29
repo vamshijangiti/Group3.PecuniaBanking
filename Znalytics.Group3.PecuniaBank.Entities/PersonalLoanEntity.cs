@@ -1,4 +1,5 @@
-﻿///Entities for vehicle loan
+﻿///Navya PersonalLoanEntityLayer
+///Entities for Personal loan
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +10,19 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 {
 
     /// <summary>
-    /// Entity layer for vehicle loan
+    /// Entity layer for personal loan
     /// </summary>
 
-    public class VehicleLoan
+    public class PersonalLoanEntity
     {
         private string _accountNumber;
-        private double _loanAmount;
-        private static double _rateOfInterest=10;
-        private double _tenure;
+        private float _loanAmount;
+        private static float _rateOfInterest=10;
+        private float _tenure;
         private float _emi;
         private int _creditScore;
-        VehicleLoan  vehicleLoan = new VehicleLoan ();
-
-        public VehicleLoan () { }
+        PersonalLoanEntity personalLoan = new PersonalLoanEntity();
+        public PersonalLoanEntity() { }
         /// <summary>
         /// Constructor For Entity Class
         /// </summary>
@@ -33,14 +33,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <param name="emi"> Monthly emi</param>
         /// <param name="creditscore">credit score in your credit card</param>
 
-        public VehicleLoan (string accountNumber, double loanAmount, double tenure, float emi, int creditScore)
+        public PersonalLoanEntity(string accountNumber, float loanAmount, float tenure, float emi, int creditScore)
         {
-           vehicleLoan._accountNumber = accountNumber;
-            vehicleLoan._loanAmount = loanAmount;
-           vehicleLoan._tenure = tenure;
-            vehicleLoan._emi = emi;
-            vehicleLoan._creditScore = creditScore;
-
+            
 
 
 
@@ -74,7 +69,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
         //set and get methods for loanamount
 
-        public double LoanAmount
+        public float LoanAmount
         {
             set
             {
@@ -97,7 +92,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
         //set and get methods for tenure
-        public double Tenure
+        public float Tenure
         {
             set
             {
@@ -120,16 +115,16 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
         //set and get methods for rate of interest  
-        public double RateOfInterest
+        public float RateOfInterest
         {
-           
+
             get
             {
                 return _rateOfInterest;
             }
         }
         //set and get methods for rate of interest
-        public float calculateEmi
+        public float Emi
         {
             set
             {
@@ -150,7 +145,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 if (CreditScore >= 650)//checks creditscore of a person which should starts from 650
                 {
                     _creditScore = value;
-                }
+                }       
                 else
                 {
                     throw new System.Exception("your credit score is not up to the mark");
@@ -165,8 +160,6 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
     }
 }
-
-
 
 
 
