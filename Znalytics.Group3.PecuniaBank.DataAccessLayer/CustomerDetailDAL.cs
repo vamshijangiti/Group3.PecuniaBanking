@@ -13,7 +13,7 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
     /// </summary>
     public class CustomerDetailDAL: ICustomerDetailDAL
     {
-
+        //List of the CustomerDetail
         private static List<CustomerDetail> _details;
         public CustomerDetailDAL()
         {

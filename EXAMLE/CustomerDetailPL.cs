@@ -42,7 +42,9 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
         }
 
 
-        //Add customer method
+        /// <summary>
+        /// Add customer method
+        /// </summary>
         static void AddCustomer()
         {
             try
@@ -72,7 +74,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 
                 //Reading Customer Income manually
                 Console.Write("Enter customer Income: ");
-                customer.Income = double.Parse(Console.ReadLine());
+                customer.AnnualIncome = double.Parse(Console.ReadLine());
 
                 //Reading customer's Pancard number manually
                 Console.Write("Enter customer pancardnumber: ");

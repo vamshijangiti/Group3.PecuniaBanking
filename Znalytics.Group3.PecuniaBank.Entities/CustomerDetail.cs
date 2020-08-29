@@ -7,6 +7,9 @@ using System.Text.RegularExpressions;
 /// </summary>
 namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
 {
+    /// <summary>
+    /// Class That Represents CustomerDetail Module in PecuniaBanking Project
+    /// </summary>
     public class CustomerDetail
     {
         // list of details
@@ -21,6 +24,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         private DateTime _dateOfBirth;
         private string _mailId;
 
+        //Creating Object for CustomerDetail class
         CustomerDetail customer = new CustomerDetail();
        // Creating constructor
         public CustomerDetail() { }
@@ -35,9 +39,9 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         /// <param name="Address">Address of customer</param>
         /// <param name="Income">Income of customer</param>
         /// <param name="PanCardNumber">Pancard number of customer</param>
-        /// <param name="AadharCardNumber">Aadhae card number of customer</param>
+        /// <param name="AadharCardNumber">Aadhar card number of customer</param>
         /// <param name="PhoneNumber">Pan card number of customer</param>
-        /// <param name="Age">Age of the customer</param>
+        /// <param name="DateOfBirth">DateOfBirth of the customer</param>
         /// <param name="MailId">Mail Id of the customer</param>
         CustomerDetail(string CustomerName, int CustomerId, string Profession, string Address, double AnnualIncome, string PanCardNumber, string AadharCardNumber, string PhoneNumber, DateTime DateOfBirth,string MailId)
         {
@@ -55,7 +59,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
 
 
         /// <summary>
-        /// Customer name
+        /// Property for setting values to CustomerName field and Getting The value of the Field 
         /// </summary>
         public string CustomerName
         {
@@ -79,7 +83,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         }
 
         /// <summary>
-        /// Customer Id
+        /// Property for setting values to CustomerId field and Getting The value of the Field 
         /// </summary>
         public int CustomerId
         {
@@ -94,9 +98,9 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
             }
         }
         /// <summary>
-        /// Income
+        /// Property for setting values to AnnualIncome field and Getting The value of the Field 
         /// </summary>
-        public double Income
+        public double AnnualIncome
         {
             set
             {
@@ -116,7 +120,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
             }
         }
         /// <summary>
-        /// Occupation
+        /// Property for setting values to Profession field and Getting The value of the Field 
         /// </summary>
 
         public string Profession
@@ -132,7 +136,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         }
 
         /// <summary>
-        /// Address
+        /// Property for setting values to Address field and Getting The value of the Field 
         /// </summary>
         public string Address
         {
@@ -147,7 +151,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         }
 
         /// <summary>
-        /// Pan card number
+        /// Property for setting values to PanCardNumber field and Getting The value of the Field 
         /// </summary>
         public string PanCardNumber
         {
@@ -172,7 +176,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
         }
 
         /// <summary>
-        /// Aadhar card number
+        /// Property for setting values to AadharCardNumber field and Getting The value of the Field 
         /// </summary>
         public string AadharCardNumber
         {
@@ -199,7 +203,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
 
         }
         /// <summary>
-        /// Phone number
+        /// Property for setting values to PhoneNumber field and Getting The value of the Field 
         /// </summary>
         public string PhoneNumber
         {
@@ -225,7 +229,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
             }
         }
         /// <summary>
-        /// Age
+        /// Property for setting values to DateOfBirth field and Getting The value of the Field 
         /// </summary>
         public DateTime DateOfBirth
 
@@ -256,7 +260,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.Entities
             }
         }
         /// <summary>
-        /// Mail Id
+        /// Property for setting values to Mailid field and Getting The value of the Field 
         /// </summary>
         public string MailId
         {
