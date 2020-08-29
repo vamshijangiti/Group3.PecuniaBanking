@@ -45,13 +45,25 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
             } while (choice != 3);
+            static void AddSavingsAccount()
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        private static void AddCurrentAccount()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
             ///<summary>
             ///adding Savings Account
             /// </summary>
 
-            static void AddSavingsAccount()
+           /* static void AddSavingsAccount()
             {
-                AccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
+                IAccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
                 SavingsAccount account = new SavingsAccount();
                 System.Console.WriteLine("enter AccountId");
                 account.AccountId = int.Parse(System.Console.ReadLine());
@@ -66,17 +78,19 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             public int AccountId;
             public long Balance;
         }
-        static void AddCurrentAccount()
+    }
+}*/
+      /*  static void AddCurrentAccount()
         {
-            try//try 
-            {
-              /*  IAccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
-                CurrentAccount account = new CurrentAccount();
-                System.Console.WriteLine("enter account id");
-                account.AccountId = int.Parse(System.Console.ReadLine());
-                System.Console.WriteLine("enter balance");
 
-            }*/
+            IAccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
+            CurrentAccount account = new CurrentAccount();
+            System.Console.WriteLine("enter account id");
+            account.AccountId = int.Parse(System.Console.ReadLine());
+            System.Console.WriteLine("enter balance");
+        }
+
+           
             catch (Exception ex)
             {
                 if (ex.InnerException != null)
@@ -87,3 +101,5 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         }
     }
 }
+     */
+     
