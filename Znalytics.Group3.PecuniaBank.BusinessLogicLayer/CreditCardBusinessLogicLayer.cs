@@ -33,14 +33,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         //checking account holder name
         public void ApplyCreditCard(CreditCard cr)
         {
-            if (cr.Appnumber !=0)
-            {
-                _creditcardDataAccessLayer.ApplyCreditCard(cr);
-            }
-            else
-            {
-                throw new Exception("Please mentione your name");
-            }
+            
 
 
             //checking account number
