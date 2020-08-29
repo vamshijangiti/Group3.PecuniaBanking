@@ -8,23 +8,14 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// <summary>
     /// Data access layer for vehicle loan
     /// </summary>
+
     public class VehicleLoanDataAccessLayer
     {
-        private static List<PersonalLoan> _vehicleLoans;
-        static VehicleLoanDataAccessLayer()
+
+        private static List<VehicleLoanEntity> _vehicleLoans = new List<VehicleLoanEntity>();
+        public void AddVehicleLoan(VehicleLoanEntity v)
         {
-            _vehicleLoans = new List<PersonalLoan>()
-            {
-              new PersonalLoan ()
-              {AccountNumber ="12345",Tenure =3,LoanAmount =500000,CreditScore =650}
-            };
+            _vehicleLoans.Add(v);
         }
-        public void AddAccountDetails(PersonalLoan vl)
-        {
-            _vehicleLoans.AddsVehicleLoan(vl);
-
-        }
-
-
     }
 }
