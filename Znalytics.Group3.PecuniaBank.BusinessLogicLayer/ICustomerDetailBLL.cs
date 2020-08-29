@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Znalytics.PecuniaBanking.CustomerPersonalDetailModule.Entities;
+using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
 
 namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
 {
@@ -16,16 +16,13 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     /// </summary>
     public interface ICustomerDetailBLL
     {
-        //Adding details
-        void AddCustomer(CustomerDetail customer);
+
 
         //Viewing existing details
-        void ViewCustomer(CustomerDetail customer);
+        public List<CustomerDetail> GetCustomers();
 
-        //customer GetCustomerByCustomerId(string CustomerID);
+        public List<CustomerDetail> GetCustomerNameByCustomerId(string CustomerName);
 
-        //Updating customer details
-        void UpdateCustomer(CustomerDetail customer);
     }
     
 }

@@ -1,64 +1,80 @@
 ﻿//PresentationLayer created by sriram
 
 
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
+using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
+
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
-    class Account
+    class program
     {
-        private int accountNo;
+        static void Main()
+        {
+            AccountsPresentationLayer();
+        }
 
-        public static void AccountsPresentationLayer()
+       static void AccountsPresentationLayer()
         {
             int choice = 0;
             do
             {
                 System.Console.WriteLine("WELCOME TO PECUNIA BANKING");
                 System.Console.WriteLine("Menu");
-                System.Console.WriteLine("1. Add Account ");
-                System.Console.WriteLine("2. view Account");
-                System.Console.WriteLine("3.UpdateAccount");
-                System.Console.WriteLine("4.DeleteAccount");
-                System.Console.WriteLine("5. Exit");
+                System.Console.WriteLine("1. press 1 if you want to open SavingsAccount ");
+                System.Console.WriteLine("2.press 2 if you want to open currentAccount");
+                System.Console.WriteLine("3.exit");
                 System.Console.WriteLine("Enter the choice: ");
                 choice = int.Parse(System.Console.ReadLine());
                 switch (choice)
                 {
-                    case 1: AddAccount(); break;
-                    case 2: ViewAccount(); break;
-                    case 3: UpdateAccount(); break;
-                    case 4: DeleteAccount(); break;
-
-
+                    case 1: AddSavingsAccount(); break;
+                    case 2: AddCurrentAccount(); break;
                 }
-            } while (choice != 5);
+                
 
+            } while (choice != 3);
 
-            static void AddAccount()
+            static void AddSavingsAccount()
             {
-               
+                AccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
+                SavingsAccount account = new SavingsAccount();
+                System.Console.WriteLine("enter AccountId");
+                account.AccountId = int.Parse(System.Console.ReadLine());
+                System.Console.WriteLine("enter balance");
+                account.Balance =long.Parse(System.Console.ReadLine());
+                accountBusinessLogic.AddSavingsAccount(account);
+                System.Console.WriteLine("savings Account Added");
             }
-            static void ViewAccount()
+public class SavingsAccount
+    {
+            public int AccountId;
+            public long Balance;
+  }
+        static void AddCurrentAccount()
+        {
+            try
             {
-               
+                AccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
+                CurrentAccount account = new CurrentAccount();
+                System.Console.WriteLine("enter account id");
+                account.AccountId = int.Parse(System.Console.ReadLine());
+                System.Console.WriteLine("enter balance");
+
             }
-
+            catch (Exception ex)
+                {
+                if (ex.InnerException!=null)
+                {
+                    System.Console.WriteLine(ex.InnerException.Message);
+                }
+            }
         }
-
-        static void UpdateAccount()
-        {
-
-        }
-
-        static void DeleteAccount()
-        {
-
-        }
-    }
-}

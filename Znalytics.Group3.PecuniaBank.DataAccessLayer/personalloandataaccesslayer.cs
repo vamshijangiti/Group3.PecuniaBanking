@@ -21,7 +21,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             _personalLoans = new List<PersonalLoan>()
             {
-              new PersonalLoan () {AccountId ="12345",AccountNumber="123456",Tenure =3,AnnualIncome= 40000,LoanAmount =500000,CreditScore =650}
+              new PersonalLoan () {AccountNumber ="12345",Tenure =3,LoanAmount =500000,CreditScore =650}
             };
         }
         public void AddAccountDetails(PersonalLoan pl)

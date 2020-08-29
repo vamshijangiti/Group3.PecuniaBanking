@@ -12,18 +12,31 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     /// <summary>
     /// Entity Layer for BankLayer
     /// </summary>
-
-
-    public class Account
+   interface  IAccount
     {
+        int AccountId {
+            set; get; }
+        string DateOfCreation
+        {
+            set; get;
+        }
+        long Balance
+        {
+            set; get;
+        }
+    }
+    public class SavingsAccount: IAccount
+    { 
         //private Fields
      
-        private long _accountNo;
+        private int  _accountId;
         private string _dateOfCreation;
         private string _branchName;
         private long _balance;
+
        
-       /* public int AccountId
+
+        public int AccountId
         {
             set
             {
@@ -33,33 +46,18 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 }
                 else
                 {
-                    throw new Exception("account id should not be zero or null ");//raises exception if accountid is nill or zero
+                    throw new ApplicationException("account id should not be zero or null ");//raises exception if accountid is nill or zero
                 }
 
             }
             get
             {
-                return _accountId;//returns accountId
-            }
-        }*/
-        public long AccountNo
-        {
-            set
-            {
-                if (_accountNo ==11)//accountno should be 11 digit Number
-                {
-                    _accountNo = value;
-                }
-                else
-                {
-                    throw new AccountException("Please enter a valid accountNo");
-                }
-            }
-            get
-            {
-                return _accountNo;//readonly property
+                return _accountId;
             }
         }
+    
+           
+   
         public string DateOfCreation
         {
             set
@@ -107,10 +105,39 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
 
-        public Account Find(Func<object, bool> p)
+        public int Max(Func<object, object> p)
         {
             throw new NotImplementedException();
         }
+
+        public class CurrentAccount:IAccount
+        {
+            private int _accId;
+            private long _balance;
+            private string _dateOfCreation;
+
+            public int AccountId { get; set; }
+        }
+        public int AccountId
+        {
+            set
+            {
+                if (accountId!=0)
+                {
+
+                }
+            }
+        }
+
+        public IAccount Find(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+
+      /* void AccountId(int accountId)
+        {
+            throw new NotImplementedException();
+        }*/
     }
   
 } 

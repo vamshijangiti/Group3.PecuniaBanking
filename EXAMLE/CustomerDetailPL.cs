@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using Znalytics.Group3.PecuniaBanking.BusinessLogicLayer;
 using Znalytics.PecuniaBanking.CustomerDetailModule.Entities;
 
@@ -26,7 +25,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             {
                 Console.WriteLine("Customer Personal Details");
                 Console.WriteLine("1. Add Customer");
-                Console.WriteLine("2. View Customer");
+                Console.WriteLine("2. Get Customers");
                 Console.WriteLine("3. Update Customer");
                 Console.WriteLine("4. Exit");
                 Console.Write("Enter choice: ");
@@ -37,63 +36,67 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                     case 1: AddCustomer(); break;
                     case 2: GetCustomers(); break;
                     case 3: UpdateCustomer(); break;
+                    case 4: Console.WriteLine("Exit");break;
                 }
             } while (choice != 4);
         }
 
-        CustomerDetailBLL customerdetailBusinessLogicLayer = new CustomerDetailBLL();
+
         //Add customer method
-        public static void AddCustomer()
-         {
+        static void AddCustomer()
+        {
             try
             {
 
                 //Creating object for CustomerPersonalDetail class 
-                CustomerDetail customers = new CustomerDetail();
+                CustomerDetail customer = new CustomerDetail();
+
+                //Creating object for BusinessLogic Layer
+                CustomerDetailBLL cb = new CustomerDetailBLL();
 
                 //Reading customer name manually
                 Console.Write("Enter customer name: ");
-                customers.CustomerName = Console.ReadLine();
+                customer.CustomerName = Console.ReadLine();
 
                 //Reading customer Id manually
                 Console.Write("Enter customer Id: ");
-                customers.CustomerId = Console.ReadLine();
+                customer.CustomerId = int.Parse(Console.ReadLine());
 
                 //Reading Occupation of customer manually
                 Console.Write("Enter Occupation: ");
-                customers.Profession = Console.ReadLine();
+                customer.Profession = Console.ReadLine();
 
                 //Reading Address of custometr manually
                 Console.Write("Enter customer Address: ");
-                customers.Address = Console.ReadLine();
+                customer.Address = Console.ReadLine();
 
                 //Reading Customer Income manually
                 Console.Write("Enter customer Income: ");
-                customers.Income = double.Parse(Console.ReadLine());
+                customer.Income = double.Parse(Console.ReadLine());
 
                 //Reading customer's Pancard number manually
                 Console.Write("Enter customer pancardnumber: ");
-                customers.PanCardNumber = long.(Console.ReadLine();
+                customer.PanCardNumber = long.(Console.ReadLine();
 
                 //Reading Customer's aadharcardnumber manually
                 Console.Write("Enter customer Aadharcardnumber: ");
-                customers.AadharCardNumber = Console.ReadLine();
+                customer.AadharCardNumber = Console.ReadLine();
 
                 //Reading Phone number of customer manually
                 Console.Write("Enter customer Phone number: ");
-                customers.PhoneNumber = Console.ReadLine();
+                customer.PhoneNumber = Console.ReadLine();
 
                 //Reading Customer's age manually
                 Console.Write("Enter customer Age: ");
-                customers.DateOfBirth = DateTime.Parse(Console.ReadLine());
+                customer.DateOfBirth = DateTime.Parse(Console.ReadLine());
 
                 //Reading customer's mail id manually
                 Console.Write("Enter customer MailId: ");
-                customers.MailId = Console.ReadLine();
+                customer.MailId = Console.ReadLine();
 
 
                 // CustomerDetailBLL customerPersonaldetailBusinessLogicLayer = new CustomerDetailBLL();
-                customerdetailBusinessLogicLayer.AddCustomer(customers); //call BusinessLogicLayer
+                cb.AddCustomer(customer); //call BusinessLogicLayer
 
                 Console.WriteLine("Customer details added successfully.\n");
             }
@@ -105,112 +108,100 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 }
                 Console.WriteLine();
                 Console.WriteLine(ex.Message);
-                Console.WriteLine();
-                Console.WriteLine(ex.StackTrace);
                 //Console.WriteLine();
-               // Console.WriteLine(ex.Source);
+                //Console.WriteLine(ex.StackTrace);
+                //Console.WriteLine();
+                // Console.WriteLine(ex.Source);
             }
-            finally
-            {
-                Console.WriteLine("Thank you. Returning to Main menu");
-            }
+
         }
         //View existing Customer details
-         static void GetCustomers()
-         {
-            try
-            {
-                // CustomerDetailBLL customerBusinessLogic = new CustomerDetailBLL();
-                //creating list
-                List<CustomerDetail> cust = customerBusinessLogic.GetCustomers();
+        static void GetCustomers()
+        {
+            //Creating object for CustomerPersonalDetail class 
+            CustomerDetail customer = new CustomerDetail();
 
-                //getting customerdetails 
-                foreach (CustomerDetail detail in cust)
-                {
-                    Console.WriteLine(detail);
-                }
-            }
-            catch
+            //Creating object for BusinessLogic Layer
+            CustomerDetailBLL cb = new CustomerDetailBLL();
+
+            // CustomerDetailBLL customerBusinessLogic = new CustomerDetailBLL();
+            //creating list
+            List<CustomerDetail> cust = cb.GetCustomers();
+            //getting customerdetails 
+            foreach (CustomerDetail detail in cust)
             {
-                throw;
+                Console.WriteLine(detail);
+
             }
-         }
+        }
 
         //Updating customer details
         static void UpdateCustomer()
         {
-            try
-            {
 
-                //Creating object for BusinessLogicLayer
-                // CustomerDetailBLL CustomerBusinessLogic = new CustomerDetailBLL();
+            //Creating object for CustomerPersonalDetail class 
+            CustomerDetail customer = new CustomerDetail();
 
-                //Creating object for the CustomerPersonalDetail class
-                CustomerDetail customer = new CustomerDetail();
-
-                //Updating name
-                Console.Write("Enter Existing Customer Name: ");
-                customer.CustomerName = Console.ReadLine();
-                Console.Write("Enter New Customer Name: ");
-                customer.CustomerName = Console.ReadLine();
-
-                //Updating Address
-                Console.Write("Enter Existing Customer Address: ");
-                customer.Address = Console.ReadLine();
-                Console.Write("Enter New Customer Address: ");
-                customer.Address = Console.ReadLine();
-
-                //Updating Income
-                Console.Write("Enter Existing Customer Income: ");
-                customer.Income = double.Parse(Console.ReadLine());
-                Console.Write("Enter New Customer Income: ");
-                customer.Income = double.Parse(Console.ReadLine());
-
-                //Updating AadharcardNumber
-                Console.Write("Enter Existing Customer Aadharcardnumber: ");
-                customer.AadharCardNumber = Console.ReadLine();
-                Console.Write("Enter New Customer Aadharcardnumber: ");
-                customer.AadharCardNumber = Console.ReadLine();
-
-                //Updating PanCardNumber
-                Console.Write("Enter Existing Customer PancardNumber: ");
-                customer.PanCardNumber = Console.ReadLine();
-                Console.Write("Enter New Customer Pan card number: ");
-                customer.PanCardNumber = Console.ReadLine();
-
-                //Updating Phone number
-                Console.Write("Enter Existing Customer Phone number: ");
-                customer.PhoneNumber = Console.ReadLine();
-                Console.Write("Enter New Customer Phone number: ");
-                customer.PhoneNumber = Console.ReadLine();
-
-                //Updating Age
-                Console.Write("Enter Existing Customer Age: ");
-                customer.Age = int.Parse(Console.ReadLine());
-                Console.Write("Enter New Customer date of birth: ");
-                customer.Age = int.Parse(Console.ReadLine());
-
-                //Updating Mail id
-                Console.Write("Enter Existing Customer Mail Id: ");
-                customer.MailId = Console.ReadLine();
-                Console.Write("Enter New Customer mail id: ");
-                customer.MailId = Console.ReadLine();
+            //Creating object for BusinessLogic Layer
+            CustomerDetailBLL cb = new CustomerDetailBLL();
 
 
-                CustomerBusinessLogic.UpdateCustomer(customer);
-                Console.WriteLine("Customer details Updated.\n");
-            }
-            catch
-            {
-                throw;
-            }
+            //Updating name
+            Console.Write("Enter Existing Customer Name: ");
+            customer.CustomerName = Console.ReadLine();
+            Console.Write("Enter New Customer Name: ");
+            customer.CustomerName = Console.ReadLine();
+
+            //Updating Address
+            Console.Write("Enter Existing Customer Address: ");
+            customer.Address = Console.ReadLine();
+            Console.Write("Enter New Customer Address: ");
+            customer.Address = Console.ReadLine();
+
+            //Updating Income
+            Console.Write("Enter Existing Customer Income: ");
+            customer.Income = double.Parse(Console.ReadLine());
+            Console.Write("Enter New Customer Income: ");
+            customer.Income = double.Parse(Console.ReadLine());
+
+            //Updating AadharcardNumber
+            Console.Write("Enter Existing Customer Aadharcardnumber: ");
+            customer.AadharCardNumber = Console.ReadLine();
+            Console.Write("Enter New Customer Aadharcardnumber: ");
+            customer.AadharCardNumber = Console.ReadLine();
+
+            //Updating PanCardNumber
+            Console.Write("Enter Existing Customer PancardNumber: ");
+            customer.PanCardNumber = Console.ReadLine();
+            Console.Write("Enter New Customer Pan card number: ");
+            customer.PanCardNumber = Console.ReadLine();
+
+            //Updating Phone number
+            Console.Write("Enter Existing Customer Phone number: ");
+            customer.PhoneNumber = Console.ReadLine();
+            Console.Write("Enter New Customer Phone number: ");
+            customer.PhoneNumber = Console.ReadLine();
+
+            //Updating Age
+            Console.Write("Enter Existing Customer Age: ");
+            customer.DateOfBirth = DateTime.Parse(Console.ReadLine());
+            Console.Write("Enter New Customer date of birth: ");
+            customer.DateOfBirth = DateTime.Parse(Console.ReadLine());
+
+            //Updating Mail id
+            Console.Write("Enter Existing Customer Mail Id: ");
+            customer.MailId = Console.ReadLine();
+            Console.Write("Enter New Customer mail id: ");
+            customer.MailId = Console.ReadLine();
+
+
+            cb.UpdateCustomer(customer);
+            Console.WriteLine("Customer details Updated.\n");
         }
-        
-
-      
-
-        
 
     }
+
 }
+
+
 

@@ -64,5 +64,6 @@ namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
                 }
             }
    }
+
     }
-        
+}
