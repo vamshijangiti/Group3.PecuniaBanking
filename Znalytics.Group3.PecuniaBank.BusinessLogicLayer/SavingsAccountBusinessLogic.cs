@@ -13,7 +13,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {/// <summary>
 /// BusinessLogicLayer for Accounts
 /// </summary>
-    public interface IAccountBusinessLogic
+    /*public interface ISavingsAccountBusinessLogic
     {
         //methods
         void AddSavingsAccount(SavingsAccount a);
@@ -22,28 +22,25 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         void DeleteSavingsAccount(SavingsAccount account);
        
     }
+    */
 }
 
-public class CurrentAccount
-{
-    public int AccountId { get; set; }
-}
-public class AccountBusinessLogic : IAccountBusinessLogic
+public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
     {
-        AccountDataAccessLayer _accountDataAccessLayer;
+        SavingsAccountDataAccessLayer _savingsaccountDataAccessLayer;
      
     
-        public AccountBusinessLogic()
+        public SavingsAccountBusinessLogic()
         {
-            _accountDataAccessLayer = new AccountDataAccessLayer();
+            _savingsaccountDataAccessLayer = new SavingsAccountDataAccessLayer();
         }
 
-        public void AddSavingsAccount(SavingsAccount a)
+        public void AddSavingsAccount(SavingsAccount savingsAccount)
         {
 
-            if (a.AccountId != 0)
+            if (savingsAccount.AccountId != 0)
                 {
-            _accountDataAccessLayer.AddSavingsAccount(a);
+            _savingsaccountDataAccessLayer.AddSavingsAccount(savingsAccount);
                 }
                 else
                 {
@@ -51,7 +48,7 @@ public class AccountBusinessLogic : IAccountBusinessLogic
                 }
             }
             
-        public void AddCurrentAccount(CurrentAccount account)
+       /* public void AddCurrentAccount(CurrentAccount account)
         {
             if (account.AccountId!=0)
             {
@@ -62,32 +59,28 @@ public class AccountBusinessLogic : IAccountBusinessLogic
                 throw new ApplicationException("account should not be null");
             }
         }
-        /// <summary>
-        /// Adding Accounts
-        /// </summary>
-        /// <param name="account">Add Account</param>
+       */
+   
     
         //GetAccounts
-        public List<Account> GetAccounts()
+        public List<SavingsAccount> GetSavingsAccount()
         {
-            return _accountDataAccessLayer.GetAccounts();
+            return _savingsaccountDataAccessLayer.GetSavingsAccount();
         }
-            /// <summary>
-            /// Update Accounts
-            /// </summary>
-            /// <param name="account">update</param>
-            public void DeleteCurrentAccount(CurrentAccount account)
+      
+          /*  public void DeleteCurrentAccount(CurrentAccount account)
         {
             if (account.AccountId==null)
             {
                 _accountDataAccessLayer.DeleteCurrentAccount(account);
             }
         }
-    public void DeleteSavingsAccount(SavingsAccount account)
+          */
+    public void DeleteSavingsAccount(SavingsAccount savingsaccount)
     {
-        if (account.AccountId == null)
+        if (savingsaccount.AccountId == null)
         {
-            _accountDataAccessLayer.DeleteAccount(account);
+            _savingsaccountDataAccessLayer.DeleteAccount(savingsaccount);
         }
     }
 
