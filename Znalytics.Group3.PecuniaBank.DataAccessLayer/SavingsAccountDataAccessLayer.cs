@@ -15,22 +15,21 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// DataAccessLayer For Accounts 
     /// </summary>
 
-
     public class SavingsAccountDataAccessLayer : ISavingsAccountDataAccessLayer//interface
     {
         List<SavingsAccount> savingaccounts = new List<SavingsAccount>();//List of Accounts
-        private List<SavingsAccount> savingsAccount;
+        private List<SavingsAccount> _savingsAccount;
 
         //constructor
         public SavingsAccountDataAccessLayer() => savingaccounts = new List<SavingsAccount>()
             {
-                new SavingsAccount() { AccountId=1, DateOfCreation = "24-08-2020", Balance = 100, BranchName = "pecunia" },
-                new SavingsAccount() { AccountId=2,DateOfCreation="25-08-2020",Balance=12000,BranchName="pecunia"},
-                new SavingsAccount() { AccountId=3, DateOfCreation = "26-08-2020", Balance = 1000, BranchName = "pecunia" },
+                new SavingsAccount() { AccountId=1, DateOfCreation = "24-08-2020", Balance = 100, },
+                new SavingsAccount() { AccountId=2,DateOfCreation="25-08-2020",Balance=12000},
+                new SavingsAccount() { AccountId=3, DateOfCreation = "26-08-2020", Balance = 1000, },
             };
 
 
-        /*  public void AddCurrentAccount(CurrentAccount c)
+        /* public void AddCurrentAccount(CurrentAccount c)
           {
               int maxAccountId = accounts.Max(temp => temp.AccountId);
               c.AccountId = maxAccountId;
@@ -38,17 +37,16 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
           }*/
 
         /// <summary>
-        /// Add Account into the list
+        /// Add savings Account into the list
         /// </summary>
-        /// <param name="n">Account</param>
+        /// <param name="savingsAccount">SavingsAccount</param>
         public void AddSavingsAccount(SavingsAccount savingsAccount)
         {
-           /* int maxAccountId = savingsAccount.Max(temp => temp.AccountId);*/
-            /*savingsAccount.AccountId = maxAccountId;*/
+            int maxAccountId = savingsAccount.Max(temp => temp.AccountId);
+            savingsAccount.AccountId = maxAccountId;
             savingaccounts.Add(savingsAccount);
 
         }
-
         /// <summary>
         /// Add DateOfCreation of Account
         /// </summary>
@@ -59,27 +57,17 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
 
-        public List<SavingsAccount> GetSavingsAccount()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<SavingsAccount> GetSavingsAccount(int AccountId)
         {
-            return savingsAccount;
+            return _savingsAccount;
         }
 
-        public void DeleteSavingsAccount(SavingsAccount savingsAccount,int accountId)
+        public void DeleteSavingsAccount(SavingsAccount s,int accountId)
         {
             if (accountId!= 0)
             {
-               /* savingsAccount.DeleteSavingsAccount(savingsAccount);*/
+                _savingsAccount.DeleteSavingsAccount(s);
             }
-        }
-
-        public void DeleteAccount(SavingsAccount savingsaccount)
-        {
-            throw new NotImplementedException();
         }
     }
 }
