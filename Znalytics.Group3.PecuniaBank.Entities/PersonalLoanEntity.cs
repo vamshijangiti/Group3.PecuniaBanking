@@ -52,8 +52,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                try
-                {
+               
                     if (value.Length == 6)
                     {
                         _accountNumber = value;
@@ -64,11 +63,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                         throw new Exception("Enter 6 digits only\n");
                     }
 
-                }
-                catch
-                {
-                    throw;
-                }
+                
 
             }
 
@@ -84,8 +79,6 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                try
-                {
                     if (value >= 50000)
                     {
                         _loanAmount = value;
@@ -97,12 +90,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
                     }
 
-                }
-                catch
-                {
-                    throw;
-                }
             }
+                
+                
             get
             {
                 return _loanAmount;
@@ -114,8 +104,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                try
-                {
+                
                     if (value >= 10)
                     {
                         _tenure = value;
@@ -125,13 +114,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                     {
                         throw new Exception("not eligible\n");
 
-                    }
-
-                }
-                catch
-                {
-                    throw;
-                }
+                    } 
 
             }
             get
