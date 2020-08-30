@@ -54,7 +54,7 @@
     <Compile Include="CustomerPresentationLayer.cs" />
     <Compile Include="HousingLoanPresentationLayer.cs" />
     <Compile Include="MainMethod.cs" />
-    <Compile Include="PersonalLoanVehicleLoanPresentationLayer.cs" />
+    <Compile Include="PersonalVehicleLoanPresentationLayer.cs" />
     <Compile Include="TransactionMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

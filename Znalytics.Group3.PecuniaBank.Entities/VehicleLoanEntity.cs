@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Znalytics.Group3.PecuniaBank.AccountEntities
+namespace Znalytics.Group3.PecuniaBank.Entities
 {
 
     /// <summary>
