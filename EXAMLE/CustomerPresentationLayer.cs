@@ -8,10 +8,10 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
     /// <summary>
     /// Represents Login information of the customer
     /// </summary>
-    class CustomerPL
+    class CustomerPresentationLayer
     {
-        //Starting point of the Execution
-        static void Main()
+        
+        public void start()
         {
             CustomerDetailsPresentation();
             Console.ReadKey();
@@ -43,7 +43,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 
 
         /// <summary>
-        /// Add customer method
+        ///  Method to add Customer Details
         /// </summary>
         static void AddCustomer()
         {
@@ -54,7 +54,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 Customer customer = new Customer();
 
                 //Creating object for BusinessLogic Layer
-                CustomerBLL cb = new CustomerBLL();
+                CustomerBusinessLogicLayer cb = new CustomerBusinessLogicLayer();
 
                 //Reading customer name manually
                 Console.Write("Enter customer name: ");
@@ -96,8 +96,6 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 Console.Write("Enter customer MailId: ");
                 customer.MailId = Console.ReadLine();
 
-
-                // CustomerDetailBLL customerPersonaldetailBusinessLogicLayer = new CustomerDetailBLL();
                 cb.AddCustomer(customer); //call BusinessLogicLayer
 
                 Console.WriteLine("Customer details added successfully.\n");
@@ -117,14 +115,16 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             }
 
         }
-        //View existing Customer details
+        /// <summary>
+        /// Method to View existing Customer details
+        /// </summary>
         static void GetCustomers()
         {
             //Creating object for CustomerPersonalDetail class 
             Customer customer = new Customer();
 
             //Creating object for BusinessLogic Layer
-            CustomerBLL cb = new CustomerBLL();
+            CustomerBusinessLogicLayer cb = new CustomerBusinessLogicLayer();
 
             // CustomerDetailBLL customerBusinessLogic = new CustomerDetailBLL();
             //creating list
@@ -137,7 +137,9 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             }
         }
 
-        //Updating customer details
+        /// <summary>
+        /// Method to Update customer details
+        /// </summary>
         static void UpdateCustomer()
         {
 
@@ -145,61 +147,17 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             Customer customer = new Customer();
 
             //Creating object for BusinessLogic Layer
-            CustomerBLL cb = new CustomerBLL();
+            CustomerBusinessLogicLayer cb = new CustomerBusinessLogicLayer();
 
-
-            //Updating name
-            Console.Write("Enter Existing Customer Name: ");
+            Console.Write("Enter Existing customer ID: ");/// updating name and other details by using primary key as customerid///
+            customer.CustomerId = int.Parse(Console.ReadLine());
+            Console.Write("enter customer name");
             customer.CustomerName = Console.ReadLine();
-            Console.Write("Enter New Customer Name: ");
-            customer.CustomerName = Console.ReadLine();
-
-            //Updating Address
-            Console.Write("Enter Existing Customer Address: ");
-            customer.Address = Console.ReadLine();
-            Console.Write("Enter New Customer Address: ");
-            customer.Address = Console.ReadLine();
-
-            //Updating Income
-            Console.Write("Enter Existing Customer Income: ");
-            customer.AnnualIncome = double.Parse(Console.ReadLine());
-            Console.Write("Enter New Customer Income: ");
-            customer.AnnualIncome = double.Parse(Console.ReadLine());
-
-            //Updating AadharcardNumber
-            Console.Write("Enter Existing Customer Aadharcardnumber: ");
-            customer.AadharCardNumber = Console.ReadLine();
-            Console.Write("Enter New Customer Aadharcardnumber: ");
-            customer.AadharCardNumber = Console.ReadLine();
-
-            //Updating PanCardNumber
-            Console.Write("Enter Existing Customer PancardNumber: ");
-            customer.PanCardNumber = Console.ReadLine();
-            Console.Write("Enter New Customer Pan card number: ");
-            customer.PanCardNumber = Console.ReadLine();
-
-            //Updating Phone number
-            Console.Write("Enter Existing Customer Phone number: ");
-            customer.PhoneNumber = Console.ReadLine();
-            Console.Write("Enter New Customer Phone number: ");
-            customer.PhoneNumber = Console.ReadLine();
-
-            //Updating Age
-            Console.Write("Enter Existing Customer Age: ");
-            customer.DateOfBirth = DateTime.Parse(Console.ReadLine());
-            Console.Write("Enter New Customer date of birth: ");
-            customer.DateOfBirth = DateTime.Parse(Console.ReadLine());
-
-            //Updating Mail id
-            Console.Write("Enter Existing Customer Mail Id: ");
-            customer.MailId = Console.ReadLine();
-            Console.Write("Enter New Customer mail id: ");
-            customer.MailId = Console.ReadLine();
-
-
-            cb.UpdateCustomer(customer);
-            Console.WriteLine("Customer details Updated.\n");
+            cb.UpdateCustomer(customer);//Calss BusinessLogic Layer
+            Console.WriteLine("Customer details Updated successfully");
         }
+
+        
 
     }
 

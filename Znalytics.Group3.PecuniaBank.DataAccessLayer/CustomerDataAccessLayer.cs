@@ -1,4 +1,4 @@
-﻿// Done by Manasa
+﻿//////////// Done by Manasa ////////////
 
 using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
 using System;
@@ -12,11 +12,11 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
     /// <summary>
     /// Represents Data Access Layer of customer Personal details
     /// </summary>
-    public class CustomerDAL: ICustomerDAL
+    public class CustomerDataAccessLayer: ICustomerDataAccessLayer
     {
         //List of the CustomerDetail
         private static List<Customer> _details;
-        public CustomerDAL()
+        public CustomerDataAccessLayer()
         {
             _details = new List<Customer>();
         }
@@ -31,9 +31,7 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         }
 
 
-        //private fields
-        //private static List<CustomerPersonalDetail> _customers;
-
+       //Creating List
         List<Customer> customerdetail = new List<Customer>();
 
         //Adding Customer Personal Details
@@ -42,26 +40,20 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
             customerdetail.Add(customer);
         }
 
-        //Getting existing Customer details
+        //Method to get existing Customer details
         public List<Customer> GetCustomers()
         {
             return customerdetail;
         }
 
-        //Updation of customer details
+
+        //Method to Update of customer details
         public void UpdateCustomer(Customer customer)
         {
-            //Get matching customer based on CustomerId
-           /* CustomerDetail cust = customerdetail.Find(temp => temp.CustomerId == customer.CustomerId);
-            if (customer != null)
-            {
-                customer.CustomerName = customer.CustomerName;
-
-                
-
-            }*/
+           
         }
 
+        //Method to get customers details by CustomerId
         public Customer GetCustomersByCustomerId(int CustomerId)
         {
             return null;

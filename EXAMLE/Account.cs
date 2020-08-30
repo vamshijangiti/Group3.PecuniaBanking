@@ -10,8 +10,9 @@ using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
-using Znalytics.Group3.PecuniaBank.Entities;
-using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
+using Znalytics.Group3.PecuniaBank.AccountEntities;
+using static Znalytics.Group3.PecuniaBank.AccountEntities.SavingsAccount;
+using CurrentAccount = Znalytics.Group3.PecuniaBank.BusinessLogicLayer.CurrentAccount;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
@@ -55,30 +56,25 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
            static void AddSavingsAccount()
             {
-                IAccountBusinessLogic accountBusinessLogic = new  AccountBusinessLogic();
-                SavingsAccount _account = new SavingsAccount();
+                SavingsAccountBusinessLogic savingsaccountBusinessLogic = new  SavingsAccountBusinessLogic();
+                SavingsAccount _savingsaccount = new SavingsAccount();
                 System.Console.WriteLine("enter AccountId");
-                _account.AccountId = int.Parse(System.Console.ReadLine());
+                _savingsaccount.AccountId = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
-                _account.Balance = long.Parse(System.Console.ReadLine());
-                accountBusinessLogic.AddSavingsAccount(_account);
+                _savingsaccount.Balance = long.Parse(System.Console.ReadLine());
+            savingsaccountBusinessLogic.AddSavingsAccount(_savingsaccount);
                 System.Console.WriteLine("savings Account Added");
             }
-        
-        public class SavingsAccount
-        {
-            public int AccountId;
-            public long Balance;
-        }
+ 
   static void AddCurrentAccount()
         {
             try
             { 
 
-            IAccountBusinessLogic accountBusinessLogic = new AccountBusinessLogic();
-            CurrentAccount account = new CurrentAccount();
+            CurrentAccountBusinessLogic accountBusinessLogic = new CurrentAccountBusinessLogic();
+                BusinessLogicLayer.CurrentAccount currentAccount = new BusinessLogicLayer.CurrentAccount();
             System.Console.WriteLine("enter account id");
-            account.AccountId = int.Parse(System.Console.ReadLine());
+                CurrentAccount.AccId = int.Parse(Console.ReadLine());
             System.Console.WriteLine("enter balance");
         }
             catch (Exception ex)
@@ -89,6 +85,10 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
             }
         }
+    }
+
+   public  class SavingsAccountBusinessLogic
+    {
     }
 }
      

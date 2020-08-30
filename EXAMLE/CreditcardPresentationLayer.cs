@@ -11,12 +11,12 @@ using Znalytics.PecuniaBanking.CustomerModule.Entities;
 namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 {
     /// <summary>
-    ///class that represents presentation layer of credit card
+    ///Class that represents presentation layer of Credit card
     /// </summary>
     class CreditcardPresentationLayer
     {
         //Menu
-        static void Menu()
+        public void start()
         {
             DisplayMenu();
             Console.ReadKey();
@@ -45,7 +45,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
                     case 2: ApproveCreditCard(); break;
                     case 3: GenerateCreditCard(); break;
                     case 4: UpdateCreditCard(); break;
-                    case 5:RequestToIncreaseCreditCardLimit();break;
+                    case 5: RequestToIncreaseCreditCardLimit();break;
                     case 6: Console.WriteLine("Exit"); break;
 
 
@@ -55,16 +55,21 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
         }
 
-        //Method to Adding Customer details for credit card
+        /// <summary>
+        /// Method to Apply Customer details for credit card
+        /// </summary>
         static void ApplyCreditCard()
 
         {
+            //Creates object to Creditcard class
             CreditCard cr = new CreditCard();
 
+            //Creates object to CreditCardBusinessLogicLayer
             CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();
+
             int a;
-            Console.WriteLine("Enter CustomerID");
-            a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter CustomerID");//Reading Customer Id from keyboard
+            a = int.Parse(Console.ReadLine());//Stores Customer Id into variable a
 
 
             Customer l = cbl.GetCustomersByCustomerId(a);
@@ -85,20 +90,17 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
         }
 
-        //Approve credit card
+        /// <summary>
+        /// Method to Approve credit card
+        /// </summary>
         static void ApproveCreditCard()
         {
-            CreditCard cr = new CreditCard();
+            CreditCard cr = new CreditCard();//Creating object to creditcard
 
-            CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();
+            CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();//Creating object to Creditcard BusinessLogicLayer
             int a;
             Console.WriteLine("Enter CustomerID");
             a = int.Parse(Console.ReadLine());
-
-
-            //Customer l = cbl.GetCustomersByCustomerId(a);
-
-            //cr.Customer = l;
 
             bool b = cbl.ApproveCreditCard(a);
             if (b == true)
@@ -112,7 +114,9 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
             }
         }
 
-
+        /// <summary>
+        /// Method to generate Credit card Number
+        /// </summary>
         static void GenerateCreditCard()
 
         {
@@ -131,20 +135,18 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
             string CreditCardNumber = cbl.GenerateCreditCard(a);
             Console.WriteLine("Your CreditCard Number is " + CreditCardNumber);
         }
-
+        /// <summary>
+        /// Method to Update Credit card status
+        /// </summary>
         static void UpdateCreditCard()
         {
             CreditCard cr = new CreditCard();
 
             CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();
+
             int a;
             Console.WriteLine("Enter CustomerID");
             a = int.Parse(Console.ReadLine());
-
-
-            //Customer l = cbl.GetCustomersByCustomerId(a);
-
-            //cr.Customer = l;
 
             bool b = cbl.UpdateCreditCard(a);
             if (b == true)
@@ -159,7 +161,9 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
 
         }
-
+        /// <summary>
+        /// Method to Request for Creditcard Limit Increase
+        /// </summary>
         static void RequestToIncreaseCreditCardLimit()
         {
             CreditCard cr = new CreditCard();
