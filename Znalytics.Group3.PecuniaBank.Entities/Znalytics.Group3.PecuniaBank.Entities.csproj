@@ -58,6 +58,7 @@
     <Compile Include="Transaction.cs" />
     <Compile Include="TypeOfAccount.cs" />
     <Compile Include="VehicleLoanEntity.cs" />
+    <Compile Include="VehicleLoanException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
