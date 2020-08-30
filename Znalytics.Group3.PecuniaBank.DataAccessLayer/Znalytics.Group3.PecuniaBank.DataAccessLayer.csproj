@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreditcardDataLayerAbstract.cs" />
     <Compile Include="CurrentAccountDataAccessLayer.cs" />
     <Compile Include="ICurrentAccountDataAccessLayer.cs" />
     <Compile Include="SavingsAccountDataAccessLayer.cs" />

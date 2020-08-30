@@ -5,14 +5,14 @@ using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
 using System.IO;
 using Newtonsoft.Json;
-
+using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 
 namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
 {
     /// <summary>
     /// Class that represents data access layer of creditcard
     /// </summary>
-    public class CreditcardDataAccessLayer
+    public class CreditcardDataAccessLayer: CreditcardDataLayerAbstract
     {
         //create list
 
@@ -60,7 +60,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
             SaveIntoFile();
         }
 
-        public List<Customer> GetApplyCreditCard()
+        public override List<Customer> GetApplyCreditCard()
         {
             GetFiledata();
             return _customers;
