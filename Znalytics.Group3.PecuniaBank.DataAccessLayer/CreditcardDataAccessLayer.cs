@@ -53,13 +53,20 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
 
         }
 
-        //Method to add CreditCards
+        /// <summary>
+        /// Method to add CreditCard details
+        /// </summary>
+        /// <param name="creditcard"></param>
         public void ApplyCreditCard(Customer creditcard)
         {
             _customers.Add(creditcard);
             SaveIntoFile();
         }
 
+        /// <summary>
+        ///Method to get Credit card details
+        /// </summary>
+        /// <returns></returns>
         public override List<Customer> GetApplyCreditCard()
         {
             GetFiledata();

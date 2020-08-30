@@ -10,7 +10,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
     /// </summary>
     class CustomerPL
     {
-        //Starting point of the Execution
+        
         public void start()
         {
             CustomerDetailsPresentation();
@@ -43,7 +43,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 
 
         /// <summary>
-        /// Add customer method
+        ///  Method to add Customer Details
         /// </summary>
         static void AddCustomer()
         {
@@ -96,8 +96,6 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 Console.Write("Enter customer MailId: ");
                 customer.MailId = Console.ReadLine();
 
-
-                // CustomerDetailBLL customerPersonaldetailBusinessLogicLayer = new CustomerDetailBLL();
                 cb.AddCustomer(customer); //call BusinessLogicLayer
 
                 Console.WriteLine("Customer details added successfully.\n");
@@ -117,7 +115,9 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             }
 
         }
-        //View existing Customer details
+        /// <summary>
+        /// Method to View existing Customer details
+        /// </summary>
         static void GetCustomers()
         {
             //Creating object for CustomerPersonalDetail class 
@@ -137,7 +137,9 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             }
         }
 
-        //Updating customer details
+        /// <summary>
+        /// Method to Update customer details
+        /// </summary>
         static void UpdateCustomer()
         {
 
@@ -197,7 +199,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             customer.MailId = Console.ReadLine();
 
 
-            cb.UpdateCustomer(customer);
+            cb.UpdateCustomer(customer);//Calls BusinessLogic Layer
             Console.WriteLine("Customer details Updated.\n");
         }
 
