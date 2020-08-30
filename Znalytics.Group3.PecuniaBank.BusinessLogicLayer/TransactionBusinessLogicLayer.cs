@@ -4,11 +4,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
+
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Xml.Schema;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer.IAccountDetails;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
@@ -17,24 +15,6 @@ using Znalytics.Group3.PecuniaBank.Entities.TransactionException;
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
 
-    /// <summary>
-    /// Interface For BLL
-    /// </summary>
-    public interface ITransactionBLL
-    {
-        void AddTranscation(Transaction t1);
-        int ValidateAccountNumber(string accNumber);
-
-        bool ValidateEnteredAmount(double d2);
-        bool GetAccountNumber(long acc);
-        void Deposit(long transactionAccno, double trascactioAmount);
-        int WithDrawlAmount(long transactionAccno, double transactionAmount);
-        List<Transaction> GetTransactions(long accountNumber);
-        bool SavingsTransactionValidation(string tType, double tAmount);
-        bool CurrentTransactionValidation(string tType, double tAmount);
-        double GetAmount(long acc);
-
-    }
 
 
     /// <summary>
@@ -57,7 +37,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 if (dALs == null)
                     dALs = AccountDetailBLL.GetAccountBLLAccList();
             }
-            catch (Exception e)
+            catch (TransactionException e)
             {
                 Console.WriteLine("The Transactions are Not Added");
             }
@@ -88,14 +68,20 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
                 return 1;//should not be taken
             }
-            else if (!Regex.IsMatch(accNumber, @"/d"))
+            else if (accNumber.Length == 3)
             {
+                if (Regex.IsMatch(accNumber, "^[0-9]*$"))//&& !Regex.IsMatch(accNumber,@"[A-Z][a-z]"))
 
-                if (accNumber.Length == 3)
                 {
                     return 3;
 
                 }
+                else if (accNumber.Contains(" "))
+
+                {
+                    return 5;
+                }
+
                 else
 
                     return 2;//more than 3
@@ -253,5 +239,6 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
     }
 }
+
 
 
