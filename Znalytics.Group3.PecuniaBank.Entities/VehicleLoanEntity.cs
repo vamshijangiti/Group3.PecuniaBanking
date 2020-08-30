@@ -15,30 +15,30 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     public class VehicleLoanEntity
     {
         private string _nameOfVehicle;
-        private string _accountNumber;
+        private int _customerId;
         private float _loanAmount;
         private static float _rateOfInterest = 10;
         private float _tenure;
         private float _emi;
         private int _creditScore;
-        VehicleLoanEntity vehicleLoan = new VehicleLoanEntity();
+        
         public VehicleLoanEntity() { }
         /// <summary>
         /// Constructor For Entity Class
         /// </summary>
         /// <para name="vehicleName"> vehicleName</param>
-        /// <param name="accountNumber">Account Number </param>
+        /// <param name="customerid">CustomerId </param>
         /// <param name="loanamount">sanction of loan amount</param>
         /// <param name="rateofinterest">interest to be paid per month</param>
         /// <param name="tenure">Duration of loan</param>
         /// <param name="emi"> Monthly emi</param>
         /// <param name="creditscore">credit score in your credit card</param>
 
-        public VehicleLoanEntity(string NameOfVehicle, string AccountNumber, float  LoanAmount, float Tenure, float Emi, int CreditScore)
+        public VehicleLoanEntity(string NameOfVehicle, int CustomerId, float  LoanAmount, float Tenure, float Emi, int CreditScore)
         {
 
                 this._nameOfVehicle = NameOfVehicle;
-                this._accountNumber = AccountNumber;
+                this._customerId = CustomerId;
                 this._loanAmount = LoanAmount;
                 this._tenure = Tenure;
                 this._emi = Emi;
@@ -62,18 +62,17 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
 
-        //set and get methods for account number
+        //set and get methods for customerid 
 
 
-        public string AccountNumber
+        public int CustomerId
         {
             set
             {
-                try
-                {
-                    if (value.Length == 6)
+                
+                    if (value== 6)
                     {
-                        _accountNumber = value;
+                        _customerId = value;
                     }
 
                     else
@@ -81,17 +80,13 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                         throw new Exception("Enter 6 digits only\n");
                     }
 
-                }
-                catch
-                {
-                    throw;
-                }
+               
 
             }
 
             get
             {
-                return _accountNumber;
+                return _customerId;
             }
         }
 
@@ -101,8 +96,6 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                try
-                {
                     if (value >= 50000)
                     {
                         _loanAmount = value;
@@ -114,11 +107,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
                     }
 
-                }
-                catch
-                {
-                    throw;
-                }
+                
             }
             get
             {
@@ -131,8 +120,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                try
-                {
+                
                     if (value >= 10)
                     {
                         _tenure = value;
@@ -144,11 +132,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
                     }
 
-                }
-                catch
-                {
-                    throw;
-                }
+               
 
             }
             get

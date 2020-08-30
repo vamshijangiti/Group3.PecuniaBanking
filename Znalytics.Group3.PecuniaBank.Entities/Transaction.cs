@@ -1,5 +1,5 @@
 ﻿
-//CREATED BY VAMSHI JANGITI --ETITIES For WithaDarwl And Deposit
+//CREATED BY VAMSHI JANGITI --Entity Layer For WithaDarwl And Deposit
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Znalytics.Group3.PecuniaBank.AccountEntities
+namespace Znalytics.Group3.PecuniaBank.Entities
 {
 
     /// <summary>
@@ -16,14 +16,14 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
     /// </summary>
     public class Transaction
     {
-        //private Fields
         private int _transactionID;
         private DateTime _transactionDate;
         private string _transactionType;
         private double _transactionAmount;
         private long _accountNumber;
 
-       
+        //Transaction transaction = new Transaction();
+
         public Transaction() { }
 
 
@@ -47,7 +47,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
 
 
         /// <summary>
-        ///Set Property For AccountNumber
+        ///Set Method For AccountNumber
         /// </summary>
         public long AccountNumber
         {

@@ -12,8 +12,7 @@ public class MainMethod
     static void Main()
     {
         //Creating The Object
-        TransactionMenu t = new TransactionMenu();
-        t.start();
+        TransactionMenu.start();
 
         CustomerPresentationLayer p = new CustomerPresentationLayer();
         p.start();

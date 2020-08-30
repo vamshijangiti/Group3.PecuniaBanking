@@ -16,7 +16,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         public long accno;
         public double balance;
-
+        public string TransactionType;
 
     }
 
@@ -34,8 +34,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             _acclist = new List<AccountDAL>();
 
-            _acclist.Add(new AccountDAL() { accno = 101, balance = 20000 });
-            _acclist.Add(new AccountDAL() { accno = 102, balance = 30000 });
+            _acclist.Add(new AccountDAL() { accno = 101, balance = 20000, TransactionType = "Savings" });
+            _acclist.Add(new AccountDAL() { accno = 102, balance = 30000, TransactionType = "Current" });
 
         }
 
