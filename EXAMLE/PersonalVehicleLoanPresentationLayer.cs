@@ -70,13 +70,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                 System.Console.Write("\nEnter the Tenure in months : ");//Enter the tenure in months for the personalloan
                                 pl.Tenure = (float.Parse(System.Console.ReadLine()));
 
-                                //
+                                
                                 pb.AddPersonalLoan(pl);
                                 //enter the loanamount,tenure for calculation of emi
 
 
                                 System.Console.WriteLine("\n Congratulations...............your loan is accepted");
-                                Console.Write("The Monthly EMI you have to pay is : " + pb.CalculateEmi(pl.Tenure, pl.LoanAmount));
+                                Console.Write("The Monthly EMI you have to pay is : " + pb.CalculateEmi(pl.Tenure, pl.LoanAmount));//Displays monthly EMI
                             }
                             else if (pb.CreditScore(pl.CreditScore) == 2)
                             {
@@ -84,7 +84,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             }
                             else//if credit score value less than 650 loan is rejected
                             {
-                                System.Console.WriteLine("sorry Your loan is rejected ");
+                                System.Console.WriteLine("sorry Your loan is rejected ");//if the entered credit score is less than 650 your loan will be rejected
                             }
 
                             break;
@@ -128,7 +128,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             break;
 
                         default:
-                            System.Console.WriteLine("\nplease choose the correct Option\n");
+                            System.Console.WriteLine("\nplease choose the correct Option\n");//if you want to use again press yes or else press No
                             break;
                     }
 
