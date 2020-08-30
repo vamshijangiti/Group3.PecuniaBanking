@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-using Znalytics.Group3.PecuniaBank.Entities;
+using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
     /// <summary>

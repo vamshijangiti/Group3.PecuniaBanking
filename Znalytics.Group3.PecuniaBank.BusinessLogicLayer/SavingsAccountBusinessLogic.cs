@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
-using Znalytics.Group3.PecuniaBank.Entities;
-using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
+using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
+using static Znalytics.Group3.PecuniaBank.HousingLoanEntities.SavingsAccount;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {/// <summary>
