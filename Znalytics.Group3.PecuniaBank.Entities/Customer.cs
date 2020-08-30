@@ -31,7 +31,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
 
 
         /// <summary>
-        /// Creating Constructor
+        /// Constructor
         /// </summary>
         /// <param name="CustomerName">Name of the customer</param>
         /// <param name="CustomerId">Customer Id</param>
@@ -65,6 +65,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         {
             set
             {
+                //Name should be lessthan 30 characters
                 if (value.Length <= 30)
                 {
                     _customerName = value;
@@ -157,6 +158,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         {
             set
             {
+                //Validating Pan Card Number
                 string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
                 bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
                 if (isPanCardNumberValid == true)
@@ -182,6 +184,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         {
             set
             {
+                //Validating AadharCard Number
                 string checkAadharCardNumber = @"^[0-9]{12}$";
                 bool isAadharCardNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkAadharCardNumber);
                 if (isAadharCardNumberValid == true)
@@ -209,7 +212,8 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         {
             set
             {
-                //string checkPhoneNumber = @"^[0-9]{10}$";
+                //Validating PhoneNumber
+                
                 string checkPhoneNumber = @"^(\+)([1 - 9]{ 2})(\s)(\d{ 10})$";
                 bool isPhoneNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkPhoneNumber);
                 if (isPhoneNumberValid == true)
@@ -236,6 +240,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         {
             set
             {
+                //Validating DateOfBirth
                 DateTime dateOfBirth = Convert.ToDateTime("1998-07-03 7:00 am");
                 DateTime presentDate = DateTime.Now;
                 TimeSpan timeSpan = presentDate - dateOfBirth;
@@ -266,6 +271,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         {
             set
             {
+                //Validating MailId
                 Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
                 if (regex.IsMatch(value) == true)
                 {
