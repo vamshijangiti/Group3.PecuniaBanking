@@ -10,8 +10,8 @@ using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
-using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
-using static Znalytics.Group3.PecuniaBank.HousingLoanEntities.SavingsAccount;
+using Znalytics.Group3.PecuniaBank.AccountEntities;
+using static Znalytics.Group3.PecuniaBank.AccountEntities.SavingsAccount;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
@@ -78,7 +78,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             CurrentAccountBusinessLogic accountBusinessLogic = new CurrentAccountBusinessLogic();
                 BusinessLogicLayer.CurrentAccount currentAccount = new BusinessLogicLayer.CurrentAccount();
             System.Console.WriteLine("enter account id");
-           CurrentAccount.accId = int.Parse(System.Console.ReadLine());
+                CurrentAccount.AccId = int.Parse(Console.ReadLine());
             System.Console.WriteLine("enter balance");
         }
             catch (Exception ex)

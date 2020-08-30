@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 /// <summary>
 /// Housing Loan Entities
 /// </summary>
-namespace Znalytics.Group3.PecuniaBank.HousingLoanEntities
+namespace Znalytics.Group3.PecuniaBank.AccountEntities
 {
  
         
@@ -22,7 +22,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingLoanEntities
             private float _emi;
             private int _creditScore;
             private bool AgeOfCustomer;
-        public static int RateOfInterest;
+        public static int rateOfInterest;
 
         ///<summary><param name="customerId">CustomerId</param>
         ///<param name="Customerage">Age of Customer</param>

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Znalytics.Group3.PecuniaBank.AccountEntities;
+using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
@@ -12,9 +15,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         public void AddCurrentAccount(CurrentAccount currentAccount)
         {
-            if (currentAccount.accId!=0)
+            if (currentAccount.AccId!=0)
             {
-               /* CurrentAccountDataAccessLayer.Add(currentAccount);*/
+                CurrentAccountDataAccessLayer.AddCurrentAccount(currentAccount);
             }
             else
             {
@@ -24,17 +27,16 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         public void DeleteCurrentAccount(CurrentAccount currentAccount)
         {
-            throw new NotImplementedException();
-        }
-    }
+            if (currentAccount.AccId==null)
+            {
+               
+               
+            }
 
-    public class CurrentAccountDataAccessLayer
-    {
-        void AddCurrentAccount(CurrentAccount currentAccount)
-        {
-            throw new NotImplementedException();
-        }
-    }
+        
+  
 
 
-}
+      
+
+ 

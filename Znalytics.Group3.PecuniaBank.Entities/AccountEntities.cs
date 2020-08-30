@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace Znalytics.Group3.PecuniaBank.HousingLoanEntities
+namespace Znalytics.Group3.PecuniaBank.AccountEntities
 {
     /// <summary>
     /// Entity Layer for BankLayer

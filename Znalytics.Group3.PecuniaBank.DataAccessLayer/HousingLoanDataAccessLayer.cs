@@ -2,7 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Runtime.Remoting;
-using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
+using Znalytics.Group3.PecuniaBank.AccountEntities;
 
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
