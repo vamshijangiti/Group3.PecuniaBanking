@@ -12,9 +12,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         public void AddCurrentAccount(CurrentAccount currentAccount)
         {
-            if (currentAccount.AccountId!=0)
+            if (currentAccount.accId!=0)
             {
-                currentAccountDataAccessLayer.AddCurrentAccount(currentAccount);
+               /* CurrentAccountDataAccessLayer.Add(currentAccount);*/
             }
             else
             {
@@ -36,8 +36,5 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
     }
 
-    public CurrentAccountBusinessLogic
-        {
-           CurrentAccountDataAccessLayer= new CurrentAccountDataAccessLayer();
-        }
+
 }

@@ -10,8 +10,8 @@ using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
-using Znalytics.Group3.PecuniaBank.Entities;
-using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
+using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
+using static Znalytics.Group3.PecuniaBank.HousingLoanEntities.SavingsAccount;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
@@ -56,12 +56,12 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
            static void AddSavingsAccount()
             {
                 SavingsAccountBusinessLogic savingsaccountBusinessLogic = new  SavingsAccountBusinessLogic();
-                SavingsAccount _account = new SavingsAccount();
+                SavingsAccount _savingsaccount = new SavingsAccount();
                 System.Console.WriteLine("enter AccountId");
-                _account.AccountId = int.Parse(System.Console.ReadLine());
+                _savingsaccount.AccountId = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
-                _account.Balance = long.Parse(System.Console.ReadLine());
-               /* savingsaccountBusinessLogic.AddSavingsAccount(_account);*/
+                _savingsaccount.Balance = long.Parse(System.Console.ReadLine());
+            savingsaccountBusinessLogic.AddSavingsAccount(_savingsaccount);
                 System.Console.WriteLine("savings Account Added");
             }
         
@@ -78,7 +78,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             CurrentAccountBusinessLogic accountBusinessLogic = new CurrentAccountBusinessLogic();
                 BusinessLogicLayer.CurrentAccount currentAccount = new BusinessLogicLayer.CurrentAccount();
             System.Console.WriteLine("enter account id");
-           /* currentAccount.AccountId = int.Parse(System.Console.ReadLine());*/
+           CurrentAccount.accId = int.Parse(System.Console.ReadLine());
             System.Console.WriteLine("enter balance");
         }
             catch (Exception ex)

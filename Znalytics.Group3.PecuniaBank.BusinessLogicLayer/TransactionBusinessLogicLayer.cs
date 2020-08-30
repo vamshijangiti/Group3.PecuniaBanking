@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
-using Znalytics.Group3.PecuniaBank.Entities;
+using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {

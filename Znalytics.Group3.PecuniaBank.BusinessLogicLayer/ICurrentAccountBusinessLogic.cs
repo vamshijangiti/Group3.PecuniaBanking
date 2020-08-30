@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-    interface  ICurrentAccountBusinessLogic
+    interface ICurrentAccountBusinessLogic
     {
         void AddCurrentAccount(CurrentAccount currentAccount);
         void DeleteCurrentAccount(CurrentAccount currentAccount);
-        List
+        
     }
+
 
     public class CurrentAccount
     {
-        internal int AccountId;
+        public  int accId;
+   
     }
 }
+

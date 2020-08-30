@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Znalytics.Group3.PecuniaBank.Entities.SavingsAccount;
+using static Znalytics.Group3.PecuniaBank.HousingLoanEntities.SavingsAccount;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
