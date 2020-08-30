@@ -15,14 +15,13 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     public class VehicleLoanEntity
     {
         private string _nameOfVehicle;
-
         private int _customerId;
         private float _loanAmount;
         private static float _rateOfInterest = 10;
         private float _tenure;
         private float _emi;
         private int _creditScore;
-        VehicleLoanEntity vehicleLoan = new VehicleLoanEntity();
+        
         public VehicleLoanEntity() { }
         /// <summary>
         /// Constructor For Entity Class
@@ -63,7 +62,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
 
-        //set and get methods for account number
+        //set and get methods for customerid 
 
 
         public int CustomerId
