@@ -6,54 +6,55 @@ using System.Threading.Tasks;
 /// <summary>
 /// Housing Loan Entities
 /// </summary>
-namespace Znalytics.Group3.PecuniaBank.Entities
+namespace Znalytics.Group3.PecuniaBank.AccountEntities
 {
  
         
         public class HousingLoan
         {
-        ///<summary>
-        ///<param name=customerId></param>
-        ///<param name==customerAge></param>
-        ///<param name=loanAmount</param>
-        ///<param name=tenure></param>
-        ///<param name=rateOfInterest<param>
-        ///<param name=creditscore></param>
-        ///</summary>
+   
             //private fields
             private int _customerId;
             private int _customerAge;
-            private double _loanAmount;
-            private double _tenure;
-            private float _rateOfInterest;
+            private float _loanAmount;
+            private float _tenure;
+            private float _RateOfInterest=6;
             private float _emi;
             private int _creditScore;
             private bool AgeOfCustomer;
+        public static int rateOfInterest;
 
-          /*public int HousingLoanId
-            {
-                get; set;
-            }
-            public HousingLoan(string accountHolderName, int HousingLoanId) : base(accountHolderName)
-            {
-                this.HousingLoanId = HousingLoanId;
-            }*/
+        ///<summary><param name="customerId">CustomerId</param>
+        ///<param name="Customerage">Age of Customer</param>
+        ///<param name="LoanAmount">Loan Amount</param>
+        ///<param name="Tenure">span or period of loan</param>
+        ///<param name="RateOfInterest">rate of interest of loan</param>
+        ///<param name="creditScore">Credit score of customer</param>
+        ///<param name="Emi">Emi of housing loan</param>
+        /*public int HousingLoanId
+          {
+              get; set;
+          }
+          public HousingLoan(string accountHolderName, int HousingLoanId) : base(accountHolderName)
+          {
+              this.HousingLoanId = HousingLoanId;
+          }*/
 
-          
-            public int CustomerId
+
+        public int CustomerId
             {
             set
             {
                 if (_customerId!=0)
                 {
-                    _customerId = value;
+                    _customerId = value;//customerid assigned to value
                 }
                 else
                 {
                     throw new HousingLoanException("customer id value shouldnot be null");
                 }
             }
-            get
+            get//get property
             {
                 return _customerId;
             }
@@ -142,17 +143,17 @@ public int GetAgeOfCustomer()
             {
                 return _creditScore;//returns credits score
             }*/
-            public double LoanAmount
+            public float LoanAmount
             {
                 set
                 {
-                    if (_loanAmount<=2000)//validation of loanamount
+                    if (_loanAmount>=600000)//validation of loanamount
                     {
                         _loanAmount = value;
                     }
                 else
                 {
-                    throw new HousingLoanException("loan amount exceded");
+                    throw new HousingLoanException("loan amount exceded");//raises exception if loan amount is exceeded
                 }
                 }
                 get
@@ -176,11 +177,31 @@ public int GetAgeOfCustomer()
                 return _loanAmount;
             }
             */
-            public double Tenure
-            { set; get; }//automated property
-            public float rateOfInterest
+            public float Tenure
+        {
+            set
             {
-                set; get;//autommated property
+                if (value >= 5)
+                {
+                    _tenure =value;
+                }
+                else
+                {
+                    throw new HousingLoanException("tenure is not greater than 5 yrs");
+                }
+            }
+            get
+            {
+                return _tenure;
+            }
+        }
+            public float _RateOfInterest
+            {
+            get
+            {
+                return _rateOfInterest;
+            }
+
             }
             public float Emi
             {
@@ -197,7 +218,8 @@ public int GetAgeOfCustomer()
                 }
                 get
                 {
-                    return  ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));
+                return _emi;
+                   /* return  ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));*/
                 }
             }
             }

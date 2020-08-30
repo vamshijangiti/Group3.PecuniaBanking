@@ -7,15 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace Znalytics.Group3.PecuniaBank.Entities
+namespace Znalytics.Group3.PecuniaBank.AccountEntities
 {
     /// <summary>
     /// Entity Layer for BankLayer
     /// </summary>
-   interface  IAccount
+    interface IAccount
     {
-        int AccountId {
-            set; get; }
+        int AccountId
+        {
+            set; get;
+        }
         string DateOfCreation
         {
             set; get;
@@ -25,20 +27,20 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             set; get;
         }
     }
-    public class SavingsAccount: IAccount
-    { 
+    public class SavingsAccount : IAccount
+    {
         //private Fields
-     
+
         /// <summary>
         /// <param name=AccountId></param>
         /// <param name=dateOfCreation</param>
         /// <param name=Balance></param>
         /// </summary>
-        private int  _accountId;
+        private int _accountId;
         private string _dateOfCreation;
         private string _branchName;
         private long _balance;
-       
+
 
         public int AccountId
         {
@@ -59,9 +61,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 return _accountId;
             }
         }
-    
-           
-   
+
+
+
         public string DateOfCreation
         {
             set
@@ -109,52 +111,60 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
 
-        public int Max(Func<object, object> p)
-        {
-            throw new NotImplementedException();
-        }
 
-       public class CurrentAccount:IAccount
-        {
-            private int _accId;
-            private long _balance;
-            private string _dateOfCreation;
 
-          
-        }
-        public int AccId
-        {
-            set
-            {
-                if (_accId != 0)
-                {
+        /*  public class CurrentAccount : IAccount
+          {
+              public int AccountId;
+              public string DateOfCreation;
+              public int Balance;
+              private int _accId;
+              private long _balance;
+              private string _dateOfCreation;
 
-                    _accId = value;
-                }
+              public CurrentAccount()
+              {
+              }
 
-                else
-                {
-                    throw new ApplicationException("AccountId shouldnot be null");
-                }
-            }
-            get
-            {
-                return _accId;
-            }
+              public CurrentAccount(int accId, long balance, string dateOfCreation)
+              {
+                  _accId = accId;
+                  _balance = balance;
+                  _dateOfCreation = dateOfCreation;
+              }
+          }
+          public int AccId
+          {
+              set
+              {
+                  if (_accountId != 0)
+                  {
 
-        }
+                      _accountId = value;
+                  }
 
-    
+                  else
+                  {
+                      throw new ApplicationException("AccountId shouldnot be null");
+                  }
+              }
+              get
+              {
+                  return _accountId;
+              }
+          }
 
-        public IAccount Find(Func<object, bool> p)
-        {
-            throw new NotImplementedException();
-        }
 
-      /* void AccountId(int accountId)
-        {
-            throw new NotImplementedException();
-        }*/
+
+          }*/
+
+
+
+        /* void AccountId(int accountId)
+          {
+              throw new NotImplementedException();
+          }*/
     }
+}
   
-} 
+

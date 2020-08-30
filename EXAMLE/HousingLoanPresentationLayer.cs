@@ -1,9 +1,9 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
-using Znalytics.Group3.PecuniaBank.Entities;
+using Znalytics.Group3.PecuniaBank.AccountEntities;
 
-/*namespace Znalytics.Group3.PecuniaBank.HousingAndJewelPresentationLayer
+namespace Znalytics.Group3.PecuniaBank.HousingLoanPresentationLayer
 {
     /// <summary>
     /// PresentationLayer for HousingLoan
@@ -27,38 +27,44 @@ using Znalytics.Group3.PecuniaBank.Entities;
                 {
                     case 1: ApproveHouseLoan(); break;
                     case 2: RejectHouseLoan(); break;
-                } while (choice != 3) ;
+                      case 3:Exit();       break; ;
+                } while (choice != 4) ;
 
 
                 static void ApproveHouseLoan()
                 {
                     //Approval of HouseLoan
-                    HousingLoanBusinessLogicLayer houingLoanBusinesslOgicLayer = new HousingLoanBusinessLogicLayer();
-                    System.Console.WriteLine("enter accountno");//prints account no
+                    HousingLoan h = new HousingLoan();
+                    HousingLoanBusinessLogicLayer hl = new HousingLoanBusinessLogicLayer();
+                    System.Console.WriteLine("enter customerId");//prints CustomerId
+                    h.CustomerId = int.Parse(System.Console.ReadLine());
                     long _accountNo = long.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("enter Age of Customer");
+                    h.CustomerAge = int.Parse(System.Console.ReadLine());
                     int _ageOfCustomer = int.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("enter credit score");
-                    int _creditScore = int.Parse(System.Console.ReadLine());
+                    h.CreditScore = int.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("enter Loan Amount");
-                    int _loanOfAmount = int.Parse(System.Console.ReadLine());
+                    h.LoanAmount = int.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("enter rateofinterest");
-                    double _rateOfInterest = double.Parse(System.Console.ReadLine());
+                    h.rateOfInterest = float.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("enter tenure");
-                    double _tenure = double.Parse(System.Console.ReadLine());
+                    h.Tenure = float.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("emi value");
-                    float _emi = float.Parse(System.Console.ReadLine());
+                    h.Emi = float.Parse(System.Console.ReadLine());
+                    hl.AddHousingLoan(h);
+                    System.Console.WriteLine("congratilations your Loan is accepted");
+
                 }
 
                 static void RejectHouseLoan()
                 {
                     HousingLoanBusinessLogicLayer housingLoanBusinessLogicLayer = new HousingLoanBusinessLogicLayer();
 
+
                 }
                 System.Console.ReadKey();
-            }
-            
+            };
+        }
             }
     }
-}
-*/

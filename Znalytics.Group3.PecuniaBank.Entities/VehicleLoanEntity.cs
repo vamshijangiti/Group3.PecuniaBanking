@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Znalytics.Group3.PecuniaBank.Entities
+namespace Znalytics.Group3.PecuniaBank.AccountEntities
 {
 
     /// <summary>
@@ -21,7 +21,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         private float _tenure;
         private float _emi;
         private int _creditScore;
-
+        VehicleLoanEntity vehicleLoan = new VehicleLoanEntity();
         public VehicleLoanEntity() { }
         /// <summary>
         /// Constructor For Entity Class
@@ -34,15 +34,15 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <param name="emi"> Monthly emi</param>
         /// <param name="creditscore">credit score in your credit card</param>
 
-        public VehicleLoanEntity(string NameOfVehicle, string AccountNumber, float LoanAmount, float Tenure, float Emi, int CreditScore)
+        public VehicleLoanEntity(string NameOfVehicle, string AccountNumber, float  LoanAmount, float Tenure, float Emi, int CreditScore)
         {
 
-            this._nameOfVehicle = NameOfVehicle;
-            this._accountNumber = AccountNumber;
-            this._loanAmount = LoanAmount;
-            this._tenure = Tenure;
-            this._emi = Emi;
-            this._creditScore = CreditScore;
+                this._nameOfVehicle = NameOfVehicle;
+                this._accountNumber = AccountNumber;
+                this._loanAmount = LoanAmount;
+                this._tenure = Tenure;
+                this._emi = Emi;
+                this._creditScore = CreditScore; 
 
 
 
@@ -94,7 +94,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                if (value >= 50000)
+                if (LoanAmount >= 500000)
                 {
                     _loanAmount = value;
                 }
@@ -117,7 +117,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                if (value >= 10)
+                if (Tenure >= 36)
                 {
                     _tenure = value;
                 }
@@ -162,8 +162,15 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             set
             {
 
-                _creditScore = value;
 
+                if (CreditScore >= 650)//checks creditscore of a person which should starts from 650
+                {
+                    _creditScore = value;
+                }
+                else
+                {
+                    throw new System.Exception("your credit score is not up to the mark");
+                }
             }
 
             get
@@ -174,9 +181,6 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
     }
 }
-
-
-
 
 
 

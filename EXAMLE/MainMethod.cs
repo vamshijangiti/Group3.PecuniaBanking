@@ -15,7 +15,7 @@ public class MainMethod
         TransactionMenu t = new TransactionMenu();
         t.start();
 
-        CustomerPL p = new CustomerPL();
+        CustomerPresentationLayer p = new CustomerPresentationLayer();
         p.start();
 
         CreditcardPresentationLayer cr = new CreditcardPresentationLayer();

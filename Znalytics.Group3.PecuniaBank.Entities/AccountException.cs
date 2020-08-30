@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Znalytics.Group3.PecuniaBank.Entities
+namespace Znalytics.Group3.PecuniaBank.AccountEntities
 {
     /// <summary>
     /// Exception class for Accounts

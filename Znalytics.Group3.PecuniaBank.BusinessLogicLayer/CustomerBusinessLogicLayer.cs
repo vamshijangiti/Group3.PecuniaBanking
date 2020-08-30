@@ -15,15 +15,15 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     /// <summary>
     /// Class that Represents Business logic layer of the customer personal details
     /// </summary>
-    public class CustomerBLL : ICustomerBLL
+    public class CustomerBusinessLogicLayer : ICustomerBusinessLogicLayer
     {
 
-        private ICustomerDAL cdal;
+        private ICustomerDataAccessLayer cdal;
 
         //Constructor for CustomerDetailBusinessLogicLayer
-        public CustomerBLL()
+        public CustomerBusinessLogicLayer()
         {
-            cdal = new CustomerDAL();
+            cdal = new CustomerDataAccessLayer();
         }
 
 

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
-using Znalytics.Group3.PecuniaBank.Entities;
+using Znalytics.Group3.PecuniaBank.AccountEntities;
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
     /// <summary>

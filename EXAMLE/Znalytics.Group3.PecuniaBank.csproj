@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="CreditcardPresentationLayer.cs" />
-    <Compile Include="CustomerPL.cs" />
+    <Compile Include="CustomerPresentationLayer.cs" />
     <Compile Include="HousingLoanPresentationLayer.cs" />
     <Compile Include="MainMethod.cs" />
     <Compile Include="PersonalLoanVehicleLoanPresentationLayer.cs" />
@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.BusinessLogicLayer\Znalytics.Group3.PecuniaBank.BusinessLogicLayer.csproj">
-      <Project>{70a2889f-26f6-4b2a-9700-31d28609819d}</Project>
+      <Project>{70A2889F-26F6-4B2A-9700-31D28609819D}</Project>
       <Name>Znalytics.Group3.PecuniaBank.BusinessLogicLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Znalytics.Group3.PecuniaBank.Entities\Znalytics.Group3.PecuniaBank.Entities.csproj">

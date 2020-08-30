@@ -7,7 +7,7 @@ using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 using Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer;
 using Znalytics.Group3.PecuniaBanking.BusinessLogicLayer;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
-using System.Linq.Expressions;
+
 
 namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
 {
@@ -23,7 +23,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         {
             _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
         }
-        ICustomerBLL a = new CustomerBLL();
+        ICustomerBusinessLogicLayer a = new CustomerBusinessLogicLayer();
 
         public Customer GetCustomersByCustomerId(int c)
         {
@@ -32,7 +32,11 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         }
 
 
-        //checking account holder name
+        /// <summary>
+        /// Method to Apply Credit card
+        /// </summary>
+        /// <param name="details">Adds details to the Creditcard</param>
+        /// <returns>Application number</returns>
         public int ApplyCreditCard(int details)
         {
             Customer a = GetCustomersByCustomerId(details);
@@ -58,6 +62,11 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
            
         }
        
+        /// <summary>
+        /// Method to Approve Credit card
+        /// </summary>
+        /// <param name="CustomerId">Approve creditcard using customerId</param>
+        /// <returns>Acceptance or rejection of creditcard</returns>
         public bool ApproveCreditCard(int CustomerId)
         {
             Customer a = GetCustomersByCustomerId(CustomerId);
@@ -73,7 +82,11 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
             }
 
         }
-
+        /// <summary>
+        /// Method to generate Creditcard Number
+        /// </summary>
+        /// <param name="CustomerId"></param>
+        /// <returns>Creditcard Number</returns>
         public string GenerateCreditCard(int CustomerId)
         {
 
@@ -90,6 +103,11 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
 
         }
 
+        /// <summary>
+        /// Method to Update Credit card 
+        /// </summary>
+        /// <param name="CustomerId"></param>
+        /// <returns>Status of creditcard</returns>
         public bool UpdateCreditCard(int CustomerId)
         {
             Customer a = GetCustomersByCustomerId(CustomerId);
@@ -107,7 +125,10 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
 
         }
 
-
+        /// <summary>
+        /// Method to Increase credit card limit
+        /// </summary>
+        /// <returns>Acceptance or rejection to increase credit card limit</returns>
         public bool RequestToIncreaseCreditCardLimit()
         {
             
