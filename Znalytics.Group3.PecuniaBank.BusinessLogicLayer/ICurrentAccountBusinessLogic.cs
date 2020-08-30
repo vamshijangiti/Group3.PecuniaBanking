@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Znalytics.Group3.PecuniaBank.AccountEntities;
+using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     interface ICurrentAccountBusinessLogic
     {
-       public  void AddCurrentAccount(CurrentAccount currentAccount);
-        public void DeleteCurrentAccount(CurrentAccount currentAccount);
-        List<CurrentAccount> GetcurrentAccount();
+       public  void AddCurrentAccount(CurrentAccount a);
+        public void DeleteCurrentAccount(CurrentAccount c);
+        public  List<CurrentAccount> GetCurrentAccount();
         
     }
 
