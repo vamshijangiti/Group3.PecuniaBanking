@@ -47,8 +47,15 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         //case 1 for personal loan
                         case 1:
 
-                            System.Console.Write("\nEnter Account Number : ");//Enter the account number for personal loan
-                            pl.AccountNumber = System.Console.ReadLine();
+                            try
+                            {
+                                System.Console.Write("\nEnter Account Number : ");//Enter the account number for personal loan
+                                pl.AccountNumber = System.Console.ReadLine();
+                            }
+                            catch (PersonalLoanException ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
 
 
                             System.Console.Write("\nEnter the CreditScore : ");//Enter the credit score for loan acceptance of personal loan
