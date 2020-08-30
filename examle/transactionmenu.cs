@@ -53,14 +53,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 if (f == 1)//Validating The Account Number 
                 {
 
-                    Console.WriteLine("should not be null or Empty");
-                    break;
+                    Console.WriteLine("\nAccount Number should not be Empty");
                 }
                 else if (f == 2)
                 {
                     //throw new Exception("\n Please Enter valid Account number : ");
 
-                    Console.WriteLine("The Account Number Should Be  3 digits");
+                    Console.WriteLine("\nThe Account Number Doesnot Contain Alphabates ");
                 }
                 else if (f == 3)
                 {
@@ -70,7 +69,11 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
                 else if (f == 4)
                 {
-                    Console.WriteLine("doesnot not Contain Alphabates please enter Again\n");
+                    Console.WriteLine("\nThe Account Number Should Be  3 digits\n");
+                }
+                else if (f == 5)
+                {
+                    Console.WriteLine("\nThe Account Number Should Not Contain Spaces\n");
                 }
 
             }
@@ -84,7 +87,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     {
 
                         System.Console.WriteLine("\n\t\t************* WELCOME TO PECUNIA BANK ***********\t\t \n\n");
-                        char ch = 'Y';
+                        string ch = "Y";
                         do
                         {
                             //Menu For Choosing Options
@@ -95,8 +98,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             System.Console.WriteLine("\n4 - Transactions");
                             System.Console.WriteLine("\n5- EXIT");
                             Console.Write("\nEnter Your choice : ");
-                            int n;
-                            n = int.Parse(System.Console.ReadLine());
+
+                            string n = System.Console.ReadLine();
 
 
 
@@ -104,38 +107,42 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             switch (n)
                             {
 
-                                case 1:
+                                case "1":
                                     DisplayDeposit();
                                     break;
-                                case 2:
+                                case "2":
 
                                     DisplayWithDrawl();
                                     break;
-                                case 3:
+                                case "3":
                                     checkBalance();
                                     break;
-                                case 4:
+                                case "4":
                                     GetLastTransactions();
                                     break;
                                 default:
-                                    Console.WriteLine("Ooops......You have Choosen Wrong Option\n");
+                                    Console.WriteLine("\nOoops......You have Choosen Wrong Option\n");
                                     break;
 
                             }
                             Console.Write("\n Do you want to Use it Again press Y else N : ");
-                            ch = char.Parse(Console.ReadLine());
+                            ch = Console.ReadLine();
 
-                        } while (ch == 'Y' || ch == 'y');
+                        } while (ch == "Y" || ch == "y");
                     }
                     else
                     {
                         throw new Exception("\nAccount does not exist\nPlease enter a valid Account Number");
+
                     }
                 }
                 catch (Exception e)
                 {
+
                     Console.WriteLine(e.Message);
+
                 }
+
             }
 
 
@@ -147,42 +154,31 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 //creating list 
                 List<Transaction> tc = b.GetTransactions(uan);
 
-                if (tc != null)
+                if (tc != null && tc.Count > 0)
                 {
                     Console.WriteLine(" 1.Savings\n 2.Current\n");
-                    int m = int.Parse(Console.ReadLine());
+                    string m = Console.ReadLine();
                     switch (m)
                     {
-                        case 1:
+                        case "1":
                             if (b.TypeCheck("Savings", uan))
                             {
                                 foreach (var item in tc)
-                                    //  if (item != null)// && item.TransactionTpe == "Savings")
-                                    //{
-                                    Console.WriteLine("------ Transactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
-                                //}
-                                //else
-                                //{
-                                //   Console.WriteLine("\nsorry No Transactions are done for last 10 days. ");
-                                //}
+
+                                    Console.WriteLine("\tTransactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
                             }
                             else
                             {
                                 Console.WriteLine("You Dont Have Current Account ");
                             }
                             break;
-                        case 2:
+                        case "2":
                             if (b.TypeCheck("Current", uan))
                             {
                                 foreach (var item in tc)
-                                    if (item != null && item.TransactionTpe == "Current")
-                                    {
-                                        Console.WriteLine(" Transactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("\nsorry No Transactions are done for last 10 days. ");
-                                    }
+
+                                    Console.WriteLine("\tTransactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
+
                             }
                             else
                             {
@@ -197,7 +193,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
                 else
                 {
-                    Console.WriteLine(" No  ");
+                    Console.WriteLine("\nNo Transactions are done Recently ");
                 }
             }
 
@@ -301,7 +297,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Please Enter Correct Data");
+                    Console.WriteLine("Please Enter Correct Data to Deposit");
 
                 }
 
@@ -326,20 +322,20 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     switch (n)
                     {
                         case "1":
-                            e1.TransactionTpe = "Savings";
+                            e1.TransactionTpe = "Savings";//This case Is for SavingsAccount Transaction
                             Console.WriteLine("\nEnter amount to WithDrawl");
-                            e1.TransactionAmount = double.Parse(Console.ReadLine());
+                            e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
                             e1.TransactionDate = System.DateTime.Today;
-                            e1.AccountNumber = uan;
-                            b.AddTranscation(e1);
-                            if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)
+                            e1.AccountNumber = uan;//Assigning the Date 
+                            b.AddTranscation(e1);// Calling the Method
+                            if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
                             {
-                                int f = b.WithDrawlAmount(e1.AccountNumber, e1.TransactionAmount);
-                                if (f == 1)
+                                int f = b.WithDrawlAmount(e1.AccountNumber, e1.TransactionAmount);//calling the Method 
+                                if (f == 1)//Returns when condition is successful
                                 {
                                     Console.WriteLine("\nThe WithDrawled Amount is : " + e1.TransactionAmount);
                                 }
-                                else if (f == 2)
+                                else if (f == 2)//If Entered amount is More Than Available balance 
                                 {
                                     Console.WriteLine("\nAmount is Exceeded");
 
@@ -354,23 +350,24 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                 Console.WriteLine("The Withdrawl Amount Should Be Greater Than 500");
                             }
                             break;
-                        case "2":
-                            e1.TransactionTpe = "Current";
-                            Console.WriteLine("\nEnter amount to WithDrawl");
-                            e1.TransactionAmount = double.Parse(Console.ReadLine());
-                            e1.TransactionDate = System.DateTime.Today;
-                            e1.AccountNumber = uan;
-                            b.AddTranscation(e1);
-                            if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)
-                            {
-                                //   if (b.ValidateWithDrawl(e1.TransactionAmount) == true)
 
-                                int f = b.WithDrawlAmount(e1.AccountNumber, e1.TransactionAmount);
-                                if (f == 1)
+                        case "2":
+                            e1.TransactionTpe = "Current";//This case Is for CurrentAccount Transaction
+                            Console.WriteLine("\nEnter amount to WithDrawl");
+                            e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
+                            e1.TransactionDate = System.DateTime.Today;//Assigning the Date 
+                            e1.AccountNumber = uan;//Assigning the User Entered number to Entity Account Number
+                            b.AddTranscation(e1);//Calling the Method 
+                            if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
+                            {
+
+                                int f = b.WithDrawlAmount(e1.AccountNumber, e1.TransactionAmount);//calling the Method 
+
+                                if (f == 1)//Returns when condition is successful
                                 {
                                     Console.WriteLine("\nThe WithDrawled Amount is : " + e1.TransactionAmount);
                                 }
-                                else if (f == 2)
+                                else if (f == 2)//If Entered amount is More Than Available balance 
                                 {
                                     Console.WriteLine("\nAmount is Exceeded");
 
@@ -386,13 +383,14 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             }
                             break;
                         default:
-                            Console.WriteLine("\nOoops......You Choosen Wrong Option\n");
+                            Console.WriteLine("\nOoops......You Choosen Wrong Option\n");//When you Choose Different Option Default will be Printed
                             break;
                     }
                 }
+                //Catches the Exception 
                 catch (Exception e)
                 {
-                    Console.WriteLine("Please Enter Correct Data");
+                    Console.WriteLine("\n Please Enter Correct Data to Withdrawl\n");
 
                 }
 
