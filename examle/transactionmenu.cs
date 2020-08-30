@@ -10,7 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
-using Znalytics.Group3.PecuniaBank.AccountEntities;
+using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {

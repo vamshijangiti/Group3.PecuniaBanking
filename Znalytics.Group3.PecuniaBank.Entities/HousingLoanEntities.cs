@@ -22,7 +22,8 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             private float _emi;
             private int _creditScore;
             private bool AgeOfCustomer;
-        public static int rateOfInterest;
+       
+       
 
         ///<summary><param name="customerId">CustomerId</param>
         ///<param name="Customerage">Age of Customer</param>
@@ -195,11 +196,11 @@ public int GetAgeOfCustomer()
                 return _tenure;
             }
         }
-            public float _RateOfInterest
+            public float rateOfInterest
             {
             get
             {
-                return _rateOfInterest;
+                return _RateOfInterest;
             }
 
             }

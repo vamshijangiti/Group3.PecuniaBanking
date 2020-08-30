@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Znalytics.Group3.PecuniaBank.AccountEntities
 {
@@ -96,13 +97,13 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         {
             set
             {
-                if (_balance != 0)//balance shouldnot be equal to zero
+                if (_balance >=2500)//balance shouldnot be equal to zero
                 {
                     _balance = value;//balance 
                 }
                 else
                 {
-                    throw new AccountException("your balance should be not be equal to zero");
+                    throw new AccountException("your minimum balance should be maintained");
                 }
             }
             get
@@ -113,11 +114,9 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
 
 
 
-        /*  public class CurrentAccount : IAccount
+        public class CurrentAccount : IAccount
           {
-              public int AccountId;
-              public string DateOfCreation;
-              public int Balance;
+             
               private int _accId;
               private long _balance;
               private string _dateOfCreation;
@@ -153,11 +152,26 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                   return _accountId;
               }
           }
+     /*   public long balance
+        {
+            set
+            {
+                try
+                {
+                    if (_balance > 2000)
+                    {
+                        _balance = value;
+
+                    }
+
+                    else
+                    {
+                        throw new AccountException("minimum balance of 2000 should be maintained ");
+                    }
 
 
-
-          }*/
-
+                }}*/
+        }
 
 
         /* void AccountId(int accountId)
