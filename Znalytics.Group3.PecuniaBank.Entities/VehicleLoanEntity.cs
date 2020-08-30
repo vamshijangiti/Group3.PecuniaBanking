@@ -15,7 +15,8 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     public class VehicleLoanEntity
     {
         private string _nameOfVehicle;
-        private string _accountNumber;
+
+        private int _customerId;
         private float _loanAmount;
         private static float _rateOfInterest = 10;
         private float _tenure;
@@ -27,18 +28,18 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// Constructor For Entity Class
         /// </summary>
         /// <para name="vehicleName"> vehicleName</param>
-        /// <param name="accountNumber">Account Number </param>
+        /// <param name="customerid">CustomerId </param>
         /// <param name="loanamount">sanction of loan amount</param>
         /// <param name="rateofinterest">interest to be paid per month</param>
         /// <param name="tenure">Duration of loan</param>
         /// <param name="emi"> Monthly emi</param>
         /// <param name="creditscore">credit score in your credit card</param>
 
-        public VehicleLoanEntity(string NameOfVehicle, string AccountNumber, float  LoanAmount, float Tenure, float Emi, int CreditScore)
+        public VehicleLoanEntity(string NameOfVehicle, int CustomerId, float  LoanAmount, float Tenure, float Emi, int CreditScore)
         {
 
                 this._nameOfVehicle = NameOfVehicle;
-                this._accountNumber = AccountNumber;
+                this._customerId = CustomerId;
                 this._loanAmount = LoanAmount;
                 this._tenure = Tenure;
                 this._emi = Emi;
@@ -65,14 +66,14 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         //set and get methods for account number
 
 
-        public string AccountNumber
+        public int CustomerId
         {
             set
             {
                 
-                    if (value.Length == 6)
+                    if (value== 6)
                     {
-                        _accountNumber = value;
+                        _customerId = value;
                     }
 
                     else
@@ -86,7 +87,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
             get
             {
-                return _accountNumber;
+                return _customerId;
             }
         }
 

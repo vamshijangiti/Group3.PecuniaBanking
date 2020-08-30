@@ -49,8 +49,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
                             try
                             {
-                                System.Console.Write("\nEnter Account Number : ");//Enter the account number for personal loan
-                                pl.AccountNumber = System.Console.ReadLine();
+                                System.Console.Write("\nEnter Customer Id : ");//Enter the customer id for personal loan
+                                pl.CustomerId  = (int.Parse (System.Console.ReadLine()));
                             }
                             catch (PersonalLoanException ex)
                             {
@@ -96,8 +96,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             System.Console.Write("Enter the name of vehicle:");//Enter the name of vehicle you want to buy
                             vl.NameOfVehicle = System.Console.ReadLine();
 
-                            System.Console.Write("\nEnter Account Number : ");//Enter the account number for vehicle loan
-                            vl.AccountNumber = System.Console.ReadLine();
+                            System.Console.Write("\nEnter Customer Id: ");//Enter the customer id for vehicle loan
+                            vl.CustomerId =(int.Parse ( System.Console.ReadLine()));
 
 
                             System.Console.Write("\nEnter the CreditScore : ");//Enter the credit score for your loan acceptance of vehicle loan
