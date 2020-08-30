@@ -62,7 +62,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 _savingsaccount.AccountId = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
                 _savingsaccount.Balance = long.Parse(System.Console.ReadLine());
-            savingsaccountBusinessLogic.AddSavingsAccount(_savingsaccount);
+          /*  savingsaccountBusinessLogic.AddSavingsAccount(_savingsaccount);*/
                 System.Console.WriteLine("savings Account Added");
             }
  
