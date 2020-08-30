@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Znalytics.Group3.PecuniaBank.AccountEntities
+namespace Znalytics.Group3.PecuniaBank.Entities
 {
 
     /// <summary>
@@ -64,24 +64,31 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
 
         //set and get methods for account number
 
+
         public string AccountNumber
         {
             set
             {
-                if (value.Length == 6)
+                try
                 {
-                    _accountNumber = value;
+                    if (value.Length == 6)
+                    {
+                        _accountNumber = value;
+                    }
+
+                    else
+                    {
+                        throw new Exception("Enter 6 digits only\n");
+                    }
+
                 }
-
-
-
-
-                else
+                catch
                 {
-                    throw new Exception("Enter 6 digits only\n");
+                    throw;
                 }
 
             }
+
             get
             {
                 return _accountNumber;
@@ -94,17 +101,24 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         {
             set
             {
-                if (LoanAmount >= 500000)
+                try
                 {
-                    _loanAmount = value;
-                }
+                    if (value >= 50000)
+                    {
+                        _loanAmount = value;
+                    }
 
-                else
+                    else
+                    {
+                        throw new Exception("not eligible\n");
+
+                    }
+
+                }
+                catch
                 {
-                    throw new Exception("not eligible\n");
-
+                    throw;
                 }
-
             }
             get
             {
@@ -117,15 +131,23 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         {
             set
             {
-                if (Tenure >= 36)
+                try
                 {
-                    _tenure = value;
+                    if (value >= 10)
+                    {
+                        _tenure = value;
+                    }
+
+                    else
+                    {
+                        throw new Exception("not eligible\n");
+
+                    }
+
                 }
-
-                else
+                catch
                 {
-                    throw new Exception("not eligible\n");
-
+                    throw;
                 }
 
             }

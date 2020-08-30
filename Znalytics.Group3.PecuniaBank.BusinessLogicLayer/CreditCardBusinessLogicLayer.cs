@@ -23,7 +23,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         {
             _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
         }
-        ICustomerBLL a = new CustomerBLL();
+        ICustomerBusinessLogicLayer a = new CustomerBusinessLogicLayer();
 
         public Customer GetCustomersByCustomerId(int c)
         {

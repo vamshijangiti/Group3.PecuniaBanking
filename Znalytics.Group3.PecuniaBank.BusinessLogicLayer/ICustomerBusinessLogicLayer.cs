@@ -14,7 +14,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     /// <summary>
     /// Represents interface for Customer Personal Detail Businesslogiclayer
     /// </summary>
-    public interface ICustomerBLL
+    public interface ICustomerBusinessLogicLayer
     {
 
 

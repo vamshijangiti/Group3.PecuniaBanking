@@ -49,12 +49,12 @@
     <Compile Include="ICurrentAccountDataAccessLayer.cs" />
     <Compile Include="SavingsAccountDataAccessLayer.cs" />
     <Compile Include="CreditcardDataAccessLayer.cs" />
-    <Compile Include="CustomerDAL.cs" />
+    <Compile Include="CustomerDataAccessLayer.cs" />
     <Compile Include="HousingLoanDataAccessLayer.cs" />
     <Compile Include="ISavingsAccountDataAccessLayer.cs" />
     <Compile Include="IAccountDetailDAL.cs" />
     <Compile Include="ICustomer.cs" />
-    <Compile Include="ICustomerDAL.cs" />
+    <Compile Include="ICustomerDataAccessLayer.cs" />
     <Compile Include="PersonalLoanDataAccessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionDAL.cs" />

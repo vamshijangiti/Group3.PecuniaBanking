@@ -50,10 +50,10 @@
     <Compile Include="AccountDetail.cs" />
     <Compile Include="CreditCardBusinessLogicLayer.cs" />
     <Compile Include="CurrentAccountBusinessLogic.cs" />
-    <Compile Include="CustomerBLL.cs" />
+    <Compile Include="CustomerBusinessLogicLayer.cs" />
     <Compile Include="HousingLoanBusinessLogicLayer.cs" />
     <Compile Include="ICurrentAccountBusinessLogic.cs" />
-    <Compile Include="ICustomerBLL.cs" />
+    <Compile Include="ICustomerBusinessLogicLayer.cs" />
     <Compile Include="IPersonalLoanBusinessLogicLayer.cs" />
     <Compile Include="ISavingsAccountBusinessLogic.cs" />
     <Compile Include="IVehicleLoanBusinessLogicLayer.cs" />

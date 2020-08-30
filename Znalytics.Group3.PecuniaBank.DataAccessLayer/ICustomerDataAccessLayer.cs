@@ -10,7 +10,7 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
     /// <summary>
     /// Represents interface for the customer Personal Detail DataAccessLayer
     /// </summary>
-    public interface ICustomerDAL
+    public interface ICustomerDataAccessLayer
     {
         //Adding customer details
         void AddCustomer(Customer customer);

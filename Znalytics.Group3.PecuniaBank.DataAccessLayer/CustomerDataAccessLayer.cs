@@ -12,11 +12,11 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
     /// <summary>
     /// Represents Data Access Layer of customer Personal details
     /// </summary>
-    public class CustomerDAL: ICustomerDAL
+    public class CustomerDataAccessLayer: ICustomerDataAccessLayer
     {
         //List of the CustomerDetail
         private static List<Customer> _details;
-        public CustomerDAL()
+        public CustomerDataAccessLayer()
         {
             _details = new List<Customer>();
         }
