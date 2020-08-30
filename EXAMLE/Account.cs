@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
 using static Znalytics.Group3.PecuniaBank.AccountEntities.SavingsAccount;
+using CurrentAccount = Znalytics.Group3.PecuniaBank.BusinessLogicLayer.CurrentAccount;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
@@ -64,12 +65,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             savingsaccountBusinessLogic.AddSavingsAccount(_savingsaccount);
                 System.Console.WriteLine("savings Account Added");
             }
-        
-        public class SavingsAccount
-        {
-            public int AccountId;
-            public long Balance;
-        }
+ 
   static void AddCurrentAccount()
         {
             try
@@ -91,7 +87,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         }
     }
 
-    internal class SavingsAccountBusinessLogic
+   public  class SavingsAccountBusinessLogic
     {
     }
 }

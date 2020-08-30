@@ -85,22 +85,16 @@ public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
         try
         {
 
-            if (savingsaccount.AccountId == null)
+           /* if (savingsaccount.AccountId == null)
             {
                 _savingsaccountDataAccessLayer.DeleteAccount(savingsaccount);
             }
 
-            else
-            {
+            catch            {
                 throw new AccountException("deletes invalid Account");
-            }
+            }*/
         }
 }
 
-    public void GenerateAccountId(int id)
-    {
-     
-    }
-}
 
   

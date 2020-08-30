@@ -27,8 +27,8 @@ namespace Znalytics.Group3.PecuniaBank.HousingLoanPresentationLayer
                 {
                     case 1: ApproveHouseLoan(); break;
                     case 2: RejectHouseLoan(); break;
-                      case 3:Exit();       break; ;
-                } while (choice != 4) ;
+               
+                } while (choice != 3) ;
 
 
                 static void ApproveHouseLoan()
@@ -47,7 +47,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingLoanPresentationLayer
                     System.Console.WriteLine("enter Loan Amount");
                     h.LoanAmount = int.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("enter rateofinterest");
-                    h.rateOfInterest = float.Parse(System.Console.ReadLine());
+                    h.RateOfInterest = float.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("enter tenure");
                     h.Tenure = float.Parse(System.Console.ReadLine());
                     System.Console.WriteLine("emi value");
@@ -64,7 +64,8 @@ namespace Znalytics.Group3.PecuniaBank.HousingLoanPresentationLayer
 
                 }
                 System.Console.ReadKey();
-            };
+            })
+            ;
         }
             }
     }

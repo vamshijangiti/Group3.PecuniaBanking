@@ -56,6 +56,7 @@
     <Compile Include="PersonalLoanException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionException.cs" />
     <Compile Include="TypeOfAccount.cs" />
     <Compile Include="VehicleLoanEntity.cs" />
     <Compile Include="VehicleLoanException.cs" />

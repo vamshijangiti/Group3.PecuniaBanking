@@ -54,6 +54,7 @@
     <Compile Include="HousingLoanBusinessLogicLayer.cs" />
     <Compile Include="ICurrentAccountBusinessLogic.cs" />
     <Compile Include="ICustomerBusinessLogicLayer.cs" />
+    <Compile Include="IGetAccountByAccountNumber.cs" />
     <Compile Include="IPersonalLoanBusinessLogicLayer.cs" />
     <Compile Include="ISavingsAccountBusinessLogic.cs" />
     <Compile Include="IVehicleLoanBusinessLogicLayer.cs" />
