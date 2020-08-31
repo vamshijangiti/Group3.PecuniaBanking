@@ -131,10 +131,10 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             cdal.UpdateCustomer(customer);
         }
 
-        public int CustomerIdGeneration(Customer cust)
+      /*  public int CustomerIdGeneration(Customer cust)
         {
             // cdal.CustomerIdGeneration(cust);
             return cdal.CustomerIdGeneration(cust);
-        }
+        }*/
     }
 }
