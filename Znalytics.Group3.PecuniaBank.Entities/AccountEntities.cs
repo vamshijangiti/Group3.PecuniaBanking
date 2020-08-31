@@ -99,48 +99,38 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             }
         }
     }
-}
 
 
 
-     /*   public class CurrentAccount : IAccount
+
+    public class CurrentAccount //: IAccount
+    {
+
+        private int _accountId;
+        private long _balance;
+        private string _dateOfCreation;
+
+
+        public int AccountId
         {
-
-            private int accId;
-            private long _balance;
-            private string _dateOfCreation;
-        }
-
-            /* public CurrentAccount(int accId, long balance, string dateOfCreation)
-             {
-                 accId = accId;
-                 _balance = balance;
-                 _dateOfCreation = dateOfCreation;
-             }*/
-
-
-           /* public int AccId
+            set
             {
-                set
+                if (_accountId != 0)
                 {
-                    if (_accountId != 0)
-                    {
 
-                        _accountId = value;
-                    }
-
-                    else
-                    {
-                        throw new ApplicationException("AccountId shouldnot be zero");//raises Application Exception
-                    }
+                    _accountId = value;
                 }
-                get
+
+                else
                 {
-                    return _accountId;
+                    throw new ApplicationException("AccountId shouldnot be zero");//raises Application Exception
                 }
             }
-
+            get
+            {
+                return _accountId;
+            }
         }
     }
+
 }
-   */
