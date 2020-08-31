@@ -32,18 +32,18 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
 
 
        //Creating List
-        List<Customer> customerdetail = new List<Customer>();
+       // List<Customer> customerdetail = new List<Customer>();
 
         //Adding Customer Personal Details
         public void AddCustomer(Customer customer)
         {
-            customerdetail.Add(customer);
+            _details.Add(customer);
         }
 
         //Method to get existing Customer details
         public List<Customer> GetCustomers()
         {
-            return customerdetail;
+            return _details;
         }
 
 
