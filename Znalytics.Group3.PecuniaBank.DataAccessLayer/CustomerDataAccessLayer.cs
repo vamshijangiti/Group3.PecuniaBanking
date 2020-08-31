@@ -25,26 +25,27 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         /// Method to generate Customer Id
         /// </summary>
         /// <returns> Returns Customer Id</returns>
-            public int CustomerIdGeneration()
+        public int CustomerIdGeneration(Customer cus)
         {
             int CustomerId = _details.Max(temp => temp.CustomerId);
+            cus.CustomerId = CustomerId++;
             return CustomerId++;
         }
 
 
        //Creating List
-        List<Customer> customerdetail = new List<Customer>();
+       // List<Customer> customerdetail = new List<Customer>();
 
         //Adding Customer Personal Details
         public void AddCustomer(Customer customer)
         {
-            customerdetail.Add(customer);
+            _details.Add(customer);
         }
 
         //Method to get existing Customer details
         public List<Customer> GetCustomers()
         {
-            return customerdetail;
+            return _details;
         }
 
 
