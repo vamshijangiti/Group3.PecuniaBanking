@@ -11,17 +11,19 @@ public class MainMethod
 {
     static void Main()
     {
+        //Creating object to CustomerPresentationLayer
         CustomerPresentationLayer p = new CustomerPresentationLayer();
         p.start();
+
+        //Creating object to CreditcardPresentationLayer
+        CreditcardPresentationLayer cr = new CreditcardPresentationLayer();
+        cr.start();
 
 
         //Creating The Object
         TransactionMenu.start();
 
-        
-
-        CreditcardPresentationLayer cr = new CreditcardPresentationLayer();
-        cr.start();
+       
 
         Console.ReadKey();
     }
