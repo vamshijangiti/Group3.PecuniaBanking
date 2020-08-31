@@ -18,7 +18,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             private int _customerAge;
             private float _loanAmount;
             private float _tenure;
-            private float _RateOfInterest=6;
+            private  float _RateOfInterest=6;
             private float _emi;
             private int _creditScore;
             private bool AgeOfCustomer;
@@ -32,16 +32,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         ///<param name="RateOfInterest">rate of interest of loan</param>
         ///<param name="creditScore">Credit score of customer</param>
         ///<param name="Emi">Emi of housing loan</param>
-        /*public int HousingLoanId
-          {
-              get; set;
-          }
-          public HousingLoan(string accountHolderName, int HousingLoanId) : base(accountHolderName)
-          {
-              this.HousingLoanId = HousingLoanId;
-          }*/
-
-
+      
         public int CustomerId
             {
             set
@@ -61,16 +52,6 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             }
             }
 
-
-           /* public HousingLoan(string _accountHolderName)
-            {
-                AccountHolderName = _accountHolderName;
-            }
-
-            /*public HousingLoan(double tenure)
-            {
-            }*/
-
             public HousingLoan()//parameterless constructor
             {
             }
@@ -86,7 +67,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                     }
                     else
                     {
-                        throw new HousingLoanException("customer Age is not eligible");
+                    throw new HousingLoanException("customer Age is not eligible");//raises Exception if customer age is not greater than 21
                     }
                 }
                     get
@@ -95,27 +76,12 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                     }
 
                 }
-            /*public void SetAgeOfCustomer(int value)
-{
-   if (value >= 21)
-   {
-       _ageOfCustomer = value;//ageof customer should start from 21
-   }
-   else
-   {
-       throw new System.Exception("your age is not eligible");
-   }
-}
-public int GetAgeOfCustomer()
-{
-   return _ageOfCustomer;
-            
-}*/
+         
             public int CreditScore
             {
                 set
                 {
-                    if (_creditScore>=650)
+                    if (_creditScore>=650)//credit score should be greater than 650
                     {
                         _creditScore = value;//assigns creditscore
                     }
@@ -129,21 +95,8 @@ public int GetAgeOfCustomer()
                     return _creditScore;//returns creditscore
                 }
             }
-            /*public void SetCreditScore(int value)
-            {
-                if (_creditScore >= 650)//checks creditscore of a person which should starts from 650
-                {
-                    _creditScore = value;
-                }
-                else
-                {
-                    throw new System.Exception("your credit score is not up to the mark");
-                }
-            }
-            public int GetCreditScore()
-            {
-                return _creditScore;//returns credits score
-            }*/
+            
+        
             public float LoanAmount
             {
                 set
@@ -162,27 +115,12 @@ public int GetAgeOfCustomer()
                     return _loanAmount;//returns loanamount
                 }
             }
-            /*public void SetLoanAmount(double value)
-            {
-                if (_loanAmount <= 20000)//checks loan amount 
-                {
-                    _loanAmount = value;
-                }
-                else
-                {
-                    throw new System.Exception("loan amount exceeded");//raises loanamount exceded 
-                }
-            }
-            public double GetLoanAmount()
-            {
-                return _loanAmount;
-            }
-            */
+            
             public float Tenure
-        {
+            {
             set
             {
-                if (value >= 5)
+                if (value >= 5)//tenure period should be greater than 5 yrs
                 {
                     _tenure =value;
                 }
@@ -200,7 +138,7 @@ public int GetAgeOfCustomer()
             {
             get
             {
-                return _RateOfInterest;
+                return _RateOfInterest;//returns rate of interest
             }
 
             }
@@ -214,13 +152,13 @@ public int GetAgeOfCustomer()
                     }
                 else
                 {
-                    throw new HousingLoanException("emi should never be zero");
+                    throw new HousingLoanException("emi should never be zero ");
                 }
                 }
                 get
                 {
-                return _emi;
-                   /* return  ((float)(((float)(_loanAmount * _rateOfInterest * (1 + _rateOfInterest) * _tenure)) / (1 + _rateOfInterest) * _tenure - 1));*/
+                return _emi;//returns emi
+                  
                 }
             }
             }

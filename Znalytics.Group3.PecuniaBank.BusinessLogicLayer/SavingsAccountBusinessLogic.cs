@@ -11,90 +11,40 @@ using static Znalytics.Group3.PecuniaBank.AccountEntities.SavingsAccount;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {/// <summary>
-/// BusinessLogicLayer for Accounts
-/// </summary>
-    /*public interface ISavingsAccountBusinessLogic
+ /// BusinessLogicLayer for Accounts
+ /// </summary>
+
+
+
+  /*  public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
     {
-        //methods
-        void AddSavingsAccount(SavingsAccount a);
-        void AddCurrentAccount(CurrentAccount account);
-        void GenerateAccountId(int id);
-        void DeleteSavingsAccount(SavingsAccount account);
-       
-    }
-    */
-}
-
-public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
-{
-    SavingsAccountDataAccessLayer _savingsaccountDataAccessLayer;
+        SavingsAccountDataAccessLayer _savingsaccountDataAccessLayer;
 
 
-    public SavingsAccountBusinessLogic()
-    {
-        _savingsaccountDataAccessLayer = new SavingsAccountDataAccessLayer();
-    }
-
-    public void AddSavingsAccount(SavingsAccount savingsAccount)
-    {
-        try
+        public SavingsAccountBusinessLogic()
         {
-
-
-            if (savingsAccount.AccountId != 0)
-            {
-                _savingsaccountDataAccessLayer.AddSavingsAccount(savingsAccount);
-            }
-            else
-            {
-                throw new ApplicationException("account no should not be null");//Exception raised if accountid is zero
-            }
-        }
+            _savingsaccountDataAccessLayer = new SavingsAccountDataAccessLayer();
         }
 
-    /* public void AddCurrentAccount(CurrentAccount account)
-     {
-         if (account.AccountId!=0)
-         {
-         _accountDataAccessLayer.AddCurrentAccount(account);
-         }
-         else
-         {
-             throw new ApplicationException("account should not be null");
-         }
-     }
-    */
-
-
-    //GetAccounts
-    public List<SavingsAccount> GetSavingsAccount()
-    {
-        return _savingsaccountDataAccessLayer.GetSavingsAccount();
-    }
-
-    /*  public void DeleteCurrentAccount(CurrentAccount account)
-  {
-      if (account.AccountId==null)
-      {
-          _accountDataAccessLayer.DeleteCurrentAccount(account);
-      }
-  }
-    */
-    public void DeleteSavingsAccount(SavingsAccount savingsaccount)
-    {
-        try
+        public void AddSavingsAccount(SavingsAccount s)
         {
-
-           /* if (savingsaccount.AccountId == null)
+            try
             {
-                _savingsaccountDataAccessLayer.DeleteAccount(savingsaccount);
+                if (s.AccountId != 0)
+                {
+                    _savingsaccountDataAccessLayer.AddSavingsAccount(s);
+                }
             }
-
-            catch            {
-                throw new AccountException("deletes invalid Account");
-            }*/
+            catch (Exception e)
+            {
+                throw new AccountException("account no should not be null");//Exception raised if accountid is zero
+            }
         }
-}
 
+        public void DeleteSavingsAccount(SavingsAccount s)
+        {
+           /* _savingsaccountDataAccessLayer.DeleteSavingsAccount(s);*/
+        }
+   
 
-  
+    

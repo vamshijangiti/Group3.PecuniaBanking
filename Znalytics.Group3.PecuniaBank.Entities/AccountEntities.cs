@@ -15,6 +15,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
     /// </summary>
     interface IAccount
     {
+        //fields
         int AccountId
         {
             set; get;
@@ -34,12 +35,11 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
 
         /// <summary>
         /// <param name=AccountId></param>
-        /// <param name=dateOfCreation</param>
-        /// <param name=Balance></param>
+        /// <param name=dateOfCreation>Date of creation</param>
+        /// <param name=Balance>balance</param>
         /// </summary>
         private int _accountId;
         private string _dateOfCreation;
-        private string _branchName;
         private long _balance;
 
 
@@ -79,25 +79,12 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                 return _dateOfCreation;//dateofcreation 
             }
         }
-        public string BranchName
-        {
-            set
-            {
-                if (_branchName.Length <= 30)
-                {
-                    _branchName = value;//branchname should contain lessthan 30 characters and then assigns to value
-                }
-            }
-            get
-            {
-                return _branchName;
-            }
-        }
+
         public long Balance
         {
             set
             {
-                if (_balance >=2500)//balance shouldnot be equal to zero
+                if (_balance >= 2500)//balance shouldnot be equal to zero
                 {
                     _balance = value;//balance 
                 }
@@ -115,70 +102,47 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
 
 
         public class CurrentAccount : IAccount
-          {
-             
-              private int _accId;
-              private long _balance;
-              private string _dateOfCreation;
+        {
 
-              public CurrentAccount()
-              {
-              }
+            private int accId;
+            private long _balance;
+            private string _dateOfCreation;
 
-              public CurrentAccount(int accId, long balance, string dateOfCreation)
-              {
-                  _accId = accId;
-                  _balance = balance;
-                  _dateOfCreation = dateOfCreation;
-              }
-          }
-          public int AccId
-          {
-              set
-              {
-                  if (_accountId != 0)
-                  {
+            public CurrentAccount()
+            {
+            }
 
-                      _accountId = value;
-                  }
+            public CurrentAccount(int accId, long balance, string dateOfCreation)
+            {
+                accId = accId;
+                _balance = balance;
+                _dateOfCreation = dateOfCreation;
+            }
 
-                  else
-                  {
-                      throw new ApplicationException("AccountId shouldnot be null");
-                  }
-              }
-              get
-              {
-                  return _accountId;
-              }
-          }
-     /*   public long balance
+            public int AccountId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public string DateOfCreation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public long Balance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        }
+        public int AccId
         {
             set
             {
-                try
+                if (_accountId != 0)
                 {
-                    if (_balance > 2000)
-                    {
-                        _balance = value;
 
-                    }
+                    _accountId = value;
+                }
 
-                    else
-                    {
-                        throw new AccountException("minimum balance of 2000 should be maintained ");
-                    }
-
-
-                }}*/
+                else
+                {
+                    throw new ApplicationException("AccountId shouldnot be zero");//raises Application Exception
+                }
+            }
+            get
+            {
+                return _accountId;
+            }
         }
 
-
-        /* void AccountId(int accountId)
-          {
-              throw new NotImplementedException();
-          }*/
     }
 }
-  
-

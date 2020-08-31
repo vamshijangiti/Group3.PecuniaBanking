@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
@@ -13,25 +14,46 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         CurrentAccountDataAccessLayer currentAccountDataAccessLayer;
 
-        public void AddCurrentAccount(CurrentAccount currentAccount)
+        /// <summary>
+        /// Adds Current Account
+        /// </summary>
+        /// <param name="a"></param>
+        public void AddCurrentAccount(CurrentAccount a)
         {
-            if (currentAccount.accId!=0)
+            try
             {
-                CurrentAccountDataAccessLayer.AddCurrentAccount(currentAccount);
+                if (a.accId != 0)
+                {
+                    /*currentAccountDataAccessLayer.AddCurrentAccount(a);*/
+                }
             }
-            else
+            catch (Exception e)
             {
-                throw new ApplicationException("accountid is not added");
+                throw new AccountException("accountid is not added");//exception raised if accounId is not added
             }
         }
 
-        public void DeleteCurrentAccount(CurrentAccount currentAccount)
+        public void DeleteCurrentAccount(CurrentAccount c)
         {
-            if (currentAccount.accId==null)
+            try
             {
-                currentAccountDataAccessLayer.DeleteCurrentAccount(currentAccount);
-               
+                if (c.accId != 0)
+                {
+                   /* currentAccountDataAccessLayer.DeleteCurrentAccount(c);*/
+                }
             }
+            catch (Exception e)
+            {
+                throw new AccountException("account is not deleted");
+            }
+        }
+
+        public List<CurrentAccount> GetCurrentAccount()
+        {
+            return GetCurrentAccount();//retrieves all currentAccount 
+        }
+    }
+}
 
         
   

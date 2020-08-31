@@ -12,27 +12,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.Entities;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
-    public interface ITransactionDAL
-    {
-        void AddTransaction(Transaction t);
-        void DepositAmount(long accNO, double amount, List<AccountDAL> dALs);
-        List<Transaction> GetTransactionList(long AccountNumber);
-        int WithDrawlAmount(long accNO, double amount, List<AccountDAL> dALs);
-        bool GetAccountNumber(long acc, List<AccountDAL> dALs);
-        double GetAvailableBalance(long Accoun, List<AccountDAL> dALs);
-        bool TypeChecking(string tType, long accoun, List<AccountDAL> dALs);
-    }
-
     /// <summary>
     /// DAL Class For WithDrawl And Deposit
     /// </summary>
     public class TransactionDAL : ITransactionDAL
     {
 
-        static List<Transaction> transactionList = new List<Transaction>();//list For Transaction Entity
+        static List<Transaction> _transactionList = new List<Transaction>();//list For Transaction Entity
 
 
         /// <summary>
@@ -41,8 +31,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <param name="t">object</param>
         public void AddTransaction(Transaction t)
         {
+            /*int max = _transactionList.Max(temp => temp.TransactionID);
+           t.TransactionID = max;
+           */
             int max = 0;
-            foreach (var item in transactionList)
+            foreach (var item in _transactionList)
             {
                 if (item.TransactionID > max)
                 {
@@ -50,7 +43,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
                 }
             }
             t.TransactionID = ++max;
-            transactionList.Add(t);
+            _transactionList.Add(t);
+            SavingData();
 
         }
 
@@ -72,7 +66,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             else
             {
                 result.balance += amount;
-
+                SavingData();
             }
 
         }
@@ -98,6 +92,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
                 else
                 {
                     result.balance -= amount;
+                    SavingData();
                     return 1;
                 }
             }
@@ -112,8 +107,10 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public List<Transaction> GetTransactionList(long Accoun)
         {
 
-            List<Transaction> list1 = transactionList.FindAll(temp => temp.AccountNumber == Accoun);
+            List<Transaction> list1 = _transactionList.FindAll(temp => temp.AccountNumber == Accoun);
+            GettingFile();
             return list1;
+
 
         }
 
@@ -131,6 +128,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             AccountDAL result = dALs.Find(temp => temp.accno == accoun);
             if (result.TransactionType.Equals(tType))
             {
+                GettingFile();
                 return true;
             }
             else
@@ -149,6 +147,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public double GetAvailableBalance(long accoun, List<AccountDAL> dALs)
         {
             AccountDAL result = dALs.SingleOrDefault(temp => temp.accno == accoun);//used to returns the Single element
+            GettingFile();
             return result.balance;
         }
 
@@ -159,15 +158,17 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <param name="Accoun">Represents the Account Number</param>
         /// <param name="dALs">List from the Accounts</param>
         /// <returns></returns>
-        public bool GetAccountNumber(long account, List<AccountDAL> dALs)
+        public bool GetAccountNumber(long account, List<AccountDAL> _dALs)
         {
-            AccountDAL result = dALs.SingleOrDefault(temp => temp.accno == account); //SingleOrDefault is used to returns the single element
+            AccountDAL result = _dALs.SingleOrDefault(temp => temp.accno == account); //SingleOrDefault is used to returns the single element
             if (result == null)
             {
                 return false;
+                //  throw new TransactionException();
             }
             else
             {
+                GettingFile();
                 return true;
 
             }
@@ -175,10 +176,24 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
 
 
+        public void SavingData()
+        {
 
-        string s = JsonConvert.SerializeObject(transactionList);
+            string s = JsonConvert.SerializeObject(_transactionList);
+            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\Desktop\Transactions.txt");
+            streamWriter.Write(s);
+            streamWriter.Close();
+        }
 
+        public static List<Transaction> GettingFile()
+        {
+            StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\Desktop\Transactions.txt");
+            string st = streamReader.ReadToEnd();
+            List<Transaction> _transactions = JsonConvert.DeserializeObject<List<Transaction>>(st);
+            streamReader.Close();
+            return _transactions;
 
+        }
 
     }
 }
