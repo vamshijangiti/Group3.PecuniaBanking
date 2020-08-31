@@ -24,8 +24,6 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         private DateTime _dateOfBirth;
         private string _mailId;
 
-        //Creating Object for CustomerDetail class
-        Customer customer = new Customer();
        // Creating constructor
         public Customer() { }
 
@@ -160,7 +158,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
             {
                 //Validating Pan Card Number
                 string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
-                bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
+                bool isPanCardNumberValid = Regex.IsMatch(value, checkPanCardNumber);
                 if (isPanCardNumberValid == true)
                 {
                     _panCardNumber = value;
@@ -186,7 +184,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
             {
                 //Validating AadharCard Number
                 string checkAadharCardNumber = @"^[0-9]{12}$";
-                bool isAadharCardNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkAadharCardNumber);
+                bool isAadharCardNumberValid = Regex.IsMatch(value, checkAadharCardNumber);
                 if (isAadharCardNumberValid == true)
                 {
                     _aadharCardNumber = value;
@@ -213,9 +211,11 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
             set
             {
                 //Validating PhoneNumber
-                
-                string checkPhoneNumber = @"^(\+)([1 - 9]{ 2})(\s)(\d{ 10})$";
-                bool isPhoneNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkPhoneNumber);
+
+                //string checkPhoneNumber = @"^(\+)([1 - 9]{ 2})(\s)(\d{ 10})$";
+
+                string checkPhoneNumber = @"^(\d{ 10})$";
+                bool isPhoneNumberValid = Regex.IsMatch(value, checkPhoneNumber);
                 if (isPhoneNumberValid == true)
                 {
                     _phoneNumber = value;
