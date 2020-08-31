@@ -10,6 +10,7 @@ using Znalytics.Group3.PecuniaBank.Entities;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
 using Znalytics.Group3.PecuniaBanking.BusinessLayer;
 
+
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     /// <summary>
@@ -19,7 +20,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         PersonalLoanDataAccessLayer personalLoanData = new PersonalLoanDataAccessLayer();
         PersonalLoanEntity personalLoan = new PersonalLoanEntity();
-        ICustomerBusinessLogicLayer i= new CustomerBusinessLogicLayer();
+        ICustomerBusinessLogicLayer i = new CustomerBusinessLogicLayer();
 
         public Customer GetCustomersByCustomerId(int c)
         {
