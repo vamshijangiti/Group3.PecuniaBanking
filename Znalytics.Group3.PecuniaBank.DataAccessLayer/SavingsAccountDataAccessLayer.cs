@@ -42,9 +42,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <param name="savingsAccount">SavingsAccount</param>
         public void AddSavingsAccount(SavingsAccount savingsAccount)
         {
-            int maxAccountId = savingsAccount.Max(temp => temp.AccountId);
+           /* int maxAccountId = savingsAccount.Max(temp => temp.AccountId);
             savingsAccount.AccountId = maxAccountId;
-            savingaccounts.Add(savingsAccount);
+            savingaccounts.Add(savingsAccount);*/
 
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             if (accountId!= 0)
             {
-                _savingsAccount.DeleteSavingsAccount(s);
+           /*     _savingsAccount.DeleteSavingsAccount(s);*/
             }
         }
     }
