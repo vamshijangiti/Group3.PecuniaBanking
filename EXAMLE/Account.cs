@@ -21,11 +21,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     /// </summary>
     public class program
     {
-       /*static void Main()
-        {
-            AccountsPresentationLayer();
-        }
-       */
+       
+       
         static void AccountsPresentationLayer()
         {
             int choice = 0;

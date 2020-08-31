@@ -12,7 +12,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         List<CurrentAccount> currentAccount = new List<CurrentAccount>();
         private List<CurrentAccount> currentAccounts;
 
-       /* public class CurrentAccountDataAccessLayer : ICurrentAccountDataAccessLayer//interface
+        /*public class CurrentAccountDataAccessLayer : ICurrentAccountDataAccessLayer//interface
         {
 
 

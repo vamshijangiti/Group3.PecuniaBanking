@@ -11,7 +11,7 @@ using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-    public class CurrentAccountBusinessLogic  /*ICurrentAccountBusinessLogic*/
+    public class CurrentAccountBusinessLogic  :ICurrentAccountBusinessLogic
     {
         CurrentAccountDataAccessLayer currentAccountDataAccessLayer;
 
@@ -25,7 +25,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
                 if (a.accId != 0)
                 {
-                    /*currentAccountDataAccessLayer.AddCurrentAccount(a);*/
+                   /* currentAccountDataAccessLayer.AddCurrentAccount(a);*/
                 }
             }
 
