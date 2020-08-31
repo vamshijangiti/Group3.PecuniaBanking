@@ -62,7 +62,6 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             WriteLine("AnnualIncome" + s.AnnualIncome );
                             WriteLine("PanCardNumber" + s.PanCardNumber );
                             WriteLine("AadharCardNumber" + s.AadharCardNumber );
-                            WriteLine("PhoneNumber" + s.PhoneNumber );
                             
 
                         System.Console.Write("\nEnter the CreditScore : ");//Enter the credit score for loan acceptance of personal loan
