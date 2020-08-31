@@ -9,10 +9,10 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     interface ICurrentAccountBusinessLogic
     {
-       public  void AddCurrentAccount(CurrentAccount a);
-        public void DeleteCurrentAccount(CurrentAccount c);
-        public  List<CurrentAccount> GetCurrentAccount();
-      //  public void GetBalance(CurrentAccount currentAccount);
+        void AddCurrentAccount(CurrentAccount a);
+         void DeleteCurrentAccount(CurrentAccount c);
+          List<CurrentAccount> GetCurrentAccount();
+        void GetBalance(CurrentAccount currentAccount);
     }
 
 

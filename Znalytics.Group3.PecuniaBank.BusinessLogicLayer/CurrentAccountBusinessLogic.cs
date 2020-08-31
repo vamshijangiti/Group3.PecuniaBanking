@@ -25,7 +25,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
                 if (a.accId != 0)
                 {
-                   /* currentAccountDataAccessLayer.AddCurrentAccount(a);*/
+                    currentAccountDataAccessLayer.AddCurrentAccount(a);
                 }
             }
 
