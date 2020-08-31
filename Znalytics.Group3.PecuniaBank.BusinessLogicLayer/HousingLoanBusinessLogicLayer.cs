@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
 
-
+/// <summary>
+/// Housing loan businesslogiclayer
+/// </summary>
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public class HousingLoanBusinessLogicLayer
@@ -20,19 +22,23 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             _housingLoanDataAccessLayer = new HousingLoanDataAccessLayer();
         }
         //add
+        /// <summary>
+        /// Add/Aprrove housing loan
+        /// </summary>
+        /// <param name="housingLoan">HosingLoan</param>
         public void AddHousingLoan(HousingLoan housingLoan)
         {
             try
             {
                 if (housingLoan.CustomerId == 0)
                 {
-                    _housingLoanDataAccessLayer.Add(housingLoan);
+                    _housingLoanDataAccessLayer.Add(housingLoan);//Adds housingLoan
                 }
             }
 
             catch (Exception e)
             {
-                throw new HousingLoanException("CustomerId cant be zero");
+                throw new HousingLoanException("CustomerId cant be zero");//exception raised where customerid cant be zero
             }
             }
                    /* public float CalculateEmi(float loanamount,float Tenure)
