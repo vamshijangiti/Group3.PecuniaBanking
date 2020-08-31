@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
-using static Znalytics.Group3.PecuniaBank.AccountEntities.SavingsAccount;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {/// <summary>
@@ -16,7 +15,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
 
 
-  /*  public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
+    public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
     {
         SavingsAccountDataAccessLayer _savingsaccountDataAccessLayer;
 
@@ -26,25 +25,30 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             _savingsaccountDataAccessLayer = new SavingsAccountDataAccessLayer();
         }
 
-        public void AddSavingsAccount(SavingsAccount s)
+        public void AddSavingsAccount(SavingsAccount savingsAccount)
         {
             try
             {
-                if (s.AccountId != 0)
+                if (savingsAccount.AccountId != 0)
                 {
-                    _savingsaccountDataAccessLayer.AddSavingsAccount(s);
+                    _savingsaccountDataAccessLayer.AddSavingsAccount(savingsAccount);
                 }
             }
             catch (Exception e)
             {
-                throw new AccountException("account no should not be null");//Exception raised if accountid is zero
+                throw new AccountException("account no should not be null", e);//Exception raised if accountid is zero
             }
         }
 
-        public void DeleteSavingsAccount(SavingsAccount s)
+        public void DeleteSavingsAccount(SavingsAccount savingsAccount)
         {
-           /* _savingsaccountDataAccessLayer.DeleteSavingsAccount(s);*/
+            _savingsaccountDataAccessLayer.DeleteSavingsAccount(savingsAccount);
         }
-   
+        public List<SavingsAccount> GetSavingsAccounts()
+        {
+            return GetSavingsAccounts();//retrieves all currentAccount 
+        }
+    }
+}
 
     

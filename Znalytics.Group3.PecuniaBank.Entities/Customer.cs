@@ -1,5 +1,5 @@
 ﻿//      Done by Manasa
-
+//using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
 using System;
 using System.Text.RegularExpressions;
 /// <summary>
@@ -24,8 +24,6 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         private DateTime _dateOfBirth;
         private string _mailId;
 
-        //Creating Object for CustomerDetail class
-        Customer customer = new Customer();
        // Creating constructor
         public Customer() { }
 
@@ -88,15 +86,8 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         /// </summary>
         public int CustomerId
         {
-            set
-            {
-                _customerId = value;
-             
-            }
-            get
-            {
-                return _customerId;
-            }
+            set;
+            get;
         }
         /// <summary>
         /// Property for setting values to AnnualIncome field and Getting The value of the Field 
@@ -160,7 +151,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
             {
                 //Validating Pan Card Number
                 string checkPanCardNumber = @"^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$";
-                bool isPanCardNumberValid = Regex.IsMatch(customer.PanCardNumber, checkPanCardNumber);
+                bool isPanCardNumberValid = Regex.IsMatch(value, checkPanCardNumber);
                 if (isPanCardNumberValid == true)
                 {
                     _panCardNumber = value;
@@ -186,7 +177,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
             {
                 //Validating AadharCard Number
                 string checkAadharCardNumber = @"^[0-9]{12}$";
-                bool isAadharCardNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkAadharCardNumber);
+                bool isAadharCardNumberValid = Regex.IsMatch(value, checkAadharCardNumber);
                 if (isAadharCardNumberValid == true)
                 {
                     _aadharCardNumber = value;
@@ -208,15 +199,18 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         /// <summary>
         /// Property for setting values to PhoneNumber field and Getting The value of the Field 
         /// </summary>
-        public string PhoneNumber
+        /*public string PhoneNumber
         {
             set
             {
                 //Validating PhoneNumber
-                
-                string checkPhoneNumber = @"^(\+)([1 - 9]{ 2})(\s)(\d{ 10})$";
-                bool isPhoneNumberValid = Regex.IsMatch(customer.AadharCardNumber, checkPhoneNumber);
-                if (isPhoneNumberValid == true)
+
+                //string checkPhoneNumber = @"^(\+)([1 - 9]{ 2})(\s)(\d{ 10})$";
+
+                //string checkPhoneNumber = @"^[0-9]{ 10}$";
+                //bool isPhoneNumberValid = Regex.IsMatch(value, checkPhoneNumber);
+                string s = value.ToString();
+                if (s.All(char.IsDigit))
                 {
                     _phoneNumber = value;
                 }
@@ -231,7 +225,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
             {
                 return _phoneNumber;
             }
-        }
+        }*/
         /// <summary>
         /// Property for setting values to DateOfBirth field and Getting The value of the Field 
         /// </summary>

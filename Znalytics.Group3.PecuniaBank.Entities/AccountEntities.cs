@@ -36,7 +36,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         /// <summary>
         /// <param name=AccountId></param>
         /// <param name=dateOfCreation>Date of creation</param>
-        /// <param name=Balance>balance</param>
+        /// <param name=balance>balance</param>
         /// </summary>
         private int _accountId;
         private string _dateOfCreation;
@@ -99,48 +99,76 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             }
         }
     }
-}
 
 
 
-     /*   public class CurrentAccount : IAccount
+
+    public class CurrentAccount //: IAccount
+    {
+        ///<summary>
+        ///<param name="AccountId">CrrentAccountId</param>
+        ///<param name="balance">Balance</param>
+        ///<param name="dateOfCreation">Date of creation</param>
+        ///</summary>
+        
+        private int _accountId;
+        private long _balance;
+        private DateTime _dateOfCreation;
+
+
+        public int AccountId
         {
-
-            private int accId;
-            private long _balance;
-            private string _dateOfCreation;
-        }
-
-            /* public CurrentAccount(int accId, long balance, string dateOfCreation)
-             {
-                 accId = accId;
-                 _balance = balance;
-                 _dateOfCreation = dateOfCreation;
-             }*/
-
-
-           /* public int AccId
+            set
             {
-                set
+                if (_accountId != 0)
                 {
-                    if (_accountId != 0)
-                    {
 
-                        _accountId = value;
-                    }
-
-                    else
-                    {
-                        throw new ApplicationException("AccountId shouldnot be zero");//raises Application Exception
-                    }
+                    _accountId = value;
                 }
-                get
+
+                else
                 {
-                    return _accountId;
+                    throw new AccountException("AccountId shouldnot be zero");//raises Application Exception
                 }
             }
+            get
+            {
+                return _accountId;
+            }
+        }
+        public DateTime DateOfCreation
+        {
+            set
+            {
+                if (_dateOfCreation!=null)
+                {
 
+                    _dateOfCreation =value;
+                }
+            }
+            get
+            {
+                return _dateOfCreation;
+            }
+        }
+        public long Balance
+        {
+            set
+            {
+                if (_balance>=2000)
+                {
+                    _balance = value;
+                }
+                else
+                {
+                    throw new AccountException("balance should be greater than 2000");
+                }
+            }
+            get
+            {
+                return _balance;
+            }
         }
     }
+
 }
-   */

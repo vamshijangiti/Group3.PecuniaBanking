@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 
 
-namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
+namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
 {
     /// <summary>
     /// Class that Represents Business logic layer of the customer personal details
@@ -18,7 +18,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
     public class CustomerBusinessLogicLayer : ICustomerBusinessLogicLayer
     {
 
-        private ICustomerDataAccessLayer cdal;
+        private CustomerDataAccessLayer cdal;
 
         //Constructor for CustomerDetailBusinessLogicLayer
         public CustomerBusinessLogicLayer()
@@ -73,7 +73,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
             }
 
             //Checking Phone number that can't be null
-            try
+            /*try
             {
 
                 if (cust.PhoneNumber != null)
@@ -84,7 +84,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
             catch (Exception ex)
             {
                 throw new Exception("PhoneNumber can't be null,Please mention your PhoneNumber", ex);
-            }
+            }*/
 
             //Checking Age that can't be null
             try
@@ -129,6 +129,12 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
         {
 
             cdal.UpdateCustomer(customer);
+        }
+
+        public int CustomerIdGeneration(Customer cust)
+        {
+            // cdal.CustomerIdGeneration(cust);
+            return cdal.CustomerIdGeneration(cust);
         }
     }
 }
