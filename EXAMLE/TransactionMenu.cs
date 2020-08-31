@@ -63,7 +63,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
                 else if (f == 3)
                 {
-                    uan = long.Parse(suan);
+                   TransactionMenu.uan = long.Parse(suan);
                    // e1.AccountNumber = uan;
                     flag = true;
                     break;
@@ -123,7 +123,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                     break;
 
                             }
-                            Console.Write("\n Do you want to Use it Again press Y : ");
+                            Console.Write("\n Do you want do Transactions Again press Y : ");
                             ch = Console.ReadLine();
 
                         } while (ch == "Y" || ch == "y");

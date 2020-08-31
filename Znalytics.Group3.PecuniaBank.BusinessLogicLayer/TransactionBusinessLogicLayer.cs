@@ -24,7 +24,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         //creating objects for other classes
         ITransactionDAL transactionDAL = new TransactionDAL();
-        AccountDetailBLLFake account;
+        AccountDetailBLLFake account=new AccountDetailBLLFake();
         /// <summary>
         /// Constructor for BLL
         /// </summary>
@@ -40,14 +40,17 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             try
             {
-                AccountDetailBLLFake result = account.GetAccountByAccountNumber(t.AccountNumber);
-                if (result != null)
+                if (account != null)
                 {
-                    transactionDAL.AddTransaction(t);
-                }
-                else
-                {
-                    throw new TransactionException("Wrong Data");
+                    AccountDetailBLLFake result = account.GetAccountByAccountNumber(t.AccountNumber);
+                    if (result != null)
+                    {
+                        transactionDAL.AddTransaction(t);
+                    }
+                    else
+                    {
+                        throw new TransactionException("Wrong Data");
+                    }
                 }
             }
             catch (Exception e)
@@ -95,10 +98,10 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
 
 
-        public bool CheckAccountNumber(long acc)
+        public bool CheckAccountNumber(long accountNumber)
         {
-
-            if(account.Account==acc)
+            AccountDetailBLLFake account = new AccountDetailBLLFake();
+            if(account.Account==accountNumber)
             {
                 return true;
             }
@@ -136,7 +139,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             AccountDetailBLLFake a = new AccountDetailBLLFake();
 
-            if (a.Balance < 0)
+            if (a.Balance < 100000)
             {
 
             }
