@@ -29,26 +29,33 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// Constructor for BLL
         /// </summary>
         public TransactionBusinessLogic()
-        {
-            
-            AccountDetailBLLFake result = account.GetAccountByAccountNumber(t.AccountNumber);
-           if (result != null)
-            {
-                transactionDAL.AddTransaction(t);
-            }
-        }
-
+        {  }
 
 
         /// <summary>
         ///passing the object to the DAL
         /// </summary>
         /// <param name="t1">object</param>
-        public void AddTranscation(Transaction t1)
+        public void AddTranscation(Transaction t)
         {
-            transactionDAL.AddTransaction(t1);
-        }
+            try
+            {
+                AccountDetailBLLFake result = account.GetAccountByAccountNumber(t.AccountNumber);
+                if (result != null)
+                {
+                    transactionDAL.AddTransaction(t);
+                }
+                else
+                {
+                    throw new TransactionException("Wrong Data");
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
 
+        }
 
 
         /// <summary>
@@ -88,6 +95,20 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
 
 
+        public bool CheckAccountNumber(long acc)
+        {
+
+            if(account.Account==acc)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
 
         /// <summary>
         /// Validation For Deposit - entered amount should be greater than 500
@@ -107,41 +128,48 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
         }
 
+        /// <summary>
+        /// Represents the Deposit Process
+        /// </summary>
+        /// <param name="t"></param>
         public void DepositAmount(Transaction t)
         {
-           
-            if ( == null)
+            AccountDetailBLLFake a = new AccountDetailBLLFake();
+
+            if (a.Balance < 0)
             {
 
             }
             else
             {
-                result.balance += amount;
-                SavingData();
+                a.Balance += t.TransactionAmount;
+
             }
 
         }
 
-
         /// <summary>
-        /// Adding the Deposited Amount
-        /// </summary>
-        /// <param name="transactionAccno">Account NUmber</param>
-        /// <param name="trascactioAmount">Amount</param>
-        public void Deposit(Transaction t)
-        {
-            transactionDAL.AddTransaction(t);
-
-        }
-
-
-
-        /// <summary>
-        /// Adding the WithDrawl Amount
+        ///Represents WithDrawl Amount
         /// </summary>
         /// <param name="t2">Transaction Object</param>
         public int WithDrawlAmount(Transaction t)
         {
+
+            AccountDetailBLLFake result = new AccountDetailBLLFake();
+            if (result == null)
+            {
+                return 3;
+            }
+            else
+            {
+                if (result.Balance < t.TransactionAmount)
+                    return 2;
+                else
+                {
+                    result.Balance -= t.TransactionAmount;
+                    return 1;
+                }
+            }
 
         }
 

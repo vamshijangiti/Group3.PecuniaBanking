@@ -21,7 +21,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer.IAccountDetails
         private long accno;
         private double balance;
 
-      //  public double Balance { set; get; } = 20000;
+        public double Balance { set; get; } = 20000;
+        public double Account { set; get; } = 20000;
+
         public List<AccountDetailBLLFake> GetAccounts()
         {
             return new List<AccountDetailBLLFake>()

@@ -64,7 +64,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 else if (f == 3)
                 {
                     uan = long.Parse(suan);
-                    e1.AccountNumber = uan;
+                   // e1.AccountNumber = uan;
                     flag = true;
                     break;
                 }
@@ -230,7 +230,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         {
                             e1.TransactionDate = System.DateTime.Today;//Assigning Today's date
 
-                            b.Deposit(e1);//Validating the Amount
+                            b.DepositAmount(e1);//Validating the Amount
                             b.AddTranscation(e1);//Passing the object
                             Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
 
