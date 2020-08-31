@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
-    public interface IAccountDetailDAL
-    {
+    // public interface IAccountDetailDAL
+    //{
 
-    }
+    //}
 
-    public class AccountDAL : IAccountDetailDAL
+    public class AccountDAL //: IAccountDetailDAL
     {
 
         public long accno;
         public double balance;
-        public string TransactionType;
+        public string transactionType;
 
     }
 
@@ -25,8 +25,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     {
 
 
-        public long GetAccountNumber { set; get; } = 101;
-        public long GetAmount { set; get; } = 20000;
+        //  public long GetAccountNumber { set; get; } = 101;
+        //public long GetAmount { set; get; } = 20000;
         public static List<AccountDAL> _acclist;
 
         //constructor 
@@ -34,8 +34,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             _acclist = new List<AccountDAL>();
 
-            _acclist.Add(new AccountDAL() { accno = 101, balance = 20000, TransactionType = "Savings" });
-            _acclist.Add(new AccountDAL() { accno = 102, balance = 30000, TransactionType = "Current" });
+            _acclist.Add(new AccountDAL() { accno = 101, balance = 20000, transactionType = "Savings" });
+            _acclist.Add(new AccountDAL() { accno = 102, balance = 30000, transactionType = "Current" });
 
         }
 

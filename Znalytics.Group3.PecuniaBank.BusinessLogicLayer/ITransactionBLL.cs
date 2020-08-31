@@ -17,7 +17,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         bool ValidateEnteredAmount(double d2);
         bool GetAccountNumber(long acc);
-        void Deposit(long transactionAccno, double trascactioAmount);
+        void Deposit(Transaction t);
         int WithDrawlAmount(long transactionAccno, double transactionAmount);
         List<Transaction> GetTransactions(long accountNumber);
         bool SavingsTransactionValidation(string tType, double tAmount);

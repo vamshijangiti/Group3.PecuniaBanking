@@ -14,36 +14,23 @@ using Znalytics.Group3.PecuniaBank.Entities.TransactionException;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-
-
-
     /// <summary>
     /// Business Logic Layer For WithDrawl And Debit
     /// </summary>
-    public class TransactionBusinessLogic : ApplicationException, ITransactionBLL
+    public class TransactionBusinessLogic : ApplicationException//, ITransactionBLL
     {
         //creating objects for other classes
-        ITransactionDAL transactionDAL = new TransactionDAL();
-        Transaction transaction = new Transaction();
-        static List<AccountDAL> dALs;
+        ITransactionDAL transactionDAL;
+        IAccountsBusinessLogic accountsBusinessLogic;
 
         /// <summary>
         /// Constructor for BLL
         /// </summary>
         public TransactionBusinessLogic()
         {
-            try
-            {
-                if (dALs == null)
-                    dALs = AccountDetailBLL.GetAccountBLLAccList();
-            }
-            catch (TransactionException e)
-            {
-                Console.WriteLine("The Transactions are Not Added");
-            }
+            transactionDAL = new TransactionDAL();
+            accountsBusinessLogic = new AccountDetailBLLFake();
         }
-
-
 
         /// <summary>
         ///passing the object to the DAL
@@ -51,9 +38,33 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <param name="t1">object</param>
         public void AddTranscation(Transaction t1)
         {
-            transactionDAL.AddTransaction(t1);
-        }
+            try
+            {
+                if (t1 != null)
+                {
+                    //check account exist or not
+                    AccountDetailBLLFake account = accountsBusinessLogic.GetAccountByAccountNumber(t1.AccountNumber);
+                    if (account != null)
+                    {
+                        transactionDAL.AddTransaction(t1);
+                    }
+                }
 
+                else
+                {
+                    throw new TransactionException("Wrong Data ");
+                }
+            }
+            catch (TransactionException ex) when (ex.Message == "No Data Entered")
+            {
+                throw;
+            }
+            catch (TransactionException e)
+            {
+                throw;
+            }
+
+        }
 
 
         /// <summary>
@@ -70,9 +81,10 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             else if (accNumber.Length == 3)
             {
-                if (Regex.IsMatch(accNumber, "^[0-9]*$"))//&& !Regex.IsMatch(accNumber,@"[A-Z][a-z]"))
+                if (Regex.IsMatch(accNumber, "^[0-9]*$"))
 
                 {
+
                     return 3;
 
                 }
@@ -83,12 +95,28 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 }
 
                 else
-
+                {
                     return 2;//more than 3
+                }
             }
             else
             {
                 return 4;//all includes
+            }
+        }
+
+
+        public bool CheckAccountNumber(long accountNumber)
+        {
+            AccountDetailBLLFake account = accountsBusinessLogic.GetAccountByAccountNumber(accountNumber);
+            if (account != null)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -112,15 +140,25 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
         }
 
-
         /// <summary>
         /// Adding the Deposited Amount
         /// </summary>
         /// <param name="transactionAccno">Account NUmber</param>
         /// <param name="trascactioAmount">Amount</param>
-        public void Deposit(long transactionAccno, double trascactioAmount)
+        public void Deposit(Transaction t)
         {
-            transactionDAL.DepositAmount(transactionAccno, trascactioAmount, dALs);
+            //transactionDAL.DepositAmount(transactionAccno, trascactioAmount);
+            AccountDetailBLLFake result = accountsBusinessLogic.GetAccountByAccountNumber(t.AccountNumber);
+            if (result != null)
+            {
+
+            }
+            else
+            {
+                //  transactionDAL.Deposit(t);
+                AccountDetailBLLFake ac = accountsBusinessLogic.GetAccountByAccountNumber(t.AccountNumber);
+                //ac.Balance += t.TransactionAmount;
+            }
         }
 
 
@@ -129,10 +167,31 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// Adding the WithDrawl Amount
         /// </summary>
         /// <param name="t2">Transaction Object</param>
-        public int WithDrawlAmount(long transactionAccno, double transactionAmount)
+        public int WithDrawlAmount(Transaction t)
         {
-            return transactionDAL.WithDrawlAmount(transactionAccno, transactionAmount, dALs);
+
+            AccountDetailBLLFake w = accountsBusinessLogic.GetAccountByAccountNumber(t.AccountNumber);
+            if (w == null)
+            {
+                return 3;//No Data
+            }
+            /*  else
+              {
+                  if (w.Balance < t.TransactionAmount)
+                  {
+                      return 2;//Amount is Exceeded
+                  }
+                  else
+                  {
+                      w.Balance -= t.TransactionAmount;//WithDrawls the Amount
+                      return 1;
+                  }
+            */
+            return 1;
+            //}
         }
+
+
 
 
 
@@ -146,10 +205,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
 
             List<Transaction> tx = null;
-            //   if (ValidateAccountNumber(accountNumber)==3)
-            // {
             tx = transactionDAL.GetTransactionList(accountNumber);
-            //}
             return tx;
         }
 
@@ -161,15 +217,16 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <param name="tamount">Entered Amount</param>
         /// <param name=" tType">Transaction type</param>
         /// <returns>if it exceeds 1 lakh returns false else true</returns>
-        public bool SavingsTransactionValidation(string tType, double tAmount)
+        public bool DepositTransactionValidation(Transaction t)
         {
             //if both Conditions become true then the amount will be deposited
-            if (tType.Equals("Savings") && tAmount <= 100000 && tAmount > 500)
+            if (t.TransactionAmount <= 100000)//&& t.TransactionAmount >= 500)
             {
                 return true;
             }
             else
             {
+
                 return false;
             }
         }
@@ -183,12 +240,12 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <param name="tType">TransactionType</param>
         /// <param name="accoun">AccontNumber</param>
         /// <returns>True if Account Exists</returns>
-        public bool TypeCheck(string tType, long accoun)
-        {
-            bool y = transactionDAL.TypeChecking(tType, accoun, dALs);
-            //if both Conditions become true then the amount will be deposited
-            return y;
-        }
+        /*   public bool TypeCheck(string tType, long accoun)
+            {
+               bool y = transactionDAL.TypeChecking(tType, accoun);
+                //if both Conditions become true then the amount will be deposited
+                return y;
+            }*/
 
 
 
@@ -199,9 +256,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <param name="tType">Type Of Transaction</param>
         /// <param name="tAmount">Transaction Amount</param>
         /// <returns></returns>
-        public bool CurrentTransactionValidation(string tType, double tAmount)
+        public bool WithDrawlTransactionValidation(Transaction t)
         {
-            if (tType.Equals("Current") && tAmount <= 1000000 && tAmount > 500)
+            if (t.TransactionAmount <= 100000)// && t.TransactionAmount >= 500)
             {
                 return true;
             }
@@ -217,28 +274,26 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// </summary>
         /// <param name="acc">Represents the Account Number</param>
         /// <returns></returns>
-        public double GetAmount(long acc)
-        {
-            return transactionDAL.GetAvailableBalance(acc, dALs);
-        }
+        /*  public double GetAmount(long acc)
+          {
+              return transactionDAL.GetAvailableBalance(acc);
+          }
 
 
 
-        /// <summary>
-        /// Represents the Account Number from Accounts class
-        /// </summary>
-        /// <param name="acc">Account Number</param>
-        /// <returns></returns>
-        public bool GetAccountNumber(long acc)
-        {
-            return transactionDAL.GetAccountNumber(acc, dALs);
-        }
-
-
-
-
+          /// <summary>
+          /// Represents the Account Number from Accounts class
+          /// </summary>
+          /// <param name="acc">Account Number</param>
+          /// <returns></returns>
+          public bool GetAccountNumber(long acc)
+          {
+              return transactionDAL.GetAccountNumber(acc);
+          }
+       */
     }
 }
+
 
 
 

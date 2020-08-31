@@ -16,16 +16,15 @@ namespace Znalytics.Group3.PecuniaBank.Entities
     /// </summary>
     public class Transaction
     {
+        //private Fields
         private int _transactionID;
         private DateTime _transactionDate;
         private string _transactionType;
         private double _transactionAmount;
         private long _accountNumber;
 
-        //Transaction transaction = new Transaction();
-
+        //Constructor With No Paramters
         public Transaction() { }
-
 
 
         /// <summary>
@@ -47,7 +46,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
 
         /// <summary>
-        ///Set Method For AccountNumber
+        ///Represents the AccountNumber
         /// </summary>
         public long AccountNumber
         {
@@ -76,7 +75,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
 
         /// <summary>
-        /// Represents the Transaction Amount
+        /// Represents the  Transaction Amount
         /// </summary>
         public double TransactionAmount
         {
@@ -92,7 +91,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         }
 
         /// <summary>
-        /// Represents the Method for Transaction Type
+        /// Represents  for Transaction Type
         /// </summary>
         public string TransactionTpe
         {
@@ -108,7 +107,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         }
 
         /// <summary>
-        /// Represents The Method For Transaction ID
+        /// Represents For Transaction ID
         /// </summary>
         public int TransactionID
         {

@@ -3,6 +3,7 @@
 
 
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -10,6 +11,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
@@ -23,10 +25,12 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     {
         static long uan;
         static bool flag;
+
         public static void start()
         {
             //object Declaration for classes
             TransactionBusinessLogic b = new TransactionBusinessLogic();
+            Transaction e1 = new Transaction();
             //Random Class
             Random random = new Random();
 
@@ -55,13 +59,12 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
                 else if (f == 2)
                 {
-                    //throw new Exception("\n Please Enter valid Account number : ");
-
                     Console.WriteLine("\nThe Account Number Doesnot Contain Alphabates ");
                 }
                 else if (f == 3)
                 {
                     uan = long.Parse(suan);
+                    e1.AccountNumber = uan;
                     flag = true;
                     break;
                 }
@@ -81,7 +84,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 try
                 {
                     //if User entered Account Number is Equals To  Account Number
-                    if (b.GetAccountNumber(uan) == true)
+                    if (b.CheckAccountNumber(uan) == true)
                     {
 
                         System.Console.WriteLine("\n\t\t************* WELCOME TO PECUNIA BANK ***********\t\t \n\n");
@@ -92,9 +95,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             System.Console.WriteLine("\nStart Your Transaction\n");
                             System.Console.WriteLine("\n1 - FOR DEPOSIT");
                             System.Console.WriteLine("\n2 - FOR WITHDRAWL");
-                            System.Console.WriteLine("\n3 - CHECK BALANCE");
-                            System.Console.WriteLine("\n4 - Transactions");
-                            System.Console.WriteLine("\n5- EXIT");
+                            System.Console.WriteLine("\n3 - Transactions");
+                            System.Console.WriteLine("\n4 - EXIT");
                             Console.Write("\nEnter Your choice : ");
 
                             string n = System.Console.ReadLine();
@@ -109,28 +111,27 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                     DisplayDeposit();
                                     break;
                                 case "2":
-
                                     DisplayWithDrawl();
                                     break;
                                 case "3":
-                                    checkBalance();
+                                    GetLastTransactions();
                                     break;
                                 case "4":
-                                    GetLastTransactions();
                                     break;
                                 default:
                                     Console.WriteLine("\nOoops......You have Choosen Wrong Option\n");
                                     break;
 
                             }
-                            Console.Write("\n Do you want to Use it Again press Y else N : ");
+                            Console.Write("\n Do you want to Use it Again press Y : ");
                             ch = Console.ReadLine();
 
                         } while (ch == "Y" || ch == "y");
                     }
                     else
                     {
-                        throw new Exception("\nAccount does not exist\nPlease enter a valid Account Number");
+                        //Custom Exception
+                        throw new TransactionException("\n\nAccount does not exist");
 
                     }
                 }
@@ -146,254 +147,247 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
 
-
-            void GetLastTransactions()//Getting the Last 10 Transactions
+            //Getting the Last 10 Transactions
+            void GetLastTransactions()
             {
                 //creating list 
                 List<Transaction> tc = b.GetTransactions(uan);
 
                 if (tc != null && tc.Count > 0)
                 {
-                    Console.WriteLine(" 1.Savings\n 2.Current\n");
-                    string m = Console.ReadLine();
-                    switch (m)
+                    //Console.WriteLine(" 1.Savings\n 2.Current\n");
+                    //string m = Console.ReadLine();
+                    //switch (m)
+                    //{
+                    //  case "1":
+                    // if (b.TypeCheck("Savings", uan))
+                    //{
+                    foreach (var item in tc)
+
+                        Console.WriteLine("\tTransactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
+                    /*}
+                    else
                     {
-                        case "1":
-                            if (b.TypeCheck("Savings", uan))
-                            {
-                                foreach (var item in tc)
+                        Console.WriteLine("You Dont Have Current Account ");
+                    }*/
+                    //    break;
+                    /* case "2":
+                         if (b.TypeCheck("Current", uan))
+                         {
+                             foreach (var item in tc)
 
-                                    Console.WriteLine("\tTransactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
-                            }
-                            else
-                            {
-                                Console.WriteLine("You Dont Have Current Account ");
-                            }
-                            break;
-                        case "2":
-                            if (b.TypeCheck("Current", uan))
-                            {
-                                foreach (var item in tc)
+                                 Console.WriteLine("\tTransactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
 
-                                    Console.WriteLine("\tTransactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
+                         }
+                         else
+                         {
+                             Console.WriteLine("You Dont Have Savings Account ");
+                         }
+                         break;*/
+                    /* default:
+                         Console.WriteLine("Ooops......You Choosen Wrong Option\n");
+                         break;*/
 
-                            }
-                            else
-                            {
-                                Console.WriteLine("You Dont Have Savings Account ");
-                            }
-                            break;
-                        default:
-                            Console.WriteLine("Ooops......You Choosen Wrong Option\n");
-                            break;
-
-                    }
                 }
+
                 else
                 {
                     Console.WriteLine("\nNo Transactions are done Recently ");
                 }
             }
 
+            //Cheking the Balance
+            /*  void checkBalance()
+              {
+                  Console.WriteLine(" Avaiable Balance : " + b.GetAmount(uan));//Getting the Balance By AccountNumber
+              }*/
 
-            void checkBalance()//Cheking the Balance
-            {
-                Console.WriteLine(" Avaiable Balance : " + b.GetAmount(uan));//Getting the Balance By AccountNumber
-            }
 
-
-
-            static void DisplayDeposit() //For Displaying the Deposited Amount
+            //For Displaying the Deposited Amount
+            static void DisplayDeposit()
             {
                 Transaction e1 = new Transaction();
-
                 e1.AccountNumber = uan;
-                Console.WriteLine("\nSelect type of Account \n 1.Savings \n 2.Current\n");
-                string n = Console.ReadLine();
+                // Console.WriteLine("\nSelect type of Account \n 1.Savings \n 2.Current\n");
+                // string n = Console.ReadLine();
                 TransactionBusinessLogic b = new TransactionBusinessLogic();
 
                 try
                 {
 
-                    switch (n)
+                    //switch (n)
+                    //{
+                    //  case "1":
+                    //if (b.TypeCheck("Savings", uan))
+                    //{
+                    e1.TransactionTpe = "Deposit";
+                    Console.WriteLine("\nEnter amount to Deposit ");
+                    e1.TransactionAmount = double.Parse(Console.ReadLine());
+                    if (b.DepositTransactionValidation(e1) == true)//Validating the Type of Account
                     {
-                        case "1":
-                            if (b.TypeCheck("Savings", uan))
-                            {
-                                e1.TransactionTpe = "Savings";
-                                Console.WriteLine("\nEnter amount to Deposit ");
-                                e1.TransactionAmount = double.Parse(Console.ReadLine());
-                                if (b.SavingsTransactionValidation(e1.TransactionTpe, e1.TransactionAmount) == true)//Validating the Type of Account
-                                {
-                                    e1.TransactionDate = System.DateTime.Today;//Assigning Today's date
 
-                                    b.AddTranscation(e1);//Passing the object
-                                    b.Deposit(e1.AccountNumber, e1.TransactionAmount);//Validating the Amount
-                                    if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validating the Entered Amount
-                                    {
-                                        Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
+                        if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validating the Entered Amount
+                        {
+                            e1.TransactionDate = System.DateTime.Today;//Assigning Today's date
 
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("\nAmount should be Greater than 500 \n");//Entered Amount should be greater than 500
-                                    }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("For Savings the Deposit Amount should not Exceed 1 Lakh ");//Entered Amount should be less than 1 Lakh
+                            b.Deposit(e1);//Validating the Amount
+                            b.AddTranscation(e1);//Passing the object
+                            Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
 
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("\nYou Don't have Savings Account ");//Executes When you don't have Savings Account
-
-                            }
-
-
-                            break;
-
-                        case "2":
-                            if (b.TypeCheck("Current", uan))//Checking the Type of Account Savings/Current
-                            {
-                                e1.TransactionTpe = "Current";
-                                Console.WriteLine("\nEnter amount to Deposit ");
-                                e1.TransactionDate = System.DateTime.Today;//Reading the data From Keyboard
-                                e1.TransactionAmount = double.Parse(Console.ReadLine());
-                                b.AddTranscation(e1);//Adding the Transaction
-                                b.Deposit(e1.AccountNumber, e1.TransactionAmount);//Calling the Deposit Method
-                                if (b.CurrentTransactionValidation(e1.TransactionTpe, e1.TransactionAmount) == true)//Validating the Current Account Amount
-                                {
-                                    if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Calling the Method 
-                                    {
-                                        Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
-
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("\nAmount should be Greater than 500 \n");
-                                    }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("For Current Account the Deposit Amount Can be 5 lakh but not exceeded");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("You Dont have Current Account");
-                            }
-                            break;
-                        default:
-                            Console.WriteLine("Ooops......You have Choosen Wrong Option\n");
-
-                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nAmount should be Greater than 500 \n");//Entered Amount should be greater than 500
+                        }
                     }
+                    else
+                    {
+                        Console.WriteLine("For Deposit Amount should not Exceed 1 Lakh ");//Entered Amount should be less than 1 Lakh
+
+                    }
+                    //}
+                    //   else
+                    // {
+                    //   Console.WriteLine("\nYou Don't have Savings Account ");//Executes When you don't have Savings Account
+
+                    //}
+
+
+                    // break;
+
+                    /*  case "2":
+                          //  if (b.TypeCheck("Current", uan))//Checking the Type of Account Savings/Current
+                          //{
+                          e1.TransactionTpe = "Current";
+                          Console.WriteLine("\nEnter amount to Deposit ");
+                          e1.TransactionDate = System.DateTime.Today;//Reading the data From Keyboard
+                          e1.TransactionAmount = double.Parse(Console.ReadLine());
+                          b.AddTranscation(e1);//Adding the Transaction
+                          b.Deposit(e1);//Calling the Deposit Method
+                          if (b.WithDrawlTransactionValidation(e1) == true)//Validating the Current Account Amount
+                          {
+                              if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Calling the Method 
+                              {
+                                  Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
+
+                              }
+                              else
+                              {
+                                  Console.WriteLine("\nAmount should be Greater than 500 \n");
+                              }
+                          }
+                          else
+                          {
+                              Console.WriteLine("For Current Account the Deposit Amount Can be 5 lakh but not exceeded");
+                          }
+                          //}
+                          //else
+                          //{
+                          //  Console.WriteLine("You Dont have Current Account");
+                          //}
+                          break;*/
+                    //default:
+                    //  Console.WriteLine("Ooops......You have Choosen Wrong Option\n");
+
+                    //break;
+                    //}
 
 
                 }
-                catch (TransactionException e)
+                catch (FormatException ex)
                 {
-                    Console.WriteLine("Please Enter Correct Data to Deposit");
-
+                    Console.WriteLine("Please Enter in Digits");
                 }
-
-
-
             }
 
-
-            static void DisplayWithDrawl() //For Displaying the WithDrawled Amount
+            //For Displaying the WithDrawled Amount
+            static void DisplayWithDrawl()
             {
 
                 //creating the object
                 Transaction e1 = new Transaction();
                 TransactionBusinessLogic b = new TransactionBusinessLogic();
-                Console.WriteLine("\nSelect the type of Account");
-                Console.WriteLine("\nSelect type of Account \n 1.Savings \n 2.Current\n");
-                String n = Console.ReadLine();
+                //   Console.WriteLine("\nSelect the type of Account");
+                // Console.WriteLine("\nSelect type of Account \n 1.Savings \n 2.Current\n");
+                //  String n = Console.ReadLine();
 
                 try
                 {
 
-                    switch (n)
+                    // switch (n)
+                    //{
+                    //  case "1":
+                    e1.TransactionTpe = "WithDrawl";//This case Is for SavingsAccount Transaction
+                    Console.WriteLine("\nEnter amount to WithDrawl");
+                    e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
+                    e1.TransactionDate = System.DateTime.Today;
+                    e1.AccountNumber = uan;//Assigning the Date 
+                    b.AddTranscation(e1);// Calling the Method
+                    if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
                     {
-                        case "1":
-                            e1.TransactionTpe = "Savings";//This case Is for SavingsAccount Transaction
-                            Console.WriteLine("\nEnter amount to WithDrawl");
-                            e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
-                            e1.TransactionDate = System.DateTime.Today;
-                            e1.AccountNumber = uan;//Assigning the Date 
-                            b.AddTranscation(e1);// Calling the Method
-                            if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
-                            {
-                                int f = b.WithDrawlAmount(e1.AccountNumber, e1.TransactionAmount);//calling the Method 
-                                if (f == 1)//Returns when condition is successful
-                                {
-                                    Console.WriteLine("\nThe WithDrawled Amount is : " + e1.TransactionAmount);
-                                }
-                                else if (f == 2)//If Entered amount is More Than Available balance 
-                                {
-                                    Console.WriteLine("\nAmount is Exceeded");
+                        int f = b.WithDrawlAmount(e1);//calling the Method 
+                        if (f == 1)//Returns when condition is successful
+                        {
+                            Console.WriteLine("\nThe WithDrawled Amount is : " + e1.TransactionAmount);
+                        }
+                        else if (f == 2)//If Entered amount is More Than Available balance 
+                        {
+                            Console.WriteLine("\nAmount is Exceeded");
 
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Account Not Exists");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("The Withdrawl Amount Should Be Greater Than 500");
-                            }
-                            break;
-
-                        case "2":
-                            e1.TransactionTpe = "Current";//This case Is for CurrentAccount Transaction
-                            Console.WriteLine("\nEnter amount to WithDrawl");
-                            e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
-                            e1.TransactionDate = System.DateTime.Today;//Assigning the Date 
-                            e1.AccountNumber = uan;//Assigning the User Entered number to Entity Account Number
-                            b.AddTranscation(e1);//Calling the Method 
-                            if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
-                            {
-
-                                int f = b.WithDrawlAmount(e1.AccountNumber, e1.TransactionAmount);//calling the Method 
-
-                                if (f == 1)//Returns when condition is successful
-                                {
-                                    Console.WriteLine("\nThe WithDrawled Amount is : " + e1.TransactionAmount);
-                                }
-                                else if (f == 2)//If Entered amount is More Than Available balance 
-                                {
-                                    Console.WriteLine("\nAmount is Exceeded");
-
-                                }
-                                else
-                                {
-                                    Console.WriteLine("\nAccount Not Exists");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("\nThe Withdrawl Amount Should Be Greater Than 500\n");//Executes When The Entered Amount is Less Than 500
-                            }
-                            break;
-                        default:
-                            Console.WriteLine("\nOoops......You Choosen Wrong Option\n");//When you Choose Different Option Default will be Printed
-                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Account Not Exists");
+                        }
                     }
+                    else
+                    {
+                        Console.WriteLine("The Withdrawl Amount Should Be Greater Than 500");
+                    }
+                    // break;
+
+                    /*  case "2":
+                          e1.TransactionTpe = "Current";//This case Is for CurrentAccount Transaction
+                          Console.WriteLine("\nEnter amount to WithDrawl");
+                          e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
+                          e1.TransactionDate = System.DateTime.Today;//Assigning the Date 
+                          e1.AccountNumber = uan;//Assigning the User Entered number to Entity Account Number
+                          b.AddTranscation(e1);//Calling the Method 
+                          if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
+                          {
+
+                              int f = b.WithDrawlAmount(e1);//calling the Method 
+
+                              if (f == 1)//Returns when condition is successful
+                              {
+                                  Console.WriteLine("\nThe WithDrawled Amount is : " + e1.TransactionAmount);
+                              }
+                              else if (f == 2)//If Entered amount is More Than Available balance 
+                              {
+                                  Console.WriteLine("\nAmount is Exceeded");
+
+                              }
+                              else
+                              {
+                                  Console.WriteLine("\nAccount Not Exists");
+                              }
+                          }
+                          else
+                          {
+                              Console.WriteLine("\nThe Withdrawl Amount Should Be Greater Than 500\n");//Executes When The Entered Amount is Less Than 500
+                          }
+                          break;
+                      default:
+                          Console.WriteLine("\nOoops......You Choosen Wrong Option\n");//When you Choose Different Option Default will be Printed
+                          break;
+                  }*/
                 }
                 //Catches the Exception 
-                catch (TransactionException e)
+                catch (FormatException e)
                 {
                     Console.WriteLine("\n Please Enter Correct Data to Withdrawl\n");
 
                 }
-
-
-
             }
         }
     }
