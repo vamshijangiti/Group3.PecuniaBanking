@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;
+using Znalytics.Group3.PecuniaBanking.BusinessLayer;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
@@ -17,6 +19,14 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         VehicleLoanDataAccessLayer vehicleLoanData = new VehicleLoanDataAccessLayer();
         VehicleLoanEntity vehicleLoan = new VehicleLoanEntity();
+        ICustomerBusinessLogicLayer i = new CustomerBusinessLogicLayer();
+
+        public Customer GetCustomersByCustomerId(int c)
+        {
+            return i.GetCustomersByCustomerId(c);
+
+        }
+
 
         public void AddVehicleLoan(VehicleLoanEntity vl)
         {
