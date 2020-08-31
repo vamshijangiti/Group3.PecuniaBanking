@@ -23,7 +23,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             int choice = 0;
             do
             {
-                Console.WriteLine("Customer Personal Details");
+                Console.WriteLine("WELCOME TO PECUNIA BANK");
                 Console.WriteLine("1. Add Customer");
                 Console.WriteLine("2. Get Customers");
                 Console.WriteLine("3. Update Customer");
