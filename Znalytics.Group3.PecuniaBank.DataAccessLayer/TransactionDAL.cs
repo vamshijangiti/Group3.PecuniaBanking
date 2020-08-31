@@ -22,7 +22,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class TransactionDAL : ITransactionDAL
     {
 
-        static List<Transaction> _transactionList = new List<Transaction>();//list For Transaction Entity
+        static List<Transaction> _transactionsList = new List<Transaction>();//list For Transaction Entity
 
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
            t.TransactionID = max;
            */
             int max = 0;
-            foreach (var item in _transactionList)
+            foreach (var item in _transactionsList)
             {
                 if (item.TransactionID > max)
                 {
@@ -43,7 +43,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
                 }
             }
             t.TransactionID = ++max;
-            _transactionList.Add(t);
+            _transactionsList.Add(t);
             SavingData();
 
         }
@@ -65,7 +65,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             }
             else
             {
-                result.balance += amount;
+                result.balance += amount;//Updating the Amount
                 SavingData();
             }
 
@@ -80,19 +80,19 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public int WithDrawlAmount(long accNO, double amount, List<AccountDAL> dALs)
         {
 
-            AccountDAL result = dALs.Find(temp => temp.accno == accNO);
-            if (result == null)
+            AccountDAL result = dALs.Find(temp => temp.accno == accNO);//It Finds in the list and  returns the amount
+            if (result == null)//No AccountNumber Exists
             {
                 return 3;
             }
             else
             {
-                if (result.balance < amount)
+                if (result.balance < amount)//Insufficient Balance
                     return 2;
                 else
                 {
-                    result.balance -= amount;
-                    SavingData();
+                    result.balance -= amount;//Updating the Amount
+                    SavingData();//calling the Method
                     return 1;
                 }
             }
@@ -107,7 +107,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public List<Transaction> GetTransactionList(long Accoun)
         {
 
-            List<Transaction> list1 = _transactionList.FindAll(temp => temp.AccountNumber == Accoun);
+            List<Transaction> list1 = _transactionsList.FindAll(temp => temp.AccountNumber == Accoun);//It Finds all the list and Returns List
             GettingFile();
             return list1;
 
@@ -125,10 +125,10 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <returns></returns>
         public bool TypeChecking(string tType, long accoun, List<AccountDAL> dALs)
         {
-            AccountDAL result = dALs.Find(temp => temp.accno == accoun);
+            AccountDAL result = dALs.Find(temp => temp.accno == accoun);//It Finds and Returns true if there else False
             if (result.TransactionType.Equals(tType))
             {
-                GettingFile();
+                GettingFile();//Calling the Method
                 return true;
             }
             else
@@ -147,7 +147,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public double GetAvailableBalance(long accoun, List<AccountDAL> dALs)
         {
             AccountDAL result = dALs.SingleOrDefault(temp => temp.accno == accoun);//used to returns the Single element
-            GettingFile();
+            GettingFile();//Calling the Method
             return result.balance;
         }
 
@@ -168,30 +168,37 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             }
             else
             {
-                GettingFile();
+                GettingFile();//calling the Method
                 return true;
 
             }
         }
 
 
-
+        /// <summary>
+        /// Writing the Data into File
+        /// </summary>
         public void SavingData()
         {
 
-            string s = JsonConvert.SerializeObject(_transactionList);
-            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\Desktop\Transactions.txt");
-            streamWriter.Write(s);
-            streamWriter.Close();
+            string s = JsonConvert.SerializeObject(_transactionsList);//Converting to Json file
+            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\Desktop\Transactions.txt");//Writes the Data in to File
+            streamWriter.Write(s);//Writes the Data 
+            streamWriter.Close();//Closing the File
         }
 
+
+        /// <summary>
+        /// Reading the Data
+        /// </summary>
+        /// <returns>List of Transactions</returns>
         public static List<Transaction> GettingFile()
         {
-            StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\Desktop\Transactions.txt");
-            string st = streamReader.ReadToEnd();
-            List<Transaction> _transactions = JsonConvert.DeserializeObject<List<Transaction>>(st);
-            streamReader.Close();
-            return _transactions;
+            StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\Desktop\Transactions.txt");//Reading the Data From File
+            string st = streamReader.ReadToEnd();//Reads the Data Upto End
+            List<Transaction> _transactions = JsonConvert.DeserializeObject<List<Transaction>>(st);//Converting from Json File 
+            streamReader.Close();//Closing the File
+            return _transactions;//Returning the Transactions
 
         }
 
