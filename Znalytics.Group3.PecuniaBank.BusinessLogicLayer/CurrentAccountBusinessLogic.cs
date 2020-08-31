@@ -13,19 +13,19 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public class CurrentAccountBusinessLogic  :ICurrentAccountBusinessLogic
     {
-        CurrentAccountDataAccessLayer currentAccountDataAccessLayer;
+        CurrentAccountDataAccessLayer currentAccountDataAccessLayer=new CurrentAccountDataAccessLayer();
 
         /// <summary>
         /// Adds Current Account
         /// </summary>
         /// <param name="a"></param>
-        public void AddCurrentAccount(CurrentAccount a)
+        public void AddCurrentAccount(CurrentAccount currentAccount)
         {
             try
             {
-                if (a.accId != 0)
+                if (currentAccount.AccountId != 0)
                 {
-                    currentAccountDataAccessLayer.AddCurrentAccount(a);
+                    currentAccountDataAccessLayer.AddCurrentAccount(currentAccount);
                 }
             }
 
@@ -36,13 +36,13 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
         }
 
-        public void DeleteCurrentAccount(CurrentAccount c)
+        public void DeleteCurrentAccount(CurrentAccount currentAccount,int AccountId)
         {
             try
             {
-                if (c.accId != 0)
+                if (currentAccount.AccountId != 0)
                 {
-                    /* currentAccountDataAccessLayer.DeleteCurrentAccount(c);*/
+                     currentAccountDataAccessLayer.DeleteCurrentAccount(currentAccount);
                 }
             }
             catch (Exception e)
@@ -52,9 +52,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         }
 
-        public List<CurrentAccount> GetCurrentAccount()
+        public List<CurrentAccount> GetCurrentAccounts()
         {
-            return GetCurrentAccount();//retrieves all currentAccount 
+            return GetCurrentAccounts();//retrieves all currentAccount 
         }
 
     }

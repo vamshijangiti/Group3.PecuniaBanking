@@ -39,7 +39,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             catch (TransactionException e)
             {
-                Console.WriteLine("The Transactions are Not Added");
+                Console.WriteLine("The Transactions are Not Added",e);
             }
         }
 

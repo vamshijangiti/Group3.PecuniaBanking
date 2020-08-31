@@ -36,7 +36,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         /// <summary>
         /// <param name=AccountId></param>
         /// <param name=dateOfCreation>Date of creation</param>
-        /// <param name=Balance>balance</param>
+        /// <param name=balance>balance</param>
         /// </summary>
         private int _accountId;
         private string _dateOfCreation;
@@ -105,10 +105,15 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
 
     public class CurrentAccount //: IAccount
     {
-
+        ///<summary>
+        ///<param name="AccountId">CrrentAccountId</param>
+        ///<param name="balance">Balance</param>
+        ///<param name="dateOfCreation">Date of creation</param>
+        ///</summary>
+        
         private int _accountId;
         private long _balance;
-        private string _dateOfCreation;
+        private DateTime _dateOfCreation;
 
 
         public int AccountId
@@ -123,12 +128,45 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
 
                 else
                 {
-                    throw new ApplicationException("AccountId shouldnot be zero");//raises Application Exception
+                    throw new AccountException("AccountId shouldnot be zero");//raises Application Exception
                 }
             }
             get
             {
                 return _accountId;
+            }
+        }
+        public DateTime DateOfCreation
+        {
+            set
+            {
+                if (_dateOfCreation!=null)
+                {
+
+                    _dateOfCreation =value;
+                }
+            }
+            get
+            {
+                return _dateOfCreation;
+            }
+        }
+        public long Balance
+        {
+            set
+            {
+                if (_balance>=2000)
+                {
+                    _balance = value;
+                }
+                else
+                {
+                    throw new AccountException("balance should be greater than 2000");
+                }
+            }
+            get
+            {
+                return _balance;
             }
         }
     }

@@ -9,9 +9,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     interface  ISavingsAccountBusinessLogic
     {
-        void AddSavingsAccount(SavingsAccount s);
-        void DeleteSavingsAccount(SavingsAccount s);
-        public List<SavingsAccount>GetSavingsAccounts();
+        void AddSavingsAccount(SavingsAccount savingsAccount);
+        void DeleteSavingsAccount(SavingsAccount savingsAccount);
 
+        List<SavingsAccount> GetSavingsAccounts();
     }
 }
