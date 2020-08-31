@@ -63,8 +63,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
                 else if (f == 3)
                 {
-                    uan = long.Parse(suan);
-                    e1.AccountNumber = uan;
+
+                    TransactionMenu.uan = long.Parse(suan);
+                    // e1.AccountNumber = uan;
+
+                   TransactionMenu.uan = long.Parse(suan);
+                   // e1.AccountNumber = uan;
+
                     flag = true;
                     break;
                 }
@@ -123,7 +128,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                     break;
 
                             }
-                            Console.Write("\n Do you want to Use it Again press Y : ");
+                            Console.Write("\n Do you want do Transactions Again press Y : ");
                             ch = Console.ReadLine();
 
                         } while (ch == "Y" || ch == "y");
@@ -230,7 +235,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         {
                             e1.TransactionDate = System.DateTime.Today;//Assigning Today's date
 
-                            b.Deposit(e1);//Validating the Amount
+                            b.DepositAmount(e1);//Validating the Amount
                             b.AddTranscation(e1);//Passing the object
                             Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
 
@@ -245,53 +250,6 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         Console.WriteLine("For Deposit Amount should not Exceed 1 Lakh ");//Entered Amount should be less than 1 Lakh
 
                     }
-                    //}
-                    //   else
-                    // {
-                    //   Console.WriteLine("\nYou Don't have Savings Account ");//Executes When you don't have Savings Account
-
-                    //}
-
-
-                    // break;
-
-                    /*  case "2":
-                          //  if (b.TypeCheck("Current", uan))//Checking the Type of Account Savings/Current
-                          //{
-                          e1.TransactionTpe = "Current";
-                          Console.WriteLine("\nEnter amount to Deposit ");
-                          e1.TransactionDate = System.DateTime.Today;//Reading the data From Keyboard
-                          e1.TransactionAmount = double.Parse(Console.ReadLine());
-                          b.AddTranscation(e1);//Adding the Transaction
-                          b.Deposit(e1);//Calling the Deposit Method
-                          if (b.WithDrawlTransactionValidation(e1) == true)//Validating the Current Account Amount
-                          {
-                              if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Calling the Method 
-                              {
-                                  Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
-
-                              }
-                              else
-                              {
-                                  Console.WriteLine("\nAmount should be Greater than 500 \n");
-                              }
-                          }
-                          else
-                          {
-                              Console.WriteLine("For Current Account the Deposit Amount Can be 5 lakh but not exceeded");
-                          }
-                          //}
-                          //else
-                          //{
-                          //  Console.WriteLine("You Dont have Current Account");
-                          //}
-                          break;*/
-                    //default:
-                    //  Console.WriteLine("Ooops......You have Choosen Wrong Option\n");
-
-                    //break;
-                    //}
-
 
                 }
                 catch (FormatException ex)
@@ -307,27 +265,21 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 //creating the object
                 Transaction e1 = new Transaction();
                 TransactionBusinessLogic b = new TransactionBusinessLogic();
-                //   Console.WriteLine("\nSelect the type of Account");
-                // Console.WriteLine("\nSelect type of Account \n 1.Savings \n 2.Current\n");
-                //  String n = Console.ReadLine();
-
                 try
                 {
 
-                    // switch (n)
-                    //{
-                    //  case "1":
                     e1.TransactionTpe = "WithDrawl";//This case Is for SavingsAccount Transaction
                     Console.WriteLine("\nEnter amount to WithDrawl");
                     e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
                     e1.TransactionDate = System.DateTime.Today;
                     e1.AccountNumber = uan;//Assigning the Date 
-                    b.AddTranscation(e1);// Calling the Method
+                   
                     if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
                     {
                         int f = b.WithDrawlAmount(e1);//calling the Method 
                         if (f == 1)//Returns when condition is successful
                         {
+                            b.AddTranscation(e1);// Calling the Method
                             Console.WriteLine("\nThe WithDrawled Amount is : " + e1.TransactionAmount);
                         }
                         else if (f == 2)//If Entered amount is More Than Available balance 
@@ -344,43 +296,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     {
                         Console.WriteLine("The Withdrawl Amount Should Be Greater Than 500");
                     }
-                    // break;
 
-                    /*  case "2":
-                          e1.TransactionTpe = "Current";//This case Is for CurrentAccount Transaction
-                          Console.WriteLine("\nEnter amount to WithDrawl");
-                          e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
-                          e1.TransactionDate = System.DateTime.Today;//Assigning the Date 
-                          e1.AccountNumber = uan;//Assigning the User Entered number to Entity Account Number
-                          b.AddTranscation(e1);//Calling the Method 
-                          if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
-                          {
-
-                              int f = b.WithDrawlAmount(e1);//calling the Method 
-
-                              if (f == 1)//Returns when condition is successful
-                              {
-                                  Console.WriteLine("\nThe WithDrawled Amount is : " + e1.TransactionAmount);
-                              }
-                              else if (f == 2)//If Entered amount is More Than Available balance 
-                              {
-                                  Console.WriteLine("\nAmount is Exceeded");
-
-                              }
-                              else
-                              {
-                                  Console.WriteLine("\nAccount Not Exists");
-                              }
-                          }
-                          else
-                          {
-                              Console.WriteLine("\nThe Withdrawl Amount Should Be Greater Than 500\n");//Executes When The Entered Amount is Less Than 500
-                          }
-                          break;
-                      default:
-                          Console.WriteLine("\nOoops......You Choosen Wrong Option\n");//When you Choose Different Option Default will be Printed
-                          break;
-                  }*/
                 }
                 //Catches the Exception 
                 catch (FormatException e)

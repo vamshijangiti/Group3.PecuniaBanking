@@ -74,14 +74,6 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             return list1;
         }
 
-
-
-        public void Deposit(Transaction t)
-        {
-            t.TransactionAmount += t.TransactionAmount;
-        }
-
-
         /// <summary>
         /// Writing the Data into File
         /// </summary>

@@ -14,15 +14,13 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         void AddTranscation(Transaction t1);
         int ValidateAccountNumber(string accNumber);
-
         bool ValidateEnteredAmount(double d2);
-        bool GetAccountNumber(long acc);
         void Deposit(Transaction t);
-        int WithDrawlAmount(long transactionAccno, double transactionAmount);
+        int WithDrawlAmount(Transaction t);
         List<Transaction> GetTransactions(long accountNumber);
-        bool SavingsTransactionValidation(string tType, double tAmount);
-        bool CurrentTransactionValidation(string tType, double tAmount);
-        double GetAmount(long acc);
+        bool SavingsTransactionValidation(Transaction t);
+        bool CurrentTransactionValidation(Transaction t);
+
 
     }
 }
