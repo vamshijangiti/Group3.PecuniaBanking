@@ -12,8 +12,12 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
 {
     /// <summary>
     /// Entity Layer for BankLayer
-    /// </summary>
-    interface IAccount
+    /// </summary
+    ///<summary>
+    ///interface named as IAccount
+    ///</summary>
+    interface IAccount   //Interface is a pure Abstract class which acts as a contract between two developers
+                            //i.e; here IAccount means SavingsAccount and CurrentAccount
     {
         //fields
         int AccountId
@@ -53,13 +57,13 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                 }
                 else
                 {
-                    throw new ApplicationException("account id should not be zero or null ");//raises exception if accountid is nill or zero
+                    throw new AccountException("account id should not be zero or null ");//raises exception if accountid is nill or zero
                 }
 
             }
             get
             {
-                return _accountId;
+                return _accountId;//returns AccountId
             }
         }
 
@@ -84,7 +88,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         {
             set
             {
-                if (_balance >= 2500)//balance shouldnot be equal to zero
+                if (_balance >= 500)//balance shouldnot be equal to zero
                 {
                     _balance = value;//balance 
                 }
@@ -140,7 +144,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         {
             set
             {
-                if (_dateOfCreation!=null)
+                if (_dateOfCreation!=null)//date of creation should be in dd-mm-yyy format
                 {
 
                     _dateOfCreation =value;
@@ -148,25 +152,25 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             }
             get
             {
-                return _dateOfCreation;
+                return _dateOfCreation;//returns dateOfCreation
             }
         }
         public long Balance
         {
             set
             {
-                if (_balance>=2000)
+                if (_balance>=500)
                 {
                     _balance = value;
                 }
                 else
                 {
-                    throw new AccountException("balance should be greater than 2000");
+                    throw new AccountException("balance should be greater than 500");//raises Exception if balance lessthan 500
                 }
             }
             get
             {
-                return _balance;
+                return _balance;// returns Balance
             }
         }
     }

@@ -31,7 +31,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         /// </summary>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        public HousingLoanException(string message,Exception innerException):base(message,innerException)
+        public HousingLoanException(string message,Exception innerException):base(message,innerException)//inner exception from base class constructor
         {
 
         }

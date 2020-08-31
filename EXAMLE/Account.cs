@@ -19,8 +19,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     /// </summary>
     public class program
     {
-       
-       
+        public void Start() {
+            AccountsPresentationLayer();
+            System.Console.ReadKey();
+            }
+       /// <summary>
+       /// Do While loop starts where user selects choice
+       /// </summary>
         static void AccountsPresentationLayer()
         {
             int choice = 0;
@@ -57,10 +62,12 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 _savingsaccount.AccountId = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
                 _savingsaccount.Balance = long.Parse(System.Console.ReadLine());
-           /* SavingsAccountBusinessLogic.Add(_savingsaccount);*/
+            SavingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
                 System.Console.WriteLine("savings Account Added");
             }
- 
+ /// <summary>
+ /// Cuurent account starts
+ /// </summary>
   static void AddCurrentAccount()
         {
             try
@@ -76,14 +83,18 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             {
                 if (ex.InnerException!= null)
                 {
-                    System.Console.WriteLine(ex.InnerException.Message);
+                    System.Console.WriteLine(ex.InnerException.Message);//Inner exception is raised
                 }
             }
         }
     }
 
-   public  class SavingsAccountBusinessLogic
+    public class SavingsAccountBusinessLogic
     {
+        internal static void AddSavingsAccount(SavingsAccount savingsaccount)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
      
