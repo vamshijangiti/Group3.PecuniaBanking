@@ -38,7 +38,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
             catch (Exception e)
             {
-                throw new HousingLoanException("CustomerId cant be zero");//exception raised where customerid cant be zero
+                throw new HousingLoanException("CustomerId cant be zero",e);//exception raised where customerid cant be zero
             }
             }
                    /* public float CalculateEmi(float loanamount,float Tenure)

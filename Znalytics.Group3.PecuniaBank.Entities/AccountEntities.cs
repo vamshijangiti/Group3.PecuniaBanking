@@ -98,51 +98,49 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                 return _balance;//returns balance
             }
         }
+    }
+}
 
 
 
-        public class CurrentAccount : IAccount
+     /*   public class CurrentAccount : IAccount
         {
 
             private int accId;
             private long _balance;
             private string _dateOfCreation;
-
-            public CurrentAccount()
-            {
-            }
-
-           /* public CurrentAccount(int accId, long balance, string dateOfCreation)
-            {
-                accId = accId;
-                _balance = balance;
-                _dateOfCreation = dateOfCreation;
-            }*/
-
-            public int AccountId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string DateOfCreation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public long Balance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        }
-        public int AccId
-        {
-            set
-            {
-                if (_accountId != 0)
-                {
-
-                    _accountId = value;
-                }
-
-                else
-                {
-                    throw new ApplicationException("AccountId shouldnot be zero");//raises Application Exception
-                }
-            }
-            get
-            {
-                return _accountId;
-            }
         }
 
+            /* public CurrentAccount(int accId, long balance, string dateOfCreation)
+             {
+                 accId = accId;
+                 _balance = balance;
+                 _dateOfCreation = dateOfCreation;
+             }*/
+
+
+           /* public int AccId
+            {
+                set
+                {
+                    if (_accountId != 0)
+                    {
+
+                        _accountId = value;
+                    }
+
+                    else
+                    {
+                        throw new ApplicationException("AccountId shouldnot be zero");//raises Application Exception
+                    }
+                }
+                get
+                {
+                    return _accountId;
+                }
+            }
+
+        }
     }
 }
+   */
