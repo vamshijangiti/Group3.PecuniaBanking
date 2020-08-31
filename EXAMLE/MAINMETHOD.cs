@@ -11,26 +11,56 @@ public class MainMethod
 {
     static void Main()
     {
-        //Creating object to CustomerPresentationLayer
-        CustomerPresentationLayer p = new CustomerPresentationLayer();
-        p.start();
 
-        //Creating object to CreditcardPresentationLayer
-        CreditcardPresentationLayer cr = new CreditcardPresentationLayer();
-        cr.start();
+        System.Console.WriteLine("\n\t\t************* WELCOME TO PECUNIA BANK ***********\t\t \n");
+        System.Console.WriteLine("\t\tPecunia Finance Limited, established in the year 2015");
+        System.Console.WriteLine("\t\t\t\tBangalore, India.");
+        string ch = "Y";
+        do
+        {
+            //Menu For Choosing Options
+            System.Console.WriteLine("\n1 - NEW CUSTOMER ");
+            System.Console.WriteLine("\n2 - NEW ACCOUNT");
+            System.Console.WriteLine("\n3 - TRANSACTIONS");
+            System.Console.WriteLine("\n4 - LOANS");
+            System.Console.WriteLine("\n4 - CREDIT CARD");
 
+            Console.Write("\nEnter Your choice : ");
 
-        //Creating The Object
-        TransactionMenu.start();
+             ch= System.Console.ReadLine();
+            switch (ch)
+            {
+                case "1":
+                    //Creating object to CustomerPresentationLayer
+                    CustomerPresentationLayer p = new CustomerPresentationLayer();
+                    p.start();
+                    break;
+                case "2":
 
-       
+                    break;
+                case "3":
+                    //Calling method
+                    TransactionMenu.start();
 
-        PersonalVehicleLoanPresentationLayer pv = new PersonalVehicleLoanPresentationLayer();
-        pv.start();
+                    break;
+                case "4":
+                    PersonalVehicleLoanPresentationLayer pv = new PersonalVehicleLoanPresentationLayer();
+                    pv.start();
+                    break;
+                case "5":
+                    //Creating object to CreditcardPresentationLayer
+                    CreditcardPresentationLayer cr = new CreditcardPresentationLayer();
+                    cr.start();
+                    break;
+                default:
+                    Console.WriteLine("\nOoops......You have Choosen Wrong Option\n");
+                    break;
 
+            }
+            Console.Write("\n Do you want to Use PECUNIA BANK Again press Y : ");
+            ch = Console.ReadLine();
+
+        } while (ch == "Y" || ch == "y");
         Console.ReadKey();
     }
-
-
-
 }
