@@ -3,11 +3,11 @@
 
 using System;
 using System.Security.Cryptography.X509Certificates;
-//using System.Text.RegularExpressions;
+
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
 using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
 using System.Collections.Generic;
-//using Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer;
+
 
 
 namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer

@@ -28,7 +28,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
                        _housingLoans = new List<HousingLoan>();
  {
                 new HousingLoan() {CustomerId=1,CustomerAge=25,Tenure=3,LoanAmount=21000,CreditScore=456 };
-                new HousingLoan() {CustomerId=2,CustomerAge=24,Tenure=1.8,LoanAmount=24444,CreditScore=660};
+                new HousingLoan() {CustomerId=2,CustomerAge=24,Tenure=1,LoanAmount=24444,CreditScore=660};
 
             };
         }

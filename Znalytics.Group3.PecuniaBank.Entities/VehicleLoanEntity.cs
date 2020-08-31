@@ -69,18 +69,8 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                
-                    if (value== 6)
-                    {
-                        _customerId = value;
-                    }
-
-                    else
-                    {
-                        throw new Exception("Enter 6 digits only\n");
-                    }
-
-               
+                   
+                        _customerId = value  
 
             }
 

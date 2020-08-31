@@ -26,7 +26,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingLoanPresentationLayer
                 switch (choice)
                 {
                     case 1: ApproveHouseLoan(); break;
-                   // case 2: RejectHouseLoan(); break;
+                   
 
                 } while (choice != 3) ;
 
@@ -58,7 +58,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingLoanPresentationLayer
                 }
 
 
-                static void RejectHouseLoan(int Creditscore)
+               /* static void RejectHouseLoan(int Creditscore)
                 {
                     HousingLoanBusinessLogicLayer housingLoanBusinessLogicLayer = new HousingLoanBusinessLogicLayer();
                     if (Creditscore <= 650)
@@ -67,7 +67,7 @@ namespace Znalytics.Group3.PecuniaBank.HousingLoanPresentationLayer
                     }
 
 
-                }
+                }*/
                 System.Console.ReadKey();
 
             } while (choice != 3);

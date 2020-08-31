@@ -58,5 +58,3 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
    public class _housingLoanDataAccessLayer
     {
     }
-
-}
