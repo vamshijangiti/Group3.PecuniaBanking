@@ -24,9 +24,10 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         /// Method to generate Customer Id
         /// </summary>
         /// <returns> Returns Customer Id</returns>
-            public int CustomerIdGeneration()
+        public int CustomerIdGeneration(Customer cus)
         {
             int CustomerId = _details.Max(temp => temp.CustomerId);
+            cus.CustomerId = CustomerId++;
             return CustomerId++;
         }
 

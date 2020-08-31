@@ -61,8 +61,8 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 customer.CustomerName = Console.ReadLine();
 
                 //Reading customer Id manually
-                Console.Write("Enter customer Id: ");
-                customer.CustomerId = int.Parse(Console.ReadLine());
+                //Console.Write("Enter customer Id: ");
+                //customer.CustomerId = int.Parse(Console.ReadLine());
 
                 //Reading Occupation of customer manually
                 Console.Write("Enter Occupation: ");
@@ -85,8 +85,8 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 customer.AadharCardNumber = Console.ReadLine();
 
                 //Reading Phone number of customer manually
-                Console.Write("Enter customer Phone number: ");
-                customer.PhoneNumber = Console.ReadLine();
+                //Console.Write("Enter customer Phone number: ");
+                //customer.PhoneNumber = Console.ReadLine();
 
                 //Reading Customer's age manually
                 Console.Write("Enter customer Age: ");
@@ -130,10 +130,16 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             //creating list
             List<Customer> cust = cb.GetCustomers();
             //getting customerdetails 
-            foreach (Customer detail in cust)
+            if (cust != null)
             {
-                Console.WriteLine(detail);
+                foreach (Customer detail in cust)
+                {
+                    Console.WriteLine(detail);
 
+                }
+            }
+            else {
+                throw new Exception("skjehrghlhvhvbf");
             }
         }
 
