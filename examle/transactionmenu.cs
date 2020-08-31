@@ -2,9 +2,6 @@
 //CREATED BY VAMSHI JANGITI --- PRESENTATION LAYER
 
 
-
-
-//using ClassLibrary3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
+using Znalytics.Group3.PecuniaBank.Entities.TransactionException;
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
     /// <summary>
@@ -136,7 +134,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
                     }
                 }
-                catch (Exception e)
+                catch (TransactionException e)
                 {
 
                     Console.WriteLine(e.Message);
@@ -200,7 +198,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
             void checkBalance()//Cheking the Balance
             {
-                Console.WriteLine(" Avaiable Balance : " + b.GetAmount(uan));
+                Console.WriteLine(" Avaiable Balance : " + b.GetAmount(uan));//Getting the Balance By AccountNumber
             }
 
 
@@ -225,31 +223,31 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                 e1.TransactionTpe = "Savings";
                                 Console.WriteLine("\nEnter amount to Deposit ");
                                 e1.TransactionAmount = double.Parse(Console.ReadLine());
-                                if (b.SavingsTransactionValidation(e1.TransactionTpe, e1.TransactionAmount) == true)
+                                if (b.SavingsTransactionValidation(e1.TransactionTpe, e1.TransactionAmount) == true)//Validating the Type of Account
                                 {
-                                    e1.TransactionDate = System.DateTime.Today;
+                                    e1.TransactionDate = System.DateTime.Today;//Assigning Today's date
 
-                                    b.AddTranscation(e1);
-                                    b.Deposit(e1.AccountNumber, e1.TransactionAmount);
-                                    if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)
+                                    b.AddTranscation(e1);//Passing the object
+                                    b.Deposit(e1.AccountNumber, e1.TransactionAmount);//Validating the Amount
+                                    if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validating the Entered Amount
                                     {
                                         Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
 
                                     }
                                     else
                                     {
-                                        Console.WriteLine("\nAmount should be Greater than 500 \n");
+                                        Console.WriteLine("\nAmount should be Greater than 500 \n");//Entered Amount should be greater than 500
                                     }
                                 }
                                 else
                                 {
-                                    Console.WriteLine("For Savings the Deposit Amount should not Exceed 1 Lakh ");
+                                    Console.WriteLine("For Savings the Deposit Amount should not Exceed 1 Lakh ");//Entered Amount should be less than 1 Lakh
 
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("\nYou Don't have Savings Account ");
+                                Console.WriteLine("\nYou Don't have Savings Account ");//Executes When you don't have Savings Account
 
                             }
 
@@ -257,17 +255,17 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             break;
 
                         case "2":
-                            if (b.TypeCheck("Current", uan))
+                            if (b.TypeCheck("Current", uan))//Checking the Type of Account Savings/Current
                             {
                                 e1.TransactionTpe = "Current";
                                 Console.WriteLine("\nEnter amount to Deposit ");
-                                e1.TransactionDate = System.DateTime.Today;
+                                e1.TransactionDate = System.DateTime.Today;//Reading the data From Keyboard
                                 e1.TransactionAmount = double.Parse(Console.ReadLine());
-                                b.AddTranscation(e1);
-                                b.Deposit(e1.AccountNumber, e1.TransactionAmount);
-                                if (b.CurrentTransactionValidation(e1.TransactionTpe, e1.TransactionAmount) == true)
+                                b.AddTranscation(e1);//Adding the Transaction
+                                b.Deposit(e1.AccountNumber, e1.TransactionAmount);//Calling the Deposit Method
+                                if (b.CurrentTransactionValidation(e1.TransactionTpe, e1.TransactionAmount) == true)//Validating the Current Account Amount
                                 {
-                                    if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)
+                                    if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Calling the Method 
                                     {
                                         Console.WriteLine("\nThe Deposited Amount is : " + e1.TransactionAmount);
 
@@ -295,7 +293,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
                 }
-                catch (Exception e)
+                catch (TransactionException e)
                 {
                     Console.WriteLine("Please Enter Correct Data to Deposit");
 
@@ -379,7 +377,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             }
                             else
                             {
-                                Console.WriteLine("\nThe Withdrawl Amount Should Be Greater Than 500\n");
+                                Console.WriteLine("\nThe Withdrawl Amount Should Be Greater Than 500\n");//Executes When The Entered Amount is Less Than 500
                             }
                             break;
                         default:
@@ -388,7 +386,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     }
                 }
                 //Catches the Exception 
-                catch (Exception e)
+                catch (TransactionException e)
                 {
                     Console.WriteLine("\n Please Enter Correct Data to Withdrawl\n");
 
