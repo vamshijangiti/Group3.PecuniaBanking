@@ -16,7 +16,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
 
 
-    public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
+  /*  public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
     {
         SavingsAccountDataAccessLayer _savingsaccountDataAccessLayer;
 
@@ -43,9 +43,8 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         public void DeleteSavingsAccount(SavingsAccount s)
         {
-            _savingsaccountDataAccessLayer.DeleteSavingsAccount(s);
+           /* _savingsaccountDataAccessLayer.DeleteSavingsAccount(s);*/
         }
-    }
-}
+   
 
     
