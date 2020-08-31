@@ -63,8 +63,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
                 else if (f == 3)
                 {
+
                     TransactionMenu.uan = long.Parse(suan);
                     // e1.AccountNumber = uan;
+
+                   TransactionMenu.uan = long.Parse(suan);
+                   // e1.AccountNumber = uan;
+
                     flag = true;
                     break;
                 }
