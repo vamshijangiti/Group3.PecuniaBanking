@@ -69,8 +69,8 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                   
-                        _customerId = value  
+
+                _customerId = value;  
 
             }
 

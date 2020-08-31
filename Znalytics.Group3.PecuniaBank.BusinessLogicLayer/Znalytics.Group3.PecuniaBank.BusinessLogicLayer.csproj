@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountBusinessLogic.cs" />
     <Compile Include="AccountDetail.cs" />
     <Compile Include="CreditCardBusinessLogicLayer.cs" />
     <Compile Include="CurrentAccountBusinessLogic.cs" />
@@ -57,7 +56,6 @@
     <Compile Include="IGetAccountByAccountNumber.cs" />
     <Compile Include="ISavingsAccountBusinessLogic.cs" />
     <Compile Include="ITransactionBLL.cs" />
-    <Compile Include="IVehicleLoanBusinessLogicLayer.cs" />
     <Compile Include="PersonalLoanBusinessLogicLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavingsAccountBusinessLogic.cs" />
