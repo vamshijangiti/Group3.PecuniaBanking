@@ -14,6 +14,6 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     {
         void AddTransaction(Transaction t);
         List<Transaction> GetTransactionList(long AccountNumber);
-        void Deposit(Transaction t);
+       
     }
 }
