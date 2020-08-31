@@ -36,7 +36,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
             string s = JsonConvert.SerializeObject(_customers);
 
             //write data into file
-            StreamWriter streamWriter = new StreamWriter(@"CC:\Users\Administrator\Desktop");
+            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\Desktop");
             streamWriter.Write(s);
             streamWriter.Close();
         }
