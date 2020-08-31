@@ -24,12 +24,12 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         //creating objects for other classes
         ITransactionDAL transactionDAL = new TransactionDAL();
-        AccountDetailBLLFake account=new AccountDetailBLLFake();
+        AccountDetailBLLFake account = new AccountDetailBLLFake();
         /// <summary>
         /// Constructor for BLL
         /// </summary>
-        public TransactionBusinessLogic()
-        {  }
+        static TransactionBusinessLogic()
+        { }
 
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         public bool CheckAccountNumber(long accountNumber)
         {
             AccountDetailBLLFake account = new AccountDetailBLLFake();
-            if(account.Account==accountNumber)
+            if (account.Account == accountNumber)
             {
                 return true;
             }
@@ -138,17 +138,14 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         public void DepositAmount(Transaction t)
         {
             AccountDetailBLLFake a = new AccountDetailBLLFake();
-
-            if (a.Balance < 100000)
+            if (t.TransactionAmount < 100000 && t.TransactionAmount >= 500)
             {
-
+                a.Balance += t.TransactionAmount;
             }
             else
             {
-                a.Balance += t.TransactionAmount;
 
             }
-
         }
 
         /// <summary>
@@ -203,7 +200,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         public bool DepositTransactionValidation(Transaction t)
         {
             //if both Conditions become true then the amount will be deposited
-            if (t.AccountNumber <= 100000)
+            if (t.TransactionAmount <= 100000)
             {
                 return true;
             }
