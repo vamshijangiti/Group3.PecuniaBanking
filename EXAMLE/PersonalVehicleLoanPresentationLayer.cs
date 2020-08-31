@@ -17,8 +17,9 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
     public class Program
     {
-        static void Main()
-        {
+     public static void Menu ()
+       {
+       
 
             PersonalLoanEntity pl = new PersonalLoanEntity();//creating a object for personalloan entity
             VehicleLoanEntity vl = new VehicleLoanEntity();//creating a object for vehicleloan entity
