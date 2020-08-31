@@ -14,7 +14,10 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         CurrentAccountDataAccessLayer currentAccountDataAccessLayer;
 
-
+        /// <summary>
+        /// Adds Current Account
+        /// </summary>
+        /// <param name="a"></param>
         public void AddCurrentAccount(CurrentAccount a)
         {
             try
@@ -26,7 +29,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             catch (Exception e)
             {
-                throw new AccountException("accountid is not added");
+                throw new AccountException("accountid is not added");//exception raised if accounId is not added
             }
         }
 
@@ -47,7 +50,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         public List<CurrentAccount> GetCurrentAccount()
         {
-            return GetCurrentAccount();
+            return GetCurrentAccount();//retrieves all currentAccount 
         }
     }
 }

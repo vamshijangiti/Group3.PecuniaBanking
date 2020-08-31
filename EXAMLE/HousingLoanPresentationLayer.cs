@@ -57,15 +57,20 @@ namespace Znalytics.Group3.PecuniaBank.HousingLoanPresentationLayer
 
                 }
 
-                static void RejectHouseLoan()
+
+                static void RejectHouseLoan(int Creditscore)
                 {
                     HousingLoanBusinessLogicLayer housingLoanBusinessLogicLayer = new HousingLoanBusinessLogicLayer();
+                    if (Creditscore<=650)
+                    {
+                        System.Console.WriteLine("your loan is rejected");
+                    }
 
 
                 }
                 System.Console.ReadKey();
 
-            } while (choice == 3);
+            }while (choice!=3)
             }
     }
 }
