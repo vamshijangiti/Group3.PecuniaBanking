@@ -23,6 +23,9 @@ public class MainMethod
         CreditcardPresentationLayer cr = new CreditcardPresentationLayer();
         cr.start();
 
+        PersonalVehicleLoanPresentationLayer pv = new PersonalVehicleLoanPresentationLayer();
+        pv.start();
+
         Console.ReadKey();
     }
 
