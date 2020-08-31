@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 
 
-namespace Znalytics.Group3.PecuniaBanking.BusinessLogicLayer
+namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
 {
     /// <summary>
     /// Class that Represents Business logic layer of the customer personal details

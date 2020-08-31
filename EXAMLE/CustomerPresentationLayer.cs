@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Znalytics.Group3.PecuniaBanking.BusinessLogicLayer;
+using Znalytics.Group3.PecuniaBanking.BusinessLayer;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
 
 namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
