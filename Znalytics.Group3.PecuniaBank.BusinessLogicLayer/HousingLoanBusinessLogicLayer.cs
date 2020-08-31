@@ -41,18 +41,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 throw new HousingLoanException("CustomerId cant be zero",e);//exception raised where customerid cant be zero
             }
             }
-                   /* public float CalculateEmi(float loanamount,float Tenure)
-        {
-            if (loanamount!=0&&Tenure!=0)
-                    {
-                float emi;
-                float r = HousingLoan.rateOfInterest / (12 * 100); // 
-                Tenure = Tenure * 12; // one month period 
-                emi = (loanamount * r * (float)Math.Pow(1 + r, Tenure)) / (float)(Math.Pow(1 + r, Tenure) - 1);
-
-                return Emi;
-            }
-   */     }
+                   
+       }
+   
 
 }
    public class _housingLoanDataAccessLayer

@@ -3,11 +3,13 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
+using System.IO;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
@@ -45,7 +47,15 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             savingAccounts.Add(savingsAccount);
 
         }
-
+        //Convert data into Json
+        public static void SaveIntoFile( int SavingsAccount)
+        {
+            string v = JsonConvert.SerializeObject(SavingsAccount);
+            string s = v;
+            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\source\repos\Group3.PecuniaBanking\savingsAccount.txt");
+            streamWriter.Write(s);
+            streamWriter.Close();
+        }
         public void DeleteSavingsAccount(SavingsAccount savingsAccount)
         {
             throw new NotImplementedException();

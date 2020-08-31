@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,7 @@ using Znalytics.Group3.PecuniaBank.AccountEntities;
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
     /// <summary>
-    /// 
+    /// CuurentAccountDataAccessLayer
     /// </summary>
     public class CurrentAccountDataAccessLayer : ICurrentAccountDataAccessLayer//interface
     {
@@ -16,6 +18,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         List<CurrentAccount> currentAccounts = new List<CurrentAccount>();
 
         //constructor
+        //collection
         public CurrentAccountDataAccessLayer() => currentAccounts = new List<CurrentAccount>()
              {
                  new CurrentAccount() { AccountId =1, DateOfCreation= Convert.ToDateTime("24-08-2020"), Balance = 100 },
@@ -39,6 +42,14 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             currentAccounts.Add(currentAccount);
         }
 
+
+        //convert data to json
+        public static void SaveIntoFile(int currentAccount)
+        {
+            string s = JsonConvert.SerializeObject(currentAccount);
+            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\source\repos\Group3.PecuniaBanking\CurrentAccount.txt");
+            streamWriter.Write(s);
+        }
         public void DeleteCurrentAccount(CurrentAccount currentAccount, int AccountId)
         {
             if (currentAccount.AccountId!=0)
