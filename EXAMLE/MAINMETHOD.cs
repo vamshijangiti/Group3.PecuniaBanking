@@ -25,6 +25,9 @@ public class MainMethod
 
        
 
+        PersonalVehicleLoanPresentationLayer pv = new PersonalVehicleLoanPresentationLayer();
+        pv.start();
+
         Console.ReadKey();
     }
 

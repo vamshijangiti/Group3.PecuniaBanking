@@ -18,7 +18,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
     public class CustomerBusinessLogicLayer : ICustomerBusinessLogicLayer
     {
 
-        private ICustomerDataAccessLayer cdal;
+        private CustomerDataAccessLayer cdal;
 
         //Constructor for CustomerDetailBusinessLogicLayer
         public CustomerBusinessLogicLayer()
@@ -73,7 +73,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             }
 
             //Checking Phone number that can't be null
-            try
+            /*try
             {
 
                 if (cust.PhoneNumber != null)
@@ -84,7 +84,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             catch (Exception ex)
             {
                 throw new Exception("PhoneNumber can't be null,Please mention your PhoneNumber", ex);
-            }
+            }*/
 
             //Checking Age that can't be null
             try
@@ -129,6 +129,12 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
         {
 
             cdal.UpdateCustomer(customer);
+        }
+
+        public int CustomerIdGeneration(Customer cust)
+        {
+            // cdal.CustomerIdGeneration(cust);
+            return cdal.CustomerIdGeneration(cust);
         }
     }
 }

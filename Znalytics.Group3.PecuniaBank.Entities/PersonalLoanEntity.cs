@@ -53,7 +53,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             set
             {
                  
-                        _customerId = value;
+                 _customerId = value;
                    
             }
 
@@ -69,6 +69,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
+
                     if (value >= 50000)
                     {
                         _loanAmount = value;
@@ -76,7 +77,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
                     else
                     {
-                        throw new Exception("not eligible\n");
+                        throw new PersonalLoanException ("not eligible");
 
                     }
 

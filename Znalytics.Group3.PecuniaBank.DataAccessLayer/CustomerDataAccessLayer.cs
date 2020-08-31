@@ -6,13 +6,14 @@ using System.Linq;
 using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
+using System.Collections;
 
 namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
 {
     /// <summary>
     /// Represents Data Access Layer of customer Personal details
     /// </summary>
-    public class CustomerDataAccessLayer: ICustomerDataAccessLayer
+    public class CustomerDataAccessLayer: ICustomerDataAccessLayer,IEnumerable
     {
         //List of the CustomerDetail
         private static List<Customer> _details;
@@ -24,9 +25,10 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         /// Method to generate Customer Id
         /// </summary>
         /// <returns> Returns Customer Id</returns>
-            public int CustomerIdGeneration()
+        public int CustomerIdGeneration(Customer cus)
         {
             int CustomerId = _details.Max(temp => temp.CustomerId);
+            cus.CustomerId = CustomerId++;
             return CustomerId++;
         }
 
@@ -52,11 +54,19 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         {
            
         }
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < _details.Count; i++)
+            {
+                yield return _details[i];
 
+            }
+        }
         //Method to get customers details by CustomerId
         public Customer GetCustomersByCustomerId(int CustomerId)
         {
-            return null;
+            Customer cs = _details.Find(temp => temp.CustomerId == CustomerId);
+            return cs;
         }
     }
 }
