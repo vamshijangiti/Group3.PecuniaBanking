@@ -36,7 +36,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
             string s = JsonConvert.SerializeObject(_customers);
 
             //write data into file
-            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\DesktopJson.txt");
+            StreamWriter streamWriter = new StreamWriter(@"CC:\Users\Administrator\Desktop");
             streamWriter.Write(s);
             streamWriter.Close();
         }
@@ -46,7 +46,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
         /// <returns></returns>
         public List<Customer> GetFiledata()
         {
-            StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\DesktopJson.txt");
+            StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\Desktop");
             string s1 = streamReader.ReadToEnd();
             List<Customer> cust = JsonConvert.DeserializeObject<List<Customer>>(s1);
             return cust;
