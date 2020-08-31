@@ -11,8 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
-using static Znalytics.Group3.PecuniaBank.AccountEntities.SavingsAccount;
-using CurrentAccount = Znalytics.Group3.PecuniaBank.BusinessLogicLayer.CurrentAccount;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
@@ -53,13 +51,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
            static void AddSavingsAccount()
             {
-                SavingsAccountBusinessLogic savingsaccountBusinessLogic = new  SavingsAccountBusinessLogic();
+                SavingsAccountBusinessLogic savingsAccountBusinessLogic = new  SavingsAccountBusinessLogic();
                 SavingsAccount _savingsaccount = new SavingsAccount();
                 System.Console.WriteLine("enter AccountId");
                 _savingsaccount.AccountId = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
                 _savingsaccount.Balance = long.Parse(System.Console.ReadLine());
-          /*  savingsaccountBusinessLogic.AddSavingsAccount(_savingsaccount);*/
+           /* SavingsAccountBusinessLogic.Add(_savingsaccount);*/
                 System.Console.WriteLine("savings Account Added");
             }
  
@@ -69,9 +67,9 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             { 
 
             CurrentAccountBusinessLogic accountBusinessLogic = new CurrentAccountBusinessLogic();
-                BusinessLogicLayer.CurrentAccount currentAccount = new BusinessLogicLayer.CurrentAccount();
+               CurrentAccount currentAccount = new CurrentAccount();
             System.Console.WriteLine("enter account id");
-                CurrentAccount.AccId = int.Parse(Console.ReadLine());
+                currentAccount.AccountId = int.Parse(Console.ReadLine());
             System.Console.WriteLine("enter balance");
         }
             catch (Exception ex)
