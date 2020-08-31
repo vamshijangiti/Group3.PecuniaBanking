@@ -12,7 +12,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
        public  void AddCurrentAccount(CurrentAccount a);
         public void DeleteCurrentAccount(CurrentAccount c);
         public  List<CurrentAccount> GetCurrentAccount();
-        public void GetBalance(CurrentAccount currentAccount);
+      //  public void GetBalance(CurrentAccount currentAccount);
     }
 
 

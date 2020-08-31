@@ -17,8 +17,9 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
     public class Program
     {
-        static void Main()
-        {
+     public static void Menu ()
+       {
+       
 
             PersonalLoanEntity pl = new PersonalLoanEntity();//creating a object for personalloan entity
             VehicleLoanEntity vl = new VehicleLoanEntity();//creating a object for vehicleloan entity
@@ -71,7 +72,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                 pl.Tenure = (float.Parse(System.Console.ReadLine()));
 
                                 
-                                /*pb.AddPersonalLoan(pl);*/
+                                pb.AddPersonalLoan(pl);
                                 //enter the loanamount,tenure for calculation of emi
 
 
@@ -112,7 +113,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                 vl.Tenure = (float.Parse(System.Console.ReadLine()));
 
                                 vb.CalculateEmi(vl.Tenure, vl.LoanAmount);//calculation of emi
-                                /*vb.AddVehicleLoan(vl);*/
+                                vb.AddVehicleLoan(vl);
                                 System.Console.WriteLine("\nYour loan is Accepted\n");
                             }
                             else //If crdeit score value less than 650  loan is rejected
