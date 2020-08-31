@@ -112,12 +112,12 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             {
             }
 
-            public CurrentAccount(int accId, long balance, string dateOfCreation)
+           /* public CurrentAccount(int accId, long balance, string dateOfCreation)
             {
                 accId = accId;
                 _balance = balance;
                 _dateOfCreation = dateOfCreation;
-            }
+            }*/
 
             public int AccountId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
             public string DateOfCreation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

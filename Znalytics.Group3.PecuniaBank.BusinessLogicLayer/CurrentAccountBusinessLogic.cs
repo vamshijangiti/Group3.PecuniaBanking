@@ -29,7 +29,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             catch (Exception e)
             {
-                throw new AccountException("accountid is not added");//exception raised if accounId is not added
+                throw new AccountException("accountid is not added",e);//exception raised if accounId is not added
             }
         }
 
@@ -44,7 +44,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             catch (Exception e)
             {
-                throw new AccountException("account is not deleted");
+                throw new AccountException("account is not deleted",e);
             }
         }
 
