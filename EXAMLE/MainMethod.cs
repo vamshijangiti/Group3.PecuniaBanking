@@ -11,11 +11,14 @@ public class MainMethod
 {
     static void Main()
     {
+        CustomerPresentationLayer p = new CustomerPresentationLayer();
+        p.start();
+
+
         //Creating The Object
         TransactionMenu.start();
 
-        CustomerPresentationLayer p = new CustomerPresentationLayer();
-        p.start();
+        
 
         CreditcardPresentationLayer cr = new CreditcardPresentationLayer();
         cr.start();
