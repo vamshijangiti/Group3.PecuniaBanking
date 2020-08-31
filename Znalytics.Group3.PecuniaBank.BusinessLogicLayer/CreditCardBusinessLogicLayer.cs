@@ -37,9 +37,9 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         /// </summary>
         /// <param name="details">Adds details to the Creditcard</param>
         /// <returns>Application number</returns>
-        public int ApplyCreditCard(int details)
+        public int ApplyCreditCard(int CustomerId)
         {
-            Customer a = GetCustomersByCustomerId(details);
+            Customer a = GetCustomersByCustomerId(CustomerId);
             _creditcardDataAccessLayer.ApplyCreditCard(a);
         
         int AppNumber = 0;
