@@ -22,7 +22,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         static PersonalLoanDataAccessLayer()
         {
             _personalLoans = new List<PersonalLoanEntity>();
-            //_personalLoans = LoadDetailsToList();
+            _personalLoans = LoadDetailsToList();
         }
 
 
@@ -30,9 +30,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public void AddPersonalLoan(PersonalLoanEntity p)
         {
             _personalLoans.Add(p);
-            //ListOfPersonalLoanEntity();
+            ListOfPersonalLoanEntity();
         }
-       /* public void ListOfPersonalLoanEntity()
+       public void ListOfPersonalLoanEntity()
         {
             string s = JsonConvert.SerializeObject(_personalLoans);
 
@@ -56,7 +56,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
                 return PersonalLoans;
             }
 
-        }*/
+        }
 
 
 

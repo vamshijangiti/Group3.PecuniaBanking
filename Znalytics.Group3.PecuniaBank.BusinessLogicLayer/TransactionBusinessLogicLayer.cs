@@ -3,11 +3,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Znalytics.Group3.PecuniaBank.BusinessLogicLayer.IAccountDetails;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
 using Znalytics.Group3.PecuniaBank.Entities.TransactionException;
@@ -15,12 +11,10 @@ using Znalytics.Group3.PecuniaBank.Entities.TransactionException;
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
 
-
-
     /// <summary>
     /// Business Logic Layer For WithDrawl And Debit
     /// </summary>
-    public class TransactionBusinessLogic : ApplicationException//, ITransactionBLL
+    public class TransactionBusinessLogic : ApplicationException, ITransactionBLL
     {
         //creating objects for other classes
         ITransactionDAL transactionDAL = new TransactionDAL();
@@ -98,6 +92,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
 
 
+        /// <summary>
+        /// For Checking the Account Number
+        /// </summary>
+        /// <param name="accountNumber">Entered AccountNumber</param>
+        /// <returns></returns>
         public bool CheckAccountNumber(long accountNumber)
         {
             AccountDetailBLLFake account = new AccountDetailBLLFake();

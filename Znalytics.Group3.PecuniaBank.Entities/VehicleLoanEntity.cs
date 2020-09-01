@@ -1,4 +1,5 @@
-﻿///Entities for vehicle loan
+﻿//Created by Navya
+//Entities for vehicle loan
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
     public class VehicleLoanEntity
     {
+        //private fields
         private string _nameOfVehicle;
         private int _customerId;
         private float _loanAmount;
@@ -34,7 +36,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         /// <param name="emi"> Monthly emi</param>
         /// <param name="creditscore">credit score in your credit card</param>
 
-        public VehicleLoanEntity(string NameOfVehicle, int CustomerId, float LoanAmount, float Tenure, float Emi, int CreditScore)
+        public VehicleLoanEntity(string NameOfVehicle, int CustomerId, float LoanAmount, float Tenure, float Emi, int CreditScore)//Parameterized constructor
         {
 
             this._nameOfVehicle = NameOfVehicle;
@@ -48,6 +50,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
         }
         //set and get methods for Nameofvehicle
+        /// <summary>
+        /// Represents the Name of the new vehicle 
+        /// </summary>
         public string NameOfVehicle
         {
             set
@@ -62,8 +67,11 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
 
-        //set and get methods for customerid 
 
+        //set and get methods for customerid
+        /// <summary>
+        /// Represents CustomerId
+        /// </summary>
 
         public int CustomerId
         {
@@ -81,6 +89,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         }
 
         //set and get methods for loanamount
+        /// <summary>
+        /// Represents LoanAmount of Customer
+        /// </summary>
 
         public float LoanAmount
         {
@@ -98,6 +109,10 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
         //set and get methods for tenure
+        //set and get methods for Tenure
+        /// <summary>
+        /// Represents Tenure in months of customer
+        /// </summary>
         public float Tenure
         {
             set
@@ -114,6 +129,10 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
         //set and get methods for rate of interest  
+        
+        /// <summary>
+        /// Represents the Rate of Interest of Customer
+        /// </summary>
         public float RateOfInterest
         {
 
@@ -134,7 +153,10 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 return _emi;
             }
         }
-
+        //set and get methods for credit score
+        /// <summary>
+        /// Credit score of the customer in his credit card
+        /// </summary>
         public int CreditScore
         {
             set

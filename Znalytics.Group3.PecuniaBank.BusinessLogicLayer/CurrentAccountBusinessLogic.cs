@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Linq.Expressions;
@@ -11,14 +12,14 @@ using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-    public class CurrentAccountBusinessLogic  :ICurrentAccountBusinessLogic
+    public class CurrentAccountBusinessLogic : ICurrentAccountBusinessLogic/* IAccountsBusinessLogicLayer*/
     {
-        CurrentAccountDataAccessLayer currentAccountDataAccessLayer=new CurrentAccountDataAccessLayer();
+        CurrentAccountDataAccessLayer currentAccountDataAccessLayer = new CurrentAccountDataAccessLayer();
 
         /// <summary>
         /// Adds Current Account
         /// </summary>
-        /// <param name="a"></param>
+        /// <param name="currentAccount"></param>
         public void AddCurrentAccount(CurrentAccount currentAccount)
         {
             try
@@ -36,13 +37,13 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
         }
 
-        public void DeleteCurrentAccount(CurrentAccount currentAccount,int AccountId)
+        public void DeleteCurrentAccount(CurrentAccount currentAccount, int AccountId)
         {
             try
             {
                 if (currentAccount.AccountId != 0)
                 {
-                     currentAccountDataAccessLayer.DeleteCurrentAccount(currentAccount);
+                    currentAccountDataAccessLayer.DeleteCurrentAccount(currentAccount);
                 }
             }
             catch (Exception e)
@@ -56,9 +57,28 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             return GetCurrentAccounts();//retrieves all currentAccount 
         }
-
     }
-}
+
+   /* public List<AccountDetailBLLFake> GetCurrentAccounts
+    {
+        get
+        {
+            return new List<AccountDetailBLLFake>()
+
+
+            {
+                new AccountDetailBLLFake() { Account = 1, Balance = 1000 },
+            };
+        }*/
+
+        /*  public AccountDetailBLLFake GetAccountByAccountNumber(long accountNumber)
+          {
+              return new AccountDetailBLLFake() { Account = 1, Balance = 1000 };
+          }*/
+    }
+
+    
+
 
 
         

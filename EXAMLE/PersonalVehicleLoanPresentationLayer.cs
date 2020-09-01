@@ -25,7 +25,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                   
         
             Customer cus = new Customer();
-            PersonalLoanEntity pl = new PersonalLoanEntity();//creating a object for personalloan entity
+            PersonalLoanEntity pl= new PersonalLoanEntity();//creating a object for personalloan entity
             VehicleLoanEntity vl = new VehicleLoanEntity();//creating a object for vehicleloan entity
             PersonalLoanBusinessLogicLayer pb = new PersonalLoanBusinessLogicLayer();//creating a object for personaloanbusinesslogiclayer
             VehicleLoanBusinessLogicLayer vb = new VehicleLoanBusinessLogicLayer();//creating a object for vehicleloanbusinesslogiclayer
@@ -51,7 +51,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     case 1:
                        
                             System.Console.Write("\nEnter CustomerId : ");//Enter the customerId for personal loan
-                            pl.CustomerId = cus.CustomerId;
+                            pl.CustomerId = (int.Parse(System.Console.ReadLine()));
+                            //pl.CustomerId = cus.CustomerId;
                            /* Customer s = pb.GetCustomersByCustomerId(pl.CustomerId);
                             WriteLine("Name" + s.CustomerName);
                             WriteLine("Profession" + s.Profession);
@@ -65,12 +66,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                         System.Console.Write("\nEnter the CreditScore : ");//Enter the credit score for loan acceptance of personal loan
                         pl.CreditScore = (int.Parse(System.Console.ReadLine()));
 
-                        if (pb.CreditScore(pl.CreditScore) == 1)//If credit score value greater than or equal to 650 loan is accepted
+                        if (pb.CreditScore(pl) == 1)//If credit score value greater than or equal to 650 loan is accepted
                         {
                             try
                             {
                                 System.Console.Write("\nEnter the LoanAmount : ");//Enter the Loan amount for the personalloan
                                 pl.LoanAmount = (float.Parse(System.Console.ReadLine()));
+                                pb.AddPersonalLoan(pl);
 
                             }
                             catch (PersonalLoanException ex)
@@ -82,6 +84,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             {
                                 System.Console.Write("\nEnter the Tenure in months : ");//Enter the tenure in months for the personalloan
                                 pl.Tenure = (float.Parse(System.Console.ReadLine()));
+                                pb.AddPersonalLoan(pl);
 
                             }
                             catch (PersonalLoanException ex)
@@ -94,9 +97,19 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             //enter the loanamount,tenure for calculation of emi
 
                             System.Console.WriteLine("\n Congratulations...............your loan is accepted");
-                            Console.Write("The Monthly EMI you have to pay is : " + pb.CalculateEmi(pl.Tenure, pl.LoanAmount));
+                            if (pb.CalculateEmi(pl) == 0)
+                            {
+                                System.Console.WriteLine("sorry Your loan is rejected ");
+                            }
+                            else
+                            {
+
+                                Console.Write("\nThe Monthly EMI you have to pay is : " + pl.Emi);
+                                pb.AddPersonalLoan(pl);
+
+                            }
                         }
-                        else if (pb.CreditScore(pl.CreditScore) == 2)
+                        else if (pb.CreditScore(pl) == 2)
                         {
                             Console.WriteLine(" \nYour Loan is in Pending status,please apply loan when your credit score is above 650\n");
                         }
@@ -105,8 +118,12 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             System.Console.WriteLine("sorry Your loan is rejected ");
                         }
 
-
                         break;
+
+
+
+
+                       
 
                     //case 2 for vehicleloan
                     case 2:
@@ -161,8 +178,9 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             }
                             else
                             {
-                                vb.AddVehicleLoan(vl);
+                                
                                 Console.Write("\nThe Monthly EMI you have to pay is : "+vl.Emi);
+                                vb.AddVehicleLoan(vl);
 
                             }
                         }
@@ -181,7 +199,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
                     case 3:
-                        Console.WriteLine("Thanks For Using PECUNIA BANK");
+                        Console.WriteLine("Thanks For Using PECUNIA BANK");//Thankfull message once the process is completed
 
                         break;
 
