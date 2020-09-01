@@ -45,7 +45,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 n = int.Parse(System.Console.ReadLine());
 
 
-                switch (n)
+                 switch (n)
                 {
                     //case 1 for personal loan
                     case 1:
