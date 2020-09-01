@@ -3,7 +3,7 @@ using Znalytics.Group3.PecuniaBank.PresentationLayer;
 //using Znalytics.PecuniaBanking.CustomerModule.PresentationLayer;
 using Znalytics.PecuniaBanking.Creditcard.PresentationLayer;
 using System;
-using Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer;
+using Znalytics.PecuniaBanking.CustomerModule.PresentationLayer;
 
 /// <summary>
 /// Main Class 

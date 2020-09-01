@@ -20,7 +20,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     /// <summary>
     /// Business Logic Layer For WithDrawl And Debit
     /// </summary>
-    public class TransactionBusinessLogic : ApplicationException//, ITransactionBLL
+    public class TransactionBusinessLogic : ApplicationException, ITransactionBLL
     {
         //creating objects for other classes
         ITransactionDAL transactionDAL = new TransactionDAL();
