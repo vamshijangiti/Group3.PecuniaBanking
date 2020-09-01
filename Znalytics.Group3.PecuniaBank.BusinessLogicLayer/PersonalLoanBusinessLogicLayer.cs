@@ -16,7 +16,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     /// <summary>
     /// Business logic layer for personalloan
     /// </summary
-    public class PersonalLoanBusinessLogicLayer
+    public class PersonalLoanBusinessLogicLayer : IPersonalLoanBusinessLogicLayer 
     {
         PersonalLoanDataAccessLayer personalLoanData = new PersonalLoanDataAccessLayer();
         PersonalLoanEntity personalLoan = new PersonalLoanEntity();
