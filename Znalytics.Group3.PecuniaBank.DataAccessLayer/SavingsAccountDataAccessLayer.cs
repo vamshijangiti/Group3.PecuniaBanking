@@ -42,7 +42,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             }
             else
             {
-                savingsAccount.AccountNumber = savingAccounts.Max(temp => temp.AccountNumber);
+              //  savingsAccount.AccountNumber = savingAccounts.Max(temp => temp.AccountNumber);
             }
             savingAccounts.Add(savingsAccount);
 
