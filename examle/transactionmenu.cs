@@ -271,7 +271,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     e1.TransactionTpe = "WithDrawl";//This case Is for SavingsAccount Transaction
                     Console.WriteLine("\nEnter amount to WithDrawl");
                     e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
-                    e1.TransactionDate = System.DateTime.Today;
+                    e1.TransactionDate =DateTime.Today;
                     e1.AccountNumber = uan;//Assigning the Date 
                    
                     if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
