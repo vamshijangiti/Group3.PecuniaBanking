@@ -72,18 +72,9 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
             a = int.Parse(Console.ReadLine());//Stores Customer Id into variable a
 
 
-            Customer l = cbl.GetCustomersByCustomerId(a);
+            Customer l = cbl.GetCustomersByCustomerId(a);//getting details by Id and assigns into object l
 
             cr.Customer = l;
-
-
-            Console.WriteLine("Enter AppNumber");
-            cr.AppNumber = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter CibilScore");
-            cr.CibilScore = int.Parse(Console.ReadLine());
-
-
 
             int AppNumber = cbl.ApplyCreditCard(a);
             Console.WriteLine("Your Application Number is " + AppNumber);
@@ -103,7 +94,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
             a = int.Parse(Console.ReadLine());
 
             bool b = cbl.ApproveCreditCard(a);
-            if (b == true)
+            if (b == true)//checking the condition for approval which is called from businesslogic layer of creditcard
             {
                 Console.WriteLine("You are eligible to approve credit card");
             }
@@ -120,9 +111,9 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
         static void GenerateCreditCard()
 
         {
-            CreditCard cr = new CreditCard();
+            CreditCard cr = new CreditCard();//creating object to creditcard
 
-            CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();
+            CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();//creating object to Creditcard businesslogic layer
             int a;
             Console.WriteLine("Enter CustomerID");
             a = int.Parse(Console.ReadLine());
@@ -140,16 +131,16 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
         /// </summary>
         static void UpdateCreditCard()
         {
-            CreditCard cr = new CreditCard();
+            CreditCard cr = new CreditCard();//creating object to creditcard
 
-            CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();
+            CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();//creating object to creditcard business logic layer
 
             int a;
             Console.WriteLine("Enter CustomerID");
             a = int.Parse(Console.ReadLine());
 
             bool b = cbl.UpdateCreditCard(a);
-            if (b == true)
+            if (b == true)//checking the status of creditcardnumber
             {
                 Console.WriteLine("Your CreditCard Number generated successfully ");
             }
@@ -166,15 +157,15 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
         /// </summary>
         static void RequestToIncreaseCreditCardLimit()
         {
-            CreditCard cr = new CreditCard();
+            CreditCard cr = new CreditCard();//creating object to creditcard
 
-            CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();
+            CreditcardBusinessLogicLayer cbl = new CreditcardBusinessLogicLayer();//creating object to creditcard businesslogic layer
             int a;
             Console.WriteLine("Enter CustomerID");
             a = int.Parse(Console.ReadLine());
 
             bool b = cbl.RequestToIncreaseCreditCardLimit();
-            if (b == true)
+            if (b == true)//checking the condition for acceptance of increasing creditcard limit
             {
                 Console.WriteLine("Your CreditCard Number generated successfully ");
             }

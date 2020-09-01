@@ -10,7 +10,7 @@ using Znalytics.PecuniaBanking.CustomerModule.Entities;//Name space of Customer 
 namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
 {
     /// <summary>
-    /// class that represents Login information of the customer
+    /// class that represents Customer Presentation layer
     /// </summary>
     class CustomerPresentationLayer
     {
@@ -55,8 +55,6 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
         /// </summary>
         static void AddCustomer()
         {
-            //try
-            //{
 
                 //Creating object for Entity layer that is CustomerDetail class 
                 Customer customer = new Customer();
@@ -106,22 +104,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
 
                 cb.AddCustomer(customer); //calling the AddCustomer  method present in businessLogicLayer by using Reference variable
 
-                Console.WriteLine("Customer details added successfully.\n");
-           /* }
-            catch (Exception ex)
-            {
-                if (ex.InnerException != null)
-                {
-                    Console.WriteLine(ex.InnerException.Message);
-                }
-                Console.WriteLine();
-                Console.WriteLine(ex.Message);
-                //Console.WriteLine();
-                //Console.WriteLine(ex.StackTrace);
-                //Console.WriteLine();
-                // Console.WriteLine(ex.Source);
-            }*/
-
+           
         }
         /// <summary>
         /// Method to View existing Customer details
@@ -136,7 +119,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
             Console.WriteLine("CustomerID" + "   " + "CustomerName" + "  " + "MailId" + " " + "Phonenumber" + "address" + "  " + "AnnualIncome" + "  " + "aadharcardnumber" + "  " + "Pancardnumber");
             Console.WriteLine("-----------------------------------------------------------------------");
 
-            foreach (Customer item in customers)
+            foreach (Customer item in customers)//retrieves the data
             {
                 Console.WriteLine(item.CustomerId + " " + item.CustomerName + " " + item.MailId + " " + item.AadharCardNumber + " " + item.Address + " " + item.AnnualIncome + " " + item.PanCardNumber + " " + item.Age + " " + item.Address + " " + item.AnnualIncome + " " + item.PanCardNumber + " " + item.Profession + " " + item.Address);// Displaying the products
             }
@@ -155,19 +138,23 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
             //Creating object for BusinessLogic Layer
             CustomerBusinessLogicLayer cb = new CustomerBusinessLogicLayer();
 
-            Console.Write("Enter Existing customer ID: ");/// updating name and other details by using primary key as customerid///
+            Console.Write("Enter Existing customer ID: ");/// updating name and other details by using  customerid///
             customer.CustomerId = int.Parse(Console.ReadLine());
             Console.Write("enter customer name");
             customer.CustomerName = Console.ReadLine();
             cb.UpdateCustomer(customer);//Calls BusinessLogic Layer
             Console.WriteLine("Customer details Updated successfully");
         }
-        static void GetCustomersByCustomerId()///getting  customer details by id///
+
+        /// <summary>
+        /// Method to get details by customer Id
+        /// </summary>
+        static void GetCustomersByCustomerId()
         {
 
             System.Console.Write("Enter the customerID: ");
             int CustomerId = int.Parse(System.Console.ReadLine());
-            CustomerBusinessLogicLayer cbl = new CustomerBusinessLogicLayer();
+            CustomerBusinessLogicLayer cbl = new CustomerBusinessLogicLayer(); //Creating object to BusinessLogic layer of customer
             Customer b = cbl.GetCustomersByCustomerId(CustomerId);///which calls the businesslogic of GetCustomersByCustomerId method///
             System.Console.WriteLine(b.CustomerId + " " + b.CustomerName + " " + b.Address + " " + b.PanCardNumber + " " + b.AadharCardNumber + " " + b.Profession + " " + b.PhoneNumber + " " + b.AnnualIncome);
 

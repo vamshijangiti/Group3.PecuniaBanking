@@ -20,7 +20,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
 
         private CustomerDataAccessLayer cdal;
 
-        //Constructor for CustomerDetailBusinessLogicLayer
+        //Constructor for CustomerBusinessLogicLayer
         public CustomerBusinessLogicLayer()
         {
             cdal = new CustomerDataAccessLayer();
@@ -33,98 +33,50 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
         /// <param name="cust"></param>
         public void AddCustomer(Customer cust)
         {
-            //Validating CustomerName that can't be null
+            //Validating CustomerId that can't be zero
             try
             {
-                if(cust.CustomerId!=0)
+                if (cust.CustomerId != 0)
                 {
                     cdal.AddCustomer(cust);
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex)//rasing exception
             {
                 throw new Exception("Customer Id can't be zero,Please mention your Id", ex);
             }
 
-            //validating pancard number that can't be null
-            /*try
-            {
-                if (cust.PanCardNumber != null)
-                {
-                    cdal.AddCustomer(cust);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("PanCardNumber can't be null,Please mention your PancardNumber", ex);
-            }
-
-            //Validating Aadharcard number that can't be null
-            try
-            {
-                if (cust.AadharCardNumber != null)
-                {
-                    cdal.AddCustomer(cust);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("AadharCardNumber can't be null,Please mention your AadharCardNumber", ex);
-            }
-
-
-            //Checking Age that can't be null
-            try
-            {
-                if (cust.Age != 0)
-                {
-                    cdal.AddCustomer(cust);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("DateOfBirth can't be null,Please mention your DateOfBirth", ex);
-            }
-            //Validation of Mail Id
-            try
-            {
-                if (cust.MailId!=null)
-                {
-                    cdal.AddCustomer(cust);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Mail Id can't be null,Please mention your Mail", ex);
-            }*/
-
         }
 
 
-        //Getting customer personal details
+        /// <summary>
+        /// Getting customer  details
+        /// </summary>
+        /// <returns>list of customers</returns>
         public List<Customer> GetCustomers()
         {
             return cdal.GetCustomers();
         }
+        /// <summary>
+        /// calling GetCustomersBycustomerId method from Interface of customer businesslogic layer
+        /// </summary>
+        /// <param name="CustomerId">CustomerId</param>
+        /// <returns></returns>
         public Customer GetCustomersByCustomerId(int CustomerId)
         {
             return cdal.GetCustomersByCustomerId(CustomerId);
         }
 
         /// <summary>
-        /// Method to update customer details
+        /// calling update method from Interface of customer businesslogic layer
         /// </summary>
-        /// <param name="customer"></param>
+        /// <param name="customer">customer</param>
         public void UpdateCustomer(Customer customer)
         {
 
             cdal.UpdateCustomer(customer);
         }
 
-       /* public int CustomerIdGeneration(Customer cust)
-        {
-            // cdal.CustomerIdGeneration(cust);
-            return cdal.CustomerIdGeneration(cust);
-        }*/
+       
     }
 }
