@@ -72,19 +72,37 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             {
                                 System.Console.Write("\nEnter the LoanAmount : ");//Enter the Loan amount for the personalloan
                                 pl.LoanAmount = (float.Parse(System.Console.ReadLine()));
-                                pb.AddPersonalLoan(pl);
+                                if (pl.LoanAmount >= 50000)//If loan amount is greater than 50000 it is accepted
 
+                                {
+                                    pb.AddPersonalLoan(pl);
+                                }
+                                else
+                                {
+                                    throw new PersonalLoanException("Amount Should be Greater than 50000");//If loan amount is less than 50000 it is calculated
+                                }
                             }
                             catch (PersonalLoanException ex)
                             {
                                 Console.WriteLine(ex.Message);
+                                //throw;
                                 break;
                             }
                             try
                             {
                                 System.Console.Write("\nEnter the Tenure in months : ");//Enter the tenure in months for the personalloan
                                 pl.Tenure = (float.Parse(System.Console.ReadLine()));
-                                pb.AddPersonalLoan(pl);
+                                if (pl.Tenure >= 10)
+
+                                {
+                                    pb.AddPersonalLoan(pl);
+                                }
+                                else
+                                {
+                                    throw new PersonalLoanException("Tenure should be greater than 10 months");//Tenure should be greater than 10 months
+                                }
+                                
+
 
                             }
                             catch (PersonalLoanException ex)
@@ -104,7 +122,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             else
                             {
 
-                                Console.Write("\nThe Monthly EMI you have to pay is : " + pl.Emi);
+                                Console.Write("\nThe Monthly EMI you have to pay is : " + pl.Emi);//EMI is calcuated
                                 pb.AddPersonalLoan(pl);
 
                             }
@@ -147,7 +165,16 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             {
                                 System.Console.Write("\nEnter the LoanAmount : ");//Enter the Loan amount for the personalloan
                                 vl.LoanAmount = (float.Parse(System.Console.ReadLine()));
-                                vb.AddVehicleLoan(vl);
+                                if (pl.LoanAmount >= 50000)
+
+                                {
+                                    pb.AddPersonalLoan(pl);
+                                }
+                                else
+                                {
+                                    throw new PersonalLoanException("Amount Should be Greater than 50000");
+                                }
+                                
 
                             }
                             catch (PersonalLoanException ex)
@@ -159,7 +186,17 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             {
                                 System.Console.Write("\nEnter the Tenure in months : ");//Enter the tenure in months for the personalloan
                                 vl.Tenure = (float.Parse(System.Console.ReadLine()));
-                                vb.AddVehicleLoan(vl);
+                                if (pl.Tenure >= 10)
+
+                                {
+                                    pb.AddPersonalLoan(pl);
+                                }
+                                else
+                                {
+                                    throw new PersonalLoanException("Tenure should be greater than 10 months");//Tenure should be not less than 10months
+                                }
+
+                                
                             }
                             catch (PersonalLoanException ex)
                             {
@@ -171,7 +208,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             //enter the loanamount,tenure for calculation of emi
 
 
-                            System.Console.WriteLine("\n Congratulations...............your loan is accepted");
+                            System.Console.WriteLine("\n Congratulations...............your loan is accepted");//If loan is accepted congratulations message is displayed on the screen
                             if (vb.CalculateEmi(vl) == 0)
                             {
                                 System.Console.WriteLine("sorry Your loan is rejected ");
@@ -179,7 +216,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             else
                             {
                                 
-                                Console.Write("\nThe Monthly EMI you have to pay is : "+vl.Emi);
+                                Console.Write("\nThe Monthly EMI you have to pay is : "+vl.Emi);//Emi is calcualted
                                 vb.AddVehicleLoan(vl);
 
                             }
