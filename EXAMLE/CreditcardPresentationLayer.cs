@@ -74,7 +74,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
             Customer l = cbl.GetCustomersByCustomerId(a);//getting details by Id and assigns into object l
 
-            cr.Customer = l;
+            //cr.Customer = l;
 
             int AppNumber = cbl.ApplyCreditCard(a);
             Console.WriteLine("Your Application Number is " + AppNumber);
@@ -121,7 +121,7 @@ namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 
             Customer l = cbl.GetCustomersByCustomerId(a);
 
-            cr.Customer = l;
+            //cr.Customer = l;
 
             string CreditCardNumber = cbl.GenerateCreditCard(a);
             Console.WriteLine("Your CreditCard Number is " + CreditCardNumber);
