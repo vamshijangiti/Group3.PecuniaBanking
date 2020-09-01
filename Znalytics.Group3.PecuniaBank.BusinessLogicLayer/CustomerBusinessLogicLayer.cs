@@ -36,7 +36,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             //Validating CustomerName that can't be null
             try
             {
-                if(cust.CustomerName!=null)
+                if (cust.CustomerName != null)
                 {
                     cdal.AddCustomer(cust);
                 }
@@ -101,7 +101,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             //Validation of Mail Id
             try
             {
-                if (cust.MailId!=null)
+                if (cust.MailId != null)
                 {
                     cdal.AddCustomer(cust);
                 }
@@ -131,10 +131,10 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             cdal.UpdateCustomer(customer);
         }
 
-      /*  public int CustomerIdGeneration(Customer cust)
+        public int CustomerIdGeneration(Customer cust)
         {
             // cdal.CustomerIdGeneration(cust);
             return cdal.CustomerIdGeneration(cust);
-        }*/
+        }
     }
 }

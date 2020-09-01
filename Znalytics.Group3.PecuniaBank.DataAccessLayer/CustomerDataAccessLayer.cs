@@ -15,7 +15,7 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
     public class CustomerDataAccessLayer: ICustomerDataAccessLayer
     {
         //List of the CustomerDetail
-      /*  private static List<Customer> _details;
+       private static List<Customer> _details;
         public CustomerDataAccessLayer()
         {
             _details = new List<Customer>();
@@ -28,7 +28,7 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         {
             int CustomerId = _details.Max(temp => temp.CustomerId);
             return CustomerId++;
-        }*/
+        }
 
 
        //Creating List
