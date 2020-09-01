@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 
-namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
+namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public class CurrentAccountBusinessLogic : ICurrentAccountBusinessLogic /*IAccountsBusinessLogicLayer*/
 {
