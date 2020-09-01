@@ -62,6 +62,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                 catch (Exception e)
                 {
                     throw new AccountException("account id should not be zero or null ", e);//raises exception if accountid is nill or zero
+
                 }
 
             }
