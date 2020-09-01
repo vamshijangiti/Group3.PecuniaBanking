@@ -1,5 +1,5 @@
 ﻿//NAVYA Dataaccesslayer for vehice loan
-//NAVYA Dataaccesslayer for vehice loan
+
 using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         static VehicleLoanDataAccessLayer()
         {
             _vehicleLoans = new List<VehicleLoanEntity>();
-           // _vehicleLoans = LoadDetailsToList();
+           _vehicleLoans = LoadDetailsToList();
         }
 
 
@@ -31,9 +31,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         public void AddVehicleLoan(VehicleLoanEntity v)
         {
             _vehicleLoans.Add(v);
-            //ListOfVehicleLoanEntity();
+            ListOfVehicleLoanEntity();
         }
-     /*   public void ListOfVehicleLoanEntity()
+           public void ListOfVehicleLoanEntity()
         {
             string s = JsonConvert.SerializeObject(_vehicleLoans);
 
@@ -57,7 +57,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
                 return VehicleLoans;
             }
 
-        }*/
+        }
 
 
 
