@@ -14,7 +14,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
     /// </summary>
     class CustomerPresentationLayer
     {
-        
+
         public void start()
         {
             CustomersPresentation();
@@ -31,18 +31,22 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
                 Console.WriteLine("1. Add Customer");
                 Console.WriteLine("2. Get Customers");
                 Console.WriteLine("3. Update Customer");
+                Console.WriteLine("3. Get customers by customer Id");
                 Console.WriteLine("4. Exit");
                 Console.Write("Enter choice: ");
                 choice = int.Parse(Console.ReadLine());
+
+
 
                 switch (choice)
                 {
                     case 1: AddCustomer(); break;
                     case 2: GetCustomers(); break;
                     case 3: UpdateCustomer(); break;
-                    case 4: Console.WriteLine("Exit");break;
+                    case 4: GetCustomersByCustomerId(); break;
+                    case 5: Console.WriteLine("Exit"); break;
                 }
-            } while (choice != 4);
+            } while (choice != 5);
         }
 
 
@@ -130,7 +134,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
             //Creating object for BusinessLogic Layer
             CustomerBusinessLogicLayer cb = new CustomerBusinessLogicLayer();
 
-            
+
             //creating list
             List<Customer> cust = cb.GetCustomers();
             //getting customerdetails 
@@ -142,7 +146,8 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
 
                 }
             }
-            else {
+            else
+            {
                 throw new Exception("Customer details can't be null");
             }
         }
@@ -166,8 +171,19 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
             cb.UpdateCustomer(customer);//Calls BusinessLogic Layer
             Console.WriteLine("Customer details Updated successfully");
         }
+        static void GetCustomersByCustomerId()///getting  customer details by id///
+        {
 
-        
+            System.Console.Write("Enter the customerID: ");
+            int CustomerId = int.Parse(System.Console.ReadLine());
+            CustomerBusinessLogicLayer cbl = new CustomerBusinessLogicLayer();
+            Customer b = cbl.GetCustomersByCustomerId(CustomerId);///which calls the businesslogic of GetCustomersByCustomerId method///
+            System.Console.WriteLine(b.CustomerId + " " + b.CustomerName + " " + b.Address + " " + b.PanCardNumber + " " + b.AadharCardNumber + " " + b.Profession+ " " + b.PhoneNumber + " " + b.AnnualIncome);
+
+
+        }
+
+
 
     }
 
