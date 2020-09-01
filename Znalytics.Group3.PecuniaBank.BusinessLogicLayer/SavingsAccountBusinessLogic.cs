@@ -31,7 +31,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             try
             {
-                if (savingsAccount.AccountId != 0)
+                if (savingsAccount.AccountNumber != 0)
                 {
                     _savingsaccountDataAccessLayer.AddSavingsAccount(savingsAccount);
                 }
@@ -49,6 +49,35 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         public List<SavingsAccount> GetSavingsAccounts()
         {
             return GetSavingsAccounts();//retrieves all currentAccount 
+        }
+    }
+
+    public class AccountDetailBLL : IAccountsBusinessLogic
+    {
+        SavingsAccount current = new SavingsAccount();
+        SavingsAccountDataAccessLayer s;
+        public AccountDetailBLL()
+        {
+            s = new SavingsAccountDataAccessLayer();
+        }
+        List<SavingsAccount> savings = new List<SavingsAccount>();
+
+
+       //public 
+
+        public List<AccountDetailBLL> GetAccounts()
+        {
+            return new List<AccountDetailBLL>() { };
+        }
+        public SavingsAccount GetAccountByAccountNumber(long accountNumber)
+        {
+            SavingsAccount ac =  s.GetSavingsAccount(accountNumber);
+            return ac;
+        }
+
+        public void UpdateAccount(AccountDetailBLL account)
+        {
+
         }
     }
 }

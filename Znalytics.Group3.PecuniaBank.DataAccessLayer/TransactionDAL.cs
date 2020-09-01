@@ -17,7 +17,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class TransactionDAL : ApplicationException, ITransactionDAL
     {
 
-        static List<Transaction> _transactionsList;///list For Transaction Entity
+      private static List<Transaction> _transactionsList { set; get; }///list For Transaction Entity
 
         static TransactionDAL() // creating a list object in constructor
         {
@@ -35,25 +35,28 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// <param name="t">object</param>
         public void AddTransaction(Transaction t)
         {
-            //Generating the TransactionID 
-            int max = 0;
-            foreach (var item in _transactionsList)
-            {
-                if (item.TransactionID > max)
-                {
-                    max = item.TransactionID;
-                }
-            }
-            t.TransactionID = ++max;
-            if (_transactionsList.Count != 0)
+
+            if (t != null)
             {
                 _transactionsList.Add(t);
                 SaveDataInToFile();
+                //Generating the TransactionID 
+                int max = 0;
+                foreach (var item in _transactionsList)
+                {
+                    if (item.TransactionID > max)
+                    {
+                        max = item.TransactionID;
+                    }
+                }
+                t.TransactionID = ++max;
+
             }
             else
             {
                 throw new TransactionException("No Data Entered");
             }
+           
         }
 
 

@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using Znalytics.Group3.PecuniaBank.AccountEntities;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
     public interface IAccountsBusinessLogic
     {
-        List<AccountDetailBLLFake> GetAccounts();
-        AccountDetailBLLFake GetAccountByAccountNumber(long accountNumber);
-        void UpdateAccount(AccountDetailBLLFake account);
+        List<AccountDetailBLL> GetAccounts();
+        SavingsAccount GetAccountByAccountNumber(long accountNumber);
+        void UpdateAccount(AccountDetailBLL account);
     }
 
-    public class AccountDetailBLLFake : IAccountsBusinessLogic
+   /* public class AccountDetailBLL : IAccountsBusinessLogic
     {
 
         private long accno;
@@ -18,23 +19,23 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         public double Balance { set; get; } = 20000;
         public long Account { set; get; } = 101;
 
-        public List<AccountDetailBLLFake> GetAccounts()
+        public List<AccountDetailBLL> GetAccounts()
         {
-            return new List<AccountDetailBLLFake>()
+            return new List<AccountDetailBLL>()
             {
-                new AccountDetailBLLFake() { accno=101,balance=20000},
-                 new AccountDetailBLLFake() { accno=102,balance=30000 }
+                new AccountDetailBLL() { accno=101,balance=20000},
+                 new AccountDetailBLL() { accno=102,balance=30000 }
 
             };
         }
-        public AccountDetailBLLFake GetAccountByAccountNumber(long accountNumber)
+        public AccountDetailBLL GetAccountByAccountNumber(long accountNumber)
         {
-            return new AccountDetailBLLFake() { accno = 101, balance = 20000 };
+            return new AccountDetailBLL() { accno = 101, balance = 20000 };
         }
 
-        public void UpdateAccount(AccountDetailBLLFake account)
+        public void UpdateAccount(AccountDetailBLL account)
         {
 
         }
-    }
+    }*/
 }
