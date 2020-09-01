@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Znalytics.Group3.PecuniaBank.AccountEntities;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 using Znalytics.Group3.PecuniaBank.Entities;
 using Znalytics.Group3.PecuniaBank.Entities.TransactionException;
@@ -18,7 +19,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         //creating objects for other classes
         ITransactionDAL transactionDAL = new TransactionDAL();
-        AccountDetailBLLFake account = new AccountDetailBLLFake();
+        IAccountsBusinessLogic account = new AccountDetailBLL();
         /// <summary>
         /// Constructor for BLL
         /// </summary>
@@ -36,7 +37,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             {
                 if (account != null)
                 {
-                    AccountDetailBLLFake result = account.GetAccountByAccountNumber(t.AccountNumber);
+                    SavingsAccount result = account.GetAccountByAccountNumber(t.AccountNumber);
                     if (result != null)
                     {
                         transactionDAL.AddTransaction(t);
@@ -47,7 +48,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                     }
                 }
             }
-            catch (Exception e)
+            catch (TransactionException)
             {
                 throw;
             }
@@ -99,8 +100,9 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <returns></returns>
         public bool CheckAccountNumber(long accountNumber)
         {
-            AccountDetailBLLFake account = new AccountDetailBLLFake();
-            if (account.Account == accountNumber)
+
+            SavingsAccount savings = account.GetAccountByAccountNumber(accountNumber);
+            if (savings != null)
             {
                 return true;
             }
@@ -136,7 +138,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <param name="t"></param>
         public void DepositAmount(Transaction t)
         {
-            AccountDetailBLLFake a = new AccountDetailBLLFake();
+            CurrentAccount a = new CurrentAccount();
             if (t.TransactionAmount < 100000 && t.TransactionAmount >= 500)
             {
                 a.Balance += t.TransactionAmount;
@@ -154,7 +156,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         public int WithDrawlAmount(Transaction t)
         {
 
-            AccountDetailBLLFake result = new AccountDetailBLLFake();
+            CurrentAccount result = new CurrentAccount();
             if (result == null)
             {
                 return 3;

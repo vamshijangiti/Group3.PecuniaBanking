@@ -12,7 +12,8 @@ using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-    public class CurrentAccountBusinessLogic : ICurrentAccountBusinessLogic/* IAccountsBusinessLogicLayer*/
+    public class CurrentAccountBusinessLogic : ICurrentAccountBusinessLogic
+
     {
         CurrentAccountDataAccessLayer currentAccountDataAccessLayer = new CurrentAccountDataAccessLayer();
 
@@ -24,7 +25,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             try
             {
-                if (currentAccount.AccountNo != 0)
+                if (currentAccount.AccountNumber != 0)
                 {
                     currentAccountDataAccessLayer.AddCurrentAccount(currentAccount);
                 }
@@ -41,7 +42,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             try
             {
-                if (currentAccount.AccountNo != 0)
+                if (currentAccount.AccountNumber != 0)
                 {
                     currentAccountDataAccessLayer.DeleteCurrentAccount(currentAccount);
                 }
@@ -59,32 +60,48 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
     }
 
-   /* public List<AccountDetailBLLFake> GetCurrentAccounts
+  /*  public class AccountDetailBLL : IAccountsBusinessLogic
     {
-        get
-        {
-            return new List<AccountDetailBLLFake>()
-
-
-            {
-                new AccountDetailBLLFake() { Account = 1, Balance = 1000 },
-            };
-        }*/
-
-        /*  public AccountDetailBLLFake GetAccountByAccountNumber(long accountNumber)
-          {
-              return new AccountDetailBLLFake() { Account = 1, Balance = 1000 };
-          }*/
-    }
-
-    
-
-
+        CurrentAccount current = new CurrentAccount();
+        CurrentAccountDataAccessLayer c;
+        public AccountDetailBLL() {
+            c = new CurrentAccountDataAccessLayer();
+       }
+        List<CurrentAccount> sam = new List<CurrentAccount>();
 
         
-  
+        
+        public List<AccountDetailBLL> GetAccounts()
+        {
+            return new List<AccountDetailBLL>(){ };
+        }
+        public CurrentAccount GetAccountByAccountNumber(long accountNumber)
+        {
+            sam=c.GetCurrentAccounts();
+            CurrentAccount ac = sam.Find(temp=> temp.AccountNumber==accountNumber);
+            return ac;          
+        }
+
+        public void UpdateAccount(AccountDetailBLL account)
+        {
+
+        }
+    }*/
+}
+/*  public AccountDetailBLLFake GetAccountByAccountNumber(long accountNumber)
+  {
+      return new AccountDetailBLLFake() { Account = 1, Balance = 1000 };
+  }
+}
+
+}*/
 
 
-      
 
- 
+
+
+
+
+
+
+

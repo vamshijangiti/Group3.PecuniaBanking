@@ -19,11 +19,11 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     /// </summary>
     public class AccountsPresentationLayer
     {
-      
-       /// <summary>
-       /// Do While loop starts where user selects choice
-       /// </summary>
-       public  static void Start()
+
+        /// <summary>
+        /// Do While loop starts where user selects choice
+        /// </summary>
+        public static void Start()
         {
             int choice = 0;
             do
@@ -43,42 +43,43 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
             } while (choice != 3);
-               
+
         }
 
 
-            ///<summary>
-            ///adding Savings Account
-            /// </summary>
+        ///<summary>
+        ///adding Savings Account
+        /// </summary>
 
-           static void AddSavingsAccount()
-            {
-                SavingsAccountBusinessLogic savingsAccountBusinessLogic = new  SavingsAccountBusinessLogic();
-                SavingsAccount _savingsaccount = new SavingsAccount();
-                System.Console.WriteLine("enter AccountNo");
-                _savingsaccount.AccountNo = int.Parse(System.Console.ReadLine());
-                System.Console.WriteLine("enter balance");
-                _savingsaccount.Balance = long.Parse(System.Console.ReadLine());
-            SavingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
-                System.Console.WriteLine("savings Account Added");
-            }
- /// <summary>
- /// Cuurent account starts
- /// </summary>
-  static void AddCurrentAccount()
+        static void AddSavingsAccount()
+        {
+            SavingsAccountBusinessLogic savingsAccountBusinessLogic = new SavingsAccountBusinessLogic();
+            SavingsAccount _savingsaccount = new SavingsAccount();
+            System.Console.WriteLine("enter AccountNo");
+            _savingsaccount.AccountNumber = long.Parse(System.Console.ReadLine());
+            //savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
+            System.Console.WriteLine("enter balance");
+            _savingsaccount.Balance = double.Parse(System.Console.ReadLine());
+            savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
+            System.Console.WriteLine("savings Account Added");
+        }
+        /// <summary>
+        /// Cuurent account starts
+        /// </summary>
+        static void AddCurrentAccount()
         {
             try
-            { 
+            {
 
-            CurrentAccountBusinessLogic accountBusinessLogic = new CurrentAccountBusinessLogic();
-               CurrentAccount currentAccount = new CurrentAccount();
-            System.Console.WriteLine("enter account No");
-                currentAccount.AccountNo = int.Parse(Console.ReadLine());
-            System.Console.WriteLine("enter balance");
-        }
+                CurrentAccountBusinessLogic accountBusinessLogic = new CurrentAccountBusinessLogic();
+                CurrentAccount currentAccount = new CurrentAccount();
+                System.Console.WriteLine("enter account No");
+                currentAccount.AccountNumber = long.Parse(Console.ReadLine());
+                System.Console.WriteLine("enter balance");
+            }
             catch (Exception ex)
             {
-                if (ex.InnerException!= null)
+                if (ex.InnerException != null)
                 {
                     System.Console.WriteLine(ex.InnerException.Message);//Inner exception is raised
                 }
@@ -86,13 +87,12 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         }
     }
 
-    public class SavingsAccountBusinessLogic
-    {
-        internal static void AddSavingsAccount(SavingsAccount savingsaccount)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    /* public class SavingsAccountBusinessLogic
+     {
+         internal static void AddSavingsAccount(SavingsAccount savingsaccount)
+         {
+              throw new NotImplementedException();
+         }
+     }*/
 }
-     
-     
+

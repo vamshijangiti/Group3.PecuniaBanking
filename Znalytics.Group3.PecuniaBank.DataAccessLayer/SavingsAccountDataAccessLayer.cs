@@ -25,9 +25,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         //constructor
         public SavingsAccountDataAccessLayer() => savingAccounts = new List<SavingsAccount>()
             {
-                new SavingsAccount() { AccountNo=1, DateOfCreation = "24-08-2020", Balance = 100, },
-                new SavingsAccount() { AccountNo=2,DateOfCreation="25-08-2020",Balance=12000},
-                new SavingsAccount() { AccountNo=3, DateOfCreation = "26-08-2020", Balance = 1000, },
+                new SavingsAccount() { AccountNumber=101, DateOfCreation = "24-08-2020", Balance = 1000, },
+                new SavingsAccount() { AccountNumber=102,DateOfCreation="25-08-2020",Balance=12000},
+                new SavingsAccount() { AccountNumber=103, DateOfCreation = "26-08-2020", Balance = 1000, },
             };
 
         /// <summary>
@@ -38,11 +38,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             if (savingAccounts.Count == 0)
             {
-                savingsAccount.AccountNo = 0;
+                savingsAccount.AccountNumber = 0;
             }
             else
             {
-                savingsAccount.AccountNo = savingAccounts.Max(temp => temp.AccountNo);
+                savingsAccount.AccountNumber = savingAccounts.Max(temp => temp.AccountNumber);
             }
             savingAccounts.Add(savingsAccount);
 
@@ -71,14 +71,15 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
 
-        public List<SavingsAccount> GetSavingsAccount(int AccountNo)
+        public SavingsAccount GetSavingsAccount(long accountNumber)
         {
-            return savingAccounts;
+           return savingAccounts.Find(temp => temp.AccountNumber == accountNumber);
+           //return savingAccounts;
         }
 
-        public void DeleteSavingsAccount(SavingsAccount s,int AccountNo)
+        public void DeleteSavingsAccount(SavingsAccount s,long _accountNumber)
         {
-            if (AccountNo!= 0)
+            if (_accountNumber!= 0)
             {
              savingAccounts.Remove(s);
             }
@@ -100,7 +101,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             _accounts = new List<Account>()
             {
-                new Account{AccountId=1,AccountNo=13579024681,Balance=1000,DateOfCreation="25-08-2020"},
+                new Account{AccountId=1,_accountNumber=13579024681,Balance=1000,DateOfCreation="25-08-2020"},
             };
         }
 

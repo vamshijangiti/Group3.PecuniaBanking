@@ -15,15 +15,15 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class CurrentAccountDataAccessLayer : ICurrentAccountDataAccessLayer//interface
     {
 
-        List<CurrentAccount> currentAccounts = new List<CurrentAccount>();
+        static List<CurrentAccount> currentAccounts = new List<CurrentAccount>();
 
         //constructor
         //collection
-        public CurrentAccountDataAccessLayer() => currentAccounts = new List<CurrentAccount>()
+        static CurrentAccountDataAccessLayer() => currentAccounts = new List<CurrentAccount>()
              {
-                 new CurrentAccount() { AccountNo =1, DateOfCreation= Convert.ToDateTime("24-08-2020"), Balance = 1000 },
-                 new CurrentAccount() { AccountNo=2, DateOfCreation = Convert.ToDateTime("25-08-2020"), Balance =12000},
-                 new CurrentAccount() { AccountNo=3, DateOfCreation = Convert.ToDateTime("26-08-2020"), Balance = 1000 },
+                 new CurrentAccount() { AccountNumber =101, DateOfCreation= Convert.ToDateTime("24-08-2020"), Balance = 1000 },
+                 new CurrentAccount() { AccountNumber=102, DateOfCreation = Convert.ToDateTime("25-08-2020"), Balance =12000},
+                 new CurrentAccount() { AccountNumber=103, DateOfCreation = Convert.ToDateTime("26-08-2020"), Balance = 1000 },
              };
 
 
@@ -33,11 +33,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             if (currentAccounts.Count == 0)
             {
-                currentAccount.AccountNo = 0;
+                currentAccount.AccountNumber = 0;
             }
             else
             {
-                currentAccount.AccountNo = currentAccounts.Max(temp => temp.AccountNo);
+                currentAccount.AccountNumber = currentAccounts.Max(temp => temp.AccountNumber);
             }
             currentAccounts.Add(currentAccount);
         }
@@ -52,7 +52,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         }
         public void DeleteCurrentAccount(CurrentAccount currentAccount, int AccountId)
         {
-            if (currentAccount.AccountNo!=0)
+            if (currentAccount.AccountNumber!=0)
             {
                 currentAccounts.Remove(currentAccount);
             }

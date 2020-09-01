@@ -10,10 +10,10 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
     ///interface named as IAccount
     ///</summary>
     interface IAccount   //Interface is a pure Abstract class which acts as a contract between two developers
-                            //i.e; here IAccount means SavingsAccount and CurrentAccount
+                         //i.e; here IAccount means SavingsAccount and CurrentAccount
     {
         //fields
-        int AccountNo
+        long AccountNumber
         {
             set; get;
         }
@@ -21,12 +21,12 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         {
             set; get;
         }
-        long Balance
+        double Balance
         {
             set; get;
         }
     }
-    public class SavingsAccount:IAccount
+    public class SavingsAccount : IAccount
     {
         //private Fields
 
@@ -35,20 +35,20 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         /// <param name=dateOfCreation>Date of creation</param>
         /// <param name=balance>balance</param>
         /// </summary>
-        private int _accountNo;
+        private long _accountNumber;
         private string _dateOfCreation;
-        private long _balance;
+        private double _balance;
 
 
-        public int AccountNo
+        public long AccountNumber
         {
             set
             {
                 try
                 {
-                    if (_accountNo != 0)
+                    if (value != 0)
                     {
-                        _accountNo = value;//after validation accountid is assigned to value
+                        _accountNumber = value;//after validation accountid is assigned to value
                     }
 
                 }
@@ -61,7 +61,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             }
             get
             {
-                return _accountNo;//returns AccountId
+                return _accountNumber;//returns AccountId
             }
         }
 
@@ -71,7 +71,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         {
             set
             {
-                if (_dateOfCreation != null)
+                if (value != null)
                 {
                     _dateOfCreation = value;//after validation dateofcreation should be in dd:mm:yy format
                 }
@@ -82,18 +82,20 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             }
         }
 
-        public long Balance
+        public double Balance
         {
             set
             {
-                if (_balance >= 500)//balance shouldnot be equal to zero
-                {
-                    _balance = value;//balance 
-                }
-                else
-                {
-                    throw new AccountException("your minimum balance should be maintained");
-                }
+               
+                if (value !=0)//balance shouldnot be equal to zero
+                    {
+                        _balance = value;//balance 
+                    }
+                    else
+                    {
+                        throw new AccountException("your minimum balance should be maintained");
+                    }
+               
             }
             get
             {
@@ -108,24 +110,24 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
     public class CurrentAccount //: IAccount
     {
         ///<summary>
-        ///<param name="AccountNo">CrrentAccountId</param>
+        ///<param name="AccountNumber">CrrentAccountId</param>
         ///<param name="balance">Balance</param>
         ///<param name="dateOfCreation">Date of creation</param>
         ///</summary>
-        
-        private int _accountNo;
-        private long _balance;
+
+        private long _accountNumber;
+        private double _balance;
         private DateTime _dateOfCreation;
 
 
-        public int AccountNo
+        public long AccountNumber
         {
             set
             {
-                if (_accountNo != 0)
+                if (value != 0)
                 {
 
-                    _accountNo = value;
+                    _accountNumber = value;
                 }
 
                 else
@@ -135,17 +137,17 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             }
             get
             {
-                return _accountNo;
+                return _accountNumber;
             }
         }
         public DateTime DateOfCreation
         {
             set
             {
-                if (_dateOfCreation!=null)//date of creation should be in dd-mm-yyy format
+                if (value != null)//date of creation should be in dd-mm-yyy format
                 {
 
-                    _dateOfCreation =value;
+                    _dateOfCreation = value;
                 }
             }
             get
@@ -153,11 +155,11 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                 return _dateOfCreation;//returns dateOfCreation
             }
         }
-        public long Balance
+        public double Balance
         {
             set
             {
-                if (_balance>=500)
+                if (value >= 500)
                 {
                     _balance = value;
                 }
