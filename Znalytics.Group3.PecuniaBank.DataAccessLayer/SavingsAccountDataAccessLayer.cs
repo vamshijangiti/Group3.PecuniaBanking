@@ -20,7 +20,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class SavingsAccountDataAccessLayer : ISavingsAccountDataAccessLayer//interface
     {
         List<SavingsAccount> savingAccounts = new List<SavingsAccount>();//List of Accounts
-     
+
 
         //constructor
         public SavingsAccountDataAccessLayer() => savingAccounts = new List<SavingsAccount>()
@@ -48,7 +48,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
         //Convert data into Json
-        public static void SaveIntoFile( int SavingsAccount)
+        public static void SaveIntoFile(int SavingsAccount)
         {
             string v = JsonConvert.SerializeObject(SavingsAccount);
             string s = v;
@@ -73,59 +73,17 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         public SavingsAccount GetSavingsAccount(long accountNumber)
         {
-           return savingAccounts.Find(temp => temp.AccountNumber == accountNumber);
-           //return savingAccounts;
+            return savingAccounts.Find(temp => temp.AccountNumber == accountNumber);
+            //return savingAccounts;
         }
 
-        public void DeleteSavingsAccount(SavingsAccount s,long _accountNumber)
+        public void DeleteSavingsAccount(SavingsAccount s, long _accountNumber)
         {
-            if (_accountNumber!= 0)
+            if (_accountNumber != 0)
             {
-             savingAccounts.Remove(s);
+                savingAccounts.Remove(s);
             }
         }
     }
 }
-
-    
-       
-   
   
-
-    /*    Customers Collection
-        
-           public class AccountDataAccessLayer : IEnumerable
-    {
-        List<Account> _accounts;
-        public AccountDataAccessLayer()
-        {
-            _accounts = new List<Account>()
-            {
-                new Account{AccountId=1,_accountNumber=13579024681,Balance=1000,DateOfCreation="25-08-2020"},
-            };
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            for (int i; i <= _accounts.Count; i++)
-            {
-                yield return _accounts[i];
-            }
-        }
-
-        public List<Account> GetAccounts()
-        {
-           
-        }
-
-        public void Add(Account account)
-        {
-            _accounts.Add(account);
-        }
-
-        public void UpdateAccount(Account account)
-        {
-         
-        }
-    }*/
-    
