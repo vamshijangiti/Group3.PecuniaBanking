@@ -11,7 +11,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     interface  ICurrentAccountDataAccessLayer
     {
         void AddCurrentAccount(CurrentAccount currentAccount);
-        void DeleteCurrentAccount(CurrentAccount currentAccount, int accountId);
+        void DeleteCurrentAccount(CurrentAccount currentAccount, int accountNo);
         List<CurrentAccount> GetCurrentAccounts();
     }
 }

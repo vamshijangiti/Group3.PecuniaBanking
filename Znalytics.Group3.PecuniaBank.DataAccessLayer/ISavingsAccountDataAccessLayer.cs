@@ -11,8 +11,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     {
         void AddSavingsAccount(SavingsAccount savingsAccount);
         void AddDateOfCreation(SavingsAccount d);
-        void DeleteSavingsAccount(SavingsAccount savingsAccount,int accountId);
-        List<SavingsAccount> GetSavingsAccount(int AccountId);
+        void DeleteSavingsAccount(SavingsAccount savingsAccount,int accountNo);
+        List<SavingsAccount> GetSavingsAccount(int AccountNo);
    
     }
 }

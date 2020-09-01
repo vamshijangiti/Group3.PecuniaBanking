@@ -25,9 +25,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         //constructor
         public SavingsAccountDataAccessLayer() => savingAccounts = new List<SavingsAccount>()
             {
-                new SavingsAccount() { AccountId=1, DateOfCreation = "24-08-2020", Balance = 100, },
-                new SavingsAccount() { AccountId=2,DateOfCreation="25-08-2020",Balance=12000},
-                new SavingsAccount() { AccountId=3, DateOfCreation = "26-08-2020", Balance = 1000, },
+                new SavingsAccount() { AccountNo=1, DateOfCreation = "24-08-2020", Balance = 100, },
+                new SavingsAccount() { AccountNo=2,DateOfCreation="25-08-2020",Balance=12000},
+                new SavingsAccount() { AccountNo=3, DateOfCreation = "26-08-2020", Balance = 1000, },
             };
 
         /// <summary>
@@ -38,11 +38,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             if (savingAccounts.Count == 0)
             {
-                savingsAccount.AccountId = 0;
+                savingsAccount.AccountNo = 0;
             }
             else
             {
-                savingsAccount.AccountId = savingAccounts.Max(temp => temp.AccountId);
+                savingsAccount.AccountNo = savingAccounts.Max(temp => temp.AccountNo);
             }
             savingAccounts.Add(savingsAccount);
 
@@ -71,14 +71,14 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
         }
 
-        public List<SavingsAccount> GetSavingsAccount(int AccountId)
+        public List<SavingsAccount> GetSavingsAccount(int AccountNo)
         {
             return savingAccounts;
         }
 
-        public void DeleteSavingsAccount(SavingsAccount s,int accountId)
+        public void DeleteSavingsAccount(SavingsAccount s,int AccountNo)
         {
-            if (accountId!= 0)
+            if (AccountNo!= 0)
             {
              savingAccounts.Remove(s);
             }

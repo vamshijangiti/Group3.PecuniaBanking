@@ -1,13 +1,6 @@
 ﻿//Entities Layer created by sriram 
 using System;
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
-using System.Diagnostics.Eventing.Reader;
-
 namespace Znalytics.Group3.PecuniaBank.AccountEntities
 {
     /// <summary>
@@ -20,7 +13,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                             //i.e; here IAccount means SavingsAccount and CurrentAccount
     {
         //fields
-        int AccountId
+        int AccountNo
         {
             set; get;
         }
@@ -33,29 +26,29 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             set; get;
         }
     }
-    public class SavingsAccount : IAccount
+    public class SavingsAccount:IAccount
     {
         //private Fields
 
         /// <summary>
-        /// <param name=AccountId></param>
+        /// <param name=AccountNo></param>
         /// <param name=dateOfCreation>Date of creation</param>
         /// <param name=balance>balance</param>
         /// </summary>
-        private int _accountId;
+        private int _accountNo;
         private string _dateOfCreation;
         private long _balance;
 
 
-        public int AccountId
+        public int AccountNo
         {
             set
             {
                 try
                 {
-                    if (_accountId != 0)
+                    if (_accountNo != 0)
                     {
-                        _accountId = value;//after validation accountid is assigned to value
+                        _accountNo = value;//after validation accountid is assigned to value
                     }
 
                 }
@@ -68,7 +61,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             }
             get
             {
-                return _accountId;//returns AccountId
+                return _accountNo;//returns AccountId
             }
         }
 
@@ -115,24 +108,24 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
     public class CurrentAccount //: IAccount
     {
         ///<summary>
-        ///<param name="AccountId">CrrentAccountId</param>
+        ///<param name="AccountNo">CrrentAccountId</param>
         ///<param name="balance">Balance</param>
         ///<param name="dateOfCreation">Date of creation</param>
         ///</summary>
         
-        private int _accountId;
+        private int _accountNo;
         private long _balance;
         private DateTime _dateOfCreation;
 
 
-        public int AccountId
+        public int AccountNo
         {
             set
             {
-                if (_accountId != 0)
+                if (_accountNo != 0)
                 {
 
-                    _accountId = value;
+                    _accountNo = value;
                 }
 
                 else
@@ -142,7 +135,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             }
             get
             {
-                return _accountId;
+                return _accountNo;
             }
         }
         public DateTime DateOfCreation

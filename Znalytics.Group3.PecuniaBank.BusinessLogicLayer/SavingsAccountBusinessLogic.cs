@@ -31,7 +31,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             try
             {
-                if (savingsAccount.AccountId != 0)
+                if (savingsAccount.AccountNo != 0)
                 {
                     _savingsaccountDataAccessLayer.AddSavingsAccount(savingsAccount);
                 }

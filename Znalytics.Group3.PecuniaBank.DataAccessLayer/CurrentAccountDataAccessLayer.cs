@@ -21,9 +21,9 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         //collection
         public CurrentAccountDataAccessLayer() => currentAccounts = new List<CurrentAccount>()
              {
-                 new CurrentAccount() { AccountId =1, DateOfCreation= Convert.ToDateTime("24-08-2020"), Balance = 1000 },
-                 new CurrentAccount() { AccountId=2, DateOfCreation = Convert.ToDateTime("25-08-2020"), Balance =12000},
-                 new CurrentAccount() { AccountId=3, DateOfCreation = Convert.ToDateTime("26-08-2020"), Balance = 1000 },
+                 new CurrentAccount() { AccountNo =1, DateOfCreation= Convert.ToDateTime("24-08-2020"), Balance = 1000 },
+                 new CurrentAccount() { AccountNo=2, DateOfCreation = Convert.ToDateTime("25-08-2020"), Balance =12000},
+                 new CurrentAccount() { AccountNo=3, DateOfCreation = Convert.ToDateTime("26-08-2020"), Balance = 1000 },
              };
 
 
@@ -33,11 +33,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             if (currentAccounts.Count == 0)
             {
-                currentAccount.AccountId = 0;
+                currentAccount.AccountNo = 0;
             }
             else
             {
-                currentAccount.AccountId = currentAccounts.Max(temp => temp.AccountId);
+                currentAccount.AccountNo = currentAccounts.Max(temp => temp.AccountNo);
             }
             currentAccounts.Add(currentAccount);
         }
@@ -52,7 +52,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         }
         public void DeleteCurrentAccount(CurrentAccount currentAccount, int AccountId)
         {
-            if (currentAccount.AccountId!=0)
+            if (currentAccount.AccountNo!=0)
             {
                 currentAccounts.Remove(currentAccount);
             }

@@ -55,8 +55,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             {
                 SavingsAccountBusinessLogic savingsAccountBusinessLogic = new  SavingsAccountBusinessLogic();
                 SavingsAccount _savingsaccount = new SavingsAccount();
-                System.Console.WriteLine("enter AccountId");
-                _savingsaccount.AccountId = int.Parse(System.Console.ReadLine());
+                System.Console.WriteLine("enter AccountNo");
+                _savingsaccount.AccountNo = int.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
                 _savingsaccount.Balance = long.Parse(System.Console.ReadLine());
             SavingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
@@ -72,8 +72,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
             CurrentAccountBusinessLogic accountBusinessLogic = new CurrentAccountBusinessLogic();
                CurrentAccount currentAccount = new CurrentAccount();
-            System.Console.WriteLine("enter account id");
-                currentAccount.AccountId = int.Parse(Console.ReadLine());
+            System.Console.WriteLine("enter account No");
+                currentAccount.AccountNo = int.Parse(Console.ReadLine());
             System.Console.WriteLine("enter balance");
         }
             catch (Exception ex)
