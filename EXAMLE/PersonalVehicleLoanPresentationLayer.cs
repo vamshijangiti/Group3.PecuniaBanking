@@ -20,13 +20,10 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
     public class PersonalVehicleLoanPresentationLayer
     {
-        public void start()
+        public static void Start()
         {
-            PersonalVehicleLoanPresentation();
-            Console.ReadKey();
-        }
-        static void PersonalVehicleLoanPresentation()
-        {
+                  
+        
             Customer cus = new Customer();
             PersonalLoanEntity pl = new PersonalLoanEntity();//creating a object for personalloan entity
             VehicleLoanEntity vl = new VehicleLoanEntity();//creating a object for vehicleloan entity
