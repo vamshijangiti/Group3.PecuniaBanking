@@ -17,16 +17,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     /// <summary>
     /// AccountsPresentation layer
     /// </summary>
-    public class program
+    public class AccountsPresentationLayer
     {
-        public void Start() {
-            AccountsPresentationLayer();
-            System.Console.ReadKey();
-            }
+      
        /// <summary>
        /// Do While loop starts where user selects choice
        /// </summary>
-        static void AccountsPresentationLayer()
+       public  static void Start()
         {
             int choice = 0;
             do
