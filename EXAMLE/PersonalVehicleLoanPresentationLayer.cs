@@ -55,13 +55,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                        
                             System.Console.Write("\nEnter CustomerId : ");//Enter the customerId for personal loan
                             pl.CustomerId = cus.CustomerId;
-                            Customer s = pb.GetCustomersByCustomerId(pl.CustomerId);
+                           /* Customer s = pb.GetCustomersByCustomerId(pl.CustomerId);
                             WriteLine("Name" + s.CustomerName);
                             WriteLine("Profession" + s.Profession);
                             WriteLine("Address" + s.Address);
                             WriteLine("AnnualIncome" + s.AnnualIncome );
                             WriteLine("PanCardNumber" + s.PanCardNumber );
-                            WriteLine("AadharCardNumber" + s.AadharCardNumber );
+                            WriteLine("AadharCardNumber" + s.AadharCardNumber );*/
                             
                             
 
