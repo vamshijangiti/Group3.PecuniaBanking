@@ -47,7 +47,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                     }
                 }
             }
-            catch (Exception e)
+            catch (TransactionException)
             {
                 throw;
             }
