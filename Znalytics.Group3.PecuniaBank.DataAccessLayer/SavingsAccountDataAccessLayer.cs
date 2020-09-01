@@ -25,7 +25,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         //constructor
         public SavingsAccountDataAccessLayer() => savingAccounts = new List<SavingsAccount>()
             {
-                new SavingsAccount() { AccountNumber=101, DateOfCreation = "24-08-2020", Balance = 1000, },
+                new SavingsAccount() { AccountNumber=101, DateOfCreation = "24-08-2020", Balance = 10000, },
                 new SavingsAccount() { AccountNumber=102,DateOfCreation="25-08-2020",Balance=12000},
                 new SavingsAccount() { AccountNumber=103, DateOfCreation = "26-08-2020", Balance = 1000, },
             };
@@ -42,7 +42,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             }
             else
             {
-              //  savingsAccount.AccountNumber = savingAccounts.Max(temp => temp.AccountNumber);
+              //savingsAccount.AccountNumber = savingAccounts.Find(temp => temp.AccountNumber);
             }
             savingAccounts.Add(savingsAccount);
 
