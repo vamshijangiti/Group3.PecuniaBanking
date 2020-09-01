@@ -30,7 +30,7 @@ public class MainMethod
 
             Console.Write("\nEnter Your choice : ");
 
-             ch= System.Console.ReadLine();
+            ch = System.Console.ReadLine();
             switch (ch)
             {
                 case "1":
