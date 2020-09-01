@@ -30,7 +30,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             try
             {
-                if (housingLoan.CustomerId == 0)
+                if (housingLoan.CustomerId!=0)
                 {
                     _housingLoanDataAccessLayer.Add(housingLoan);//Adds housingLoan
                 }
