@@ -16,7 +16,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         private float _RateOfInterest;
         private float _emi;
         private int _creditScore;
-        private bool AgeOfCustomer;
+      
 
 
 
