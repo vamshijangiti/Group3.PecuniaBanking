@@ -2,10 +2,10 @@
 
 using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
-using Znalytics.PecuniaBanking.CustomerModule.Entities;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;//namespace of customer module entities
 using System.IO;
 using Newtonsoft.Json;
-using Znalytics.Group3.PecuniaBank.DataAccessLayer;
+using Znalytics.Group3.PecuniaBank.DataAccessLayer;//namespace of data access layer
 
 namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
 {

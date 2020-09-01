@@ -1,24 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using Znalytics.Group3.PecuniaBanking.BusinessLayer;
-using Znalytics.PecuniaBanking.CustomerModule.Entities;
+﻿//******************************Done by Manasa**************************//////
 
-namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
+
+using System;
+using System.Collections.Generic;
+using Znalytics.Group3.PecuniaBanking.BusinessLayer;//Namespace ofCustomer BusinessLogic Layer
+using Znalytics.PecuniaBanking.CustomerModule.Entities;//Name space of Customer Entities
+
+//Namespace of Costumer PresentationLayer
+namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
 {
     /// <summary>
-    /// Represents Login information of the customer
+    /// class that represents Login information of the customer
     /// </summary>
     class CustomerPresentationLayer
     {
         
         public void start()
         {
-            CustomerDetailsPresentation();
+            CustomersPresentation();
             Console.ReadKey();
         }
 
         //Displaying Customers menu
-        static void CustomerDetailsPresentation()
+        static void CustomersPresentation()
         {
             int choice = 0;
             do
@@ -43,7 +47,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
 
 
         /// <summary>
-        ///  Method to add Customer Details
+        /// Static Method to add Customer Details
         /// </summary>
         static void AddCustomer()
         {
@@ -65,7 +69,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 //customer.CustomerId = int.Parse(Console.ReadLine());
 
                 //Reading Occupation of customer manually
-                Console.Write("Enter Occupation: ");
+                Console.Write("Enter Profession: ");
                 customer.Profession = Console.ReadLine();
 
                 //Reading Address of custometr manually
@@ -77,26 +81,26 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 customer.AnnualIncome = double.Parse(Console.ReadLine());
 
                 //Reading customer's Pancard number manually
-                Console.Write("Enter customer pancardnumber: ");
+                Console.Write("Enter customer Pancardnumber(Pancardnumber should starts with 5alphabets followed by 4digits and then 1alphabet(eg:asdfg1234g)): ");
                 customer.PanCardNumber = Console.ReadLine();
 
                 //Reading Customer's aadharcardnumber manually
-                Console.Write("Enter customer Aadharcardnumber: ");
+                Console.Write("Enter customer Aadharcardnumber that must be 12 digits: ");
                 customer.AadharCardNumber = Console.ReadLine();
 
                 //Reading Phone number of customer manually
-                //Console.Write("Enter customer Phone number: ");
-                //customer.PhoneNumber = Console.ReadLine();
+                Console.Write("Enter customer Phone number that must be 10 digits: ");
+                customer.PhoneNumber = Console.ReadLine();
 
                 //Reading Customer's age manually
-                Console.Write("Enter customer Age: ");
+                Console.Write("Enter customer DateOfBirth in the format of yyyy-mm-dd 7:00 am(Entering time should be optional): ");
                 customer.DateOfBirth = DateTime.Parse(Console.ReadLine());
 
                 //Reading customer's mail id manually
-                Console.Write("Enter customer MailId: ");
+                Console.Write("Enter customer MailId(eg:abc@gmail.com): ");
                 customer.MailId = Console.ReadLine();
 
-                cb.AddCustomer(customer); //call BusinessLogicLayer
+                cb.AddCustomer(customer); //calling the AddCustomer  method present in businessLogicLayer by using Reference variable
 
                 Console.WriteLine("Customer details added successfully.\n");
             }
@@ -126,7 +130,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             //Creating object for BusinessLogic Layer
             CustomerBusinessLogicLayer cb = new CustomerBusinessLogicLayer();
 
-            // CustomerDetailBLL customerBusinessLogic = new CustomerDetailBLL();
+            
             //creating list
             List<Customer> cust = cb.GetCustomers();
             //getting customerdetails 
@@ -139,7 +143,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
                 }
             }
             else {
-                throw new Exception("skjehrghlhvhvbf");
+                throw new Exception("Customer details can't be null");
             }
         }
 
@@ -159,7 +163,7 @@ namespace Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer
             customer.CustomerId = int.Parse(Console.ReadLine());
             Console.Write("enter customer name");
             customer.CustomerName = Console.ReadLine();
-            cb.UpdateCustomer(customer);//Calss BusinessLogic Layer
+            cb.UpdateCustomer(customer);//Calls BusinessLogic Layer
             Console.WriteLine("Customer details Updated successfully");
         }
 

@@ -4,12 +4,12 @@
 using System;
 using System.Security.Cryptography.X509Certificates;
 
-using Znalytics.PecuniaBanking.CustomerModule.Entities;
-using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;//Name space of customer module entities
+using Znalytics.Group3.PecuniaBanking.DataAccessLayer;//name space of data access layer
 using System.Collections.Generic;
 
 
-
+//namespace of customer business logic layer
 namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
 {
     /// <summary>
@@ -72,19 +72,6 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
                 throw new Exception("AadharCardNumber can't be null,Please mention your AadharCardNumber", ex);
             }
 
-            //Checking Phone number that can't be null
-            /*try
-            {
-
-                if (cust.PhoneNumber != null)
-                {
-                    cdal.AddCustomer(cust);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("PhoneNumber can't be null,Please mention your PhoneNumber", ex);
-            }*/
 
             //Checking Age that can't be null
             try
@@ -124,14 +111,17 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             return cdal.GetCustomersByCustomerId(CustomerId);
         }
 
-        //Update customer details
+        /// <summary>
+        /// Method to update customer details
+        /// </summary>
+        /// <param name="customer"></param>
         public void UpdateCustomer(Customer customer)
         {
 
             cdal.UpdateCustomer(customer);
         }
 
-      /*  public int CustomerIdGeneration(Customer cust)
+       /* public int CustomerIdGeneration(Customer cust)
         {
             // cdal.CustomerIdGeneration(cust);
             return cdal.CustomerIdGeneration(cust);
