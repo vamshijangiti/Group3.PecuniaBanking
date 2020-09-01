@@ -63,7 +63,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         List<SavingsAccount> savings = new List<SavingsAccount>();
 
 
-       //public 
+        //public 
 
         public List<AccountDetailBLL> GetAccounts()
         {
@@ -71,7 +71,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
         public SavingsAccount GetAccountByAccountNumber(long accountNumber)
         {
-            SavingsAccount ac =  s.GetSavingsAccount(accountNumber);
+            SavingsAccount ac = s.GetSavingsAccount(accountNumber);
             return ac;
         }
 
