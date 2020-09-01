@@ -15,10 +15,10 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
     public class CustomerDataAccessLayer: ICustomerDataAccessLayer
     {
         //List of the CustomerDetail
-       private static List<Customer> _details;
+       private static List<Customer> _customers;
         public CustomerDataAccessLayer()
         {
-            _details = new List<Customer>();
+            _customers = new List<Customer>();
         }
         /// <summary>
         /// Method to generate Customer Id
@@ -26,37 +26,48 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
         /// <returns> Returns Customer Id</returns>
             public int CustomerIdGeneration(Customer cust)
         {
-            int CustomerId = _details.Max(temp => temp.CustomerId);
+            int CustomerId = _customers.Max(temp => temp.CustomerId);
             return CustomerId++;
         }
 
 
-       //Creating List
-       public static List<Customer> customerdetail = new List<Customer>();
-
+      
         //Adding Customer Personal Details
         public void AddCustomer(Customer customer)
         {
-            customerdetail.Add(customer);
+            _customers.Add(customer);
         }
+
 
         //Method to get existing Customer details
         public List<Customer> GetCustomers()
         {
-            return customerdetail;
+            return _customers;
         }
 
 
         //Method to Update of customer details
-        public void UpdateCustomer(Customer customer)
+        
+        public void UpdateCustomer(Customer c)
         {
-           
+            ///updating deatils based on cust id///
+            Customer cu = _customers.Find(temp => temp.CustomerId == c.CustomerId);
+            if (cu != null)
+            {
+                cu.CustomerName = c.CustomerName;
+
+            }
         }
 
         //Method to get customers details by CustomerId
-        public Customer GetCustomersByCustomerId(int CustomerId)
+       
+
+        public Customer GetCustomersByCustomerId(int CustomerId)//Displaying product Details using Product ID
         {
-            return null;
+            Customer e;
+            e = _customers.Find(n => n.CustomerId == CustomerId);
+            
+            return e;
         }
     }
 }
