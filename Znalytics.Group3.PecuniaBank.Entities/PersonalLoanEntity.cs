@@ -36,7 +36,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         public PersonalLoanEntity(int CustomerId, float loanAmount, float tenure, float emi, int creditScore)
         {
 
-            this._customerId = CustomerId ;
+            this._customerId = CustomerId;
             this._loanAmount = LoanAmount;
             this._tenure = Tenure;
             this._emi = Emi;
@@ -52,9 +52,9 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         {
             set
             {
-                 
-                 _customerId = value;
-                   
+
+                _customerId = value;
+
             }
 
             get
@@ -70,20 +70,20 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             set
             {
 
-                    if (value >= 50000)
-                    {
-                        _loanAmount = value;
-                    }
+                if (value >= 50000)
+                {
+                    _loanAmount = value;
+                }
 
-                    else
-                    {
-                        throw new PersonalLoanException ("not eligible");
+                else
+                {
+                    throw new PersonalLoanException("not eligible");
 
-                    }
+                }
 
             }
-                
-                
+
+
             get
             {
                 return _loanAmount;
@@ -103,9 +103,11 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
                     else
                     {
-                        throw new Exception("not eligible\n");
+                        throw new PersonalLoanException("not eligible\n");
 
-                    } 
+                    }
+               
+               
 
             }
             get

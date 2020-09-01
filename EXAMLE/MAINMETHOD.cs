@@ -1,8 +1,9 @@
 ﻿
 using Znalytics.Group3.PecuniaBank.PresentationLayer;
-using Znalytics.PecuniaBanking.CustomerModule.PresentationLayer;
+//using Znalytics.PecuniaBanking.CustomerModule.PresentationLayer;
 using Znalytics.PecuniaBanking.Creditcard.PresentationLayer;
 using System;
+using Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer;
 
 /// <summary>
 /// Main Class 
@@ -44,8 +45,7 @@ public class MainMethod
 
                     break;
                 case "4":
-                    PersonalVehicleLoanPresentationLayer pv = new PersonalVehicleLoanPresentationLayer();
-                    pv.start();
+                    PersonalVehicleLoanPresentationLayer.Start();
                     break;
                 case "5":
                     //Creating object to CreditcardPresentationLayer
