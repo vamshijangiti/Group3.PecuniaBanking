@@ -65,8 +65,10 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 {
 
                     TransactionMenu.uan = long.Parse(suan);
-                   //TransactionMenu.uan = long.Parse(suan);
                     // e1.AccountNumber = uan;
+
+                   TransactionMenu.uan = long.Parse(suan);
+                   // e1.AccountNumber = uan;
 
                     flag = true;
                     break;
@@ -158,11 +160,39 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
                 if (tc != null && tc.Count > 0)
                 {
-                   
+                    //Console.WriteLine(" 1.Savings\n 2.Current\n");
+                    //string m = Console.ReadLine();
+                    //switch (m)
+                    //{
+                    //  case "1":
+                    // if (b.TypeCheck("Savings", uan))
+                    //{
                     foreach (var item in tc)
 
                         Console.WriteLine("\tTransactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
-                   
+                    /*}
+                    else
+                    {
+                        Console.WriteLine("You Dont Have Current Account ");
+                    }*/
+                    //    break;
+                    /* case "2":
+                         if (b.TypeCheck("Current", uan))
+                         {
+                             foreach (var item in tc)
+
+                                 Console.WriteLine("\tTransactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
+
+                         }
+                         else
+                         {
+                             Console.WriteLine("You Dont Have Savings Account ");
+                         }
+                         break;*/
+                    /* default:
+                         Console.WriteLine("Ooops......You Choosen Wrong Option\n");
+                         break;*/
+
                 }
 
                 else
@@ -171,15 +201,30 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 }
             }
 
+            //Cheking the Balance
+            /*  void checkBalance()
+              {
+                  Console.WriteLine(" Avaiable Balance : " + b.GetAmount(uan));//Getting the Balance By AccountNumber
+              }*/
+
+
             //For Displaying the Deposited Amount
             static void DisplayDeposit()
             {
                 Transaction e1 = new Transaction();
                 e1.AccountNumber = uan;
+                // Console.WriteLine("\nSelect type of Account \n 1.Savings \n 2.Current\n");
+                // string n = Console.ReadLine();
                 TransactionBusinessLogic b = new TransactionBusinessLogic();
 
                 try
                 {
+
+                    //switch (n)
+                    //{
+                    //  case "1":
+                    //if (b.TypeCheck("Savings", uan))
+                    //{
                     e1.TransactionTpe = "Deposit";
                     Console.WriteLine("\nEnter amount to Deposit ");
                     e1.TransactionAmount = double.Parse(Console.ReadLine());
@@ -226,9 +271,9 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     e1.TransactionTpe = "WithDrawl";//This case Is for SavingsAccount Transaction
                     Console.WriteLine("\nEnter amount to WithDrawl");
                     e1.TransactionAmount = double.Parse(Console.ReadLine());//Reading Transaction Amount From Keyboard
-                    e1.TransactionDate = DateTime.Today;
+                    e1.TransactionDate =DateTime.Today;
                     e1.AccountNumber = uan;//Assigning the Date 
-
+                   
                     if (b.ValidateEnteredAmount(e1.TransactionAmount) == true)//Validates The Whether the Amount is Greater than 500 or not
                     {
                         int f = b.WithDrawlAmount(e1);//calling the Method 
