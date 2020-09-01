@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Znalytics.PecuniaBanking.CustomerModule.Entities;//amespace of customer module entities
+using Znalytics.PecuniaBanking.CustomerModule.Entities;//namespace of customer module entities
 
 //namespace of credit card data access layer
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
