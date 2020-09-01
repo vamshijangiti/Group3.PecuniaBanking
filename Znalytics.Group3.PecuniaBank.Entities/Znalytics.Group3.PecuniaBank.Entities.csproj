@@ -50,6 +50,7 @@
     <Compile Include="AccountException.cs" />
     <Compile Include="CreditCard.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerException.cs" />
     <Compile Include="HousingLoanEntities.cs" />
     <Compile Include="HousingLoanException.cs" />
     <Compile Include="PersonalLoanEntity.cs" />
