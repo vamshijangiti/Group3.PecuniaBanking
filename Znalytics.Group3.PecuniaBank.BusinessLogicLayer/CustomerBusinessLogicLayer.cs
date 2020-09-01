@@ -36,18 +36,18 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             //Validating CustomerName that can't be null
             try
             {
-                if(cust.CustomerName!=null)
+                if(cust.CustomerId!=0)
                 {
                     cdal.AddCustomer(cust);
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Customer name can't be null,Please mention your name", ex);
+                throw new Exception("Customer Id can't be zero,Please mention your Id", ex);
             }
 
             //validating pancard number that can't be null
-            try
+            /*try
             {
                 if (cust.PanCardNumber != null)
                 {
@@ -76,7 +76,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             //Checking Age that can't be null
             try
             {
-                if (cust.DateOfBirth != null)
+                if (cust.Age != 0)
                 {
                     cdal.AddCustomer(cust);
                 }
@@ -96,7 +96,7 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
             catch (Exception ex)
             {
                 throw new Exception("Mail Id can't be null,Please mention your Mail", ex);
-            }
+            }*/
 
         }
 
