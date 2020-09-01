@@ -23,7 +23,7 @@ public class MainMethod
             System.Console.WriteLine("\n2 - NEW ACCOUNT");
             System.Console.WriteLine("\n3 - TRANSACTIONS");
             System.Console.WriteLine("\n4 - LOANS");
-            System.Console.WriteLine("\n4 - CREDIT CARD");
+            System.Console.WriteLine("\n5 - CREDIT CARD");
 
             Console.Write("\nEnter Your choice : ");
 
