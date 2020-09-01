@@ -35,13 +35,13 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         }
 
 
-        public int CreditScore(int credit)
+        public int CreditScore(VehicleLoanEntity v)
         {
-            if (credit >= 650)
+            if (v.CreditScore >= 650)
             {
                 return 1;
             }
-            else if (credit > 600 || credit < 650)
+            else if (v.CreditScore > 600 || v.CreditScore < 650)
             {
                 return 2;
             }
@@ -53,27 +53,26 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         //calculation of emi
         //If account number,loan amount,tenure and credit score value not equals to null and 0 then emi is calculated
-        public float CalculateEmi(float tenure, float loan)
+        public float CalculateEmi(VehicleLoanEntity v)
         {
-            if ((loan != 0) && (tenure != 0))
+            if ((v.LoanAmount != 0)&&(v.LoanAmount>=50000) && (v.Tenure != 0)&&(v.Tenure>=10))
             {
-                //// VehicleLoan.Emi = CalculateEmi();
+                // vehicleLoan.Emi = CalculateEmi();
 
 
-                float emi;
+                //float emi;
                 float r = vehicleLoan.RateOfInterest / (12 * 100); // one month rate of interest it is a static value
-                tenure = tenure * 12; // one month period 
-                emi = (loan * r * (float)Math.Pow(1 + r, tenure)) / (float)(Math.Pow(1 + r, tenure) - 1);
+                v.Tenure = v.Tenure * 12; // one month period 
+               v.Emi = (v.LoanAmount * r * (float)Math.Pow(1 + r, v.Tenure)) / (float)(Math.Pow(1 + r, v.Tenure) - 1);
 
-                vehicleLoan.Emi = emi;
-                vehicleLoanData.AddVehicleLoan(vehicleLoan);
-                return emi;
+                return v.Emi;
                 
             }
             else
             {
                 return 0;
-                throw new Exception("Please check and Enter the valid values");
+               // throw new Exception("Please check and Enter the valid values");
+            
             }
 
 

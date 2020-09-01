@@ -1,5 +1,7 @@
 ﻿//      Done by Manasa
-//using Znalytics.Group3.PecuniaBanking.DataAccessLayer;
+
+
+
 using System;
 using System.Text.RegularExpressions;
 /// <summary>
@@ -8,7 +10,7 @@ using System.Text.RegularExpressions;
 namespace Znalytics.PecuniaBanking.CustomerModule.Entities
 {
     /// <summary>
-    /// Class That Represents CustomerDetail Module in PecuniaBanking Project
+    /// Class That Represents Customer Module in PecuniaBanking Project
     /// </summary>
     public class Customer
     {
@@ -24,12 +26,12 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         private DateTime _dateOfBirth;
         private string _mailId;
 
-       // Creating constructor
+       // Default constructor
         public Customer() { }
 
 
         /// <summary>
-        /// Constructor
+        /// Constructor that initializes fields
         /// </summary>
         /// <param name="CustomerName">Name of the customer</param>
         /// <param name="CustomerId">Customer Id</param>
@@ -63,24 +65,22 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         {
             set
             {
-                //Name should be lessthan 30 characters
-                if (value.Length <= 30)
+                Regex r = new Regex("[a-zA-Z_]$");
+                //customerName should not be null or empty
+                if (!string.IsNullOrEmpty(value) && r.IsMatch(value) && value.Length <= 30)
                 {
                     _customerName = value;
                 }
                 else
                 {
-                    throw new Exception("Name should be lessthan 30 characters");
-
+                    throw new System.Exception("enter the name having lessthan 30 charecter");
                 }
-
             }
             get
             {
                 return _customerName;
             }
         }
-
         /// <summary>
         /// Property for setting values to CustomerId field and Getting The value of the Field 
         /// </summary>
@@ -199,33 +199,28 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         /// <summary>
         /// Property for setting values to PhoneNumber field and Getting The value of the Field 
         /// </summary>
-        /*public string PhoneNumber
+        public string PhoneNumber
         {
             set
             {
-                //Validating PhoneNumber
-
-                //string checkPhoneNumber = @"^(\+)([1 - 9]{ 2})(\s)(\d{ 10})$";
-
-                //string checkPhoneNumber = @"^[0-9]{ 10}$";
-                //bool isPhoneNumberValid = Regex.IsMatch(value, checkPhoneNumber);
-                string s = value.ToString();
-                if (s.All(char.IsDigit))
+                Regex r = new Regex("[0-9]$");
+                if (!string.IsNullOrEmpty(value) && r.IsMatch(value))
                 {
-                    _phoneNumber = value;
+                    if (value.Length == 10 && value[0] != 0)
+                    {
+                        _phoneNumber = value;
+                    }
                 }
-
                 else
                 {
-                    throw new Exception("Phonenumber must be 10 digits");
+                    throw new System.Exception("phone number must contain  10 digits ");
                 }
             }
-           
             get
             {
                 return _phoneNumber;
             }
-        }*/
+        }
         /// <summary>
         /// Property for setting values to DateOfBirth field and Getting The value of the Field 
         /// </summary>

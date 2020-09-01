@@ -20,9 +20,13 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
     public class PersonalVehicleLoanPresentationLayer
     {
-        public static void Start()
+        public void start()
         {
-
+            PersonalVehicleLoanPresentation();
+            Console.ReadKey();
+        }
+        static void PersonalVehicleLoanPresentation()
+        {
             Customer cus = new Customer();
             PersonalLoanEntity pl = new PersonalLoanEntity();//creating a object for personalloan entity
             VehicleLoanEntity vl = new VehicleLoanEntity();//creating a object for vehicleloan entity
@@ -48,17 +52,18 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 {
                     //case 1 for personal loan
                     case 1:
-                        System.Console.Write("\nEnter CustomerId : ");//Enter the customerId for personal loan
-                        pl.CustomerId = cus.CustomerId;
-                        Customer s = pb.GetCustomersByCustomerId(pl.CustomerId);
-                        WriteLine("Name" + s.CustomerName);
-                        WriteLine("Profession" + s.Profession);
-                        WriteLine("Address" + s.Address);
-                        WriteLine("AnnualIncome" + s.AnnualIncome);
-                        WriteLine("PanCardNumber" + s.PanCardNumber);
-                        WriteLine("AadharCardNumber" + s.AadharCardNumber);
-
-
+                       
+                            System.Console.Write("\nEnter CustomerId : ");//Enter the customerId for personal loan
+                            pl.CustomerId = cus.CustomerId;
+                           /* Customer s = pb.GetCustomersByCustomerId(pl.CustomerId);
+                            WriteLine("Name" + s.CustomerName);
+                            WriteLine("Profession" + s.Profession);
+                            WriteLine("Address" + s.Address);
+                            WriteLine("AnnualIncome" + s.AnnualIncome );
+                            WriteLine("PanCardNumber" + s.PanCardNumber );
+                            WriteLine("AadharCardNumber" + s.AadharCardNumber );*/
+                            
+                            
 
                         System.Console.Write("\nEnter the CreditScore : ");//Enter the credit score for loan acceptance of personal loan
                         pl.CreditScore = (int.Parse(System.Console.ReadLine()));
@@ -118,15 +123,17 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
                         System.Console.Write("\nEnter the CreditScore : ");//Enter the credit score for your loan acceptance of vehicle loan
-                        vl.CreditScore = (int.Parse(System.Console.ReadLine()));
+                        
+                        int q = (int.Parse(System.Console.ReadLine()));
+                        vl.CreditScore = q;
 
-
-                        if (vb.CreditScore(vl.CreditScore) == 1)//If credit score value greater than or equal to 650 loan is accepted
+                        if (vb.CreditScore(vl)== 1)//If credit score value greater than or equal to 650 loan is accepted
                         {
                             try
                             {
                                 System.Console.Write("\nEnter the LoanAmount : ");//Enter the Loan amount for the personalloan
-                                pl.LoanAmount = (float.Parse(System.Console.ReadLine()));
+                                vl.LoanAmount = (float.Parse(System.Console.ReadLine()));
+                                vb.AddVehicleLoan(vl);
 
                             }
                             catch (PersonalLoanException ex)
@@ -137,8 +144,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             try
                             {
                                 System.Console.Write("\nEnter the Tenure in months : ");//Enter the tenure in months for the personalloan
-                                pl.Tenure = (float.Parse(System.Console.ReadLine()));
-
+                                vl.Tenure = (float.Parse(System.Console.ReadLine()));
+                                vb.AddVehicleLoan(vl);
                             }
                             catch (PersonalLoanException ex)
                             {
@@ -151,9 +158,18 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
 
                             System.Console.WriteLine("\n Congratulations...............your loan is accepted");
-                            Console.Write("The Monthly EMI you have to pay is : " + vb.CalculateEmi(vl.Tenure, vl.LoanAmount));
+                            if (vb.CalculateEmi(vl) == 0)
+                            {
+                                System.Console.WriteLine("sorry Your loan is rejected ");
+                            }
+                            else
+                            {
+                                vb.AddVehicleLoan(vl);
+                                Console.Write("\nThe Monthly EMI you have to pay is : "+vl.Emi);
+
+                            }
                         }
-                        else if (vb.CreditScore(vl.CreditScore) == 2)
+                        else if (vb.CreditScore(vl) == 2)
                         {
                             Console.WriteLine(" \nYour Loan is in Pending status,please apply loan when your credit score is above 650\n");
                         }

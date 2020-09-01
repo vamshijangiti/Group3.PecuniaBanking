@@ -29,7 +29,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer.IAccountDetails
             return new List<AccountDetailBLLFake>()
             {
                 new AccountDetailBLLFake() { accno=101,balance=20000},
-                 new AccountDetailBLLFake() { accno=102,balance=30000}
+                 new AccountDetailBLLFake() { accno=102,balance=30000 }
 
             };
         }
