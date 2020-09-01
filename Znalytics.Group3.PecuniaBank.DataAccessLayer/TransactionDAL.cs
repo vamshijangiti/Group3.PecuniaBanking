@@ -3,13 +3,7 @@
 
 
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.Entities;
 using Newtonsoft.Json;
 using System.IO;
@@ -23,7 +17,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class TransactionDAL : ApplicationException, ITransactionDAL
     {
 
-        static List<Transaction> _transactionsList;// = new List<Transaction>();//list For Transaction Entity
+        static List<Transaction> _transactionsList;///list For Transaction Entity
 
         static TransactionDAL() // creating a list object in constructor
         {
@@ -54,7 +48,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
             if (_transactionsList.Count != 0)
             {
                 _transactionsList.Add(t);
-                SavingData();
+                SaveDataInToFile();
             }
             else
             {
@@ -68,16 +62,16 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         /// </summary>
         /// <param name="Accoun">Account Nummber</param>
         /// <returns>The List Of Transactions</returns>
-        public List<Transaction> GetTransactionList(long Accoun)
+        public List<Transaction> GetTransactionList(long accountNumber)
         {
-            List<Transaction> list1 = _transactionsList.FindAll(temp => temp.AccountNumber == Accoun);//It Finds all the list and Returns List
-            return list1;
+            List<Transaction> _list1 = _transactionsList.FindAll(temp => temp.AccountNumber == accountNumber);//It Finds all the list and Returns List
+            return _list1;
         }
 
         /// <summary>
         /// Writing the Data into File
         /// </summary>
-        public void SavingData()
+        public void SaveDataInToFile()
         {
 
             string s = JsonConvert.SerializeObject(_transactionsList);//Converting to Json file

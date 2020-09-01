@@ -3,7 +3,7 @@ using Znalytics.Group3.PecuniaBank.PresentationLayer;
 //using Znalytics.PecuniaBanking.CustomerModule.PresentationLayer;
 using Znalytics.PecuniaBanking.Creditcard.PresentationLayer;
 using System;
-//using Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer;
+using Znalytics.PecuniaBanking.CustomerModule.PresentationLayer;
 
 /// <summary>
 /// Main Class 
@@ -28,13 +28,13 @@ public class MainMethod
 
             Console.Write("\nEnter Your choice : ");
 
-             ch= System.Console.ReadLine();
+            ch = System.Console.ReadLine();
             switch (ch)
             {
                 case "1":
                     //Creating object to CustomerPresentationLayer
-                   // CustomerPresentationLayer p = new CustomerPresentationLayer();
-                    //p.start();
+                    CustomerPresentationLayer p = new CustomerPresentationLayer();
+                    p.start();
                     break;
                 case "2":
 
