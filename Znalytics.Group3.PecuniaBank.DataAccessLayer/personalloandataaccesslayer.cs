@@ -18,7 +18,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     public class PersonalLoanDataAccessLayer
     {
 
-        private static List<PersonalLoanEntity> _personalLoans;
+        private static List<PersonalLoanEntity> _personalLoans;//List for PersonalLoan entity
         static PersonalLoanDataAccessLayer()
         {
             _personalLoans = new List<PersonalLoanEntity>();
