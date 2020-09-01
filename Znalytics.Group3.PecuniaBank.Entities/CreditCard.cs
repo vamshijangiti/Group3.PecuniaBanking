@@ -9,7 +9,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
     /// </summary>
     public class CreditCard
     {
-        // list of details
+        // list of private fields
         private int _appNumber;
         private int _cibilScore;
         private string _creditCardnumber;
@@ -29,13 +29,15 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
             _customers = Customer;
         }
 
-        /// <summary>
-        /// Application number of CreditCard
-        /// </summary>
-        public CreditCard()
+        
+        public CreditCard()//Default constructor
         {
 
         }
+
+        /// <summary>
+        /// Application number of CreditCard
+        /// </summary>
         public int AppNumber
         {
             set

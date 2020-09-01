@@ -13,13 +13,13 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
 {
 
     /// <summary>
-    /// Represents businesslogic layer of credit card
+    /// class that represents businesslogic layer of credit card
     /// </summary>
     public class CreditcardBusinessLogicLayer
 
     {
-        CreditcardDataAccessLayer _creditcardDataAccessLayer;
-        public CreditcardBusinessLogicLayer()
+        CreditcardDataAccessLayer _creditcardDataAccessLayer;// //creating reference variable of CreditcardDataAccessLayer class
+        public CreditcardBusinessLogicLayer()//Creating constructor for Creditcard Business Logic Layer
         {
             _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
         }
@@ -40,7 +40,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         public int ApplyCreditCard(int CustomerId)
         {
             Customer a = GetCustomersByCustomerId(CustomerId);
-            _creditcardDataAccessLayer.ApplyCreditCard(a);
+            _creditcardDataAccessLayer.ApplyCreditCard(a);//Calling ApplyCreditCard method
         
         int AppNumber = 0;
 
