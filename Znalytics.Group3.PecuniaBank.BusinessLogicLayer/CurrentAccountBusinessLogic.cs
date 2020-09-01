@@ -9,55 +9,64 @@ using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 
-namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
+namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 {
-    public class CurrentAccountBusinessLogic  :ICurrentAccountBusinessLogic
+    public class CurrentAccountBusinessLogic : ICurrentAccountBusinessLogic /*IAccountsBusinessLogicLayer*/
+{
+    CurrentAccountDataAccessLayer currentAccountDataAccessLayer = new CurrentAccountDataAccessLayer();
+
+    /// <summary>
+    /// Adds Current Account
+    /// </summary>
+    /// <param name="currentAccount"></param>
+    public void AddCurrentAccount(CurrentAccount currentAccount)
     {
-        CurrentAccountDataAccessLayer currentAccountDataAccessLayer=new CurrentAccountDataAccessLayer();
-
-        /// <summary>
-        /// Adds Current Account
-        /// </summary>
-        /// <param name="a"></param>
-        public void AddCurrentAccount(CurrentAccount currentAccount)
+        try
         {
-            try
+            if (currentAccount.AccountId != 0)
             {
-                if (currentAccount.AccountId != 0)
-                {
-                    currentAccountDataAccessLayer.AddCurrentAccount(currentAccount);
-                }
-            }
-
-
-            catch (Exception e)
-            {
-                throw new AccountException("accountid is not added", e);//exception raised if accounId is not added
+                currentAccountDataAccessLayer.AddCurrentAccount(currentAccount);
             }
         }
 
-        public void DeleteCurrentAccount(CurrentAccount currentAccount,int AccountId)
-        {
-            try
-            {
-                if (currentAccount.AccountId != 0)
-                {
-                     currentAccountDataAccessLayer.DeleteCurrentAccount(currentAccount);
-                }
-            }
-            catch (Exception e)
-            {
-                throw new AccountException("account is not deleted", e);
-            }
 
+        catch (Exception e)
+        {
+            throw new AccountException("accountid is not added", e);//exception raised if accounId is not added
         }
+    }
 
-        public List<CurrentAccount> GetCurrentAccounts()
+    public void DeleteCurrentAccount(CurrentAccount currentAccount, int AccountId)
+    {
+        try
         {
-            return GetCurrentAccounts();//retrieves all currentAccount 
+            if (currentAccount.AccountId != 0)
+            {
+                currentAccountDataAccessLayer.DeleteCurrentAccount(currentAccount);
+            }
+        }
+        catch (Exception e)
+        {
+            throw new AccountException("account is not deleted", e);
         }
 
     }
+
+    public List<CurrentAccount> GetCurrentAccounts()
+    {
+        return GetCurrentAccounts();//retrieves all currentAccount 
+    }
+    /*  public List<AccountDetailBLLFake> GetCurrentAccounts
+      {
+          return new List<AccountDetailBLLFake>()
+          {
+           new AccountDetailBLLFake() {AccountId=1,balance=1000 };
+      new AccountDetailBLLFake() { };
+  }
+     public AccountDetailBLLFake GetAccountByAccountNo()
+      }*/
+
+}
 }
 
 

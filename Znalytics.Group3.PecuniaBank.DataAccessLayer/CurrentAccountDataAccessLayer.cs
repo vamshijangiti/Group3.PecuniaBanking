@@ -21,7 +21,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         //collection
         public CurrentAccountDataAccessLayer() => currentAccounts = new List<CurrentAccount>()
              {
-                 new CurrentAccount() { AccountId =1, DateOfCreation= Convert.ToDateTime("24-08-2020"), Balance = 100 },
+                 new CurrentAccount() { AccountId =1, DateOfCreation= Convert.ToDateTime("24-08-2020"), Balance = 1000 },
                  new CurrentAccount() { AccountId=2, DateOfCreation = Convert.ToDateTime("25-08-2020"), Balance =12000},
                  new CurrentAccount() { AccountId=3, DateOfCreation = Convert.ToDateTime("26-08-2020"), Balance = 1000 },
              };
