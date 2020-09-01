@@ -11,9 +11,8 @@ using Znalytics.Group3.PecuniaBank.AccountEntities;
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {/// <summary>
  /// BusinessLogicLayer for Accounts
- /// </summary>
-
-
+ /// </summary
+  
 
     public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
     {
@@ -24,7 +23,10 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             _savingsaccountDataAccessLayer = new SavingsAccountDataAccessLayer();
         }
-
+        /// <summary>
+        /// Adding savingAccount
+        /// </summary>
+        /// <param name="savingsAccount"></param>
         public void AddSavingsAccount(SavingsAccount savingsAccount)
         {
             try
@@ -42,7 +44,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 
         public void DeleteSavingsAccount(SavingsAccount savingsAccount)
         {
-            _savingsaccountDataAccessLayer.DeleteSavingsAccount(savingsAccount);
+            _savingsaccountDataAccessLayer.DeleteSavingsAccount(savingsAccount);//deletes savingsAccount
         }
         public List<SavingsAccount> GetSavingsAccounts()
         {
