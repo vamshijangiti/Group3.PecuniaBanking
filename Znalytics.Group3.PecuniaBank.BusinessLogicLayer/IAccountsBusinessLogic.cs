@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Znalytics.Group3.PecuniaBank.DataAccessLayer;
+﻿using System.Collections.Generic;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
@@ -17,7 +12,6 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     public class AccountDetailBLLFake : IAccountsBusinessLogic
     {
 
-        //
         private long accno;
         private double balance;
 

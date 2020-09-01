@@ -43,10 +43,12 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             this._creditScore = CreditScore;
 
 
-
         }
 
         //set and get methods for customerid
+        /// <summary>
+        /// Represents CustomerId
+        /// </summary>
 
         public int CustomerId
         {
@@ -64,23 +66,16 @@ namespace Znalytics.Group3.PecuniaBank.Entities
         }
 
         //set and get methods for loanamount
+        /// <summary>
+        /// Represents LoanAmount of Customer
+        /// </summary>
 
         public float LoanAmount
         {
             set
             {
 
-                if (value >= 50000)
-                {
-                    _loanAmount = value;
-                }
-
-                else
-                {
-                    throw new PersonalLoanException("not eligible");
-
-                }
-
+                _loanAmount = value;
             }
 
 
@@ -91,25 +86,19 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
         //set and get methods for tenure
+        //set and get methods for Tenure
+        /// <summary>
+        /// Represents Tenure in months of customer
+        /// </summary>
         public float Tenure
         {
             set
             {
-                
-                    if (value >= 10)
-                    {
-                        _tenure = value;
-                    }
 
-                    else
-                    {
-                        throw new PersonalLoanException("not eligible\n");
-
-                    }
-               
-               
-
+                _tenure = value;
             }
+
+
             get
             {
                 return _tenure;
@@ -117,6 +106,10 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             }
         }
         //set and get methods for rate of interest  
+
+        /// <summary>
+        /// Represents the Rate of Interest of Customer
+        /// </summary>
         public float RateOfInterest
         {
 
@@ -137,13 +130,23 @@ namespace Znalytics.Group3.PecuniaBank.Entities
                 return _emi;
             }
         }
-
+        //set and get methods for credit score
+        /// <summary>
+        /// Credit score of the customer in his credit card
+        /// </summary>
         public int CreditScore
         {
             set
             {
-                _creditScore = value;
+
+                //checks creditscore of a person which should starts from 650
+                {
+                    _creditScore = value;
+                }
+
+
             }
+
             get
             {
                 return _creditScore;//returns credits score
