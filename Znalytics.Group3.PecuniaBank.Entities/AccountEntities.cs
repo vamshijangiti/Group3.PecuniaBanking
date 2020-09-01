@@ -51,13 +51,18 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         {
             set
             {
-                if (_accountId != 0)
+                try
                 {
-                    _accountId = value;//after validation accountid is assigned to value
+                    if (_accountId != 0)
+                    {
+                        _accountId = value;//after validation accountid is assigned to value
+                    }
+
                 }
-                else
+                catch (Exception e)
                 {
-                    throw new AccountException("account id should not be zero or null ");//raises exception if accountid is nill or zero
+                    throw new AccountException("account id should not be zero or null ", e);//raises exception if accountid is nill or zero
+
                 }
 
             }
