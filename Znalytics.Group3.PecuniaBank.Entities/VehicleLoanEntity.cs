@@ -93,7 +93,7 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
                     else
                     {
-                        throw new Exception("not eligible\n");
+                        throw new VehicleLoanException("not eligible\n");
 
                     }
 
@@ -118,12 +118,12 @@ namespace Znalytics.Group3.PecuniaBank.Entities
 
                     else
                     {
-                        throw new Exception("not eligible\n");
+                        throw new VehicleLoanException("not eligible\n");
 
                     }
 
-               
 
+              
             }
             get
             {
@@ -159,14 +159,8 @@ namespace Znalytics.Group3.PecuniaBank.Entities
             {
 
 
-                if (CreditScore >= 650)//checks creditscore of a person which should starts from 650
-                {
-                    _creditScore = value;
-                }
-                else
-                {
-                    throw new System.Exception("your credit score is not up to the mark");
-                }
+                _creditScore = value;
+
             }
 
             get

@@ -57,7 +57,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             if ((loan != 0) && (tenure != 0))
             {
-                // vehicleLoan.Emi = CalculateEmi();
+                //// VehicleLoan.Emi = CalculateEmi();
 
 
                 float emi;
@@ -65,7 +65,10 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
                 tenure = tenure * 12; // one month period 
                 emi = (loan * r * (float)Math.Pow(1 + r, tenure)) / (float)(Math.Pow(1 + r, tenure) - 1);
 
+                vehicleLoan.Emi = emi;
+                vehicleLoanData.AddVehicleLoan(vehicleLoan);
                 return emi;
+                
             }
             else
             {

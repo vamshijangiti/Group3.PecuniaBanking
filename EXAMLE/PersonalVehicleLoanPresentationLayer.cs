@@ -20,13 +20,9 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
     public class PersonalVehicleLoanPresentationLayer
     {
-        public void start()
+        public static void Start()
         {
-            PersonalVehicleLoanPresentation();
-            Console.ReadKey();
-        }
-        static void PersonalVehicleLoanPresentation()
-        {
+
             Customer cus = new Customer();
             PersonalLoanEntity pl = new PersonalLoanEntity();//creating a object for personalloan entity
             VehicleLoanEntity vl = new VehicleLoanEntity();//creating a object for vehicleloan entity
@@ -52,18 +48,17 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 {
                     //case 1 for personal loan
                     case 1:
-                       
-                            System.Console.Write("\nEnter CustomerId : ");//Enter the customerId for personal loan
-                            pl.CustomerId = cus.CustomerId;
-                            Customer s = pb.GetCustomersByCustomerId(pl.CustomerId);
-                            WriteLine("Name" + s.CustomerName);
-                            WriteLine("Profession" + s.Profession);
-                            WriteLine("Address" + s.Address);
-                            WriteLine("AnnualIncome" + s.AnnualIncome );
-                            WriteLine("PanCardNumber" + s.PanCardNumber );
-                            WriteLine("AadharCardNumber" + s.AadharCardNumber );
-                            
-                            
+                        System.Console.Write("\nEnter CustomerId : ");//Enter the customerId for personal loan
+                        pl.CustomerId = cus.CustomerId;
+                        Customer s = pb.GetCustomersByCustomerId(pl.CustomerId);
+                        WriteLine("Name" + s.CustomerName);
+                        WriteLine("Profession" + s.Profession);
+                        WriteLine("Address" + s.Address);
+                        WriteLine("AnnualIncome" + s.AnnualIncome);
+                        WriteLine("PanCardNumber" + s.PanCardNumber);
+                        WriteLine("AadharCardNumber" + s.AadharCardNumber);
+
+
 
                         System.Console.Write("\nEnter the CreditScore : ");//Enter the credit score for loan acceptance of personal loan
                         pl.CreditScore = (int.Parse(System.Console.ReadLine()));
