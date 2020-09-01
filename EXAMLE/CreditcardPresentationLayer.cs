@@ -3,11 +3,11 @@
 
 using System;
 using System.Collections.Generic;
-using Znalytics.PecuniaBanking.CreditcardModule.Entities;
-using Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer;
-using Znalytics.PecuniaBanking.CustomerModule.Entities;
+using Znalytics.PecuniaBanking.CreditcardModule.Entities;//Namespace of Creditcard module entities
+using Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer;//Namespace of creditcard module businesslogic layer
+using Znalytics.PecuniaBanking.CustomerModule.Entities;//Namespace of customer module entities
 
-
+//Namespace of creditcard module Presentation Layer
 namespace Znalytics.PecuniaBanking.Creditcard.PresentationLayer
 {
     /// <summary>

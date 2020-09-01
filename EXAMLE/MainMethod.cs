@@ -1,8 +1,9 @@
 ﻿
 using Znalytics.Group3.PecuniaBank.PresentationLayer;
-using Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer;
+//using Znalytics.PecuniaBanking.CustomerModule.PresentationLayer;
 using Znalytics.PecuniaBanking.Creditcard.PresentationLayer;
 using System;
+using Znalytics.PecuniaBanking.CustomerDetailModule.PresentationLayer;
 
 /// <summary>
 /// Main Class 
@@ -23,7 +24,7 @@ public class MainMethod
             System.Console.WriteLine("\n2 - NEW ACCOUNT");
             System.Console.WriteLine("\n3 - TRANSACTIONS");
             System.Console.WriteLine("\n4 - LOANS");
-            System.Console.WriteLine("\n4 - CREDIT CARD");
+            System.Console.WriteLine("\n5 - CREDIT CARD");
 
             Console.Write("\nEnter Your choice : ");
 
@@ -44,8 +45,7 @@ public class MainMethod
 
                     break;
                 case "4":
-                    PersonalVehicleLoanPresentationLayer pv = new PersonalVehicleLoanPresentationLayer();
-                    pv.start();
+                    PersonalVehicleLoanPresentationLayer.Start();
                     break;
                 case "5":
                     //Creating object to CreditcardPresentationLayer
