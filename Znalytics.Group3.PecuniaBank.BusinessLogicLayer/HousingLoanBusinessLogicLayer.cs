@@ -16,7 +16,7 @@ using Znalytics.PecuniaBanking.CustomerModule.Entities;
 /// </summary>
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-    public class HousingLoanBusinessLogicLayer
+    public class HousingLoanBusinessLogicLayer:ICustomerBusinessLogic
     {
         HousingLoanDataAccessLayer _housingLoanDataAccessLayer;
         
