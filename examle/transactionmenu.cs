@@ -147,9 +147,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 if (tc != null && tc.Count > 0)
                 {
                     foreach (var item in tc)
-
                         Console.WriteLine("\tTransactions : " + item.TransactionID + " " + item.TransactionDate + " " + item.TransactionAmount + " " + item.TransactionTpe);
-                 
+
                 }
 
                 else
@@ -163,7 +162,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             {
                 Transaction e1 = new Transaction();
                 e1.AccountNumber = uan;
-               
+
                 TransactionBusinessLogic b = new TransactionBusinessLogic();
 
                 try
@@ -196,7 +195,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                     }
 
                 }
-                catch (FormatException ex)
+                catch (FormatException)
                 {
                     Console.WriteLine("Please Enter in Digits");
                 }
@@ -243,7 +242,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
                 }
                 //Catches the Exception 
-                catch (FormatException e)
+                catch (FormatException)
                 {
                     Console.WriteLine("\n Please Enter Correct Data to Withdrawl\n");
 
