@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
+using System;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
@@ -72,9 +73,16 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             _savingsaccount.AccountNumber = long.Parse(System.Console.ReadLine());
             //savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
             System.Console.WriteLine("enter balance");
-            _savingsaccount.Balance = double.Parse(System.Console.ReadLine());
-            savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
-            System.Console.WriteLine("savings Account Added");
+            try
+            {
+                _savingsaccount.Balance = double.Parse(System.Console.ReadLine());
+                savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
+            }
+            catch(AccountException)
+            {
+                Console.WriteLine("Balance should not be 0");
+            }
+                System.Console.WriteLine("savings Account Added");
         }
         /// <summary>
         /// Cuurent account starts

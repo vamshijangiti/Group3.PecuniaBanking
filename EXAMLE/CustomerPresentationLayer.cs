@@ -14,7 +14,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
     /// </summary>
     class CustomerPresentationLayer
     {
-
+        //starting point of the execution
         public void start()
         {
             CustomersPresentation();
@@ -31,7 +31,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
                 Console.WriteLine("1. Add Customer");
                 Console.WriteLine("2. Get Customers");
                 Console.WriteLine("3. Update Customer");
-                Console.WriteLine("4. Get customers by customer Id");
+                Console.WriteLine("4. Get Customers by Customer Id");
                 Console.WriteLine("5. Exit");
                 Console.Write("Enter choice: ");
                 choice = int.Parse(Console.ReadLine());
@@ -55,6 +55,8 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
         /// </summary>
         static void AddCustomer()
         {
+            try
+            {
 
                 //Creating object for Entity layer that is CustomerDetail class 
                 Customer customer = new Customer();
@@ -103,20 +105,24 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
                 customer.MailId = Console.ReadLine();
 
                 cb.AddCustomer(customer); //calling the AddCustomer  method present in businessLogicLayer by using Reference variable
-
-           
+                Console.WriteLine("Customer details are added successfully");
+            }
+            catch 
+            {
+                throw new Exception("Invalid input");
+            }
         }
         /// <summary>
         /// Method to View existing Customer details
         /// </summary>
 
-        static void GetCustomers()///getting all the customers stored in list///
+        static void GetCustomers()
         {
             CustomerBusinessLogicLayer cbl = new CustomerBusinessLogicLayer();
-            List<Customer> customers = cbl.GetCustomers();
+            List<Customer> customers = cbl.GetCustomers();//getting all the customers stored in list
 
             Console.WriteLine("===============   customer Details=============");
-            Console.WriteLine("CustomerID" + "   " + "CustomerName" + "  " + "MailId" + " " + "Phonenumber" + "address" + "  " + "AnnualIncome" + "  " + "aadharcardnumber" + "  " + "Pancardnumber");
+            Console.WriteLine("CustomerID" + "   " + "CustomerName" + "  " + "MailId" + "  " + "Phonenumber" + " " + "address" + "  " + "AnnualIncome" + "  " + "aadharcardnumber" + "  " + "Pancardnumber");
             Console.WriteLine("-----------------------------------------------------------------------");
 
             foreach (Customer item in customers)//retrieves the data
@@ -140,7 +146,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
 
             Console.Write("Enter Existing customer ID: ");/// updating name and other details by using  customerid///
             customer.CustomerId = int.Parse(Console.ReadLine());
-            Console.Write("enter customer name");
+            Console.Write("enter customer name: ");
             customer.CustomerName = Console.ReadLine();
             cb.UpdateCustomer(customer);//Calls BusinessLogic Layer
             Console.WriteLine("Customer details Updated successfully");

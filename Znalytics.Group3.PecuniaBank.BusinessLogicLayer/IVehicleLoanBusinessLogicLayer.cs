@@ -7,6 +7,9 @@ using Znalytics.Group3.PecuniaBank.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
+    /// <summary>
+    /// Interface for VehicleLoan BusinessLogicLayer
+    /// </summary>
     interface IVehicleLoanBusinessLogicLayer
     {
         int CreditScore(VehicleLoanEntity p);
