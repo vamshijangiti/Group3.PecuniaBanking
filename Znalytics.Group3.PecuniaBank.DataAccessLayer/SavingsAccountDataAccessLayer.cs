@@ -52,7 +52,7 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             string v = JsonConvert.SerializeObject(SavingsAccount);
             string s = v;
-            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\source\repos\Group3.PecuniaBanking\savingsAccount.txt");
+            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\Desktop\savingAccount\savingsAccount.txt");
             streamWriter.Write(s);
             streamWriter.Close();
         }

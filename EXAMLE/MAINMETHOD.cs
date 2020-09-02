@@ -42,8 +42,8 @@ public class MainMethod
                     AccountsPresentationLayer.Start();
                       break;
                 case "3":
-                    //Calling Static method 
-                    TransactionMenu.Start();
+                    //Calling method
+                    TransactionMenu.start();
 
                     break;
                 case "4":
