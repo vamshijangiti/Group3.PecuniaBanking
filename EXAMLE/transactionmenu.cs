@@ -114,7 +114,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                     break;
 
                             }
-                            Console.Write("\n Do you want do Transactions Again press Y : ");
+                            Console.Write("\n Do you want do Transactions Again press Y else Press Any Key: ");
                             ch = Console.ReadLine();
 
                         } while (ch == "Y" || ch == "y");
