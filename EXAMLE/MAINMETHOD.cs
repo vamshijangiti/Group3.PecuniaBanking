@@ -43,7 +43,7 @@ public class MainMethod
                       break;
                 case "3":
                     //Calling Static method 
-                    TransactionMenu.start();
+                    TransactionMenu.Start();
 
                     break;
                 case "4":

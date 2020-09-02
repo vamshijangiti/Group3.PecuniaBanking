@@ -16,7 +16,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         static long uan;
         static bool flag;
 
-        public static void start()
+        public static void Start()
         {
             //object Declaration for classes
             TransactionBusinessLogic b = new TransactionBusinessLogic();
@@ -242,9 +242,9 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 
                 }
                 //Catches the Exception 
-                catch (FormatException)
+                catch (FormatException )
                 {
-                    Console.WriteLine("\n Please Enter Correct Data to Withdrawl\n");
+                    Console.WriteLine("\n Please Enter in Digits\n");
 
                 }
             }
