@@ -33,8 +33,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             {
                 System.Console.WriteLine("WELCOME TO PECUNIA BANKING");
                 System.Console.WriteLine("Menu");
-                System.Console.WriteLine("1. press 1 if you want to open SavingsAccount ");
-                System.Console.WriteLine("2.press 2 if you want to open currentAccount");
+                System.Console.WriteLine("1. press 1 if you want to open a new SavingsAccount ");
+                System.Console.WriteLine("2.press 2 if you want to open new currentAccount");
                 System.Console.WriteLine("3.exit");
                 System.Console.WriteLine("Enter the choice: ");
                 choice = int.Parse(System.Console.ReadLine());
@@ -60,7 +60,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             SavingsAccount _savingsaccount = new SavingsAccount();
             System.Console.WriteLine("enter customer Id");
 
-            int CustomerId = 0;
+            int CustomerId=0;
             if (CustomerId<=3)
             {
                 System.Console.WriteLine("valid customer id");
@@ -69,7 +69,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             {
                 throw new AccountException("invalid customerId");
             }
-            System.Console.WriteLine("enter AccountNo");
+            //System.Console.WriteLine("enter AccountNo");
             _savingsaccount.AccountNumber = long.Parse(System.Console.ReadLine());
             //savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
             System.Console.WriteLine("enter balance");
