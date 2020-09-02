@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
+using System;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
@@ -32,8 +33,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             {
                 System.Console.WriteLine("WELCOME TO PECUNIA BANKING");
                 System.Console.WriteLine("Menu");
-                System.Console.WriteLine("1. press 1 if you want to open SavingsAccount ");
-                System.Console.WriteLine("2.press 2 if you want to open currentAccount");
+                System.Console.WriteLine("1. press 1 if you want to open a new SavingsAccount ");
+                System.Console.WriteLine("2.press 2 if you want to open new currentAccount");
                 System.Console.WriteLine("3.exit");
                 System.Console.WriteLine("Enter the choice: ");
                 choice = int.Parse(System.Console.ReadLine());
@@ -57,24 +58,20 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         {
             SavingsAccountBusinessLogic savingsAccountBusinessLogic = new SavingsAccountBusinessLogic();
             SavingsAccount _savingsaccount = new SavingsAccount();
-            System.Console.WriteLine("enter customer Id");
-
-            int CustomerId = 0;
-            if (CustomerId<=3)
-            {
-                System.Console.WriteLine("valid customer id");
-            }
-            else
-            {
-                throw new AccountException("invalid customerId");
-            }
             System.Console.WriteLine("enter AccountNo");
             _savingsaccount.AccountNumber = long.Parse(System.Console.ReadLine());
             //savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
             System.Console.WriteLine("enter balance");
-            _savingsaccount.Balance = double.Parse(System.Console.ReadLine());
-            savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
-            System.Console.WriteLine("savings Account Added");
+            try
+            {
+                _savingsaccount.Balance = double.Parse(System.Console.ReadLine());
+                savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
+            }
+            catch(AccountException)
+            {
+                Console.WriteLine("Balance should not be 0");
+            }
+                System.Console.WriteLine("savings Account Added");
         }
         /// <summary>
         /// Cuurent account starts
@@ -89,6 +86,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 System.Console.WriteLine("enter account No");
                 currentAccount.AccountNumber = long.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
+                currentAccount.AccountNumber = long.Parse(System.Console.ReadLine());
             }
             catch (AccountException ex)
             {

@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 /// <summary>
 /// Represents details of customer
 /// </summary>
-namespace Znalytics.PecuniaBanking.CustomerModule.Entities
+namespace Znalytics.PecuniaBanking.CustomerModule.Entities//collection of classes
 {
     /// <summary>
     /// Class That Represents Customer Module in PecuniaBanking Project

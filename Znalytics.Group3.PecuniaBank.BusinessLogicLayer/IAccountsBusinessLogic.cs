@@ -4,6 +4,9 @@ using Znalytics.Group3.PecuniaBank.DataAccessLayer;
 
 namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
+    /// <summary>
+    /// Interface For GettingAccountByAccountNumber
+    /// </summary>
     public interface IAccountsBusinessLogic
     {
 

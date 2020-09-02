@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 {
-    // public interface IAccountDetailDAL
-    //{
-
-    //}
+   
 
     public class AccountDAL //: IAccountDetailDAL
     {

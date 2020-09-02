@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Random;
 using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
@@ -12,16 +13,26 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {/// <summary>
  /// BusinessLogicLayer for Accounts
  /// </summary
-  
+    
 
     public class SavingsAccountBusinessLogic : ISavingsAccountBusinessLogic
     {
         SavingsAccountDataAccessLayer _savingsaccountDataAccessLayer;
+        
 
 
         public SavingsAccountBusinessLogic()
         {
             _savingsaccountDataAccessLayer = new SavingsAccountDataAccessLayer();
+        }
+
+        public long  GenerateAccountNumber(long AccountNumber)
+        {
+            
+            Random random = new Random();
+            _ = random.Next(100, 999);
+            return AccountNumber; ;
+
         }
         /// <summary>
         /// Adding savingAccount

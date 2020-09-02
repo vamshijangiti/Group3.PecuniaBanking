@@ -43,7 +43,7 @@ public class MainMethod
                       break;
                 case "3":
                     //Calling method
-                    TransactionMenu.start();
+                    TransactionMenu.Start();
 
                     break;
                 case "4":
@@ -63,7 +63,7 @@ public class MainMethod
                     break;
 
             }
-            Console.Write("\n Do you want to Use PECUNIA BANK Again press Y : ");
+            Console.Write("\n Do you want to Use PECUNIA BANK Again press Y else Press Any Key : ");
             ch = Console.ReadLine();
 
         } while (ch == "Y" || ch == "y");
