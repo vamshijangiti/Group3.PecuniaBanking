@@ -53,6 +53,7 @@
     <Compile Include="CustomerBusinessLogicLayer.cs" />
     <Compile Include="HousingLoanBusinessLogicLayer.cs" />
     <Compile Include="ICurrentAccountBusinessLogic.cs" />
+    <Compile Include="ICustomerBusinessLogic.cs" />
     <Compile Include="ICustomerBusinessLogicLayer.cs" />
     <Compile Include="IAccountsBusinessLogic.cs" />
     <Compile Include="IPersonalLoanBusinessLogicLayer.cs" />

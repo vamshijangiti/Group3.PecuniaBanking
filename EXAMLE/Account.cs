@@ -1,7 +1,7 @@
 ﻿//PresentationLayer created by sriram
 
 
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
+using Znalytics.PecuniaBanking.CustomerModule.Entities;
 
 namespace Znalytics.Group3.PecuniaBank.PresentationLayer
 {
@@ -19,6 +20,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     /// </summary>
     public class AccountsPresentationLayer
     {
+        
 
         /// <summary>
         /// Do While loop starts where user selects choice
@@ -55,6 +57,17 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         {
             SavingsAccountBusinessLogic savingsAccountBusinessLogic = new SavingsAccountBusinessLogic();
             SavingsAccount _savingsaccount = new SavingsAccount();
+            System.Console.WriteLine("enter customer Id");
+
+            int CustomerId = 0;
+            if (CustomerId<=3)
+            {
+                System.Console.WriteLine("valid customer id");
+            }
+            else
+            {
+                throw new AccountException("invalid customerId");
+            }
             System.Console.WriteLine("enter AccountNo");
             _savingsaccount.AccountNumber = long.Parse(System.Console.ReadLine());
             //savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
@@ -74,10 +87,10 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 CurrentAccountBusinessLogic accountBusinessLogic = new CurrentAccountBusinessLogic();
                 CurrentAccount currentAccount = new CurrentAccount();
                 System.Console.WriteLine("enter account No");
-                currentAccount.AccountNumber = long.Parse(Console.ReadLine());
+                currentAccount.AccountNumber = long.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
             }
-            catch (Exception ex)
+            catch (AccountException ex)
             {
                 if (ex.InnerException != null)
                 {

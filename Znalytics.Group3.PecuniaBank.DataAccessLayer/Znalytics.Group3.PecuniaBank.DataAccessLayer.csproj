@@ -48,6 +48,7 @@
     <Compile Include="CreditcardDataLayerAbstract.cs" />
     <Compile Include="CurrentAccountDataAccessLayer.cs" />
     <Compile Include="ICurrentAccountDataAccessLayer.cs" />
+    <Compile Include="IHousingLoanDataAccessLayer.cs" />
     <Compile Include="ITransactionDAL.cs" />
     <Compile Include="SavingsAccountDataAccessLayer.cs" />
     <Compile Include="CreditcardDataAccessLayer.cs" />
