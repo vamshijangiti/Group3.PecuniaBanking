@@ -107,9 +107,9 @@ namespace Znalytics.PecuniaBanking.CustomerModule.PresentationLayer
                 cb.AddCustomer(customer); //calling the AddCustomer  method present in businessLogicLayer by using Reference variable
                 Console.WriteLine("Customer details are added successfully");
             }
-            catch 
+            catch(CustomerException ex)
             {
-                throw new Exception("Invalid input");
+                throw new CustomerException(ex.Message);
             }
         }
         /// <summary>
