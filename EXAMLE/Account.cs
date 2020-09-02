@@ -86,6 +86,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 System.Console.WriteLine("enter account No");
                 currentAccount.AccountNumber = long.Parse(System.Console.ReadLine());
                 System.Console.WriteLine("enter balance");
+                currentAccount.AccountNumber = long.Parse(System.Console.ReadLine());
             }
             catch (AccountException ex)
             {
