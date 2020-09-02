@@ -108,6 +108,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                     GetLastTransactions();
                                     break;
                                 case "4":
+                                    Console.WriteLine("\nThanks....For using using PECUNIA BANK\n");
                                     break;
                                 default:
                                     Console.WriteLine("\nOoops......You have Choosen Wrong Option\n");
