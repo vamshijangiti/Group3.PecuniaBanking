@@ -13,14 +13,11 @@ namespace Znalytics.Group3.PecuniaBanking.DataAccessLayer
     public interface ICustomerDataAccessLayer
     {
         //Adding customer details
-        void AddCustomer(Customer customer);
-        //Viewing details
-        // void ViewCustomer(CustomerPersonalDetail customer);
-        // Updating details of customer
-        List<Customer> GetCustomers();
+        void AddCustomer(Customer customer);//calls add customer method
+        List<Customer> GetCustomers();//calls get customers method
 
-        void UpdateCustomer(Customer customer);
-        Customer GetCustomersByCustomerId(int CustomerId);
+        void UpdateCustomer(Customer customer);//calls update customer method
+        Customer GetCustomersByCustomerId(int CustomerId);//calls get customer by customer id
     }
 }
 

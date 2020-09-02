@@ -3,10 +3,10 @@
 
 using System;
 using System.Collections.Generic;
-using Znalytics.PecuniaBanking.CreditcardModule.Entities;
-using Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer;
-using Znalytics.Group3.PecuniaBanking.BusinessLayer;
-using Znalytics.PecuniaBanking.CustomerModule.Entities;
+using Znalytics.PecuniaBanking.CreditcardModule.Entities;//namespace of credit card module entities
+using Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer;//namespace of credit card data access layer
+using Znalytics.Group3.PecuniaBanking.BusinessLayer;//namespace of Businesslogic layer
+using Znalytics.PecuniaBanking.CustomerModule.Entities;//namespace of customer module entities
 
 
 namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
@@ -21,10 +21,15 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         CreditcardDataAccessLayer _creditcardDataAccessLayer;// //creating reference variable of CreditcardDataAccessLayer class
         public CreditcardBusinessLogicLayer()//Creating constructor for Creditcard Business Logic Layer
         {
-            _creditcardDataAccessLayer = new CreditcardDataAccessLayer();
+            _creditcardDataAccessLayer = new CreditcardDataAccessLayer();//creating object to creditcard data access layer
         }
-        ICustomerBusinessLogicLayer a = new CustomerBusinessLogicLayer();
+        ICustomerBusinessLogicLayer a = new CustomerBusinessLogicLayer();//interface of customer business logic layer
 
+        /// <summary>
+        /// Method to get customer details by customer id which is called from data access layer
+        /// </summary>
+        /// <param name="c">c</param>
+        /// <returns>customers</returns>
         public Customer GetCustomersByCustomerId(int c)
         {
             return a.GetCustomersByCustomerId(c);
@@ -39,8 +44,8 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         /// <returns>Application number</returns>
         public int ApplyCreditCard(int CustomerId)
         {
-            Customer a = GetCustomersByCustomerId(CustomerId);
-            _creditcardDataAccessLayer.ApplyCreditCard(a);//Calling ApplyCreditCard method
+            Customer a = GetCustomersByCustomerId(CustomerId);//calling GetCustomersBycustomerId method from Businesslogic layer of Customer module
+            _creditcardDataAccessLayer.ApplyCreditCard(a);//Calling ApplyCreditCard method from data access layer of creditcard
         
         int AppNumber = 0;
 
@@ -69,9 +74,9 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         /// <returns>Acceptance or rejection of creditcard</returns>
         public bool ApproveCreditCard(int CustomerId)
         {
-            Customer a = GetCustomersByCustomerId(CustomerId);
+            Customer a = GetCustomersByCustomerId(CustomerId);////calling GetCustomersBycustomerId method from Businesslogic layer of Customer module
 
-            if (a.AnnualIncome >= 300000)
+            if (a.AnnualIncome >= 300000)//validating the condition that annulaincome should be morethan 300000 to approve credit card
             {
                 return true;
 
@@ -90,9 +95,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         public string GenerateCreditCard(int CustomerId)
         {
 
-            Customer a = GetCustomersByCustomerId(CustomerId);
-
-           // _creditcardDataAccessLayer.GenerateCreditCard(a);
+            Customer a = GetCustomersByCustomerId(CustomerId);//calling GetCustomersBycustomerId method from Businesslogic layer of Customer module
 
             int b = ApplyCreditCard(a.CustomerId);
             string apno = System.Convert.ToString(b);
@@ -110,7 +113,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         /// <returns>Status of creditcard</returns>
         public bool UpdateCreditCard(int CustomerId)
         {
-            Customer a = GetCustomersByCustomerId(CustomerId);
+            Customer a = GetCustomersByCustomerId(CustomerId);//calling GetCustomersBycustomerId method from Businesslogic layer of Customer module
             string b = GenerateCreditCard(a.CustomerId);
 
             if (b!=null)
@@ -133,7 +136,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
         {
             
             CreditCard cr = new CreditCard();
-            if(cr.CibilScore>=750)
+            if(cr.CibilScore>=750)//checking condition to increase credit card limit
             {
                 return true;
 

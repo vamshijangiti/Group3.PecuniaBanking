@@ -1,25 +1,14 @@
-﻿
-
-//CREATED BY Manasa -- 
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Znalytics.PecuniaBanking.CustomerModule.Entities;//namespace of customer module entities
+using Znalytics.PecuniaBanking.CustomerModule.Entities;
 
-//namespace for customer interface businesslogic layer
-namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
+namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
 {
-    /// <summary>
-    /// Represents interface for Customer Personal Detail Businesslogiclayer
-    /// </summary>
-    public interface ICustomerBusinessLogicLayer
+    interface  ICustomerBusinessLogic
     {
-
-
-        /// <summary>
         /// List that contains customer details
         /// </summary>
         /// <returns>list of customers</returns>
@@ -31,8 +20,9 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
         /// <param name="CustomerId"></param>
         /// <returns>customerdeatils</returns>
         public Customer GetCustomersByCustomerId(int CustomerId);
-        
+
 
     }
-    
+
 }
+

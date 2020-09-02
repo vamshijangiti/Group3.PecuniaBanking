@@ -20,11 +20,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         //creating objects for other classes
         ITransactionDAL transactionDAL = new TransactionDAL();
         IAccountsBusinessLogic account = new AccountDetailBLL();
+      
         /// <summary>
         /// Constructor for BLL
         /// </summary>
-        static TransactionBusinessLogic()
-        { }
+        static TransactionBusinessLogic(){ }
 
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             else if (accNumber.Length == 3)
             {
-                if (Regex.IsMatch(accNumber, "^[0-9]*$"))//&& !Regex.IsMatch(accNumber,@"[A-Z][a-z]"))
+                if (Regex.IsMatch(accNumber, "^[0-9]*$"))
 
                 {
                     return 3;
@@ -138,10 +138,12 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <param name="t"></param>
         public void DepositAmount(Transaction t)
         {
-            CurrentAccount a = new CurrentAccount();
+            // CurrentAccount a = new CurrentAccount();
+            SavingsAccount savings = account.GetAccountByAccountNumber(t.AccountNumber);
+
             if (t.TransactionAmount < 100000 && t.TransactionAmount >= 500)
             {
-                a.Balance += t.TransactionAmount;
+                savings.Balance += t.TransactionAmount;
             }
             else
             {
@@ -156,18 +158,18 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         public int WithDrawlAmount(Transaction t)
         {
 
-            CurrentAccount result = new CurrentAccount();
-            if (result == null)
+            SavingsAccount savings = account.GetAccountByAccountNumber(t.AccountNumber);
+            if (savings == null)
             {
                 return 3;
             }
             else
             {
-                if (result.Balance < t.TransactionAmount)
+                if (savings.Balance - t.TransactionAmount == 5000)
                     return 2;
                 else
                 {
-                    result.Balance -= t.TransactionAmount;
+                    savings.Balance -= t.TransactionAmount;
                     return 1;
                 }
             }

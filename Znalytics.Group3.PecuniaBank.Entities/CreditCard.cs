@@ -13,20 +13,20 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
         private int _appNumber;
         private int _cibilScore;
         private string _creditCardnumber;
-        private Customer _customers;
+       
         /// <summary>
         ///Constructor that initializes the fields
         /// </summary>
         /// <param name="Appnumber">Application number of the customer</param>
         /// <param name="CibilScore">Cibil score of the customer</param>
         /// <param name="CreditCardNumber">CreditCardNumber of the customer</param>
-        /// <param name="Customer">Customer Details</param>
-        CreditCard(int AppNumber, int CibilScore,string CreditCardNumber,Customer Customer)
+        
+        CreditCard(int AppNumber, int CibilScore,string CreditCardNumber)
         {
             _appNumber = AppNumber;
             _cibilScore = CibilScore;
             _creditCardnumber = CreditCardNumber;
-            _customers = Customer;
+           
         }
 
         
@@ -64,22 +64,6 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.Entities
                 return _cibilScore;
             }
         }
-
-        /// <summary>
-        /// Customer Details
-        /// </summary>
-        public Customer Customer
-        {
-            set
-            {
-                _customers = value;
-            }
-            get
-            {
-                return _customers;
-            }
-        }
-
 
 
     }

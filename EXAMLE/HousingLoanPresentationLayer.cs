@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Znalytics.Group3.PecuniaBank.BusinessLogicLayer;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
+using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
 using System;
 using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;

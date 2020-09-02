@@ -46,7 +46,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
             {
                 try
                 {
-                    if (value != 0)
+                    if (value !=0)
                     {
                         _accountNumber = value;//after validation accountid is assigned to value
                     }

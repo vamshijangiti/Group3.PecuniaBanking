@@ -4,23 +4,23 @@ using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;//namespace of customer module entities
 using System.IO;
-using Newtonsoft.Json;
+using Newtonsoft.Json;//namspace of json
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;//namespace of data access layer
 
 namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
 {
     /// <summary>
-    /// Class that represents data access layer of creditcard
+    /// Class that represents data access layer of creditcard which is child to the parent class of CreditCardDataLayerAbstract
     /// </summary>
     public class CreditcardDataAccessLayer: CreditcardDataLayerAbstract
     {
-        //create list
-
+        
+        //declaration of list of customers
         private static List<Customer> _customers;
 
         static CreditcardDataAccessLayer()
         {
-            _customers = new List<Customer>()
+            _customers = new List<Customer>()//Initialization of list of customers
             {
 
             };
@@ -33,11 +33,11 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
         public void SaveIntoFile()
         {
 
-            string s = JsonConvert.SerializeObject(_customers);
+            string a = JsonConvert.SerializeObject(_customers);
 
             //write data into file
-            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\Desktop");
-            streamWriter.Write(s);
+            StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\Desktop");//Path of the text file
+            streamWriter.Write(a);
             streamWriter.Close();
         }
         /// <summary>
@@ -46,9 +46,9 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
         /// <returns></returns>
         public List<Customer> GetFiledata()
         {
-            StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\Desktop");
-            string s1 = streamReader.ReadToEnd();
-            List<Customer> cust = JsonConvert.DeserializeObject<List<Customer>>(s1);
+            StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\Desktop");//path of the text file
+            string a1 = streamReader.ReadToEnd();
+            List<Customer> cust = JsonConvert.DeserializeObject<List<Customer>>(a1);//converting from file to object
             return cust;
 
         }
@@ -59,7 +59,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
         /// <param name="creditcard"></param>
         public void ApplyCreditCard(Customer creditcard)
         {
-            _customers.Add(creditcard);
+            _customers.Add(creditcard);//Adds customer details for applying creditcard to the presentation layer
             SaveIntoFile();
         }
 
