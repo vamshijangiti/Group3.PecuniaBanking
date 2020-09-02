@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting;
-using System.Text;
-using System.Threading.Tasks;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;
-using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;
 
 /// <summary>
@@ -20,7 +13,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         HousingLoanDataAccessLayer _housingLoanDataAccessLayer;
         
-
+        //constructor
         public HousingLoanBusinessLogicLayer()
         {
             _housingLoanDataAccessLayer = new HousingLoanDataAccessLayer();
@@ -60,7 +53,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             if (CreditScore <= 650)
             {
-                _housingLoanDataAccessLayer.RejectHousingLoan(housingLoan);
+                _housingLoanDataAccessLayer.RejectHousingLoan(housingLoan);//reject HouseLoan 
                     
             }
         }

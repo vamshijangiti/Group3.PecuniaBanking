@@ -15,7 +15,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.BusinessLogicLayer
     /// <summary>
     /// class that represents businesslogic layer of credit card
     /// </summary>
-    public class CreditcardBusinessLogicLayer
+    public class CreditcardBusinessLogicLayer                                 
 
     {
         CreditcardDataAccessLayer _creditcardDataAccessLayer;// //creating reference variable of CreditcardDataAccessLayer class

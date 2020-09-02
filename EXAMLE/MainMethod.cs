@@ -25,7 +25,7 @@ public class MainMethod
             System.Console.WriteLine("\n2 - NEW ACCOUNT");
             System.Console.WriteLine("\n3 - TRANSACTIONS");
             System.Console.WriteLine("\n4 - LOANS");
-            System.Console.WriteLine("\n5_ HouseLoan");
+            System.Console.WriteLine("\n5- HOUSE LOAN");
             System.Console.WriteLine("\n6 - CREDIT CARD");
 
             Console.Write("\nEnter Your choice : ");
@@ -43,7 +43,7 @@ public class MainMethod
                       break;
                 case "3":
                     //Calling method
-                    TransactionMenu.start();
+                    TransactionMenu.Start();
 
                     break;
                 case "4":

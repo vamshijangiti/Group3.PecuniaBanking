@@ -16,7 +16,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         static long uan;
         static bool flag;
 
-        public static void start()
+        public static void Start()
         {
             //object Declaration for classes
             TransactionBusinessLogic b = new TransactionBusinessLogic();
@@ -34,7 +34,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 Console.Write("\nSecurity Check \n");
                 Console.Write("\nPress Enter If you Want New Security Numbers \n");
                 Console.Write("\nenter sum of " + num1 + "+" + num2 + " = "); //Reading the user entered Data
-                bool t = int.TryParse(Console.ReadLine(), out int r); //Tryparse
+                int.TryParse(Console.ReadLine(), out int r); //Tryparse
                 if (r != (num1 + num2) || string.IsNullOrEmpty((r.ToString())))
                     continue;
                 Console.Write("\nEnter AccountNumber : ");
@@ -90,7 +90,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                             System.Console.WriteLine("\n4 - EXIT");
                             Console.Write("\nEnter Your choice : ");
 
-                            string n = System.Console.ReadLine();
+                            string n = Console.ReadLine();
 
 
 
@@ -108,6 +108,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                                     GetLastTransactions();
                                     break;
                                 case "4":
+                                    Console.WriteLine("\nThanks....For using using PECUNIA BANK\n");
                                     break;
                                 default:
                                     Console.WriteLine("\nOoops......You have Choosen Wrong Option\n");
@@ -244,7 +245,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 //Catches the Exception 
                 catch (FormatException)
                 {
-                    Console.WriteLine("\n Please Enter Correct Data to Withdrawl\n");
+                    Console.WriteLine("\n Please Enter in Digits\n");
 
                 }
             }

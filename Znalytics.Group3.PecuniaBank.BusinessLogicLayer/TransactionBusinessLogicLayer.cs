@@ -59,24 +59,24 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <summary>
         /// Validation Of AccountNumber-Account Number Of Customer should Be Less than 10
         /// </summary>
-        /// <param name="_accNumber">Account Number</param>
+        /// <param name="_accountNumber">Account Number</param>
         /// <returns></returns>
-        public int ValidateAccountNumber(string accNumber)
+        public int ValidateAccountNumber(string accountNumber)
         {
             // Regex regex = new Regex("[0-9]");
-            if (string.IsNullOrEmpty(accNumber))
+            if (string.IsNullOrEmpty(accountNumber))
             {
                 return 1;//should not be taken
             }
-            else if (accNumber.Length == 3)
+            else if (accountNumber.Length == 3)
             {
-                if (Regex.IsMatch(accNumber, "^[0-9]*$"))
+                if (Regex.IsMatch(accountNumber, "^[0-9]*$"))
 
                 {
                     return 3;
 
                 }
-                else if (accNumber.Contains(" "))
+                else if (accountNumber.Contains(" "))
 
                 {
                     return 5;
@@ -186,10 +186,8 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <returns></returns>
         public List<Transaction> GetTransactions(long accountNumber)
         {
-
-            List<Transaction> tx = null;
-            tx = transactionDAL.GetTransactionList(accountNumber);
-            return tx;
+            List<Transaction> _tx = transactionDAL.GetTransactionList(accountNumber);
+            return _tx;
         }
 
 
