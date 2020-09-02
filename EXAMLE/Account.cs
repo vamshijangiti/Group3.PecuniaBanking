@@ -58,8 +58,6 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
         {
             SavingsAccountBusinessLogic savingsAccountBusinessLogic = new SavingsAccountBusinessLogic();
             SavingsAccount _savingsaccount = new SavingsAccount();
-           
-            //System.Console.WriteLine("enter AccountNo");
             System.Console.WriteLine("enter customer Id");
 
             int CustomerId=0;
@@ -72,7 +70,6 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 throw new AccountException("invalid customerId");
             }
             System.Console.WriteLine("enter AccountNo");
-
             _savingsaccount.AccountNumber = long.Parse(System.Console.ReadLine());
             //savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
             System.Console.WriteLine("enter balance");
