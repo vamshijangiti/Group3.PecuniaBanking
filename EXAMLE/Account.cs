@@ -21,7 +21,7 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
     /// </summary>
     public class AccountsPresentationLayer
     {
-        
+
 
         /// <summary>
         /// Do While loop starts where user selects choice
@@ -60,8 +60,8 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
             SavingsAccount _savingsaccount = new SavingsAccount();
             System.Console.WriteLine("enter customer Id");
 
-            int CustomerId=0;
-            if (CustomerId<=3)
+            int CustomerId = 0;
+            if (CustomerId <= 3)
             {
                 System.Console.WriteLine("valid customer id");
             }
@@ -78,11 +78,11 @@ namespace Znalytics.Group3.PecuniaBank.PresentationLayer
                 _savingsaccount.Balance = double.Parse(System.Console.ReadLine());
                 savingsAccountBusinessLogic.AddSavingsAccount(_savingsaccount);
             }
-            catch(AccountException)
+            catch (AccountException)
             {
                 Console.WriteLine("Balance should not be 0");
             }
-                System.Console.WriteLine("savings Account Added");
+            System.Console.WriteLine("savings Account Added");
         }
         /// <summary>
         /// Cuurent account starts
