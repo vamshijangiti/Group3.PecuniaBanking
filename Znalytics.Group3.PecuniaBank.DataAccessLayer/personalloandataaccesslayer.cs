@@ -38,15 +38,15 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
 
             //write data into file
             StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\Desktop\PersonalLoan\Personal.txt");
-            streamWriter.Write(s);
-            streamWriter.Close();
+            streamWriter.Write(s);//writes the data
+            streamWriter.Close();//closes the file
         }
         public static List<PersonalLoanEntity> LoadDetailsToList()
         {
             StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\Desktop\PersonalLoan\Personal.txt");
-            string s2 = streamReader.ReadToEnd();
+            string s2 = streamReader.ReadToEnd();//Reads the data to the end of the file
             List<PersonalLoanEntity> PersonalLoans = JsonConvert.DeserializeObject<List<PersonalLoanEntity>>(s2);
-            streamReader.Close();
+            streamReader.Close();//closes the file
             if (PersonalLoans == null)
             {
                 return new List<PersonalLoanEntity>();
