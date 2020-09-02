@@ -138,10 +138,12 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         /// <param name="t"></param>
         public void DepositAmount(Transaction t)
         {
-            CurrentAccount a = new CurrentAccount();
+            // CurrentAccount a = new CurrentAccount();
+            SavingsAccount savings = account.GetAccountByAccountNumber(t.AccountNumber);
+
             if (t.TransactionAmount < 100000 && t.TransactionAmount >= 500)
             {
-                a.Balance += t.TransactionAmount;
+                savings.Balance += t.TransactionAmount;
             }
             else
             {
@@ -156,18 +158,18 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         public int WithDrawlAmount(Transaction t)
         {
 
-            CurrentAccount result = new CurrentAccount();
-            if (result == null)
+            SavingsAccount savings = account.GetAccountByAccountNumber(t.AccountNumber);
+            if (savings == null)
             {
                 return 3;
             }
             else
             {
-                if (result.Balance < t.TransactionAmount)
+                if (savings.Balance < t.TransactionAmount)
                     return 2;
                 else
                 {
-                    result.Balance -= t.TransactionAmount;
+                    savings.Balance -= t.TransactionAmount;
                     return 1;
                 }
             }
