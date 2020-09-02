@@ -14,7 +14,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
     /// </summary>
     public class Customer
     {
-        // list of details
+        // list of private fields
         private string _customerName;
         private int _customerId;
         private string _profession;
@@ -23,7 +23,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         private string _panCardNumber;
         private string _aadharCardNumber;
         private string _phoneNumber;
-        private DateTime _dateOfBirth;
+        private int _age;
         private string _mailId;
 
        // Default constructor
@@ -41,9 +41,9 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         /// <param name="PanCardNumber">Pancard number of customer</param>
         /// <param name="AadharCardNumber">Aadhar card number of customer</param>
         /// <param name="PhoneNumber">Pan card number of customer</param>
-        /// <param name="DateOfBirth">DateOfBirth of the customer</param>
+        /// <param name="age">Age of the customer</param>
         /// <param name="MailId">Mail Id of the customer</param>
-        Customer(string CustomerName, int CustomerId, string Profession, string Address, double AnnualIncome, string PanCardNumber, string AadharCardNumber, string PhoneNumber, DateTime DateOfBirth,string MailId)
+        Customer(string CustomerName, int CustomerId, string Profession, string Address, double AnnualIncome, string PanCardNumber, string AadharCardNumber, string PhoneNumber, int Age,string MailId)
         {
             _customerName = CustomerName;
             _customerId = CustomerId;
@@ -53,7 +53,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
             _panCardNumber = PanCardNumber;
             _aadharCardNumber = AadharCardNumber;
             _phoneNumber = PhoneNumber;
-            _dateOfBirth = DateOfBirth;
+            _age = Age;
             _mailId = MailId;
         }
 
@@ -65,7 +65,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         {
             set
             {
-                Regex r = new Regex("[a-zA-Z_]$");
+                Regex r = new Regex("[a-zA-Z_]$");//validating customer name that should be less than 30 characters
                 //customerName should not be null or empty
                 if (!string.IsNullOrEmpty(value) && r.IsMatch(value) && value.Length <= 30)
                 {
@@ -203,7 +203,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
         {
             set
             {
-                Regex r = new Regex("[0-9]$");
+                Regex r = new Regex("[0-9]$");//validating phone number  that should be 10 digits
                 if (!string.IsNullOrEmpty(value) && r.IsMatch(value))
                 {
                     if (value.Length == 10 && value[0] != 0)
@@ -221,41 +221,7 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
                 return _phoneNumber;
             }
         }
-        /// <summary>
-        /// Property for setting values to DateOfBirth field and Getting The value of the Field 
-        /// </summary>
-        public DateTime DateOfBirth
-
-        {
-            set
-            {
-                //Validating DateOfBirth
-                DateTime dateOfBirth = Convert.ToDateTime("1998-07-03 7:00 am");
-                DateTime presentDate = DateTime.Now;
-                TimeSpan timeSpan = presentDate - dateOfBirth;
-                int age = Convert.ToInt32(timeSpan.TotalDays / 365);
-
-                if (age >= 18)
-                {
-                    _dateOfBirth = value;
-                }
-
-
-                else
-                {
-                    throw new Exception("Age must be 18 and above");
-
-                }
-            }
-
-            get
-            {
-                return _dateOfBirth;
-            }
-        }
-        /// <summary>
-        /// Property for setting values to Mailid field and Getting The value of the Field 
-        /// </summary>
+        
         public string MailId
         {
             set
@@ -275,6 +241,28 @@ namespace Znalytics.PecuniaBanking.CustomerModule.Entities
             get
             {
                 return _mailId;
+            }
+        }
+        /// <summary>
+        /// Property for setting values to Age field and Getting The value of the Field 
+        /// </summary>
+        public int Age
+        {
+            set
+            {
+                if (value >= 18)
+                {
+                    _age = value;
+                }
+                else
+                {
+                    throw new Exception("Age should be  18 or above");
+                }
+
+            }
+            get
+            {
+                return _age;
             }
         }
     }

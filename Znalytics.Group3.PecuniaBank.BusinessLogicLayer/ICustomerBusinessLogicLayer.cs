@@ -19,10 +19,18 @@ namespace Znalytics.Group3.PecuniaBanking.BusinessLayer
     {
 
 
-        //Viewing existing details
+        /// <summary>
+        /// List that contains customer details
+        /// </summary>
+        /// <returns>list of customers</returns>
         public List<Customer> GetCustomers();
 
-        public Customer GetCustomersByCustomerId(int CustomerId);//Getting details by customer Id
+        /// <summary>
+        /// Method to the Get the customer details by customer Id
+        /// </summary>
+        /// <param name="CustomerId"></param>
+        /// <returns>customerdeatils</returns>
+        public Customer GetCustomersByCustomerId(int CustomerId);
         
 
     }
