@@ -48,7 +48,7 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
         {
             StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\Desktop");//path of the text file
             string a1 = streamReader.ReadToEnd();
-            List<Customer> cust = JsonConvert.DeserializeObject<List<Customer>>(a1);//converting from file to object
+            List<Customer> cust = JsonConvert.DeserializeObject<List<Customer>>(a1);
             return cust;
 
         }
