@@ -19,7 +19,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         int WithDrawlAmount(Transaction t);
         bool CheckAccountNumber(long accountNumber);
         List<Transaction> GetTransactions(long accountNumber);
- 
+
 
     }
 }

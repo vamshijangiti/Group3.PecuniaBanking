@@ -20,11 +20,11 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         //creating objects for other classes
         ITransactionDAL transactionDAL = new TransactionDAL();
         IAccountsBusinessLogic account = new AccountDetailBLL();
+      
         /// <summary>
         /// Constructor for BLL
         /// </summary>
-        static TransactionBusinessLogic()
-        { }
+        static TransactionBusinessLogic(){ }
 
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             else if (accNumber.Length == 3)
             {
-                if (Regex.IsMatch(accNumber, "^[0-9]*$"))//&& !Regex.IsMatch(accNumber,@"[A-Z][a-z]"))
+                if (Regex.IsMatch(accNumber, "^[0-9]*$"))
 
                 {
                     return 3;
@@ -165,7 +165,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
             }
             else
             {
-                if (savings.Balance < t.TransactionAmount)
+                if (savings.Balance - t.TransactionAmount == 5000)
                     return 2;
                 else
                 {
