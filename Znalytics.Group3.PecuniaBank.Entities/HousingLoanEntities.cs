@@ -1,10 +1,15 @@
-﻿/// <summary>
+﻿using Znalytics.Group3.PecuniaBank.AccountEntities;
+using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
+
+/// <summary>
 /// Housing Loan Entities
 /// </summary>
-namespace Znalytics.Group3.PecuniaBank.AccountEntities
+namespace Znalytics.Group3.PecuniaBank.HousingLoanEntities
 {
 
-
+    /// <summary>
+    /// <Housing Loan class
+    /// </summary>
     public class HousingLoan
     {
 
@@ -13,7 +18,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         private int _customerAge;
         private float _loanAmount;
         private float _tenure;
-        private float _RateOfInterest;
+        private  float _RateOfInterest;
         private float _emi;
         private int _creditScore;
       
@@ -27,6 +32,8 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         ///<param name="RateOfInterest">rate of interest of loan</param>
         ///<param name="creditScore">Credit score of customer</param>
         ///<param name="Emi">Emi of housing loan</param>
+        
+        //set and get Methoods
 
         public int CustomerId
         {
@@ -38,7 +45,7 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
                 }
                 else
                 {
-                    throw new HousingLoanException("customer id value shouldnot be null");
+                    throw new HousingLoanException("customer id value shouldnot be zero");
                 }
             }
             get//get property
@@ -131,6 +138,13 @@ namespace Znalytics.Group3.PecuniaBank.AccountEntities
         }
         public float rateOfInterest
         {
+            set
+            {
+                if (value<=10)
+                {
+                    _RateOfInterest = value;
+                }
+            } 
             get
             {
                 return _RateOfInterest;//returns rate of interest
