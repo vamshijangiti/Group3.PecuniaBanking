@@ -20,7 +20,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
     {
         HousingLoanDataAccessLayer _housingLoanDataAccessLayer;
         
-
+        //constructor
         public HousingLoanBusinessLogicLayer()
         {
             _housingLoanDataAccessLayer = new HousingLoanDataAccessLayer();
@@ -60,7 +60,7 @@ namespace Znalytics.Group3.PecuniaBank.BusinessLogicLayer
         {
             if (CreditScore <= 650)
             {
-                _housingLoanDataAccessLayer.RejectHousingLoan(housingLoan);
+                _housingLoanDataAccessLayer.RejectHousingLoan(housingLoan);//reject HouseLoan 
                     
             }
         }
