@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Znalytics.PecuniaBanking.CreditcardModule.Entities;
 using Znalytics.PecuniaBanking.CustomerModule.Entities;//namespace of customer module entities
 using System.IO;
-using Newtonsoft.Json;
+using Newtonsoft.Json;//namspace of json
 using Znalytics.Group3.PecuniaBank.DataAccessLayer;//namespace of data access layer
 
 namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
@@ -33,11 +33,11 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
         public void SaveIntoFile()
         {
 
-            string s = JsonConvert.SerializeObject(_customers);
+            string a = JsonConvert.SerializeObject(_customers);
 
             //write data into file
             StreamWriter streamWriter = new StreamWriter(@"C:\Users\Administrator\Desktop");//Path of the text file
-            streamWriter.Write(s);
+            streamWriter.Write(a);
             streamWriter.Close();
         }
         /// <summary>
@@ -47,8 +47,8 @@ namespace Znalytics.PecuniaBanking.CreditcardModule.DataAccessLayer
         public List<Customer> GetFiledata()
         {
             StreamReader streamReader = new StreamReader(@"C:\Users\Administrator\Desktop");//path of the text file
-            string s1 = streamReader.ReadToEnd();
-            List<Customer> cust = JsonConvert.DeserializeObject<List<Customer>>(s1);//converting from file to object
+            string a1 = streamReader.ReadToEnd();
+            List<Customer> cust = JsonConvert.DeserializeObject<List<Customer>>(a1);//converting from file to object
             return cust;
 
         }
