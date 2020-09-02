@@ -1,8 +1,10 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Remoting;
 using Znalytics.Group3.PecuniaBank.AccountEntities;
+using Znalytics.Group3.PecuniaBank.HousingLoanEntities;
 
 
 namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
@@ -10,11 +12,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
     /// <summary>
     /// DataAccessLayer for HousingLoan
     /// </summary>
-    public interface IHousingLoanDataAccessLayer
+   /* public interface IHousingLoanDataAccessLayer
     {
         void Add(HousingLoan n);
         void UpdateHousingLoan(HousingLoan u);
-    }
+    }*/
     public class HousingLoanDataAccessLayer:IHousingLoanDataAccessLayer
     {
         //private fields
@@ -28,7 +30,8 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
                        _housingLoans = new List<HousingLoan>();
  {
                 new HousingLoan() {CustomerId=1,CustomerAge=25,Tenure=3,LoanAmount=21000,CreditScore=456 };
-                new HousingLoan() {CustomerId=2,CustomerAge=24,Tenure=1,LoanAmount=24444,CreditScore=660};
+                new HousingLoan() {CustomerId=2,CustomerAge=24,Tenure=1,LoanAmount=24000,CreditScore=660};
+                new HousingLoan() { CustomerId = 3, CustomerAge = 20, Tenure = 2, LoanAmount = 20000, CreditScore = 690 };
 
             };
         }
@@ -36,8 +39,11 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         //Add CustomerId
         public void Add(HousingLoan n)
         {
-
-            _housingLoans.Add(n);
+            HousingLoan cus = _housingLoans.Find(temp => temp.CustomerId == n.CustomerId);
+                if (cus != null)
+            {
+                _housingLoans.Add(n);
+            }
 
         }
         //GetCustomerId
@@ -45,13 +51,19 @@ namespace Znalytics.Group3.PecuniaBank.DataAccessLayer
         {
             return _housingLoans;
         }
-        //UpdateCustomerIds
-        public void UpdateHousingLoan(HousingLoan u)
+
+        public void RejectHousingLoan(HousingLoan housingLoan)
         {
-            HousingLoan cust = _housingLoans.Find(temp => temp.CustomerId == u.CustomerId);
-            if (cust !=null)
+            throw new NotImplementedException();
+        }
+
+        //UpdateCustomerIds
+        public void RejectHousingLoan(HousingLoan u, int CreditScore)
+        {
+            HousingLoan cust = _housingLoans.Find(temp => temp.CreditScore == u.CreditScore);
+            if (CreditScore<=650)
             {
-                cust.CustomerId =u.CustomerId;
+                cust.CreditScore =u.CreditScore;
           
             }
         }
